@@ -95,6 +95,15 @@
   .sec-eval{display:flex;gap:5px;flex-wrap:wrap;font-size:11px}
   .ev-pill{padding:2px 8px;border-radius:30px;background:var(--chip);color:#5c574b;font-weight:500}
   .ev-pill b{color:#2c2a24;font-weight:600}
+  .fede-box{background:#F2EEDF;border-left:3px solid var(--L2);border-radius:8px;padding:11px 13px;margin:10px 0 8px}
+  .fede-box-head{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6b665b;font-weight:600;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+  .fede-info{background:#e0d9c9;border:none;color:#5c574b;width:18px;height:18px;border-radius:50%;font-size:11px;cursor:pointer;font-weight:700;line-height:1;padding:0}
+  .fede-info:hover{background:#cfc6b2;color:#22201b}
+  .fede-subtitulo{font-family:"Fraunces",serif;font-size:14.5px;color:#34302a;font-style:italic;line-height:1.45;margin-bottom:8px}
+  .fede-ratings{display:flex;gap:6px;flex-wrap:wrap}
+  .fede-rating{display:inline-flex;flex-direction:column;background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:6px;padding:4px 9px;font-size:11px}
+  .fede-rating-k{color:#6b665b;font-size:10px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+  .fede-rating b{color:#22201b;font-size:12.5px;font-weight:600}
   .sec-body{padding:0 16px 14px;border-top:1px solid var(--line)}
   .sec-subtitulo{font-size:12.5px;font-style:italic;color:var(--muted);margin:10px 0 6px}
 
@@ -339,6 +348,7 @@
   window.closeModal = closeModal;
   window.showProps  = showProps;
   window.showFlags  = showFlags;
+  window.showFedeMethodology = showFedeMethodology;
 const CANDS = RAW.candidatos;
 const META = RAW.meta;
 
@@ -513,12 +523,15 @@ function renderCand(){
     if(!totalProps) return "";
     const fedeBlock = blocks.find(b=>b.fuente_origen==="fede");
     const ev = fedeBlock?.evaluacion_fede || blocks[0]?.evaluacion_fede;
-    const subEval = ev?.subtitulo ? `<div class="sec-subtitulo">FEDe: “${escapeHTML(ev.subtitulo)}”</div>` : "";
-    const evPills = ev && (ev.precision||ev.viabilidad||ev.coherencia) ? `<div class="sec-eval">
-      ${ev.precision?`<span class="ev-pill">Precisión: <b>${escapeHTML(ev.precision)}</b></span>`:""}
-      ${ev.viabilidad?`<span class="ev-pill">Viabilidad: <b>${escapeHTML(ev.viabilidad)}</b></span>`:""}
-      ${ev.coherencia?`<span class="ev-pill">Coherencia: <b>${escapeHTML(ev.coherencia)}</b></span>`:""}
-    </div>` : "";
+    const fedeBox = ev ? `<div class="fede-box">
+  <div class="fede-box-head">Evaluación de FEDe <button class="fede-info" onclick="showFedeMethodology()" aria-label="Qué significa esto">?</button></div>
+  ${ev.subtitulo ? `<div class="fede-subtitulo">"${escapeHTML(ev.subtitulo)}"</div>` : ""}
+  ${(ev.precision||ev.viabilidad||ev.coherencia) ? `<div class="fede-ratings">
+    ${ev.precision   ? `<span class="fede-rating"><span class="fede-rating-k">Precisión</span><b>${escapeHTML(ev.precision)}</b></span>` : ""}
+    ${ev.viabilidad  ? `<span class="fede-rating"><span class="fede-rating-k">Viabilidad</span><b>${escapeHTML(ev.viabilidad)}</b></span>` : ""}
+    ${ev.coherencia  ? `<span class="fede-rating"><span class="fede-rating-k">Coherencia</span><b>${escapeHTML(ev.coherencia)}</b></span>` : ""}
+  </div>` : ""}
+</div>` : "";
     const propsHTML = blocks.map(b=>{
       const sourceTag = `<div style="font-size:11px;color:var(--muted);margin:8px 0 4px;font-weight:600;letter-spacing:.04em;text-transform:uppercase">${b.fuente_origen==='fede'?'Vía FEDe (programa oficial)':'Vía Candidateados'} · ${b.propuestas.length}</div>`;
       const items = b.propuestas.map(p=>renderProp(p, COLORS[c.id])).join("");
@@ -527,8 +540,7 @@ function renderCand(){
     return `<details class="sector"><summary>
       <span class="sec-name">${SECTOR_LABELS[k]||k}</span>
       <span class="sec-count">${totalProps} propuestas</span>
-      ${evPills}
-    </summary><div class="sec-body">${subEval}${propsHTML}</div></details>`;
+    </summary><div class="sec-body">${fedeBox}${propsHTML}</div></details>`;
   }).join("");
 
   document.getElementById("candDetail").innerHTML = `
@@ -691,6 +703,29 @@ function closeModal(){
 }
 document.addEventListener("keydown", e => { if (e.key==="Escape") closeModal(); });
 
+function showFedeMethodology(){
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-kicker">Metodología</div>
+      <div class="modal-title">Las evaluaciones de FEDe</div>
+      <div class="modal-meta">Quién las hace y qué significan</div>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:13.5px;line-height:1.6;color:#34302a"><b>FEDe</b> (Fundación para el Estado de Derecho) es una fundación colombiana con lente constitucionalista; analiza los programas oficiales desde el respeto a la legalidad, la división de poderes y la viabilidad institucional. <b>Sus evaluaciones son juicios expertos, no medidas objetivas.</b> Una calificación "Baja" es la opinión de un panel desde un marco específico, no un veredicto técnico universal.</p>
+      <h4 style="font-family:'Fraunces',serif;font-weight:500;font-size:15px;margin:14px 0 4px;color:#22201b">Qué mide cada rating</h4>
+      <dl style="font-size:13px;line-height:1.55;color:#34302a;margin:0">
+        <dt style="font-weight:600;margin-top:6px;color:#22201b">Precisión</dt>
+        <dd style="margin:2px 0 0">Qué tan concreta y operativa es la propuesta: si tiene números, plazos y mecanismos definidos, o se queda en enunciados generales.</dd>
+        <dt style="font-weight:600;margin-top:8px;color:#22201b">Viabilidad</dt>
+        <dd style="margin:2px 0 0">Qué tan factible parece desde lo fiscal, lo legal y lo institucional: si hay recursos, si requiere reformas, si choca con sentencias o competencias.</dd>
+        <dt style="font-weight:600;margin-top:8px;color:#22201b">Coherencia</dt>
+        <dd style="margin:2px 0 0">Si las propuestas del mismo sector son consistentes entre sí y con el resto del programa, o si se contradicen.</dd>
+      </dl>
+      <p style="font-size:12.5px;color:#6b665b;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)">La crítica concreta de FEDe para cada sector vive en el <i>subtítulo</i> que aparece en la evaluación. Los ratings (Alta/Media/Baja) son resúmenes; el subtítulo es la sustancia. Audita en <a href="https://propuestascandidatos.fedecolombia.org" target="_blank" rel="noopener" style="color:#7a4a3c">propuestascandidatos.fedecolombia.org ↗</a>.</p>
+    </div>
+  `);
+}
+
 function showProps(candId, problemId){
   const c = C_BY_ID[candId];
   const prob = PROB_BY_ID[problemId];
@@ -730,14 +765,14 @@ function showFlags(candId, problemId){
 
 
 const CRUCE = {
- corrupcion:{cepeda:[3,"23 propuestas + Acuerdo Nacional + austeridad republicana"],lopez:[3,"Contratación digital + blockchain + veedurías"],fajardo:[3,"Agencia anticorrupción independiente (22 propuestas)"],valencia:[3,"24 propuestas: reformas a la justicia + IA de vigilancia"],espriella:[3,"Penas más duras + Fiscalía + blockchain 2030"]},
- seguridad:{cepeda:[3,"“Paz con justicia social” (FEDe: continuidad sin autocrítica)"],lopez:[3,"Crimen organizado transnacional + reforma policial (FEDe Precisión Alta)"],fajardo:[3,"Control territorial + plan guardián (FEDe Precisión Alta)"],valencia:[3,"“Seguridad Total” + Plan 30-30 (FEDe Precisión Media-alta)"],espriella:[3,"Seguridad Democrática 2.0 (7 banderas constitucionales)"]},
- salud:{cepeda:[2,"Salud sin EPS, pero solo 4 propuestas (FEDe Precisión Media-baja)"],lopez:[2,"Mejorar sin desmantelar (FEDe: dudas sobre financiación)"],fajardo:[3,"“Estabilizar al paciente” primero (FEDe Precisión Media-Alta)"],valencia:[3,"16 propuestas: resolver represamiento + cobertura"],espriella:[3,"Plan de choque de ~10 billones (FEDe Viabilidad Baja)"]},
+ corrupcion:{cepeda:[3,"Acuerdo Nacional + austeridad republicana + 23 propuestas (FEDe: con riesgo de Constituyente)"],lopez:[3,"Contratación digital + blockchain + veedurías"],fajardo:[3,"Agencia anticorrupción independiente (22 propuestas)"],valencia:[3,"24 propuestas: reformas a la justicia + IA de vigilancia (FEDe: interrogantes sobre sus límites)"],espriella:[3,"Penas más duras + Fiscalía + blockchain 2030"]},
+ seguridad:{cepeda:[3,"“Paz con justicia social” (FEDe: continuidad sin autocrítica)"],lopez:[3,"Crimen organizado transnacional + reforma policial (FEDe: con el tiempo en contra)"],fajardo:[3,"Control territorial + plan guardián (FEDe: poco aterrizaje operativo)"],valencia:[3,"“Seguridad Total” + Plan 30-30"],espriella:[3,"Ofensiva territorial inmediata + megacárceles (FEDe: riesgos de autoritarismo)"]},
+ salud:{cepeda:[2,"Salud sin EPS, pero solo 4 propuestas documentadas (FEDe: misma receta sin ajustes)"],lopez:[2,"Mejorar sin desmantelar (FEDe: dudas sobre financiación)"],fajardo:[3,"“Estabilizar al paciente” primero (FEDe: reforma incremental)"],valencia:[3,"16 propuestas: resolver represamiento + cobertura (FEDe: plata incierta)"],espriella:[3,"Plan de choque de ~10 billones (FEDe: sin énfasis en lo público)"]},
  empleo:{cepeda:[3,"Derechos laborales + Colpensiones + salario vital (21 propuestas)"],lopez:[1,"Solo 3 propuestas; coordinación intergubernamental"],fajardo:[3,"Economía regional + pymes (20 propuestas)"],valencia:[3,"Subsidio 30% a contratación de jóvenes (13 propuestas)"],espriella:[3,"11 propuestas + 600.000 empleos rurales agrícolas"]},
  pobreza:{cepeda:[3,"Colombia Mayor a 5M, Renta, Banco del Pueblo, reforma agraria"],lopez:[2,"Presupuestos participativos + empleo local"],fajardo:[2,"Vía educación como movilidad social (indirecta)"],valencia:[2,"Subsidios focalizados + crédito a informales"],espriella:[1,"Vía crecimiento económico (sin redistribución directa)"]},
  educacion:{cepeda:[2,"“Te pagamos por estudiar” (6 propuestas, foco en permanencia)"],lopez:[2,"Plataformas virtuales gratuitas (6 propuestas)"],fajardo:[3,"Triplicar inversión + parques educativos (15 propuestas)"],valencia:[3,"Becas, bilingüismo, Ruta 3E, Icetex, IA (13 propuestas)"],espriella:[2,"Subsidio a la demanda — vouchers (3 propuestas)"]},
  fiscal:{cepeda:[2,"Austeridad republicana + más recaudo (tensión con expansión social)"],lopez:[1,"Descentralización fiscal (sin plan claro de déficit)"],fajardo:[3,"“Recursos públicos son sagrados” + ajuste fiscal creíble"],valencia:[2,"Austeridad + recortes con baja de impuestos (tensión)"],espriella:[3,"Ajuste de ~70 billones + Estado −25% (J. M. Restrepo)"]},
- infra:{cepeda:[3,"30.000 km de vías terciarias (38 propuestas)"],lopez:[3,"Transporte masivo + electrificación urbana"],fajardo:[3,"19 propuestas (FEDe Precisión Media-alta en energía)"],valencia:[3,"23 propuestas: conectividad digital + plan hidrocarburos"],espriella:[2,"Solo 1 propuesta de infraestructura; foco real en energía"]}
+ infra:{cepeda:[3,"30.000 km de vías terciarias (38 propuestas)"],lopez:[3,"Transporte masivo + electrificación urbana"],fajardo:[3,"19 propuestas con foco en transición energética (FEDe: con el tiempo en contra)"],valencia:[3,"23 propuestas: conectividad digital + plan hidrocarburos"],espriella:[2,"Solo 1 propuesta de infraestructura; foco real en energía"]}
 };
 const LVTXT = {3:"Directo", 2:"Parcial", 1:"Tangencial", 0:"No es foco"};
 const PROB_BY_ID = Object.fromEntries(PROBLEMS.map(p=>[p.id,p]));
