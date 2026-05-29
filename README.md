@@ -32,7 +32,7 @@ Detalle de cobertura y vacíos en [`data/cobertura.md`](data/cobertura.md).
 - La capa "¿Quién atiende qué?" es análisis interpretativo propio con rúbrica explícita.
 - **Verifica en las fuentes originales antes de decidir tu voto.**
 
-¿Error o feedback? → **sferrod@gmail.com**
+¿Error o feedback? → **hello@ferroraptor.com**
 
 ---
 
