@@ -44,12 +44,13 @@ public/                     # lo único que sirve Azure SWA
   propuestas-2026.json      # corpus servido (~873 KB)
   fonts/                    # Fraunces + Public Sans (OFL, self-hosted)
   favicon.svg · og-image.png · robots.txt
+  staticwebapp.config.json  # headers de seguridad, caché, MIME, SPA fallback
+                            # (debe vivir dentro de public/ = raíz del contenido desplegado)
 data/                       # NO se despliega — fuente reproducible
   raw/                      # insumos crudos (scrape + CSVs de FEDe + VP)
   build_propuestas.py       # builder determinista
   cobertura.md              # qué quedó completo / con vacíos
-staticwebapp.config.json    # headers de seguridad, caché, MIME, SPA fallback
-.github/workflows/          # CI/CD Azure SWA
+.github/workflows/          # CI/CD Azure SWA (workflow auto-generado por Azure)
 ```
 
 ## Regenerar el corpus
@@ -73,10 +74,12 @@ python3 -m http.server 8000 -d public
 
 ## Deploy (Azure Static Web Apps · tier Free)
 
-1. Crear el recurso **Static Web App** en Azure Portal, apuntando a este repo y rama `main`.
-2. Azure inyecta el secret `AZURE_STATIC_WEB_APPS_API_TOKEN` en GitHub. El workflow ya está en `.github/workflows/`.
-3. **Antes de compartir en redes**: reemplazar el placeholder `REEMPLAZAR-DOMINIO` en `public/index.html` (meta `og:url` y `og:image`) por el dominio real, y regenerar `og-image.png` si se quiere la tipografía Fraunces definitiva.
-4. `git push` a `main` dispara build + deploy. `skip_app_build: true` → no hay paso de build, es estático puro.
+1. Recurso **Static Web App** creado vía Azure Portal conectado a este repo (rama `main`). Nombre: `yellow-beach-0d1a32b0f`.
+2. Azure generó su propio workflow (`.github/workflows/azure-static-web-apps-yellow-beach-0d1a32b0f.yml`) e inyectó el secret `AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_BEACH_0D1A32B0F`. `app_location: ./public`.
+3. **Antes de compartir en redes**: reemplazar el placeholder `REEMPLAZAR-DOMINIO` en `public/index.html` (meta `og:url` y `og:image`) por el dominio real (`https://yellow-beach-0d1a32b0f.<región>.azurestaticapps.net` o el dominio propio que se monte), y regenerar `og-image.png` si se quiere la tipografía Fraunces definitiva.
+4. `git push` a `main` dispara build + deploy automáticamente.
+
+> Nota: `staticwebapp.config.json` vive en `public/` (no en la raíz del repo) porque SWA solo lo lee desde la raíz del contenido desplegado (`app_location`). En la raíz del repo se ignoraría.
 
 ## Notas técnicas
 
