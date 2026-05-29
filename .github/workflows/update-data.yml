@@ -1,0 +1,65 @@
+name: Actualizar datos (diario)
+
+# Refresca las fuentes (FEDe + Candidateados), regenera el corpus y, si hubo
+# cambios, commitea y despliega. Cron de GitHub corre en UTC.
+# Colombia = UTC-5 (sin horario de verano):
+#   12:00 Colombia -> 17:00 UTC   ·   18:00 Colombia -> 23:00 UTC
+on:
+  schedule:
+    - cron: '0 17 * * *'   # 12:00 Colombia (mediodía)
+    - cron: '0 23 * * *'   # 18:00 Colombia (6 pm)
+  workflow_dispatch:        # permite dispararlo a mano
+
+# Evita que dos corridas se pisen
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+permissions:
+  contents: write           # para commitear/pushear el refresco
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    name: Refrescar y desplegar
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Refrescar fuentes (FEDe + Candidateados)
+        run: python3 data/refresh_sources.py
+
+      - name: Regenerar corpus
+        run: python3 data/build_propuestas.py
+
+      - name: Commitear si hubo cambios
+        id: commit
+        run: |
+          if [ -n "$(git status --porcelain public/propuestas-2026.json data/raw)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add public/propuestas-2026.json data/raw
+            git commit -m "data: refresco automático ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Datos actualizados y commiteados."
+          else
+            echo "Sin cambios en las fuentes; no se commitea ni despliega."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # El push de arriba usa GITHUB_TOKEN, que NO dispara otros workflows;
+      # por eso desplegamos explícitamente aquí (mismos inputs que el workflow de Azure).
+      - name: Desplegar a Azure SWA (solo si cambió)
+        if: steps.commit.outputs.changed == 'true'
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_BEACH_0D1A32B0F }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "./public"
+          api_location: ""
+          output_location: "."
