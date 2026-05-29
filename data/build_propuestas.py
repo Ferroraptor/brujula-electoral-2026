@@ -193,7 +193,9 @@ for c in cand:
                     "texto": p.get("descripcion","").strip(),
                     "texto_resumen_medio": "",
                     "editado": True,
-                    "fuente": (p.get("fuente","").strip() or "FEDe") + " | vía FEDe",
+                    # URL limpia del programa oficial (la atribución "vía FEDe" ya la da
+                    # el encabezado del bloque, no se anexa aquí para no romper el href)
+                    "fuente": (p.get("fuente","").strip() or "FEDe"),
                     "tags_terceros": tags,
                 })
             evaluacion = None

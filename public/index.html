@@ -439,6 +439,16 @@ candBar.addEventListener("click", e => {
 
 function escapeHTML(s){return (s||"").replace(/[&<>"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
 
+// Arma el link de fuente. Toma solo la URL antes de cualquier anotación " | …"
+// para que el href nunca quede roto. Si no es URL, muestra el texto tal cual.
+function fuenteLink(raw, opts){
+  raw = (raw||"").trim();
+  const url = raw.split("|")[0].trim();
+  if(!url.startsWith("http")) return escapeHTML(raw);
+  const label = (opts && opts.full) ? escapeHTML(url) : "fuente";
+  return `<a href="${escapeHTML(url)}" target="_blank" rel="noopener">${label} ↗</a>`;
+}
+
 // Render del detalle de la bandera de constitucionalidad de FEDe.
 // Si FEDe publicó explicación, se muestra; si solo marcó el semáforo (sin texto),
 // se dice honestamente — sin repetir etiquetas vacías.
@@ -459,8 +469,7 @@ function renderProp(p, opts){
   const experts = p.tags_terceros?.comentarios_expertos || [];
   const text = p.texto_resumen_medio || p.texto || "";
   const showFull = p.texto && p.texto_resumen_medio && p.texto !== p.texto_resumen_medio;
-  const fuenteEs = escapeHTML(p.fuente||"");
-  const fuenteHTML = fuenteEs.startsWith("http") ? `<a href="${fuenteEs}" target="_blank" rel="noopener">fuente ↗</a>` : fuenteEs;
+  const fuenteHTML = fuenteLink(p.fuente);
   let flagBadge = "";
   let flagDetail = "";
   if (flags){
@@ -855,10 +864,7 @@ document.getElementById("flagList").innerHTML = flags.map(({c,s,p,f})=>{
   const expertsHTML = experts.map(e =>
     `<div class="expert"><div class="who">${escapeHTML(e.experto)} <span>· ${escapeHTML(e.rol||"")}</span></div><p>${escapeHTML(e.comentario)}</p></div>`
   ).join("");
-  const fuenteEs = escapeHTML(p.fuente||"");
-  const fuenteHTML = fuenteEs.startsWith("http")
-    ? `<a href="${fuenteEs}" target="_blank" rel="noopener">${fuenteEs} ↗</a>`
-    : fuenteEs;
+  const fuenteHTML = fuenteLink(p.fuente, {full:true});
   const subtemaHTML = p.subtema ? `<div class="flag-subtema">Subtema: ${escapeHTML(p.subtema)}</div>` : "";
   const textoHTML = p.texto ? `<div class="flag-texto">${escapeHTML(p.texto)}</div>` : "";
   const expertsLabel = experts.length ? `<div class="flag-subtema" style="margin-top:8px">Comentarios de expertos (${experts.length})</div>` : "";
