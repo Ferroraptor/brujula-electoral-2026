@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brújula Electoral 2026 · Corpus completo</title>
 <meta name="description" content="Comparador imparcial de propuestas para las elecciones presidenciales de Colombia 2026. 12 candidatos, 616 propuestas, banderas constitucionales y comentarios de expertos atribuidos a su fuente.">
+<link rel="canonical" href="https://brujula-electoral.ferroraptor.com/">
 <meta name="theme-color" content="#F6F2E9">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Brújula Electoral 2026">
 <meta property="og:description" content="Compara las propuestas de los 12 candidatos presidenciales sin paráfrasis, con sus fuentes citadas.">
-<!-- OG apunta al dominio default de Azure SWA; si montás dominio propio, reemplazar las 2 URLs de abajo -->
-<meta property="og:image" content="https://yellow-beach-0d1a32b0f.7.azurestaticapps.net/og-image.png">
-<meta property="og:url" content="https://yellow-beach-0d1a32b0f.7.azurestaticapps.net/">
+<meta property="og:image" content="https://brujula-electoral.ferroraptor.com/og-image.png">
+<meta property="og:url" content="https://brujula-electoral.ferroraptor.com/">
 <meta name="twitter:card" content="summary_large_image">
 <style>
   @font-face { font-family: 'Fraunces'; font-weight: 400; font-display: swap; src: url('./fonts/fraunces-400.woff2') format('woff2'); }
@@ -113,6 +113,11 @@
   .prop-head{display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
   .prop-title{font-weight:600;font-size:13.5px;color:#2c2a24;line-height:1.35;flex:1;min-width:0}
   .prop-sub{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;padding:1px 7px;border-radius:30px;background:var(--chip)}
+  /* pantallas chicas: el badge de subtema baja debajo del título (sigue el orden), sin aplastarlo */
+  @media (max-width:560px){
+    .prop-head{flex-direction:column;align-items:stretch;gap:4px}
+    .prop-head .prop-sub{align-self:flex-start}
+  }
   .prop-text{font-size:13px;color:#3a352d;margin:5px 0 4px;line-height:1.55}
   .prop-actions{display:flex;gap:8px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:5px;align-items:center}
   .prop-source{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;color:var(--muted)}

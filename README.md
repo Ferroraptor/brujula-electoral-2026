@@ -76,7 +76,7 @@ python3 -m http.server 8000 -d public
 
 1. Recurso **Static Web App** creado vía Azure Portal conectado a este repo (rama `main`). Nombre: `yellow-beach-0d1a32b0f`.
 2. Azure generó su propio workflow (`.github/workflows/azure-static-web-apps-yellow-beach-0d1a32b0f.yml`) e inyectó el secret `AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_BEACH_0D1A32B0F`. `app_location: ./public`.
-3. **Antes de compartir en redes**: reemplazar el placeholder `REEMPLAZAR-DOMINIO` en `public/index.html` (meta `og:url` y `og:image`) por el dominio real (`https://yellow-beach-0d1a32b0f.<región>.azurestaticapps.net` o el dominio propio que se monte), y regenerar `og-image.png` si se quiere la tipografía Fraunces definitiva.
+3. **Dominio público**: <https://brujula-electoral.ferroraptor.com/> (dominio custom sobre el default `yellow-beach-0d1a32b0f.7.azurestaticapps.net`). Los meta `og:url`/`og:image` y el `<link rel="canonical">` apuntan al dominio custom para evitar contenido duplicado en SEO.
 4. `git push` a `main` dispara build + deploy automáticamente.
 
 > Nota: `staticwebapp.config.json` vive en `public/` (no en la raíz del repo) porque SWA solo lo lee desde la raíz del contenido desplegado (`app_location`). En la raíz del repo se ignoraría.
