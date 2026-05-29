@@ -1049,8 +1049,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -1109,8 +1110,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -2086,8 +2088,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -2111,8 +2114,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Amenaza] ",
-                  "fuente": "FEDe (semáforo Amenaza al Estado de Derecho)"
+                  "bandera": "Amenaza",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -3687,8 +3691,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -3712,8 +3717,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "tumbado_por_corte",
-                  "detalle": "[FEDe semáforo: Amenaza] La Fundación presentó acción de inconstitucionalidad contra una disposición de la Ley de Paz Total que incorporaba de manera automática al bloque de constitucionalidad, las disposiciones de carácter humanitario contenidas en los acuerdos de paz. La Corte Constitucional mediante la Sentencia C-036 de 2025 declaró inconstitucional la norma demandada. También señaló la naturaleza política de los acuerdos, por lo que deben implementarse por los medios constitucionales y legales establecidos. [Ver la acción y sentencia](https://drive.google.com/drive/folders/1V5SfzL1zVZ4U_zHlH9jrMYpquccJF7ZK?usp=drive_link)",
-                  "fuente": "FEDe (semáforo Amenaza al Estado de Derecho)"
+                  "bandera": "Amenaza",
+                  "detalle": "La Fundación presentó acción de inconstitucionalidad contra una disposición de la Ley de Paz Total que incorporaba de manera automática al bloque de constitucionalidad, las disposiciones de carácter humanitario contenidas en los acuerdos de paz. La Corte Constitucional mediante la Sentencia C-036 de 2025 declaró inconstitucional la norma demandada. También señaló la naturaleza política de los acuerdos, por lo que deben implementarse por los medios constitucionales y legales establecidos. [Ver la acción y sentencia](https://drive.google.com/drive/folders/1V5SfzL1zVZ4U_zHlH9jrMYpquccJF7ZK?usp=drive_link)",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -3863,8 +3869,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] La Fundación ha presentado acciones de nulidad en contra de resoluciones y decretos que modifican el SGSS, la gestión de las EPS e implementan un nuevo modelo de salud; acción popular para requerir la protección de los derechos colectivos a la salubridad pública y al acceso al servicio público de salud, a efectos de que se dicten medidas que atiendan la situación de escasez de medicamentos, especialmente en lo relacionado con las enfermedades graves; acción de nulidad contra la resolución que reglamenta los requisitos de operación y financieros de los Gestores Farmacéuticos; dos acciones de nulidad en contra de las resoluciones que fijaron la UPC para los años 2025 y 2026 [Ver acciones](https://drive.google.com/drive/folders/1Clx6XZ3nyfsI4KbOFKdvX8LRqvkE6ImB?usp=drive_link)",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "La Fundación ha presentado acciones de nulidad en contra de resoluciones y decretos que modifican el SGSS, la gestión de las EPS e implementan un nuevo modelo de salud; acción popular para requerir la protección de los derechos colectivos a la salubridad pública y al acceso al servicio público de salud, a efectos de que se dicten medidas que atiendan la situación de escasez de medicamentos, especialmente en lo relacionado con las enfermedades graves; acción de nulidad contra la resolución que reglamenta los requisitos de operación y financieros de los Gestores Farmacéuticos; dos acciones de nulidad en contra de las resoluciones que fijaron la UPC para los años 2025 y 2026 [Ver acciones](https://drive.google.com/drive/folders/1Clx6XZ3nyfsI4KbOFKdvX8LRqvkE6ImB?usp=drive_link)",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -4266,8 +4273,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Amenaza] ",
-                  "fuente": "FEDe (semáforo Amenaza al Estado de Derecho)"
+                  "bandera": "Amenaza",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
@@ -5171,8 +5179,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -5308,8 +5317,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] La Fundación intervino en la demanda contra el artículo 32 del PND, en defensa de la coordinación y concurrencia entre la Nación y los municipios en materia de ordenamiento territorial, evitando determinantes impuestas sin participación de los entes territoriales; demandó el Decreto 1166 de 2025 (cartas de responsabilidad en lugar de licencias urbanísticas) y el Decreto 413 de 2025 (mejoramiento de vivienda sin licencia), en defensa de las competencias urbanísticas constitucionales de los municipios y distritos; ha intervenido en el trámite de expedición del proyecto de resolución del Ministerio de Ambiente y Desarrollo Sostenible para la expedición de las directrices de ordenamiento ambiental para la Sabana de Bogotá. Esta resolución incide en derechos de propiedad privada y el desarrollo económico y de infraestructura de la Sabana de Bogotá. Adicionalmente ha intervenido en el marco de la acción popular del río Bogotá en oposición a las decisiones que inciden en el cumplimiento de las órdenes de protección del río Bogotá. [Ver acciones](https://drive.google.com/drive/folders/1JKNF-FsyhXwx1GMfneon983mRFTiYPOz?usp=drive_link)",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "La Fundación intervino en la demanda contra el artículo 32 del PND, en defensa de la coordinación y concurrencia entre la Nación y los municipios en materia de ordenamiento territorial, evitando determinantes impuestas sin participación de los entes territoriales; demandó el Decreto 1166 de 2025 (cartas de responsabilidad en lugar de licencias urbanísticas) y el Decreto 413 de 2025 (mejoramiento de vivienda sin licencia), en defensa de las competencias urbanísticas constitucionales de los municipios y distritos; ha intervenido en el trámite de expedición del proyecto de resolución del Ministerio de Ambiente y Desarrollo Sostenible para la expedición de las directrices de ordenamiento ambiental para la Sabana de Bogotá. Esta resolución incide en derechos de propiedad privada y el desarrollo económico y de infraestructura de la Sabana de Bogotá. Adicionalmente ha intervenido en el marco de la acción popular del río Bogotá en oposición a las decisiones que inciden en el cumplimiento de las órdenes de protección del río Bogotá. [Ver acciones](https://drive.google.com/drive/folders/1JKNF-FsyhXwx1GMfneon983mRFTiYPOz?usp=drive_link)",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -5464,8 +5474,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Amenaza] ",
-                  "fuente": "FEDe (semáforo Amenaza al Estado de Derecho)"
+                  "bandera": "Amenaza",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -6287,8 +6298,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] La Fundación ha presentado intervenciones ante la Corte Constitucional en el marco de los procesos de control automático de constitucionalidad tanto para los decretos de conmoción interior, como de emergencia económica, social y ecológica.\n[Ver intervenciones](https://drive.google.com/drive/folders/1AFy4sxfS7YahcchirF1aktlRVFA25gQu?usp=drive_link)",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "La Fundación ha presentado intervenciones ante la Corte Constitucional en el marco de los procesos de control automático de constitucionalidad tanto para los decretos de conmoción interior, como de emergencia económica, social y ecológica.\n[Ver intervenciones](https://drive.google.com/drive/folders/1AFy4sxfS7YahcchirF1aktlRVFA25gQu?usp=drive_link)",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -6312,8 +6324,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Amenaza] ",
-                  "fuente": "FEDe (semáforo Amenaza al Estado de Derecho)"
+                  "bandera": "Amenaza",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -6343,8 +6356,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -6374,8 +6388,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -6427,8 +6442,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -6710,8 +6726,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -7174,8 +7191,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [
@@ -10728,8 +10746,9 @@
               "tags_terceros": {
                 "constitucionalidad": {
                   "nivel": "contestado",
-                  "detalle": "[FEDe semáforo: Alerta] ",
-                  "fuente": "FEDe (semáforo Alerta al Estado de Derecho)"
+                  "bandera": "Alerta",
+                  "detalle": "",
+                  "fuente": "FEDe — análisis al Estado de Derecho"
                 },
                 "viabilidad_senalada": null,
                 "comentarios_expertos": [

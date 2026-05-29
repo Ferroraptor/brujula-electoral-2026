@@ -182,8 +182,9 @@ for c in cand:
                     expl = p.get("alerta_explicacion","").strip()
                     tags["constitucionalidad"] = {
                         "nivel": clasificar_constitucionalidad(expl),
-                        "detalle": f"[FEDe semáforo: {label}] {expl}",
-                        "fuente": f"FEDe (semáforo {label} al Estado de Derecho)",
+                        "bandera": label,          # "Amenaza" | "Alerta" (semáforo FEDe)
+                        "detalle": expl,            # explicación verbatim de FEDe; "" si no la publicó
+                        "fuente": "FEDe — análisis al Estado de Derecho",
                     }
                 propuestas.append({
                     "id": f"{cid}-{abbr(sec)}-fede-{i:02d}",

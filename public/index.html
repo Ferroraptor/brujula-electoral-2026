@@ -127,6 +127,7 @@
   .expert p{margin:4px 0 0;color:#34302a;line-height:1.5}
   .flag-detail{margin-top:6px;padding:8px 11px;background:#FBF1E6;border-radius:6px;font-size:12px;color:#5c4426}
   .flag-detail b{color:#3a352d}
+  .flag-nodet{color:#8a8270;font-style:italic}
 
   /* comparar */
   .cmp-controls{display:flex;flex-direction:column;gap:8px;margin:14px 0 18px}
@@ -436,6 +437,19 @@ candBar.addEventListener("click", e => {
 
 function escapeHTML(s){return (s||"").replace(/[&<>"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
 
+// Render del detalle de la bandera de constitucionalidad de FEDe.
+// Si FEDe publicó explicación, se muestra; si solo marcó el semáforo (sin texto),
+// se dice honestamente — sin repetir etiquetas vacías.
+function fedeFlagText(f){
+  if(!f) return "";
+  const band = f.bandera ? `${f.bandera} al Estado de Derecho` : "Objeción al Estado de Derecho";
+  const det = (f.detalle||"").trim();
+  if(det){
+    return `<b>FEDe — ${escapeHTML(band)}:</b> ${escapeHTML(det)} <i>— ${escapeHTML(f.fuente||"FEDe")}</i>`;
+  }
+  return `<b>FEDe — ${escapeHTML(band)}.</b> <span class="flag-nodet">FEDe la marcó en su semáforo del Estado de Derecho, sin publicar una explicación detallada. Audita en la fuente.</span>`;
+}
+
 function renderProp(p, opts){
   opts = opts || {};
   const compact = opts.compact === true; // en modales: contenido FEDe colapsado en acordeón
@@ -451,7 +465,7 @@ function renderProp(p, opts){
     const cls = flags.nivel==="tumbado_por_corte" ? "fb-tumbado" : "fb-contestado";
     const label = flags.nivel==="tumbado_por_corte" ? "Tumbada por la Corte" : "Contestada (Estado de Derecho)";
     flagBadge = `<span class="flag-badge ${cls}">⚑ ${label}</span>`;
-    flagDetail = `<div class="flag-detail"><b>FEDe:</b> ${escapeHTML(flags.detalle||"(sin detalle adicional)")} <i>— ${escapeHTML(flags.fuente||"")}</i></div>`;
+    flagDetail = `<div class="flag-detail">${fedeFlagText(flags)}</div>`;
   }
   const expertsHTML = experts.map(e=>`<div class="expert"><div class="who">${escapeHTML(e.experto)} <span>· ${escapeHTML(e.rol||"")}</span></div><p>${escapeHTML(e.comentario)}</p></div>`).join("");
   const subtema = p.subtema ? `<span class="prop-sub">${escapeHTML(p.subtema)}</span>` : "";
@@ -858,7 +872,7 @@ document.getElementById("flagList").innerHTML = flags.map(({c,s,p,f})=>{
       <span class="ftit">${escapeHTML(dn(c))}: ${escapeHTML(p.titulo||'')}</span>
     </div>
     <div class="fmeta">${SECTOR_LABELS[s.sector]||s.sector} · ${escapeHTML((s.fuente_origen||'').toUpperCase())}</div>
-    <div class="fdet"><b>FEDe:</b> ${escapeHTML(f.detalle||'(sin detalle adicional)')} <i>— ${escapeHTML(f.fuente||'')}</i></div>
+    <div class="fdet">${fedeFlagText(f)}</div>
     ${accordion}
   </div>`;
 }).join("");
