@@ -1,0 +1,15 @@
+{
+  "_fuente": "WebSearch 2026-05-28: HSB Noticias, Portafolio, RCN Radio, El Espectador, Colombia.com, Registraduría",
+  "valencia":  {"formula_vp": "Juan Daniel Oviedo",            "src": "fede"},
+  "cepeda":    {"formula_vp": "Aida Quilcué",                  "src": "fede"},
+  "lopez":     {"formula_vp": "Leonardo Huerta",               "src": "fede"},
+  "espriella": {"formula_vp": "José Manuel Restrepo",          "src": "fede"},
+  "fajardo":   {"formula_vp": "Edna Bonilla",                  "src": "fede"},
+  "uribe":     {"formula_vp": "Luisa Fernanda Villegas Araque","src": "web (RCN/HSB)"},
+  "lizcano":   {"formula_vp": "Pedro Luis de la Torre Márquez","src": "web (RCN/HSB)"},
+  "barreras":  {"formula_vp": "Martha Lucía Zamora Ávila",     "src": "web (RCN/HSB)"},
+  "botero":    {"formula_vp": "Carlos Fernando Cuevas Romero", "src": "web (RCN/HSB)"},
+  "caicedo":   {"formula_vp": "Nelson Javier Alarcón Suárez",  "src": "web (El Espectador/Colombia.com)"},
+  "macollins": {"formula_vp": "Leonardo Karam Helo",           "src": "web (Colombia.com)"},
+  "matamoros": {"formula_vp": "Mila María Paz Campaz",         "src": "web (Colombia.com)"}
+}

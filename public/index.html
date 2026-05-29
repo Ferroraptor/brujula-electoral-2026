@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brújula Electoral 2026 · Corpus completo</title>
+<meta name="description" content="Comparador imparcial de propuestas para las elecciones presidenciales de Colombia 2026. 12 candidatos, 616 propuestas, banderas constitucionales y comentarios de expertos atribuidos a su fuente.">
+<meta name="theme-color" content="#F6F2E9">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brújula Electoral 2026">
+<meta property="og:description" content="Compara las propuestas de los 12 candidatos presidenciales sin paráfrasis, con sus fuentes citadas.">
+<!-- TODO deploy: reemplazar REEMPLAZAR-DOMINIO por el dominio real antes de compartir en redes -->
+<meta property="og:image" content="https://REEMPLAZAR-DOMINIO/og-image.png">
+<meta property="og:url" content="https://REEMPLAZAR-DOMINIO/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  @font-face { font-family: 'Fraunces'; font-weight: 400; font-display: swap; src: url('./fonts/fraunces-400.woff2') format('woff2'); }
+  @font-face { font-family: 'Fraunces'; font-weight: 500; font-display: swap; src: url('./fonts/fraunces-500.woff2') format('woff2'); }
+  @font-face { font-family: 'Fraunces'; font-weight: 600; font-display: swap; src: url('./fonts/fraunces-600.woff2') format('woff2'); }
+  @font-face { font-family: 'Public Sans'; font-weight: 400; font-display: swap; src: url('./fonts/public-sans-400.woff2') format('woff2'); }
+  @font-face { font-family: 'Public Sans'; font-weight: 500; font-display: swap; src: url('./fonts/public-sans-500.woff2') format('woff2'); }
+  @font-face { font-family: 'Public Sans'; font-weight: 600; font-display: swap; src: url('./fonts/public-sans-600.woff2') format('woff2'); }
+</style>
+<style>
+  :root{
+    --bg:#F6F2E9;--panel:#FFFEFB;--ink:#22201B;--muted:#6B665B;
+    --line:#E0D9C9;--line2:#CFC6B2;--chip:#EFEADD;
+    --L3:#41506B;--L2:#9AA6BC;--L1:#D7DCE5;--L0:#EFEDE6;
+    --warn:#9C5A2B;--danger:#8C3A2E;--ok:#4F7A5A;
+    --r:12px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 20px}
+  header.top{padding:30px 0 14px;border-bottom:1px solid var(--line)}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,44px);line-height:1.02;margin:.18em 0 .12em;letter-spacing:-.01em}
+  .lede{font-size:15px;color:var(--muted);max-width:68ch;margin:0}
+  .stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--muted)}
+  .stats b{color:#3a352d;font-weight:600}
+  .tabs{position:sticky;top:0;z-index:30;background:rgba(246,242,233,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .tabs .wrap{display:flex;gap:4px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+  .tab{border:none;background:none;font:inherit;font-weight:600;font-size:14px;color:var(--muted);padding:9px 14px;border-radius:9px;cursor:pointer;transition:all .15s}
+  .tab:hover{color:var(--ink)}
+  .tab[aria-selected="true"]{background:var(--ink);color:#fff}
+  .view{display:none;padding:18px 0 50px}
+  .view.on{display:block}
+  .intro{font-size:14.5px;color:var(--muted);max-width:74ch;margin:12px 0 4px}
+
+  /* candidate selector */
+  .cand-bar{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 18px}
+  .cand-chip{border:1px solid var(--line2);background:var(--panel);border-radius:30px;padding:6px 12px 6px 6px;font:inherit;font-size:12.5px;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:8px;transition:all .15s;font-weight:500}
+  .cand-chip:hover{border-color:var(--ink)}
+  .cand-chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .cand-chip .ini{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:10.5px;font-family:"Fraunces",serif}
+  .cand-chip .nm{line-height:1.1}
+  .cand-chip .badge{font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;padding:1px 5px;border-radius:30px;background:var(--chip);color:#5c574b;margin-left:4px}
+  .cand-chip[aria-pressed="true"] .badge{background:rgba(255,255,255,.18);color:#fff}
+
+  /* candidate detail */
+  .cand-head{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:14px}
+  .cand-head .row{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+  .cand-head .ini{width:54px;height:54px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-weight:600;font-size:20px;flex:none}
+  .cand-head h2{font-family:"Fraunces",serif;font-weight:500;font-size:24px;margin:0;letter-spacing:-.01em}
+  .cand-head .meta{font-size:13px;color:var(--muted);margin-top:3px}
+  .cand-head .meta b{color:#3a352d;font-weight:600}
+  .cand-head .bio{font-size:13.5px;color:#34302a;margin-top:10px;line-height:1.55}
+  .cand-head .cov{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .cand-stats{margin-top:10px;font-size:12.5px;color:var(--muted);padding:8px 11px;background:var(--chip);border-radius:8px;display:inline-block}
+  .cand-stats b{color:#2c2a24;font-weight:600;font-variant-numeric:tabular-nums}
+  .badge-cov{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;padding:3px 9px;border-radius:30px}
+  .bc-full{background:var(--L3);color:#fff}
+  .bc-partial{background:var(--chip);color:#5c574b;border:1px dashed var(--line2)}
+  .bc-warn{background:#F6E2D2;color:#7a4226}
+  .rfg-wrap{margin-top:12px;padding:11px 13px;background:#FBF1E6;border:1px solid #E8C9A5;border-radius:10px}
+  .rfg-wrap h4{margin:0 0 5px;font-family:"Fraunces",serif;font-size:13.5px;color:#7a4226;font-weight:600}
+  .rfg-list{display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+  .rfg-list a{color:#7a4226;text-decoration:underline}
+  .retired{padding:11px 13px;background:#F6E2DC;border:1px solid #DDB0A4;border-radius:10px;margin-top:12px;font-size:13px;color:#6e2f24}
+
+  /* sector accordion */
+  details.sector{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+  details.sector>summary{cursor:pointer;padding:13px 16px;display:flex;align-items:center;gap:12px;list-style:none;flex-wrap:wrap}
+  details.sector>summary::-webkit-details-marker{display:none}
+  details.sector>summary::after{content:"▾";color:var(--muted);margin-left:auto;transition:transform .15s}
+  details.sector[open]>summary::after{transform:rotate(180deg)}
+  details.sector>summary:hover{background:#FBF8F0}
+  .sec-name{font-family:"Fraunces",serif;font-size:17px;font-weight:500;letter-spacing:-.01em}
+  .sec-source{font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:2px 7px;border-radius:30px}
+  .src-cand{background:#E7E3D5;color:#5c574b}
+  .src-fede{background:#DDE3EE;color:#3a4458}
+  .sec-count{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .sec-eval{display:flex;gap:5px;flex-wrap:wrap;font-size:11px}
+  .ev-pill{padding:2px 8px;border-radius:30px;background:var(--chip);color:#5c574b;font-weight:500}
+  .ev-pill b{color:#2c2a24;font-weight:600}
+  .sec-body{padding:0 16px 14px;border-top:1px solid var(--line)}
+  .sec-subtitulo{font-size:12.5px;font-style:italic;color:var(--muted);margin:10px 0 6px}
+
+  /* proposal */
+  .prop{padding:11px 0;border-bottom:1px dashed var(--line)}
+  .prop:last-child{border-bottom:none}
+  .prop-head{display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+  .prop-title{font-weight:600;font-size:13.5px;color:#2c2a24;line-height:1.35;flex:1;min-width:0}
+  .prop-sub{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;padding:1px 7px;border-radius:30px;background:var(--chip)}
+  .prop-text{font-size:13px;color:#3a352d;margin:5px 0 4px;line-height:1.55}
+  .prop-actions{display:flex;gap:8px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:5px;align-items:center}
+  .prop-source{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+  .prop-source a{color:#7a4a3c}
+  .toggle-link{background:none;border:none;color:#7a4a3c;font:inherit;font-size:11.5px;cursor:pointer;padding:0;text-decoration:underline}
+  .flag-badge{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:30px}
+  .fb-contestado{background:#F3E0D6;color:#7a4226;border:1px solid #DDB0A4}
+  .fb-tumbado{background:#F2D5D0;color:#7a3326;border:1px solid #D08B82}
+  .expert{margin-top:7px;padding:9px 11px;background:#F2EEDF;border-left:3px solid var(--L2);border-radius:6px;font-size:12px}
+  .expert .who{font-weight:600;color:#3a352d;font-size:11.5px}
+  .expert .who span{font-weight:400;color:var(--muted);font-size:11px}
+  .expert p{margin:4px 0 0;color:#34302a;line-height:1.5}
+  .flag-detail{margin-top:6px;padding:8px 11px;background:#FBF1E6;border-radius:6px;font-size:12px;color:#5c4426}
+  .flag-detail b{color:#3a352d}
+
+  /* comparar */
+  .cmp-controls{display:flex;flex-direction:column;gap:8px;margin:14px 0 18px}
+  .cmp-grid{display:grid;gap:12px}
+  .cmp-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+  .cmp-card h3{font-family:"Fraunces",serif;font-weight:500;font-size:17px;margin:0 0 4px}
+  .cmp-card .meta{font-size:11.5px;color:var(--muted);margin-bottom:10px}
+  .cmp-card .empty{font-size:12.5px;color:var(--muted);font-style:italic;padding:12px 0}
+
+  /* problemas (vista v3 reusada) */
+  .pond-box{background:var(--panel);border:1px solid var(--line2);border-radius:var(--r);padding:16px 18px;margin:14px 0 22px}
+  .pond-box h3{font-family:"Fraunces",serif;font-weight:600;font-size:18px;margin:0 0 6px}
+  .pond-box p{font-size:13.5px;color:var(--muted);margin:6px 0}
+  .pond-box b{color:#3a352d;font-weight:600}
+  .prob{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:12px}
+  .prob .ph{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .prob .pn{font-family:"Fraunces",serif;font-size:20px;color:var(--line2);font-weight:600}
+  .prob h3{font-family:"Fraunces",serif;font-weight:500;font-size:19px;margin:0;letter-spacing:-.01em}
+  .tier{font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:3px 9px;border-radius:30px}
+  .tierA{background:var(--L3);color:#fff}.tierB{background:var(--L2);color:#1d2330}.tierC{background:var(--chip);color:#5c574b;border:1px dashed var(--line2)}
+  .pollrow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+  .pollpill{font-size:11.5px;background:var(--chip);border-radius:30px;padding:3px 10px;color:#5c574b}
+  .pollpill b{color:#2c2a24;font-weight:600}
+  .approx{font-size:14px;color:#2c2a24;margin:8px 0 2px}
+  .struct{font-size:13px;color:var(--muted);margin:6px 0 2px}
+  .struct b{color:#5c574b;font-weight:600}
+  .srcline{font-size:11.5px;color:var(--muted);margin-top:6px}
+  .srcline b{font-weight:600;color:#5c574b}
+
+  /* banderas y vacíos */
+  .asym{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;margin-bottom:16px}
+  .asym h3{font-family:"Fraunces",serif;font-weight:600;font-size:17px;margin:0 0 8px}
+  .asym-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-top:10px}
+  .asym-card{padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:#FCFAF3}
+  .asym-card.full{background:#EFF3F8;border-color:#C9D3E2}
+  .asym-card .an{font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px}
+  .asym-card .ai{width:22px;height:22px;border-radius:50%;color:#fff;font-size:10px;font-family:"Fraunces",serif;display:flex;align-items:center;justify-content:center;font-weight:600}
+  .asym-card .ad{font-size:11px;color:var(--muted);margin-top:3px}
+
+  .flagcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:13px 15px;margin-bottom:9px}
+  .flagcard .fh{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .flagcard .ftit{font-weight:600;font-size:13.5px;color:#2c2a24}
+  .flagcard .fmeta{font-size:11px;color:var(--muted);margin-top:3px}
+  .flagcard .fdet{font-size:12.5px;color:#3a352d;margin-top:7px}
+  .flagcard .fdet b{color:#2c2a24}
+  .flag-expand{margin-top:10px;border-top:1px solid var(--line);padding-top:6px}
+  .flag-expand>summary{cursor:pointer;font-size:12px;color:#7a4a3c;font-weight:500;list-style:none;padding:4px 0}
+  .flag-expand>summary::-webkit-details-marker{display:none}
+  .flag-expand>summary::before{content:"▸ ";color:var(--muted);display:inline-block;margin-right:2px}
+  .flag-expand[open]>summary::before{content:"▾ "}
+  .flag-expand>summary:hover{color:#5c3327}
+  .flag-expand-body{padding:8px 0 4px;font-size:12.5px;color:#3a352d}
+  .flag-subtema{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:6px}
+  .flag-texto{padding:9px 11px;background:#FBF8F0;border-radius:6px;font-size:12.5px;color:#34302a;line-height:1.55;margin-bottom:8px;border-left:3px solid var(--line2)}
+  .flag-fuente{font-size:11.5px;color:var(--muted);margin-top:8px;padding-top:6px;border-top:1px dashed var(--line)}
+  .flag-fuente a{color:#7a4a3c}
+
+  .matrix-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--panel)}
+  table.matrix{border-collapse:collapse;width:100%;min-width:840px}
+  table.matrix th,table.matrix td{padding:10px 11px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  table.matrix thead th{position:sticky;top:0;background:var(--panel);z-index:2;font-size:12.5px}
+  table.matrix th.rowh{position:sticky;left:0;background:var(--panel);z-index:1;min-width:188px;max-width:212px}
+  table.matrix th.corner{position:sticky;left:0;z-index:3}
+  .chead{display:flex;align-items:center;gap:8px}
+  .chead .cini{width:30px;height:30px;font-size:12px;border-radius:50%;color:#fff;font-family:"Fraunces",serif;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .chead .nm{font-size:12.5px;font-weight:600;line-height:1.1}
+  .rh-t{font-weight:600;font-size:13.5px}
+  .rh-tag{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:3px}
+  .lv{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:30px;margin-bottom:5px}
+  .lv3{background:var(--L3);color:#fff}.lv2{background:var(--L2);color:#1d2330}.lv1{background:var(--L1);color:#3a4252}.lv0{background:var(--L0);color:#9a958a;border:1px dashed var(--line2)}
+  .cell-note{font-size:12px;color:#403b33;line-height:1.4}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0;font-size:12.5px;color:var(--muted);align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{width:13px;height:13px;border-radius:4px;display:inline-block}
+  .breadth{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:14px 0 6px}
+  .bcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+  .bcard .bn{display:flex;align-items:center;gap:8px;font-weight:600;font-size:13px;margin-bottom:6px}
+  .bcard .bn .bini{width:24px;height:24px;font-size:11px;border-radius:50%;color:#fff;font-family:"Fraunces",serif;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .bcard .bbar{height:7px;border-radius:30px;background:var(--chip);overflow:hidden;margin-bottom:5px}
+  .bcard .bfill{height:100%;border-radius:30px}
+  .bcard .bnum{font-family:"Fraunces",serif;font-size:13px;color:var(--muted)}
+
+  /* Modal + acciones por celda */
+  .cell-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+  .cell-btn{background:var(--chip);border:1px solid var(--line2);border-radius:5px;font:inherit;font-size:11px;padding:3px 8px;cursor:pointer;color:var(--ink);transition:background .15s;font-weight:500}
+  .cell-btn:hover{background:var(--line)}
+  .cell-btn.flag{background:#F3E0D6;border-color:#DDB0A4;color:#7a4226}
+  .cell-btn.flag:hover{background:#EBC9B7}
+  .modal[hidden]{display:none}
+  .modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
+  .modal-backdrop{position:absolute;inset:0;background:rgba(34,32,27,.45);backdrop-filter:blur(2px)}
+  .modal-panel{position:relative;background:var(--panel);border-radius:var(--r);max-width:780px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.25);overflow:hidden}
+  #modal-content{max-height:88vh;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .modal-header{padding:16px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:1}
+  .modal-kicker{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .modal-title{font-family:"Fraunces",serif;font-weight:500;font-size:22px;margin:3px 0 4px;letter-spacing:-.01em;padding-right:36px}
+  .modal-meta{font-size:12.5px;color:var(--muted)}
+  .modal-proxy{margin:8px 0 0;padding:8px 11px;background:#FBF1E6;border-radius:6px;font-size:12.5px;color:#5c4426;border-left:3px solid #DDB0A4}
+  .modal-body{padding:8px 22px 18px}
+  .modal-section{margin-top:10px}
+  .modal-section-head{font-family:"Fraunces",serif;font-weight:500;font-size:14px;color:#4a463d;margin:6px 0 4px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+  .modal-close{position:absolute;top:10px;right:14px;background:var(--panel);border:none;font-size:22px;color:var(--muted);cursor:pointer;line-height:1;width:32px;height:32px;border-radius:6px;z-index:3}
+  .modal-close:hover{background:var(--chip);color:var(--ink)}
+
+  footer{border-top:1px solid var(--line2);padding:24px 0 60px;font-size:12.5px;color:var(--muted)}
+  footer a{color:#7a4a3c}
+  footer h3{font-family:"Fraunces",serif;font-size:15px;color:var(--ink);margin:0 0 6px;font-weight:600}
+  footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+  .disc{margin-top:16px;padding:13px 15px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);font-size:12px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="kicker">Elecciones presidenciales · Colombia 2026</div>
+    <h1>Brújula Electoral</h1>
+    <p class="lede">Corpus completo de propuestas presidenciales: 12 candidatos, 616 propuestas extraídas de Candidateados y FEDe, con banderas constitucionales y comentarios de expertos atribuidos a su fuente.</p>
+    <div class="stats" id="topstats"></div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <div class="wrap">
+    <button class="tab" role="tab" aria-selected="true" data-v="candidato">Por candidato</button>
+    <button class="tab" role="tab" aria-selected="false" data-v="comparar">Comparar</button>
+    <button class="tab" role="tab" aria-selected="false" data-v="problemas">Problemas del país</button>
+    <button class="tab" role="tab" aria-selected="false" data-v="cruce">¿Quién atiende qué?</button>
+    <button class="tab" role="tab" aria-selected="false" data-v="banderas">Banderas y vacíos</button>
+  </div>
+</nav>
+
+<div class="view on" id="v-candidato"><div class="wrap">
+  <p class="intro">Selecciona un candidato y explora sus propuestas por sector. Las propuestas vienen <b>con su texto fiel</b> de Candidateados o FEDe (no son paráfrasis); donde FEDe atribuye una bandera de Estado de Derecho o un comentario experto, aparece debajo de la propuesta con su autor.</p>
+  <div class="cand-bar" id="candBar"></div>
+  <div id="candDetail"></div>
+</div></div>
+
+<div class="view" id="v-comparar"><div class="wrap">
+  <p class="intro">Elige 2 a 4 candidatos y un sector, mira sus propuestas lado a lado. Útil para contrastes directos.</p>
+  <div class="cmp-controls">
+    <div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px">Candidatos</div><div class="cand-bar" id="cmpCandBar" style="margin:0"></div></div>
+    <div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px">Sector</div><div id="cmpSecBar" style="display:flex;gap:6px;flex-wrap:wrap"></div></div>
+  </div>
+  <div id="cmpResult"></div>
+</div></div>
+
+<div class="view" id="v-problemas"><div class="wrap">
+  <p class="intro">Los mayores problemas de Colombia, triangulando cinco encuestadoras (Invamer, CNC, AtlasIntel, Cifras & Conceptos, Red Cómo Vamos) más fuentes estructurales (DANE, Transparencia Internacional). Esta sección no depende del corpus de propuestas: vive aparte porque mide la demanda, no la oferta.</p>
+  <div class="pond-box">
+    <h3>Cómo se pondera (y por qué no es un solo número)</h3>
+    <p>Para “¿cuál es el <b>principal problema</b> del país?” —misma pregunta— se promedian <b>Invamer, CNC y AtlasIntel</b> y se muestra el rango. Las firmas <b>divergen fuerte</b>: Invamer pone la seguridad de primera (40,8%); CNC y AtlasIntel ponen la corrupción (38–42%). Esa divergencia es el hallazgo, no un error.</p>
+    <p>Cuando la pregunta cambia a “¿qué debe <b>priorizar</b> el próximo gobierno?”, el orden se mueve: ahí la <b>salud encabeza</b> (60–72%). Por eso no mezclo ambas preguntas en un promedio: sería falsa precisión.</p>
+  </div>
+  <div id="problist"></div>
+</div></div>
+
+<div class="view" id="v-cruce"><div class="wrap">
+  <p class="intro">El cruce: para cada problema, <b>cuán directamente lo aborda el programa de cada candidato</b>. Esta capa es análisis interpretativo, no dato de fuente — por eso es auditable: cada celda dice qué propuesta la sustenta.</p>
+  <div class="pond-box">
+    <h3>Cómo se construyó esto (léelo antes de sacar conclusiones)</h3>
+    <p><b>Versión:</b> calibrada con el <b>corpus de 616 propuestas</b> extraído por el agente (Candidateados + FEDe). La calificación de cada celda usa tres señales: <i>número de propuestas</i> del candidato en el sector relevante, <i>ratings de FEDe</i> (precisión / viabilidad / coherencia) cuando existen, y la <i>especificidad del texto</i> de las propuestas. Cambió respecto a la versión anterior en 9 de las 40 celdas.</p>
+    <p><b>Qué mide:</b> cuánto y cuán directamente el <i>programa</i> engancha con el problema. <b>Qué NO mide:</b> si la solución es buena, viable o efectiva. Juzgar eso sería meter sesgo ideológico; aquí se evita a propósito.</p>
+    <p><b>Rúbrica fija:</b> <b>Directo</b> = propuesta central y específica · <b>Parcial</b> = secundaria o poco desarrollada · <b>Tangencial</b> = indirecta · <b>No es foco</b> = no aparece como prioridad en las fuentes (no implica que el candidato lo ignore).</p>
+    <p><b>Cuidado con la “amplitud”:</b> cuántos frentes toca correlaciona con lo largo que sea el programa (Cepeda: 433 páginas; De la Espriella: 13 puntos). Más cobertura ≠ mejor.</p>
+    <p><b>Alcance:</b> esta matriz solo cubre los <b>5 candidatos con documentación programática equiparable</b> (los mismos que FEDe analiza en profundidad). Para los otros 7 no hay base suficiente para una calificación simétrica; sus propuestas están en la pestaña «Por candidato».</p>
+  </div>
+  <div class="legend">
+    <span><i class="sw lv3"></i> Directo</span><span><i class="sw lv2"></i> Parcial</span>
+    <span><i class="sw lv1"></i> Tangencial</span><span><i class="sw lv0" style="border:1px dashed var(--line2)"></i> No es foco</span>
+  </div>
+  <div class="matrix-scroll"><table class="matrix" id="matrix"></table></div>
+  <h3 style="font-family:'Fraunces',serif;font-weight:500;margin:24px 0 2px">Amplitud temática del programa</h3>
+  <p class="intro" style="margin-top:4px">Número de problemas que el programa aborda de forma <b>directa</b> (sobre 8). Indicador de <b>amplitud, no de calidad</b>; favorece a los programas más extensos.</p>
+  <div class="breadth" id="breadth"></div>
+</div></div>
+
+<div class="view" id="v-banderas"><div class="wrap">
+  <p class="intro">Las banderas constitucionales y los “red flags” institucionales que detecta FEDe. <b>Solo existen para 5 de los 12 candidatos</b>: los que FEDe analiza. Esta asimetría es de la fuente, no del análisis; ocultarla habría sido el sesgo más grande.</p>
+  <div id="asym"></div>
+  <h3 style="font-family:'Fraunces',serif;font-weight:500;margin:18px 0 8px">Banderas constitucionales atribuidas (FEDe)</h3>
+  <div id="flagList"></div>
+  <h3 style="font-family:'Fraunces',serif;font-weight:500;margin:24px 0 8px">Red Flags institucionales (FEDe)</h3>
+  <div id="rfList"></div>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><h3>Datos de propuestas</h3>Extraídos por agente automatizado de <b>Candidateados</b> (parsing RSC de Next.js) y <b>FEDe</b> (Google Sheet público, 7 pestañas) el 28 de mayo de 2026. Texto fiel; cada propuesta lleva su fuente. Cobertura FEDe: solo 5 candidatos.</div>
+    <div><h3>Datos de problemas</h3>Encuestadoras: Invamer, CNC, AtlasIntel, Cifras & Conceptos, Red Cómo Vamos (EPC 2025). Estructural: DANE, Transparencia Internacional (IPC 2025), CID‑UNAL, Afidro.</div>
+    <div><h3>Ver fuentes en vivo</h3><a href="https://www.candidateados.com" target="_blank" rel="noopener">Candidateados</a> · <a href="https://propuestascandidatos.fedecolombia.org" target="_blank" rel="noopener">FEDe</a> · <a href="https://www.lasillavacia.com/silla-nacional/ponderador-de-encuestas-presidenciales-2026/" target="_blank" rel="noopener">Ponderador (intención de voto)</a></div>
+  </div>
+  <div class="disc">
+    <b>Proyecto personal e independiente de Sergio Ferro.</b> Datos extraídos el 28 de mayo de 2026 de Candidateados y FEDe; programas oficiales registrados ante el CNE. La capa “¿Quién atiende qué?” es análisis interpretativo propio con rúbrica transparente; las banderas y comentarios son juicios atribuidos a FEDe y sus expertos, no veredictos neutros. La vista “Problemas del país” usa promedios simples entre encuestadoras con la misma pregunta. Verifica en las fuentes originales antes de decidir tu voto.
+    <br><small>¿Encontraste un error o tienes feedback? Escríbeme a <a href="mailto:sferrod@gmail.com">sferrod@gmail.com</a></small>
+  </div>
+</div></footer>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-panel">
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+(async function init(){
+  let RAW;
+  try {
+    const resp = await fetch('./propuestas-2026.json', {cache: 'force-cache'});
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    RAW = await resp.json();
+  } catch (e) {
+    document.body.innerHTML = `<div style="padding:40px;text-align:center;font-family:system-ui">No se pudo cargar el corpus de propuestas.<br><small style="color:#888">${e.message}</small></div>`;
+    return;
+  }
+  // Exponer a window las funciones llamadas por handlers onclick inline (hoisted).
+  window.closeModal = closeModal;
+  window.showProps  = showProps;
+  window.showFlags  = showFlags;
+const CANDS = RAW.candidatos;
+const META = RAW.meta;
+
+// orden alfabético por apellido principal
+const ORDER = ["barreras","botero","caicedo","cepeda","espriella","fajardo","lizcano","lopez","macollins","matamoros","uribe","valencia"];
+const C_BY_ID = Object.fromEntries(CANDS.map(c=>[c.id,c]));
+
+// paleta de 12 colores equidistantes y de saturación pareja
+const COLORS = {
+  barreras:"#A85B7C", botero:"#A84B5B", caicedo:"#A8754B", cepeda:"#B5634A",
+  espriella:"#5A5A8C", fajardo:"#5E8C5A", lizcano:"#8A8A48", lopez:"#C28A3A",
+  macollins:"#7B4BA8", matamoros:"#4B82A8", uribe:"#3E7CA8", valencia:"#4BA7A6"
+};
+const INI = id => {
+  const c = C_BY_ID[id]; if(!c) return "??";
+  const parts = c.nombre.split(/\s+/); 
+  return (parts[0][0] + (parts[parts.length-1][0]||"")).toUpperCase();
+};
+const DISPLAY_NAME = {
+  barreras:"Roy Barreras", botero:"Raúl Botero", caicedo:"Carlos Caicedo", cepeda:"Iván Cepeda",
+  espriella:"Abelardo de la Espriella", fajardo:"Sergio Fajardo", lizcano:"Óscar Lizcano",
+  lopez:"Claudia López", macollins:"Sondra Macollins", matamoros:"Gustavo Matamoros",
+  uribe:"Miguel Uribe", valencia:"Paloma Valencia"
+};
+const dn = c => DISPLAY_NAME[c?.id] || (c?.nombre || "");
+function notasText(c){
+  const n = c?.notas;
+  if (!n) return "";
+  if (typeof n === "string") return n;
+  if (Array.isArray(n)) return n.map(x => (typeof x === "string" ? x : (x?.nota || ""))).filter(Boolean).join(" · ");
+  return "";
+}
+function isRetired(c){ return notasText(c).toLowerCase().includes("retir"); }
+const SECTOR_LABELS = {
+  seguridad:"Seguridad", salud:"Salud", educacion:"Educación", empleo:"Empleo",
+  infraestructura:"Infraestructura", corrupcion:"Corrupción / Estado",
+  energia:"Energía", tierras_y_agro:"Tierras y agro", institucional:"Institucional"
+};
+
+// stats arriba
+const totalProps = CANDS.reduce((a,c)=>a+c.sectores.reduce((b,s)=>b+s.propuestas.length,0),0);
+let totalFlags=0, totalExperts=0, totalRF=0;
+CANDS.forEach(c=>{
+  (c.red_flags_fede||[]).forEach(()=>totalRF++);
+  c.sectores.forEach(s=>s.propuestas.forEach(p=>{
+    if(p.tags_terceros?.constitucionalidad) totalFlags++;
+    totalExperts += (p.tags_terceros?.comentarios_expertos||[]).length;
+  }));
+});
+document.getElementById("topstats").innerHTML = `
+  <span><b>${CANDS.length}</b> candidatos</span>
+  <span><b>${totalProps}</b> propuestas</span>
+  <span><b>${totalFlags}</b> banderas constitucionales</span>
+  <span><b>${totalExperts}</b> comentarios de expertos</span>
+  <span>Extracción: <b>${META.fecha_consulta}</b></span>
+`;
+
+// tabs
+document.querySelectorAll(".tab").forEach(t=>{t.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected","false"));
+  t.setAttribute("aria-selected","true");
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
+  document.getElementById("v-"+t.dataset.v).classList.add("on");
+  window.scrollTo({top:0,behavior:"smooth"});
+};});
+
+/* --- por candidato --- */
+let selectedCand = "cepeda";
+function buildCandChip(c, selected){
+  const inFede = c.cubierto_por?.includes?.("fede");
+  const retired = isRetired(c);
+  const badge = retired ? '<span class="badge">retirado</span>' : (inFede ? '' : '<span class="badge">sin FEDe</span>');
+  return `<button class="cand-chip" aria-pressed="${selected===c.id}" data-c="${c.id}">
+    <span class="ini" style="background:${COLORS[c.id]||'#888'}">${INI(c.id)}</span>
+    <span class="nm">${dn(c)}</span>${badge}</button>`;
+}
+const candBar = document.getElementById("candBar");
+candBar.innerHTML = ORDER.map(id => buildCandChip(C_BY_ID[id], selectedCand)).join("");
+candBar.addEventListener("click", e => {
+  const b = e.target.closest("button.cand-chip"); if(!b) return;
+  selectedCand = b.dataset.c;
+  candBar.querySelectorAll(".cand-chip").forEach(x=>x.setAttribute("aria-pressed", x.dataset.c===selectedCand));
+  renderCand();
+});
+
+function escapeHTML(s){return (s||"").replace(/[&<>"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+
+function renderProp(p, opts){
+  opts = opts || {};
+  const compact = opts.compact === true; // en modales: contenido FEDe colapsado en acordeón
+  const flags = p.tags_terceros?.constitucionalidad;
+  const experts = p.tags_terceros?.comentarios_expertos || [];
+  const text = p.texto_resumen_medio || p.texto || "";
+  const showFull = p.texto && p.texto_resumen_medio && p.texto !== p.texto_resumen_medio;
+  const fuenteEs = escapeHTML(p.fuente||"");
+  const fuenteHTML = fuenteEs.startsWith("http") ? `<a href="${fuenteEs}" target="_blank" rel="noopener">fuente ↗</a>` : fuenteEs;
+  let flagBadge = "";
+  let flagDetail = "";
+  if (flags){
+    const cls = flags.nivel==="tumbado_por_corte" ? "fb-tumbado" : "fb-contestado";
+    const label = flags.nivel==="tumbado_por_corte" ? "Tumbada por la Corte" : "Contestada (Estado de Derecho)";
+    flagBadge = `<span class="flag-badge ${cls}">⚑ ${label}</span>`;
+    flagDetail = `<div class="flag-detail"><b>FEDe:</b> ${escapeHTML(flags.detalle||"(sin detalle adicional)")} <i>— ${escapeHTML(flags.fuente||"")}</i></div>`;
+  }
+  const expertsHTML = experts.map(e=>`<div class="expert"><div class="who">${escapeHTML(e.experto)} <span>· ${escapeHTML(e.rol||"")}</span></div><p>${escapeHTML(e.comentario)}</p></div>`).join("");
+  const subtema = p.subtema ? `<span class="prop-sub">${escapeHTML(p.subtema)}</span>` : "";
+  const hasFede = flagDetail || experts.length > 0;
+  let fedeBlock = "";
+  if (hasFede){
+    if (compact){
+      const parts = [];
+      if (flagDetail) parts.push("bandera constitucional");
+      if (experts.length) parts.push(`${experts.length} ${experts.length===1?'comentario experto':'comentarios expertos'}`);
+      fedeBlock = `<details class="flag-expand"><summary>Ver análisis FEDe (${parts.join(" · ")})</summary><div class="flag-expand-body">${flagDetail}${expertsHTML}</div></details>`;
+    } else {
+      fedeBlock = `${flagDetail}${expertsHTML}`;
+    }
+  }
+  return `<div class="prop">
+    <div class="prop-head"><div class="prop-title">${escapeHTML(p.titulo||"(sin título)")}</div>${subtema}</div>
+    <p class="prop-text" data-full="${escapeHTML(p.texto||'')}" data-short="${escapeHTML(p.texto_resumen_medio||'')}">${escapeHTML(text)}</p>
+    <div class="prop-actions">
+      ${showFull ? `<button class="toggle-link" onclick="this.closest('.prop').querySelector('.prop-text').textContent=this.dataset.s==='1'?this.closest('.prop').querySelector('.prop-text').dataset.short:this.closest('.prop').querySelector('.prop-text').dataset.full;this.dataset.s=this.dataset.s==='1'?'0':'1';this.textContent=this.dataset.s==='1'?'ver texto completo':'ver resumen';" data-s="1">ver texto completo</button>` : ""}
+      <span class="prop-source">${fuenteHTML}</span>
+      ${flagBadge}
+    </div>
+    ${fedeBlock}
+  </div>`;
+}
+
+function renderCand(){
+  const c = C_BY_ID[selectedCand];
+  if(!c){ document.getElementById("candDetail").innerHTML=""; return; }
+  const inFede = (c.cubierto_por||[]).includes("fede");
+  const retired = isRetired(c);
+  const covBadges = [];
+  if((c.cubierto_por||[]).includes("candidateados")) covBadges.push('<span class="badge-cov bc-full">Candidateados</span>');
+  if(inFede) covBadges.push('<span class="badge-cov bc-full">FEDe (atribución)</span>');
+  if(!inFede) covBadges.push('<span class="badge-cov bc-partial">Sin capa FEDe</span>');
+  if(retired) covBadges.push('<span class="badge-cov bc-warn">Retirado de la contienda</span>');
+  // stats agregadas por candidato
+  let nProps=0, nPropsFede=0, nFlags=0, nExperts=0, sectorsSet=new Set();
+  (c.sectores||[]).forEach(s=>{
+    sectorsSet.add(s.sector);
+    s.propuestas.forEach(p=>{
+      nProps++;
+      if(s.fuente_origen==='fede') nPropsFede++;
+      if(p.tags_terceros?.constitucionalidad) nFlags++;
+      nExperts += (p.tags_terceros?.comentarios_expertos||[]).length;
+    });
+  });
+  const statsParts = [`<b>${nProps}</b> propuestas en ${sectorsSet.size} sectores`];
+  if(nPropsFede) statsParts.push(`<b>${nPropsFede}</b> vía FEDe`);
+  if(nFlags) statsParts.push(`<b>${nFlags}</b> bandera${nFlags===1?'':'s'} constitucional${nFlags===1?'':'es'}`);
+  if(nExperts) statsParts.push(`<b>${nExperts}</b> comentario${nExperts===1?'':'s'} de expertos`);
+  const statsLine = `<div class="cand-stats">${statsParts.join(' · ')}</div>`;
+  const rf = c.red_flags_fede || [];
+  const rfHTML = rf.length ? `<div class="rfg-wrap"><h4>🚩 Red Flags institucionales</h4>
+    <div class="rfg-list">${rf.map(f=>`<span>${escapeHTML(f.badge||'')} — ${escapeHTML(f.titulo||'')} <i>(${escapeHTML(f.meta||'')})</i>${f.url_video?` · <a href="${escapeHTML(f.url_video)}" target="_blank" rel="noopener">video ↗</a>`:''}</span>`).join('<br>')}</div></div>` : "";
+  const retiredHTML = retired ? `<div class="retired"><b>Aviso:</b> ${escapeHTML(notasText(c))}</div>` : "";
+
+  // sectores agrupados por sector (mezclando ambas fuentes en un mismo accordion)
+  const sectorsByKey = {};
+  c.sectores.forEach(s => {
+    if(!sectorsByKey[s.sector]) sectorsByKey[s.sector] = [];
+    sectorsByKey[s.sector].push(s);
+  });
+  const sectorOrder = ["seguridad","salud","empleo","educacion","infraestructura","corrupcion","energia","tierras_y_agro","institucional"];
+  const sectorsHTML = sectorOrder.filter(k=>sectorsByKey[k]).map(k=>{
+    const blocks = sectorsByKey[k];
+    const totalProps = blocks.reduce((a,b)=>a+b.propuestas.length,0);
+    if(!totalProps) return "";
+    const fedeBlock = blocks.find(b=>b.fuente_origen==="fede");
+    const ev = fedeBlock?.evaluacion_fede || blocks[0]?.evaluacion_fede;
+    const subEval = ev?.subtitulo ? `<div class="sec-subtitulo">FEDe: “${escapeHTML(ev.subtitulo)}”</div>` : "";
+    const evPills = ev && (ev.precision||ev.viabilidad||ev.coherencia) ? `<div class="sec-eval">
+      ${ev.precision?`<span class="ev-pill">Precisión: <b>${escapeHTML(ev.precision)}</b></span>`:""}
+      ${ev.viabilidad?`<span class="ev-pill">Viabilidad: <b>${escapeHTML(ev.viabilidad)}</b></span>`:""}
+      ${ev.coherencia?`<span class="ev-pill">Coherencia: <b>${escapeHTML(ev.coherencia)}</b></span>`:""}
+    </div>` : "";
+    const propsHTML = blocks.map(b=>{
+      const sourceTag = `<div style="font-size:11px;color:var(--muted);margin:8px 0 4px;font-weight:600;letter-spacing:.04em;text-transform:uppercase">${b.fuente_origen==='fede'?'Vía FEDe (programa oficial)':'Vía Candidateados'} · ${b.propuestas.length}</div>`;
+      const items = b.propuestas.map(p=>renderProp(p, COLORS[c.id])).join("");
+      return sourceTag + items;
+    }).join("");
+    return `<details class="sector"><summary>
+      <span class="sec-name">${SECTOR_LABELS[k]||k}</span>
+      <span class="sec-count">${totalProps} propuestas</span>
+      ${evPills}
+    </summary><div class="sec-body">${subEval}${propsHTML}</div></details>`;
+  }).join("");
+
+  document.getElementById("candDetail").innerHTML = `
+    <div class="cand-head">
+      <div class="row">
+        <div class="ini" style="background:${COLORS[c.id]||'#888'}">${INI(c.id)}</div>
+        <div style="flex:1;min-width:0">
+          <h2>${escapeHTML(c.nombre)}</h2>
+          <div class="meta"><b>${escapeHTML(c.partido||'')}</b> · Fórmula VP: <b>${escapeHTML(c.formula_vp||'—')}</b>${c.programa_url?` · <a href="${escapeHTML(c.programa_url)}" target="_blank" rel="noopener">programa oficial ↗</a>`:''}</div>
+          <div class="cov">${covBadges.join("")}</div>
+        </div>
+      </div>
+      ${c.bio?`<p class="bio">${escapeHTML(c.bio)}</p>`:""}
+      ${statsLine}
+      ${rfHTML}
+      ${retiredHTML}
+    </div>
+    ${sectorsHTML || '<p class="intro">Sin sectores con propuestas documentadas.</p>'}
+  `;
+}
+renderCand();
+
+/* --- comparar --- */
+const cmpCandBar = document.getElementById("cmpCandBar");
+let cmpSelected = new Set(["cepeda","valencia","fajardo"]);
+cmpCandBar.innerHTML = ORDER.map(id => buildCandChip(C_BY_ID[id], cmpSelected.has(id))).join("");
+cmpCandBar.addEventListener("click", e=>{
+  const b = e.target.closest("button.cand-chip"); if(!b) return;
+  const id = b.dataset.c;
+  if(cmpSelected.has(id)) cmpSelected.delete(id);
+  else if(cmpSelected.size<4) cmpSelected.add(id);
+  cmpCandBar.querySelectorAll(".cand-chip").forEach(x=>x.setAttribute("aria-pressed", cmpSelected.has(x.dataset.c)));
+  renderCmp();
+});
+
+const ALL_SECTORS = ["seguridad","salud","empleo","educacion","infraestructura","corrupcion","energia","tierras_y_agro","institucional"];
+let cmpSector = "seguridad";
+const cmpSecBar = document.getElementById("cmpSecBar");
+cmpSecBar.innerHTML = ALL_SECTORS.map(s=>`<button class="cand-chip" aria-pressed="${s===cmpSector}" data-s="${s}"><span class="nm">${SECTOR_LABELS[s]}</span></button>`).join("");
+cmpSecBar.addEventListener("click", e=>{
+  const b = e.target.closest("button.cand-chip"); if(!b) return;
+  cmpSector = b.dataset.s;
+  cmpSecBar.querySelectorAll(".cand-chip").forEach(x=>x.setAttribute("aria-pressed", x.dataset.s===cmpSector));
+  renderCmp();
+});
+
+function renderCmp(){
+  const ids = ORDER.filter(id=>cmpSelected.has(id));
+  if(!ids.length){ document.getElementById("cmpResult").innerHTML='<p class="intro">Selecciona al menos un candidato.</p>'; return; }
+  const cols = ids.length;
+  const grid = `repeat(${cols}, minmax(0, 1fr))`;
+  const html = ids.map(id=>{
+    const c = C_BY_ID[id];
+    const blocks = c.sectores.filter(s=>s.sector===cmpSector);
+    const total = blocks.reduce((a,b)=>a+b.propuestas.length,0);
+    const propsHTML = blocks.map(b=>{
+      const lbl = `<div style="font-size:10.5px;color:var(--muted);margin:8px 0 4px;font-weight:600;letter-spacing:.04em;text-transform:uppercase">${b.fuente_origen==='fede'?'FEDe':'Candidateados'}</div>`;
+      return lbl + b.propuestas.map(p=>renderProp(p)).join("");
+    }).join("");
+    return `<div class="cmp-card">
+      <h3>${escapeHTML(dn(c))}</h3>
+      <div class="meta">${escapeHTML(c.partido||'')} · ${total} propuestas en ${SECTOR_LABELS[cmpSector]}</div>
+      ${total? propsHTML : '<div class="empty">Sin propuestas documentadas en este sector.</div>'}
+    </div>`;
+  }).join("");
+  document.getElementById("cmpResult").innerHTML = `<div class="cmp-grid" style="grid-template-columns:${grid}">${html}</div>`;
+}
+renderCmp();
+
+/* --- problemas del país (corpus aparte) --- */
+const PROBLEMS=[
+ {id:"corrupcion",t:"Corrupción",tier:"Disputa el 1.º lugar",tc:"tierA",
+  polls:[["CNC","38,2%"],["AtlasIntel","37,8%"],["Invamer","15,9%"],["Cifras & Conceptos","1.º (Panel)"]],
+  approx:"Como “principal problema”: ~<b>31%</b> (promedio simple; rango 16%–38%). Es 1.º para CNC, AtlasIntel y Cifras & Conceptos.",
+  struct:"IPC 2025 de Transparencia Internacional: Colombia cae a <b>37/100</b>, por debajo del promedio regional.",
+  src:"CNC, AtlasIntel, Invamer, Cifras & Conceptos, Transparencia Internacional"},
+ {id:"seguridad",t:"Inseguridad y control territorial",tier:"Disputa el 1.º lugar",tc:"tierA",
+  polls:[["Invamer","40,8%"],["AtlasIntel","25%"],["CNC","14,3%"]],
+  approx:"Como “principal problema”: ~<b>27%</b> (rango 14%–41%). Es 1.º para Invamer.",
+  struct:"El <b>73,8%</b> cree que el Estado perdió presencia en zonas con grupos ilegales; el <b>64,5%</b> se siente más inseguro con la Paz Total.",
+  src:"Invamer, AtlasIntel, CNC"},
+ {id:"salud",t:"Crisis del sistema de salud",tier:"1.ª prioridad de gestión",tc:"tierA",
+  polls:[["CNC","25,9%"],["AtlasIntel","12,3%"],["Invamer (prioridad)","71,9%"],["Red Cómo Vamos","60%"]],
+  approx:"Como “principal problema” es media (12%–26%), pero como <b>prioridad del próximo gobierno encabeza</b>: 60%–72%.",
+  struct:"Deuda con laboratorios de <b>$4,7 billones</b> al cierre de 2025 (Afidro); cifras récord de tutelas.",
+  src:"CNC, AtlasIntel, Invamer, Red Cómo Vamos, Afidro"},
+ {id:"empleo",t:"Desempleo, informalidad y costo de vida",tier:"Segundo bloque",tc:"tierB",
+  polls:[["Invamer","11,2%"],["AtlasIntel","9,4%"],["CNC","7,4%"]],
+  approx:"Como “principal problema”: ~<b>9–11%</b>. El costo de vida aparece como afectación personal directa más sentida (CNC).",
+  struct:"La informalidad supera el <b>55%</b> de la fuerza de trabajo (DANE).",
+  src:"Invamer, AtlasIntel, CNC, DANE"},
+ {id:"pobreza",t:"Pobreza y desigualdad",tier:"Segundo bloque",tc:"tierB",
+  polls:[["Invamer (nec. básicas)","17%"],["AtlasIntel","9,4%"],["CNC (desigualdad)","6,1%"]],
+  approx:"Como “principal problema”: ~<b>9%–17%</b> según cómo se nombre.",
+  struct:"Colombia es uno de los países más desiguales de A. Latina; la EPC 2025 detecta <b>“pobreza oculta”</b> y feminización de la pobreza.",
+  src:"Invamer, AtlasIntel, CNC, DANE, Red Cómo Vamos"},
+ {id:"educacion",t:"Acceso y calidad de la educación",tier:"Segundo bloque",tc:"tierB",
+  polls:[["CNC","~5–7%"],["Red Cómo Vamos (prioridad)","46%"]],
+  approx:"Baja como “principal problema” (~5–7%), pero alta como <b>prioridad urbana</b> (46%).",
+  struct:"La mitad de los hogares no intentó acceder al sistema educativo; <b>1 de cada 5</b> que lo intentó enfrentó barreras (EPC 2025).",
+  src:"CNC, Red Cómo Vamos"},
+ {id:"fiscal",t:"Sostenibilidad fiscal y déficit",tier:"Estructural (poca percepción)",tc:"tierC",
+  polls:[], approx:"No aparece como preocupación ciudadana espontánea, pero los analistas lo señalan como restricción central.",
+  struct:"Déficit elevado, deuda histórica y tesoro en mínimos; tensión entre expandir gasto social y estabilizar finanzas.",
+  src:"El Espectador, La Silla Vacía, CID‑UNAL"},
+ {id:"infra",t:"Brecha de infraestructura y conectividad territorial",tier:"Estructural (poca percepción)",tc:"tierC",
+  polls:[], approx:"Pesa más a nivel local que como problema “nacional” en las encuestas.",
+  struct:"La brecha urbano‑rural es una de las más amplias de A. Latina; amplias zonas sin presencia integral del Estado.",
+  src:"Razón Pública, CID‑UNAL"}
+];
+document.getElementById("problist").innerHTML=PROBLEMS.map((p,i)=>{
+  const n=String(i+1).padStart(2,"0");
+  const polls=p.polls.length?`<div class="pollrow">`+p.polls.map(([f,v])=>`<span class="pollpill">${f}: <b>${v}</b></span>`).join("")+`</div>`:"";
+  return `<div class="prob"><div class="ph"><span class="pn">${n}</span><h3>${p.t}</h3><span class="tier ${p.tc}">${p.tier}</span></div>
+    ${polls}<p class="approx">${p.approx}</p><p class="struct">Estructural: ${p.struct}</p>
+    <p class="srcline">Fuentes: <b>${p.src}</b></p></div>`;
+}).join("");
+
+/* --- cruce problema × candidato (análisis interpretativo, 5 candidatos) --- */
+const CRUCE_CANDS = ["cepeda","lopez","fajardo","valencia","espriella"];
+const CRUCE_PROBLEMS_ORDER = ["corrupcion","seguridad","salud","empleo","pobreza","educacion","fiscal","infra"];
+
+/* mapeo problema → sectores relevantes (mismo que se usó para calibrar la rúbrica) */
+const PROBLEM_SECTORS = {
+  corrupcion:   {cand:["corrupcion"],            fede:["institucional"]},
+  seguridad:    {cand:["seguridad"],             fede:["seguridad"]},
+  salud:        {cand:["salud"],                 fede:["salud"]},
+  empleo:       {cand:["empleo"],                fede:[]},
+  pobreza:      {cand:["empleo","educacion"],    fede:["tierras_y_agro"]},
+  educacion:    {cand:["educacion"],             fede:[]},
+  fiscal:       {cand:["corrupcion","empleo"],   fede:["institucional"]},
+  infra:        {cand:["infraestructura"],       fede:["energia"]}
+};
+const PROXY_PROBLEMS = new Set(["pobreza","fiscal"]); // transversales
+
+function cellPropsBySource(candId, problemId){
+  const c = C_BY_ID[candId]; const ms = PROBLEM_SECTORS[problemId];
+  const cand=[], fede=[];
+  (c.sectores||[]).forEach(s=>{
+    if (s.fuente_origen==='candidateados' && ms.cand.includes(s.sector)) s.propuestas.forEach(p=>cand.push(p));
+    if (s.fuente_origen==='fede' && ms.fede.includes(s.sector)) s.propuestas.forEach(p=>fede.push(p));
+  });
+  return {cand, fede};
+}
+function cellFlagCount(candId, problemId){
+  const {cand, fede} = cellPropsBySource(candId, problemId);
+  return [...cand, ...fede].filter(p => p.tags_terceros?.constitucionalidad).length;
+}
+
+/* --- modal --- */
+function openModal(html){
+  document.getElementById("modal-content").innerHTML = html;
+  document.getElementById("modal").hidden = false;
+  document.body.style.overflow = "hidden";
+}
+function closeModal(){
+  document.getElementById("modal").hidden = true;
+  document.getElementById("modal-content").innerHTML = "";
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", e => { if (e.key==="Escape") closeModal(); });
+
+function showProps(candId, problemId){
+  const c = C_BY_ID[candId];
+  const prob = PROB_BY_ID[problemId];
+  const ms = PROBLEM_SECTORS[problemId];
+  const {cand, fede} = cellPropsBySource(candId, problemId);
+  const total = cand.length + fede.length;
+  const proxyHTML = PROXY_PROBLEMS.has(problemId)
+    ? `<p class="modal-proxy"><b>Problema transversal.</b> Se muestran las propuestas de los sectores que mejor lo aproximan: ${[...ms.cand,...ms.fede].map(s=>SECTOR_LABELS[s]||s).join(' · ')}. Es una aproximación, no una correspondencia exacta.</p>`
+    : "";
+  const candHTML = cand.length ? `<div class="modal-section"><div class="modal-section-head">Vía Candidateados (${cand.length})</div>${cand.map(p=>renderProp(p,{compact:true})).join("")}</div>` : "";
+  const fedeHTML = fede.length ? `<div class="modal-section"><div class="modal-section-head">Vía FEDe — programas oficiales (${fede.length})</div>${fede.map(p=>renderProp(p,{compact:true})).join("")}</div>` : "";
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-kicker">${escapeHTML(prob.t)}</div>
+      <div class="modal-title">${escapeHTML(dn(c))}</div>
+      <div class="modal-meta">${total} propuestas en sectores relevantes${PROXY_PROBLEMS.has(problemId)?' (transversal)':''}</div>
+      ${proxyHTML}
+    </div>
+    <div class="modal-body">${candHTML}${fedeHTML}</div>
+  `);
+}
+
+function showFlags(candId, problemId){
+  const c = C_BY_ID[candId];
+  const prob = PROB_BY_ID[problemId];
+  const {cand, fede} = cellPropsBySource(candId, problemId);
+  const flagged = [...cand, ...fede].filter(p => p.tags_terceros?.constitucionalidad);
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-kicker">${escapeHTML(prob.t)} · Banderas constitucionales</div>
+      <div class="modal-title">${escapeHTML(dn(c))}</div>
+      <div class="modal-meta">${flagged.length} bandera${flagged.length===1?'':'s'} atribuida${flagged.length===1?'':'s'} a FEDe (con cita textual y, donde aplica, fallo de la Corte)</div>
+    </div>
+    <div class="modal-body">${flagged.map(p=>renderProp(p,{compact:true})).join("") || '<p class="intro">Sin banderas registradas.</p>'}</div>
+  `);
+}
+
+
+const CRUCE = {
+ corrupcion:{cepeda:[3,"23 propuestas + Acuerdo Nacional + austeridad republicana"],lopez:[3,"Contratación digital + blockchain + veedurías"],fajardo:[3,"Agencia anticorrupción independiente (22 propuestas)"],valencia:[3,"24 propuestas: reformas a la justicia + IA de vigilancia"],espriella:[3,"Penas más duras + Fiscalía + blockchain 2030"]},
+ seguridad:{cepeda:[3,"“Paz con justicia social” (FEDe: continuidad sin autocrítica)"],lopez:[3,"Crimen organizado transnacional + reforma policial (FEDe Precisión Alta)"],fajardo:[3,"Control territorial + plan guardián (FEDe Precisión Alta)"],valencia:[3,"“Seguridad Total” + Plan 30-30 (FEDe Precisión Media-alta)"],espriella:[3,"Seguridad Democrática 2.0 (7 banderas constitucionales)"]},
+ salud:{cepeda:[2,"Salud sin EPS, pero solo 4 propuestas (FEDe Precisión Media-baja)"],lopez:[2,"Mejorar sin desmantelar (FEDe: dudas sobre financiación)"],fajardo:[3,"“Estabilizar al paciente” primero (FEDe Precisión Media-Alta)"],valencia:[3,"16 propuestas: resolver represamiento + cobertura"],espriella:[3,"Plan de choque de ~10 billones (FEDe Viabilidad Baja)"]},
+ empleo:{cepeda:[3,"Derechos laborales + Colpensiones + salario vital (21 propuestas)"],lopez:[1,"Solo 3 propuestas; coordinación intergubernamental"],fajardo:[3,"Economía regional + pymes (20 propuestas)"],valencia:[3,"Subsidio 30% a contratación de jóvenes (13 propuestas)"],espriella:[3,"11 propuestas + 600.000 empleos rurales agrícolas"]},
+ pobreza:{cepeda:[3,"Colombia Mayor a 5M, Renta, Banco del Pueblo, reforma agraria"],lopez:[2,"Presupuestos participativos + empleo local"],fajardo:[2,"Vía educación como movilidad social (indirecta)"],valencia:[2,"Subsidios focalizados + crédito a informales"],espriella:[1,"Vía crecimiento económico (sin redistribución directa)"]},
+ educacion:{cepeda:[2,"“Te pagamos por estudiar” (6 propuestas, foco en permanencia)"],lopez:[2,"Plataformas virtuales gratuitas (6 propuestas)"],fajardo:[3,"Triplicar inversión + parques educativos (15 propuestas)"],valencia:[3,"Becas, bilingüismo, Ruta 3E, Icetex, IA (13 propuestas)"],espriella:[2,"Subsidio a la demanda — vouchers (3 propuestas)"]},
+ fiscal:{cepeda:[2,"Austeridad republicana + más recaudo (tensión con expansión social)"],lopez:[1,"Descentralización fiscal (sin plan claro de déficit)"],fajardo:[3,"“Recursos públicos son sagrados” + ajuste fiscal creíble"],valencia:[2,"Austeridad + recortes con baja de impuestos (tensión)"],espriella:[3,"Ajuste de ~70 billones + Estado −25% (J. M. Restrepo)"]},
+ infra:{cepeda:[3,"30.000 km de vías terciarias (38 propuestas)"],lopez:[3,"Transporte masivo + electrificación urbana"],fajardo:[3,"19 propuestas (FEDe Precisión Media-alta en energía)"],valencia:[3,"23 propuestas: conectividad digital + plan hidrocarburos"],espriella:[2,"Solo 1 propuesta de infraestructura; foco real en energía"]}
+};
+const LVTXT = {3:"Directo", 2:"Parcial", 1:"Tangencial", 0:"No es foco"};
+const PROB_BY_ID = Object.fromEntries(PROBLEMS.map(p=>[p.id,p]));
+const cruceCandObjs = CRUCE_CANDS.map(id=>C_BY_ID[id]).filter(Boolean);
+const mEl = document.getElementById("matrix");
+if (mEl) {
+  const head = `<thead><tr><th class="corner rowh">Problema</th>`+
+    cruceCandObjs.map(c=>`<th><div class="chead"><div class="cini" style="background:${COLORS[c.id]}">${INI(c.id)}</div><div class="nm">${dn(c)}</div></div></th>`).join("")+`</tr></thead>`;
+  const body = "<tbody>"+CRUCE_PROBLEMS_ORDER.map(pid=>{
+    const p = PROB_BY_ID[pid];
+    const row = cruceCandObjs.map(c=>{
+      const [lv,note] = CRUCE[pid][c.id];
+      const {cand:cc, fede:cf} = cellPropsBySource(c.id, pid);
+      const propCount = cc.length + cf.length;
+      const flagCount = cellFlagCount(c.id, pid);
+      const propBtn = propCount > 0 ? `<button class="cell-btn" onclick="showProps('${c.id}','${pid}')">Ver las ${propCount} propuestas</button>` : "";
+      const flagBtn = flagCount > 0 ? `<button class="cell-btn flag" onclick="showFlags('${c.id}','${pid}')">⚑ ${flagCount} bandera${flagCount===1?'':'s'}</button>` : "";
+      return `<td><span class="lv lv${lv}">${LVTXT[lv]}</span><div class="cell-note">${note}</div><div class="cell-actions">${propBtn}${flagBtn}</div></td>`;
+    }).join("");
+    return `<tr><th class="rowh"><div class="rh-t">${p.t}</div><div class="rh-tag">${p.tier}</div></th>${row}</tr>`;
+  }).join("")+"</tbody>";
+  mEl.innerHTML = head + body;
+}
+const brEl = document.getElementById("breadth");
+if (brEl) {
+  brEl.innerHTML = cruceCandObjs.map(c=>{
+    let d=0; CRUCE_PROBLEMS_ORDER.forEach(pid=>{ if (CRUCE[pid][c.id][0]===3) d++; });
+    const pct = Math.round(d/CRUCE_PROBLEMS_ORDER.length*100);
+    return `<div class="bcard"><div class="bn"><span class="bini" style="background:${COLORS[c.id]}">${INI(c.id)}</span>${dn(c)}</div>
+      <div class="bbar"><div class="bfill" style="width:${pct}%;background:${COLORS[c.id]}"></div></div>
+      <div class="bnum">${d} de 8 problemas de forma directa</div></div>`;
+  }).join("");
+}
+
+/* --- banderas y vacíos --- */
+const asym = document.getElementById("asym");
+const fedeIds = new Set(META.candidatos_en_fede||["cepeda","espriella","fajardo","lopez","valencia"]);
+asym.innerHTML = `<div class="asym"><h3>Cobertura de atribución por candidato</h3>
+  <p style="font-size:13px;color:var(--muted);margin:0 0 6px"><b>5 con doble capa</b> (Candidateados + FEDe con banderas, expertos y evaluación por sector) · <b>7 con capa única</b> (solo Candidateados, sin atribución de terceros) · <b>1 retirado</b>.</p>
+  <div class="asym-grid">${ORDER.map(id=>{
+    const c=C_BY_ID[id]; const full=fedeIds.has(id);
+    const retired=isRetired(c);
+    const cls = retired?"":(full?"full":"");
+    const status = retired?"Retirado":(full?"Doble capa":"Solo Candidateados");
+    return `<div class="asym-card ${cls}"><div class="an"><span class="ai" style="background:${COLORS[id]}">${INI(id)}</span>${dn(c)}</div><div class="ad">${status}</div></div>`;
+  }).join("")}</div></div>`;
+
+// flag list
+const flags = [];
+CANDS.forEach(c=>c.sectores.forEach(s=>s.propuestas.forEach(p=>{
+  if(p.tags_terceros?.constitucionalidad){
+    flags.push({c, s, p, f:p.tags_terceros.constitucionalidad});
+  }
+})));
+flags.sort((a,b)=>{
+  const o = {tumbado_por_corte:0, contestado:1};
+  return (o[a.f.nivel]||9) - (o[b.f.nivel]||9) || a.c.id.localeCompare(b.c.id);
+});
+document.getElementById("flagList").innerHTML = flags.map(({c,s,p,f})=>{
+  const cls = f.nivel==="tumbado_por_corte"?"fb-tumbado":"fb-contestado";
+  const label = f.nivel==="tumbado_por_corte"?"Tumbada por la Corte":"Contestada";
+  // contenido del acordeón
+  const experts = p.tags_terceros?.comentarios_expertos || [];
+  const expertsHTML = experts.map(e =>
+    `<div class="expert"><div class="who">${escapeHTML(e.experto)} <span>· ${escapeHTML(e.rol||"")}</span></div><p>${escapeHTML(e.comentario)}</p></div>`
+  ).join("");
+  const fuenteEs = escapeHTML(p.fuente||"");
+  const fuenteHTML = fuenteEs.startsWith("http")
+    ? `<a href="${fuenteEs}" target="_blank" rel="noopener">${fuenteEs} ↗</a>`
+    : fuenteEs;
+  const subtemaHTML = p.subtema ? `<div class="flag-subtema">Subtema: ${escapeHTML(p.subtema)}</div>` : "";
+  const textoHTML = p.texto ? `<div class="flag-texto">${escapeHTML(p.texto)}</div>` : "";
+  const expertsLabel = experts.length ? `<div class="flag-subtema" style="margin-top:8px">Comentarios de expertos (${experts.length})</div>` : "";
+  const accordion = `<details class="flag-expand"><summary>Ver propuesta completa, comentarios de expertos y fuente</summary>
+    <div class="flag-expand-body">
+      ${subtemaHTML}${textoHTML}${expertsLabel}${expertsHTML}
+      <div class="flag-fuente"><b>Fuente:</b> ${fuenteHTML}</div>
+    </div></details>`;
+  return `<div class="flagcard">
+    <div class="fh">
+      <span class="ini" style="width:28px;height:28px;background:${COLORS[c.id]};border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:11px">${INI(c.id)}</span>
+      <span class="flag-badge ${cls}">⚑ ${label}</span>
+      <span class="ftit">${escapeHTML(dn(c))}: ${escapeHTML(p.titulo||'')}</span>
+    </div>
+    <div class="fmeta">${SECTOR_LABELS[s.sector]||s.sector} · ${escapeHTML((s.fuente_origen||'').toUpperCase())}</div>
+    <div class="fdet"><b>FEDe:</b> ${escapeHTML(f.detalle||'(sin detalle adicional)')} <i>— ${escapeHTML(f.fuente||'')}</i></div>
+    ${accordion}
+  </div>`;
+}).join("");
+
+// red flags
+const rfs = [];
+CANDS.forEach(c=>(c.red_flags_fede||[]).forEach(r=>rfs.push({c,r})));
+document.getElementById("rfList").innerHTML = rfs.length ? rfs.map(({c,r})=>`<div class="flagcard">
+  <div class="fh">
+    <span class="ini" style="width:28px;height:28px;background:${COLORS[c.id]};border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:11px">${INI(c.id)}</span>
+    <span class="ftit">${escapeHTML(r.badge||'')} — ${escapeHTML(r.titulo||'')}</span>
+  </div>
+  <div class="fmeta">${escapeHTML(dn(c))} · ${escapeHTML(r.meta||'')}${r.url_video?` · <a href="${escapeHTML(r.url_video)}" target="_blank" rel="noopener">video ↗</a>`:''}</div>
+</div>`).join("") : '<p class="intro">Sin red flags institucionales registradas.</p>';
+})();
+</script>
+</body>
+</html>
