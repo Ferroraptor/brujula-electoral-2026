@@ -1,6 +1,7 @@
 {
   "navigationFallback": {
-    "rewrite": "/index.html"
+    "rewrite": "/index.html",
+    "exclude": ["/fonts/*", "/img/*", "/archivo/*", "/*.json", "/*.png", "/*.svg", "/*.txt"]
   },
   "globalHeaders": {
     "X-Frame-Options": "DENY",
@@ -10,15 +11,22 @@
     "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'"
   },
   "routes": [
-    { "route": "/index.html",            "headers": { "Cache-Control": "public, max-age=300, must-revalidate" } },
-    { "route": "/propuestas-2026.json",  "headers": { "Cache-Control": "public, max-age=300, must-revalidate" } },
-    { "route": "/fonts/*",               "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
-    { "route": "/og-image.png",          "headers": { "Cache-Control": "public, max-age=86400" } },
-    { "route": "/favicon.svg",           "headers": { "Cache-Control": "public, max-age=86400" } }
+    { "route": "/archivo",        "rewrite": "/archivo/index.html" },
+    { "route": "/primera-vuelta", "rewrite": "/archivo/index.html" },
+    { "route": "/index.html",                            "headers": { "Cache-Control": "public, max-age=300, must-revalidate" } },
+    { "route": "/archivo/index.html",                    "headers": { "Cache-Control": "public, max-age=300, must-revalidate" } },
+    { "route": "/propuestas-2026.json",                  "headers": { "Cache-Control": "public, max-age=300, must-revalidate" } },
+    { "route": "/propuestas-2026-segunda-vuelta.json",   "headers": { "Cache-Control": "public, max-age=300, must-revalidate" } },
+    { "route": "/hitos.json",                            "headers": { "Cache-Control": "public, max-age=120, must-revalidate" } },
+    { "route": "/fonts/*",                               "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
+    { "route": "/img/*",                                 "headers": { "Cache-Control": "public, max-age=86400" } },
+    { "route": "/og-image.png",                          "headers": { "Cache-Control": "public, max-age=86400" } },
+    { "route": "/favicon.svg",                           "headers": { "Cache-Control": "public, max-age=86400" } }
   ],
   "mimeTypes": {
     ".woff2": "font/woff2",
     ".json":  "application/json",
-    ".svg":   "image/svg+xml"
+    ".svg":   "image/svg+xml",
+    ".webp":  "image/webp"
   }
 }

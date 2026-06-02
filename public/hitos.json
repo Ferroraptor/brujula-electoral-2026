@@ -1,0 +1,60 @@
+{
+  "lastUpdated": "2026-06-01T18:00:00-05:00",
+  "nota_curaduria": "Solo hechos verificables con fuente, fecha y enlace. Lenguaje neutro. Simetría obligatoria: mismo número de hitos propios por candidato. Ventana móvil de 14 días. Actualización manual, sin scraping.",
+  "hitos": [
+    {
+      "fecha": "2026-06-01",
+      "candidato": "espriella",
+      "categoria": "debate",
+      "titulo": "De la Espriella propone debatir el 9 de junio en Semana",
+      "descripcion": "Abelardo de la Espriella dijo que asistirá a un debate con Iván Cepeda el 9 de junio a las 7 p. m. en la revista Semana, con condiciones que incluyen aceptar los resultados de la primera vuelta.",
+      "fuente": "Semana",
+      "url": "https://www.semana.com/politica/articulo/abelardo-de-la-espriella-acepto-debatir-con-ivan-cepeda-el-proximo-9-de-junio-en-semana-el-candidato-del-pacto-historico-aun-no-responde/202654/"
+    },
+    {
+      "fecha": "2026-06-01",
+      "candidato": "cepeda",
+      "categoria": "debate",
+      "titulo": "Cepeda rechaza el debate en Semana y pide otras reglas",
+      "descripcion": "Iván Cepeda no aceptó la invitación a debatir el 9 de junio en Semana; pidió 'reglas claras' y un escenario distinto, y propuso un formato de duelo sin fórmulas vicepresidenciales.",
+      "fuente": "Infobae",
+      "url": "https://www.infobae.com/colombia/2026/06/01/ivan-cepeda-no-acepto-el-debate-con-abelardo-de-la-espriella-para-el-9-de-junio-esta-fue-la-razon/"
+    },
+    {
+      "fecha": "2026-06-01",
+      "candidato": "ambos",
+      "categoria": "debate",
+      "titulo": "Las campañas no se ponen de acuerdo sobre el debate",
+      "descripcion": "Al cierre del 1 de junio no había un debate confirmado entre los dos candidatos: difieren en fecha, medio organizador y formato.",
+      "fuente": "El Nuevo Día",
+      "url": "https://www.elnuevodia.com.co/politica/cepeda-y-de-la-espriella-no-se-ponen-de-acuerdo-para-el-debate-537044"
+    },
+    {
+      "fecha": "2026-05-31",
+      "candidato": "espriella",
+      "categoria": "apoyo",
+      "titulo": "Paloma Valencia anuncia su apoyo a De la Espriella",
+      "descripcion": "Tras quedar tercera en la primera vuelta, la senadora del Centro Democrático Paloma Valencia anunció que respaldará a Abelardo de la Espriella en la segunda vuelta.",
+      "fuente": "El Tiempo",
+      "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/paloma-valencia-se-pronuncio-frente-a-su-salida-de-la-segunda-vuelta-presidencial-en-las-elecciones-afirmo-que-apoyara-a-abelardo-de-la-espriella-3560950"
+    },
+    {
+      "fecha": "2026-05-31",
+      "candidato": "cepeda",
+      "categoria": "apoyo",
+      "titulo": "Roy Barreras anuncia su apoyo a Cepeda",
+      "descripcion": "Roy Barreras anunció su respaldo a Iván Cepeda para la segunda vuelta y le pidió ampliar su campaña hacia el centro político.",
+      "fuente": "El Tiempo",
+      "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/roy-barreras-anuncio-su-apoyo-a-ivan-cepeda-y-le-pidio-abrir-la-campana-para-que-abelardo-de-la-espriella-no-sea-presidente-3560974"
+    },
+    {
+      "fecha": "2026-05-31",
+      "candidato": "ambos",
+      "categoria": "resultado",
+      "titulo": "Resultados de primera vuelta: De la Espriella 43,74 % · Cepeda 40,90 %",
+      "descripcion": "La Registraduría reportó que Abelardo de la Espriella (43,74 %) e Iván Cepeda (40,90 %) pasan a segunda vuelta el 21 de junio; ninguno alcanzó la mayoría absoluta.",
+      "fuente": "El Tiempo",
+      "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/como-quedaron-las-votaciones-presidenciales-en-primera-vuelta-abelardo-de-la-espriella-le-gano-a-ivan-cepeda-e-iran-juntos-a-segunda-vuelta-3561040"
+    }
+  ]
+}

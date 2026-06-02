@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brújula Electoral 2026 · Segunda vuelta</title>
+<meta name="description" content="Segunda vuelta presidencial Colombia 2026: compara frente a frente las propuestas de Iván Cepeda y Abelardo de la Espriella, con sus fuentes citadas. Herramienta cívica que no recomienda voto.">
+<link rel="canonical" href="https://brujula-electoral.ferroraptor.com/">
+<meta name="theme-color" content="#F6F2E9">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brújula Electoral 2026 · Segunda vuelta">
+<meta property="og:description" content="Cepeda vs De la Espriella: compara sus propuestas frente a frente, con fuentes citadas. No te recomienda voto; te da información para decidir.">
+<meta property="og:image" content="https://brujula-electoral.ferroraptor.com/og-image.png">
+<meta property="og:url" content="https://brujula-electoral.ferroraptor.com/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  @font-face { font-family: 'Fraunces'; font-weight: 400; font-display: swap; src: url('/fonts/fraunces-400.woff2') format('woff2'); }
+  @font-face { font-family: 'Fraunces'; font-weight: 500; font-display: swap; src: url('/fonts/fraunces-500.woff2') format('woff2'); }
+  @font-face { font-family: 'Fraunces'; font-weight: 600; font-display: swap; src: url('/fonts/fraunces-600.woff2') format('woff2'); }
+  @font-face { font-family: 'Public Sans'; font-weight: 400; font-display: swap; src: url('/fonts/public-sans-400.woff2') format('woff2'); }
+  @font-face { font-family: 'Public Sans'; font-weight: 500; font-display: swap; src: url('/fonts/public-sans-500.woff2') format('woff2'); }
+  @font-face { font-family: 'Public Sans'; font-weight: 600; font-display: swap; src: url('/fonts/public-sans-600.woff2') format('woff2'); }
+</style>
+<style>
+  :root{
+    --bg:#F6F2E9;--panel:#FFFEFB;--ink:#22201B;--muted:#6B665B;
+    --line:#E0D9C9;--line2:#CFC6B2;--chip:#EFEADD;
+    --L3:#41506B;--L2:#9AA6BC;--L1:#D7DCE5;--L0:#EFEDE6;
+    --warn:#9C5A2B;--danger:#8C3A2E;--ok:#4F7A5A;
+    --cepeda:#B5634A;--espriella:#5A5A8C;
+    --like:#4F7A5A;--dislike:#8C3A2E;--unsure:#9C7A2B;
+    --r:12px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 20px}
+  a{color:#7a4a3c}
+
+  /* ---- header global ---- */
+  header.top{padding:26px 0 16px;border-bottom:1px solid var(--line)}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(28px,5vw,48px);line-height:1.02;margin:.16em 0 .1em;letter-spacing:-.01em}
+  .top-row{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between}
+  .countdown{flex:none;text-align:center;background:var(--ink);color:#fff;border-radius:var(--r);padding:12px 20px;min-width:120px}
+  .countdown .cd-num{font-family:"Fraunces",serif;font-weight:600;font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+  .countdown .cd-lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.85;margin-top:4px}
+  .respeto{margin:16px 0 0;padding:14px 17px;background:var(--panel);border:1px solid var(--line2);border-left:4px solid var(--L3);border-radius:var(--r);font-size:14px;color:#34302a;line-height:1.6;max-width:88ch}
+  .respeto b{color:#22201b;font-weight:600}
+  .vuelta-sel{display:inline-flex;gap:4px;margin-top:14px;background:var(--chip);border-radius:30px;padding:3px}
+  .vuelta-sel a,.vuelta-sel span{font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:30px;text-decoration:none;color:var(--muted)}
+  .vuelta-sel .active{background:var(--ink);color:#fff}
+
+  /* ---- tabs ---- */
+  .tabs{position:sticky;top:0;z-index:30;background:rgba(246,242,233,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .tabs .wrap{display:flex;gap:4px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+  .tab{border:none;background:none;font:inherit;font-weight:600;font-size:14px;color:var(--muted);padding:9px 14px;border-radius:9px;cursor:pointer;transition:all .15s}
+  .tab:hover{color:var(--ink)}
+  .tab[aria-selected="true"]{background:var(--ink);color:#fff}
+  .tab .tab-badge{font-size:10.5px;background:var(--L3);color:#fff;border-radius:30px;padding:1px 7px;margin-left:5px;font-variant-numeric:tabular-nums}
+  .tab[aria-selected="true"] .tab-badge{background:rgba(255,255,255,.22)}
+  .view{display:none;padding:18px 0 60px}
+  .view.on{display:block}
+  .intro{font-size:14.5px;color:var(--muted);max-width:78ch;margin:12px 0 6px}
+  h2.sec{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(20px,3vw,26px);margin:6px 0 2px;letter-spacing:-.01em}
+
+  /* ---- cara a cara ---- */
+  .cara-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 10px}
+  @media (max-width:720px){.cara-grid{grid-template-columns:1fr}}
+  .cara-card{background:var(--panel);border:1px solid var(--line);border-top:5px solid var(--cc);border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column}
+  .cara-top{display:flex;gap:14px;align-items:center}
+  .cara-foto{width:74px;height:74px;border-radius:50%;object-fit:cover;flex:none;background:var(--cc);border:2px solid var(--cc)}
+  .cara-ini{width:74px;height:74px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Fraunces",serif;font-weight:600;font-size:27px;background:var(--cc)}
+  .cara-name{font-family:"Fraunces",serif;font-weight:600;font-size:22px;line-height:1.05;margin:0;letter-spacing:-.01em}
+  .cara-party{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:2px}
+  .cara-result{display:flex;align-items:baseline;gap:8px;margin:14px 0 2px;padding:10px 12px;background:var(--chip);border-radius:8px}
+  .cara-pct{font-family:"Fraunces",serif;font-weight:600;font-size:26px;color:var(--cc);font-variant-numeric:tabular-nums}
+  .cara-votes{font-size:12.5px;color:var(--muted)}
+  .cara-votes b{color:#3a352d;font-weight:600;font-variant-numeric:tabular-nums}
+  .cara-rl{font-size:12.5px;color:#3a352d;margin:10px 0 2px}
+  .cara-rl .k{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;display:block;margin-bottom:1px}
+  .apoyos{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+  .apoyo-badge{font-size:11.5px;background:#EFF3F8;border:1px solid #C9D3E2;color:#3a4458;border-radius:30px;padding:3px 10px;font-weight:500}
+  .cara-bio{font-size:13px;color:#34302a;line-height:1.55;margin:12px 0 4px}
+  .cara-bio .src{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600;display:block;margin-bottom:2px}
+  details.cara-mas{margin-top:6px}
+  details.cara-mas>summary{cursor:pointer;font-size:12px;color:#7a4a3c;font-weight:500;list-style:none}
+  details.cara-mas>summary::-webkit-details-marker{display:none}
+  details.cara-mas>summary::before{content:"▸ "}
+  details.cara-mas[open]>summary::before{content:"▾ "}
+  details.cara-mas .body{font-size:12.5px;color:#34302a;line-height:1.55;margin-top:6px;padding:9px 11px;background:#FBF8F0;border-radius:6px;border-left:3px solid var(--line2)}
+  .cara-foot{margin-top:auto;padding-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .cta-btn{background:var(--cc);color:#fff;border:none;border-radius:8px;font:inherit;font-weight:600;font-size:13px;padding:9px 15px;cursor:pointer}
+  .cta-btn:hover{filter:brightness(.94)}
+  .prog-link{font-size:12px;font-weight:600}
+  .blank-vote{display:block;width:100%;max-width:560px;margin:16px auto 0;background:var(--panel);border:1px dashed var(--line2);border-radius:var(--r);padding:14px 18px;text-align:center;cursor:pointer;font:inherit;color:var(--ink)}
+  .blank-vote:hover{border-color:var(--ink);background:#FBF8F0}
+  .blank-vote b{font-family:"Fraunces",serif;font-weight:600;font-size:16px}
+  .blank-vote span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}
+
+  /* ---- comparar por problema ---- */
+  .pchips{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:4px 0 10px;margin:8px 0}
+  .pchip{flex:none;border:1px solid var(--line2);background:var(--panel);border-radius:30px;padding:7px 14px;font:inherit;font-size:12.5px;font-weight:600;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .pchip:hover{border-color:var(--ink)}
+  .pchip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .pchip .pn{font-family:"Fraunces",serif;opacity:.6;font-size:12px}
+  .prob-head{background:var(--panel);border:1px solid var(--line2);border-radius:var(--r);padding:15px 18px;margin:6px 0 14px}
+  .prob-head .ph{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .prob-head h3{font-family:"Fraunces",serif;font-weight:500;font-size:21px;margin:0;letter-spacing:-.01em}
+  .tier{font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:3px 9px;border-radius:30px}
+  .tierA{background:var(--L3);color:#fff}.tierB{background:var(--L2);color:#1d2330}.tierC{background:var(--chip);color:#5c574b;border:1px dashed var(--line2)}
+  .pollrow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+  .pollpill{font-size:11.5px;background:var(--chip);border-radius:30px;padding:3px 10px;color:#5c574b}
+  .pollpill b{color:#2c2a24;font-weight:600}
+  .approx{font-size:13.5px;color:#2c2a24;margin:8px 0 2px}
+  .struct{font-size:12.5px;color:var(--muted);margin:6px 0 2px}
+  .struct b{color:#5c574b;font-weight:600}
+  .srcline{font-size:11px;color:var(--muted);margin-top:6px}
+  .srcline b{font-weight:600;color:#5c574b}
+  .cmp-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:720px){.cmp-cols{grid-template-columns:1fr}}
+  .cmp-col{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--cc);border-radius:var(--r);padding:13px 15px}
+  .cmp-col-head{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+  .cmp-col-head .ini{width:30px;height:30px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Fraunces",serif;font-weight:600;font-size:12px;background:var(--cc);background-size:cover;background-position:center}
+  .cmp-col-head h4{font-family:"Fraunces",serif;font-weight:500;font-size:17px;margin:0}
+  .cmp-col-head .cnt{font-size:11.5px;color:var(--muted);margin-left:auto;font-variant-numeric:tabular-nums}
+  .no-fede{font-size:12px;color:var(--muted);font-style:italic;padding:8px 11px;background:#FBF8F0;border-radius:6px;border-left:3px solid var(--line2);margin:8px 0}
+  .col-empty{font-size:12.5px;color:var(--muted);font-style:italic;padding:10px 0}
+
+  /* fede box (heredado de v4) */
+  .fede-box{background:#F2EEDF;border-left:3px solid var(--L2);border-radius:8px;padding:11px 13px;margin:6px 0 10px}
+  .fede-box-head{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6b665b;font-weight:600;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+  .fede-info{background:#e0d9c9;border:none;color:#5c574b;width:18px;height:18px;border-radius:50%;font-size:11px;cursor:pointer;font-weight:700;line-height:1;padding:0}
+  .fede-info:hover{background:#cfc6b2;color:#22201b}
+  .fede-subtitulo{font-family:"Fraunces",serif;font-size:14px;color:#34302a;font-style:italic;line-height:1.45;margin-bottom:8px}
+  .fede-ratings{display:flex;gap:6px;flex-wrap:wrap}
+  .fede-rating{display:inline-flex;flex-direction:column;background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:6px;padding:4px 9px;font-size:11px}
+  .fede-rating-k{color:#6b665b;font-size:10px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+  .fede-rating b{color:#22201b;font-size:12.5px;font-weight:600}
+
+  /* proposal + selector */
+  .prop{padding:11px 0;border-bottom:1px dashed var(--line)}
+  .prop:last-child{border-bottom:none}
+  .prop-head{display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+  .prop-title{font-weight:600;font-size:13.5px;color:#2c2a24;line-height:1.35;flex:1;min-width:0}
+  .prop-sub{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;padding:1px 7px;border-radius:30px;background:var(--chip)}
+  @media (max-width:560px){.prop-head{flex-direction:column;align-items:stretch;gap:4px}.prop-head .prop-sub{align-self:flex-start}}
+  .prop-text{font-size:13px;color:#3a352d;margin:5px 0 4px;line-height:1.55}
+  .prop-actions{display:flex;gap:8px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:5px;align-items:center}
+  .prop-source{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+  .prop-source a{color:#7a4a3c}
+  .toggle-link{background:none;border:none;color:#7a4a3c;font:inherit;font-size:11.5px;cursor:pointer;padding:0;text-decoration:underline}
+  .flag-badge{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:30px}
+  .fb-contestado{background:#F3E0D6;color:#7a4226;border:1px solid #DDB0A4}
+  .fb-tumbado{background:#F2D5D0;color:#7a3326;border:1px solid #D08B82}
+  .expert{margin-top:7px;padding:9px 11px;background:#F2EEDF;border-left:3px solid var(--L2);border-radius:6px;font-size:12px}
+  .expert .who{font-weight:600;color:#3a352d;font-size:11.5px}
+  .expert .who span{font-weight:400;color:var(--muted);font-size:11px}
+  .expert p{margin:4px 0 0;color:#34302a;line-height:1.5}
+  .flag-detail{margin-top:6px;padding:8px 11px;background:#FBF1E6;border-radius:6px;font-size:12px;color:#5c4426}
+  .flag-detail b{color:#3a352d}
+  .flag-nodet{color:#8a8270;font-style:italic}
+  .flag-expand{margin-top:8px}
+  .flag-expand>summary{cursor:pointer;font-size:11.5px;color:#7a4a3c;font-weight:500;list-style:none;padding:3px 0}
+  .flag-expand>summary::-webkit-details-marker{display:none}
+  .flag-expand>summary::before{content:"▸ ";color:var(--muted)}
+  .flag-expand[open]>summary::before{content:"▾ "}
+  .flag-expand-body{padding:6px 0 2px}
+  .prop-title,.prop-text,.flag-detail,.expert p,.fede-subtitulo,.modal-body,.pos-a{overflow-wrap:anywhere}
+  /* selector */
+  .sel{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .sel-btn{border:1px solid var(--line2);background:var(--panel);border-radius:30px;font:inherit;font-size:11.5px;font-weight:600;padding:5px 11px;cursor:pointer;color:#5c574b;transition:all .12s}
+  .sel-btn:hover{border-color:var(--ink)}
+  .sel-btn.like[aria-pressed="true"]{background:var(--like);color:#fff;border-color:var(--like)}
+  .sel-btn.dislike[aria-pressed="true"]{background:var(--dislike);color:#fff;border-color:var(--dislike)}
+  .sel-btn.unsure[aria-pressed="true"]{background:var(--unsure);color:#fff;border-color:var(--unsure)}
+
+  /* posiciones frente a frente */
+  .pos-wrap{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .pos-head{padding:11px 15px;border-bottom:1px solid var(--line);background:#F2EEDF}
+  .pos-head h4{font-family:"Fraunces",serif;font-weight:500;font-size:16px;margin:0}
+  .pos-head .sub{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .pos-q{padding:12px 15px;border-bottom:1px dashed var(--line)}
+  .pos-q:last-child{border-bottom:none}
+  .pos-qt{font-weight:600;font-size:13px;color:#2c2a24;margin-bottom:7px}
+  .pos-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media (max-width:620px){.pos-row{grid-template-columns:1fr}}
+  .pos-a{border-left:3px solid var(--cc);padding:6px 10px;background:#FBF8F0;border-radius:0 6px 6px 0;font-size:12.5px;color:#34302a;line-height:1.5}
+  .pos-a .who{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;color:var(--cc);display:block;margin-bottom:2px}
+
+  /* privacy + clear */
+  .privacy{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:18px 0 6px;padding:11px 15px;background:var(--chip);border-radius:var(--r);font-size:12.5px;color:#5c574b}
+  .clear-btn{background:var(--panel);border:1px solid var(--line2);border-radius:8px;font:inherit;font-size:12px;font-weight:600;padding:6px 12px;cursor:pointer;color:#7a3326}
+  .clear-btn:hover{border-color:#8C3A2E}
+
+  /* ---- mi puntaje ---- */
+  .empty-state{background:var(--panel);border:1px dashed var(--line2);border-radius:var(--r);padding:30px 22px;text-align:center;margin-top:16px}
+  .empty-state h3{font-family:"Fraunces",serif;font-weight:500;font-size:20px;margin:0 0 6px}
+  .empty-state p{font-size:14px;color:var(--muted);max-width:56ch;margin:0 auto 14px}
+  .score-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+  @media (max-width:620px){.score-grid{grid-template-columns:1fr}}
+  .score-card{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--cc);border-radius:var(--r);padding:14px 16px}
+  .score-card h4{font-family:"Fraunces",serif;font-weight:500;font-size:17px;margin:0 0 8px}
+  .score-bar{height:22px;border-radius:6px;overflow:hidden;display:flex;background:var(--chip);font-size:11px;font-weight:600;color:#fff}
+  .score-bar i{display:flex;align-items:center;justify-content:center;font-style:normal;min-width:0}
+  .sb-like{background:var(--like)}.sb-dislike{background:var(--dislike)}.sb-unsure{background:var(--unsure)}
+  .score-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:#5c574b;margin-top:8px}
+  .score-legend span{display:inline-flex;align-items:center;gap:5px}
+  .dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+  .score-overview{background:var(--panel);border:1px solid var(--line2);border-radius:var(--r);padding:14px 18px;margin:6px 0}
+  .score-overview .big{font-family:"Fraunces",serif;font-weight:600;font-size:22px;color:#2c2a24}
+  table.byprob{border-collapse:collapse;width:100%;font-size:12.5px;margin-top:10px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  table.byprob th,table.byprob td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line)}
+  table.byprob thead th{background:var(--chip);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#5c574b}
+  table.byprob td.num{font-variant-numeric:tabular-nums;text-align:center}
+  .reflexion{background:var(--panel);border:1px solid var(--line2);border-left:4px solid var(--L3);border-radius:var(--r);padding:16px 18px;margin:18px 0;font-size:14px;line-height:1.65;color:#34302a}
+  .reflexion p{margin:0 0 10px}.reflexion p:last-child{margin:0}
+  .reflexion b{color:#22201b;font-weight:600}
+
+  /* ---- hitos ---- */
+  .hito{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:13px 16px;margin-bottom:9px;display:flex;gap:13px}
+  .hito-date{flex:none;width:64px;font-variant-numeric:tabular-nums;text-align:center}
+  .hito-date .d{font-family:"Fraunces",serif;font-weight:600;font-size:20px;line-height:1}
+  .hito-date .m{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:2px}
+  .hito-body{flex:1;min-width:0}
+  .hito-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px}
+  .hito-cat{font-size:10px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:30px;background:var(--chip);color:#5c574b}
+  .hc-resultado{background:var(--L3);color:#fff}.hc-apoyo{background:#EFF3F8;color:#3a4458;border:1px solid #C9D3E2}
+  .hc-debate{background:#FBF1E6;color:#7a4226;border:1px solid #E8C9A5}.hc-judicial{background:#F2D5D0;color:#7a3326}
+  .hito-who{font-size:10px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:30px;color:#fff}
+  .hito-t{font-weight:600;font-size:13.5px;color:#2c2a24}
+  .hito-d{font-size:12.5px;color:#3a352d;margin-top:3px;line-height:1.5}
+  .hito-src{font-size:11px;color:var(--muted);margin-top:4px}
+  .sym-note{font-size:12px;color:var(--muted);background:var(--chip);border-radius:8px;padding:8px 12px;margin:8px 0 14px}
+
+  /* ---- cómo decidir ---- */
+  .decidir{max-width:74ch}
+  .decidir .step{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:15px 18px;margin-bottom:11px}
+  .decidir .step h3{font-family:"Fraunces",serif;font-weight:500;font-size:18px;margin:0 0 5px;letter-spacing:-.01em}
+  .decidir .step p{font-size:14px;color:#34302a;margin:0;line-height:1.6}
+  .decidir .step.blank{border-color:var(--line2);border-left:4px solid var(--L3)}
+
+  /* modal (heredado) */
+  .modal[hidden]{display:none}
+  .modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
+  .modal-backdrop{position:absolute;inset:0;background:rgba(34,32,27,.45);backdrop-filter:blur(2px)}
+  .modal-panel{position:relative;background:var(--panel);border-radius:var(--r);max-width:720px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.25);overflow:hidden}
+  #modal-content{max-height:88vh;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .modal-header{padding:16px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:1}
+  .modal-kicker{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .modal-title{font-family:"Fraunces",serif;font-weight:500;font-size:22px;margin:3px 0 4px;letter-spacing:-.01em;padding-right:36px}
+  .modal-body{padding:14px 22px 20px;font-size:13.5px;line-height:1.6;color:#34302a}
+  .modal-body h4{font-family:"Fraunces",serif;font-weight:500;font-size:15px;margin:14px 0 4px;color:#22201b}
+  .modal-close{position:absolute;top:10px;right:14px;background:var(--panel);border:none;font-size:22px;color:var(--muted);cursor:pointer;line-height:1;width:32px;height:32px;border-radius:6px;z-index:3}
+  .modal-close:hover{background:var(--chip);color:var(--ink)}
+
+  footer{border-top:1px solid var(--line2);padding:24px 0 60px;font-size:12.5px;color:var(--muted)}
+  footer a{color:#7a4a3c}
+  footer h3{font-family:"Fraunces",serif;font-size:15px;color:var(--ink);margin:0 0 6px;font-weight:600}
+  footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+  .disc{margin-top:16px;padding:13px 15px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);font-size:12px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-row">
+      <div>
+        <div class="kicker">Elecciones presidenciales · Colombia 2026 · Segunda vuelta</div>
+        <h1>Brújula Electoral</h1>
+      </div>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div class="cd-num" id="cd-num">—</div>
+        <div class="cd-lbl" id="cd-lbl">para el 21 de junio</div>
+      </div>
+    </div>
+    <p class="respeto">
+      Estamos en un momento de máxima polarización. Esta herramienta no busca convencerte de votar por
+      uno u otro candidato; busca darte información rigurosa para que decidas tú. Sea cual sea el
+      resultado del 21 de junio, <b>la democracia colombiana depende del respeto al voto del otro</b>
+      mucho más que de quién gane.
+    </p>
+    <div class="vuelta-sel">
+      <span class="active">Segunda vuelta</span>
+      <a href="/archivo">Primera vuelta · archivo →</a>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <div class="wrap">
+    <button class="tab" role="tab" aria-selected="true"  data-v="cara">Cara a cara</button>
+    <button class="tab" role="tab" aria-selected="false" data-v="comparar">Comparar por problema</button>
+    <button class="tab" role="tab" aria-selected="false" data-v="puntaje">Mi puntaje<span class="tab-badge" id="puntaje-badge" hidden></span></button>
+    <button class="tab" role="tab" aria-selected="false" data-v="hitos">Hitos verificables</button>
+    <button class="tab" role="tab" aria-selected="false" data-v="decidir">Cómo decidir</button>
+  </div>
+</nav>
+
+<div class="view on" id="v-cara"><div class="wrap">
+  <p class="intro">Los dos finalistas, lado a lado. Empieza por aquí: el resultado de primera vuelta, la
+    fórmula vicepresidencial, los apoyos recibidos y un perfil de cada uno. Luego pasa a <b>Comparar por
+    problema</b> para contrastar sus propuestas.</p>
+  <div class="cara-grid" id="caraGrid"></div>
+  <button class="blank-vote" id="blankVote">
+    <b>Vota en blanco — explorar la opción</b>
+    <span>Qué significa el voto en blanco en Colombia y cuándo invalida la elección →</span>
+  </button>
+</div></div>
+
+<div class="view" id="v-comparar"><div class="wrap">
+  <p class="intro">El comparador central. Para cada uno de los <b>8 problemas del país</b> —triangulados de
+    cinco encuestadoras más fuentes estructurales— mira lo que propone cada candidato, lado a lado, y marca
+    lo que te convence y lo que no. Tus marcas alimentan <b>Mi puntaje</b>.</p>
+  <div class="pchips" id="pchips" role="tablist"></div>
+  <div id="probHead"></div>
+  <div class="cmp-cols" id="cmpCols"></div>
+  <div id="posWrap"></div>
+  <div class="privacy">
+    <span>🔒 Tus selecciones se guardan <b>solo en tu dispositivo</b>. Nada se envía a ningún servidor; no hay analítica ni rastreo.</span>
+    <button class="clear-btn" id="clearBtn">Limpiar mis selecciones</button>
+  </div>
+</div></div>
+
+<div class="view" id="v-puntaje"><div class="wrap">
+  <h2 class="sec">Mi puntaje</h2>
+  <div id="puntajeBody"></div>
+</div></div>
+
+<div class="view" id="v-hitos"><div class="wrap">
+  <h2 class="sec">Hitos verificables</h2>
+  <p class="intro">Hechos con fuente, fecha y enlace de las últimas dos semanas. Lenguaje neutro y
+    <b>simetría obligatoria</b>: mismo número de hitos por candidato, o se muestra la asimetría de forma
+    explícita. Curaduría manual, sin scraping. Más reciente arriba.</p>
+  <div id="symNote"></div>
+  <div id="hitosList"></div>
+</div></div>
+
+<div class="view" id="v-decidir"><div class="wrap">
+  <h2 class="sec">Cómo decidir</h2>
+  <p class="intro">No es un instructivo de voto. Son preguntas para pensar mejor tu decisión —cualquiera
+    que sea.</p>
+  <div class="decidir">
+    <div class="step"><h3>Antes de comparar, define tus prioridades</h3><p>Pregúntate qué 3 cosas te
+      importan más para los próximos cuatro años. Si decides primero qué pesa para ti, después puedes
+      comparar contra eso en vez de dejarte arrastrar por carisma o narrativa.</p></div>
+    <div class="step"><h3>Separa tres cosas que la gente mezcla</h3><p>Lo que el candidato <i>dice</i> que
+      va a hacer, lo que <i>puede</i> realmente hacer dado el Congreso, la Corte y la caja fiscal, y lo
+      que <i>ha hecho</i> históricamente. Son tres preguntas distintas.</p></div>
+    <div class="step"><h3>Pondera el peor escenario de cada uno</h3><p>No "¿cuál me gusta más?" sino "¿qué
+      es lo peor que podría salir con este candidato?". Ese ángulo saca más información que la simpatía.</p></div>
+    <div class="step"><h3>Busca el mejor argumento del que NO te gusta</h3><p>Si no puedes formular en una
+      frase honesta por qué alguien razonable apoyaría al otro candidato, todavía no lo conoces lo
+      suficiente para descartarlo.</p></div>
+    <div class="step blank" id="blankStep"><h3>Sobre el voto en blanco</h3><p>Es una opción válida si
+      después de evaluar honestamente ninguno te convence. En Colombia, en <b>primera vuelta</b> el voto
+      en blanco fuerza repetir la elección con candidatos nuevos si supera la mayoría de los votos; en
+      <b>segunda vuelta</b> no tiene ese efecto —no fuerza repetición— pero sí conserva valor político
+      como expresión de disenso.</p></div>
+    <div class="reflexion" style="margin-top:14px"><p>Sea cual sea el resultado del 21 de junio, la
+      democracia colombiana depende del respeto al voto del otro mucho más que de quién gane. Salir de
+      aquí sabiendo más —incluso sobre el candidato que ya prefieres— y respetando más a quien piensa
+      distinto es el único objetivo de esta herramienta.</p></div>
+  </div>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><h3>Propuestas</h3>Candidateados (data de 1ª vuelta; los programas oficiales no cambiaron) y
+      <b>FEDe</b> (sheet de segunda vuelta, refrescado el 1 de junio de 2026). Texto fiel; cada propuesta
+      lleva su fuente. Las banderas y comentarios son juicios atribuidos a FEDe, no veredictos neutros.</div>
+    <div><h3>Percepción ciudadana</h3>Invamer, CNC, AtlasIntel, Cifras & Conceptos, Red Cómo Vamos (EPC
+      2025) + DANE, Transparencia Internacional, Afidro. Promedios simples con la misma pregunta.</div>
+    <div><h3>Ver fuentes</h3><a href="https://propuestascandidatos.fedecolombia.org" target="_blank" rel="noopener">FEDe</a> ·
+      <a href="https://www.candidateados.com" target="_blank" rel="noopener">Candidateados</a> ·
+      <a href="/archivo">Archivo de primera vuelta</a></div>
+  </div>
+  <div class="disc">
+    <b>Proyecto personal e independiente de Sergio Ferro.</b> No representa a ninguna campaña, partido ni
+    organización. Es información cívica, no una recomendación de voto. Esta herramienta tabula tus
+    selecciones; no concluye por ti. Verifica en las fuentes originales antes de decidir.
+    <br><small>¿Error o feedback? → <a href="mailto:hello@ferroraptor.com">hello@ferroraptor.com</a></small>
+  </div>
+</div></footer>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-panel">
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+(async function init(){
+  let RAW, HITOS;
+  try{
+    const [r1,r2] = await Promise.all([
+      fetch('/propuestas-2026-segunda-vuelta.json',{cache:'force-cache'}),
+      fetch('/hitos.json',{cache:'no-cache'}),
+    ]);
+    if(!r1.ok) throw new Error('corpus HTTP '+r1.status);
+    RAW = await r1.json();
+    HITOS = r2.ok ? await r2.json() : {hitos:[],lastUpdated:null};
+  }catch(e){
+    document.body.innerHTML = '<div style="padding:40px;text-align:center;font-family:system-ui">No se pudo cargar la información.<br><small style="color:#888">'+e.message+'</small></div>';
+    return;
+  }
+
+  const META = RAW.meta;
+  const CANDS = RAW.candidatos;
+  const C_BY_ID = Object.fromEntries(CANDS.map(c=>[c.id,c]));
+  const ORDER = ['cepeda','espriella'];               // orden fijo, simétrico
+  const COLORS = {cepeda:'#B5634A', espriella:'#5A5A8C'};
+  const DISPLAY_NAME = {cepeda:'Iván Cepeda', espriella:'Abelardo de la Espriella'};
+  const dn = id => DISPLAY_NAME[id] || (C_BY_ID[id]?.nombre || id);
+  const INI = id => {const c=C_BY_ID[id];if(!c)return '??';const p=c.nombre.split(/\s+/);return (p[0][0]+(p[p.length-1][0]||'')).toUpperCase();};
+  const SECTOR_LABELS = {seguridad:'Seguridad',salud:'Salud',educacion:'Educación',empleo:'Empleo',
+    infraestructura:'Infraestructura',corrupcion:'Corrupción / Estado',energia:'Energía',
+    tierras_y_agro:'Tierras y agro',institucional:'Institucional'};
+
+  function escapeHTML(s){return (s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+  function fuenteLink(raw){raw=(raw||'').trim();const url=raw.split('|')[0].trim();if(!url.startsWith('http'))return escapeHTML(raw);return '<a href="'+escapeHTML(url)+'" target="_blank" rel="noopener">fuente ↗</a>';}
+  function fedeFlagText(f){if(!f)return '';const band=f.bandera?escapeHTML(f.bandera)+' al Estado de Derecho':'Objeción al Estado de Derecho';const det=(f.detalle||'').trim();if(det)return '<b>FEDe — '+band+':</b> '+escapeHTML(det)+' <i>— '+escapeHTML(f.fuente||'FEDe')+'</i>';return '<b>FEDe — '+band+'.</b> <span class="flag-nodet">FEDe la marcó en su semáforo del Estado de Derecho, sin publicar explicación detallada. Audita en la fuente.</span>';}
+
+  /* ---------- selector (localStorage) ---------- */
+  const SEL_KEY='brujula-2026-selections-v5';
+  let SEL={version:'v5',lastUpdated:null,selections:{}};
+  let storageOK=true;
+  function loadSel(){try{const r=localStorage.getItem(SEL_KEY);if(r){const o=JSON.parse(r);if(o&&o.selections&&typeof o.selections==='object')SEL=o;}}catch(e){storageOK=false;}}
+  function saveSel(){SEL.lastUpdated=new Date().toISOString();try{localStorage.setItem(SEL_KEY,JSON.stringify(SEL));}catch(e){storageOK=false;}}
+  function getSel(id){return SEL.selections[id]||null;}
+  function setSel(id,val){if(SEL.selections[id]===val)delete SEL.selections[id];else SEL.selections[id]=val;saveSel();updateBadge();}
+  function clearSel(){SEL.selections={};saveSel();updateBadge();}
+  function selCount(){return Object.keys(SEL.selections).length;}
+  loadSel();
+
+  function updateBadge(){
+    const n=selCount();const b=document.getElementById('puntaje-badge');
+    if(n>0){b.textContent=n;b.hidden=false;}else{b.hidden=true;}
+  }
+
+  /* ---------- proposal render (con selector) ---------- */
+  function renderProp(p){
+    const flags=p.tags_terceros&&p.tags_terceros.constitucionalidad;
+    const experts=(p.tags_terceros&&p.tags_terceros.comentarios_expertos)||[];
+    const text=p.texto_resumen_medio||p.texto||'';
+    const showFull=p.texto&&p.texto_resumen_medio&&p.texto!==p.texto_resumen_medio;
+    let flagBadge='',flagDetail='';
+    if(flags){
+      const cls=flags.nivel==='tumbado_por_corte'?'fb-tumbado':'fb-contestado';
+      const label=flags.nivel==='tumbado_por_corte'?'Tumbada por la Corte':'Contestada (Estado de Derecho)';
+      flagBadge='<span class="flag-badge '+cls+'">⚑ '+label+'</span>';
+      flagDetail='<div class="flag-detail">'+fedeFlagText(flags)+'</div>';
+    }
+    const expertsHTML=experts.map(e=>'<div class="expert"><div class="who">'+escapeHTML(e.experto)+' <span>· '+escapeHTML(e.rol||'')+'</span></div><p>'+escapeHTML(e.comentario)+'</p></div>').join('');
+    const subtema=p.subtema?'<span class="prop-sub">'+escapeHTML(p.subtema)+'</span>':'';
+    const hasFede=flagDetail||experts.length>0;
+    let fedeBlock='';
+    if(hasFede){
+      const parts=[];if(flagDetail)parts.push('bandera constitucional');if(experts.length)parts.push(experts.length+(experts.length===1?' comentario experto':' comentarios expertos'));
+      fedeBlock='<details class="flag-expand"><summary>Ver análisis FEDe ('+parts.join(' · ')+')</summary><div class="flag-expand-body">'+flagDetail+expertsHTML+'</div></details>';
+    }
+    const sel=getSel(p.id);
+    const selHTML='<div class="sel" data-pid="'+escapeHTML(p.id)+'">'
+      +'<button class="sel-btn like" data-v="like" aria-pressed="'+(sel==='like')+'">👍 Me convence</button>'
+      +'<button class="sel-btn dislike" data-v="dislike" aria-pressed="'+(sel==='dislike')+'">👎 No me convence</button>'
+      +'<button class="sel-btn unsure" data-v="unsure" aria-pressed="'+(sel==='unsure')+'">🤷 No estoy seguro</button>'
+      +'</div>';
+    return '<div class="prop">'
+      +'<div class="prop-head"><div class="prop-title">'+escapeHTML(p.titulo||'(sin título)')+'</div>'+subtema+'</div>'
+      +'<p class="prop-text" data-full="'+escapeHTML(p.texto||'')+'" data-short="'+escapeHTML(p.texto_resumen_medio||'')+'">'+escapeHTML(text)+'</p>'
+      +'<div class="prop-actions">'
+      +(showFull?'<button class="toggle-link" data-s="1" onclick="var t=this.closest(\'.prop\').querySelector(\'.prop-text\');var f=this.dataset.s===\'1\';t.textContent=f?t.dataset.full:t.dataset.short;this.dataset.s=f?\'0\':\'1\';this.textContent=f?\'ver resumen\':\'ver texto completo\';">ver texto completo</button>':'')
+      +'<span class="prop-source">'+fuenteLink(p.fuente)+'</span>'+flagBadge
+      +'</div>'+fedeBlock+selHTML+'</div>';
+  }
+
+  /* ---------- percepción ciudadana (heredado de v4) ---------- */
+  const PROBLEMS=[
+   {id:'corrupcion',t:'Corrupción',tier:'Disputa el 1.º lugar',tc:'tierA',
+    polls:[['CNC','38,2%'],['AtlasIntel','37,8%'],['Invamer','15,9%'],['Cifras & Conceptos','1.º (Panel)']],
+    approx:'Como “principal problema”: ~<b>31%</b> (promedio simple; rango 16%–38%). Es 1.º para CNC, AtlasIntel y Cifras & Conceptos.',
+    struct:'IPC 2025 de Transparencia Internacional: Colombia cae a <b>37/100</b>, por debajo del promedio regional.',
+    src:'CNC, AtlasIntel, Invamer, Cifras & Conceptos, Transparencia Internacional'},
+   {id:'seguridad',t:'Inseguridad y control territorial',tier:'Disputa el 1.º lugar',tc:'tierA',
+    polls:[['Invamer','40,8%'],['AtlasIntel','25%'],['CNC','14,3%']],
+    approx:'Como “principal problema”: ~<b>27%</b> (rango 14%–41%). Es 1.º para Invamer.',
+    struct:'El <b>73,8%</b> cree que el Estado perdió presencia en zonas con grupos ilegales; el <b>64,5%</b> se siente más inseguro con la Paz Total.',
+    src:'Invamer, AtlasIntel, CNC'},
+   {id:'salud',t:'Crisis del sistema de salud',tier:'1.ª prioridad de gestión',tc:'tierA',
+    polls:[['CNC','25,9%'],['AtlasIntel','12,3%'],['Invamer (prioridad)','71,9%'],['Red Cómo Vamos','60%']],
+    approx:'Como “principal problema” es media (12%–26%), pero como <b>prioridad del próximo gobierno encabeza</b>: 60%–72%.',
+    struct:'Deuda con laboratorios de <b>$4,7 billones</b> al cierre de 2025 (Afidro); cifras récord de tutelas.',
+    src:'CNC, AtlasIntel, Invamer, Red Cómo Vamos, Afidro'},
+   {id:'empleo',t:'Desempleo, informalidad y costo de vida',tier:'Segundo bloque',tc:'tierB',
+    polls:[['Invamer','11,2%'],['AtlasIntel','9,4%'],['CNC','7,4%']],
+    approx:'Como “principal problema”: ~<b>9–11%</b>. El costo de vida aparece como la afectación personal más sentida (CNC).',
+    struct:'La informalidad supera el <b>55%</b> de la fuerza de trabajo (DANE).',
+    src:'Invamer, AtlasIntel, CNC, DANE'},
+   {id:'pobreza',t:'Pobreza y desigualdad',tier:'Segundo bloque',tc:'tierB',
+    polls:[['Invamer (nec. básicas)','17%'],['AtlasIntel','9,4%'],['CNC (desigualdad)','6,1%']],
+    approx:'Como “principal problema”: ~<b>9%–17%</b> según cómo se nombre.',
+    struct:'Colombia es uno de los países más desiguales de A. Latina; la EPC 2025 detecta <b>“pobreza oculta”</b> y feminización de la pobreza.',
+    src:'Invamer, AtlasIntel, CNC, DANE, Red Cómo Vamos'},
+   {id:'educacion',t:'Acceso y calidad de la educación',tier:'Segundo bloque',tc:'tierB',
+    polls:[['CNC','~5–7%'],['Red Cómo Vamos (prioridad)','46%']],
+    approx:'Baja como “principal problema” (~5–7%), pero alta como <b>prioridad urbana</b> (46%).',
+    struct:'La mitad de los hogares no intentó acceder al sistema educativo; <b>1 de cada 5</b> que lo intentó enfrentó barreras (EPC 2025).',
+    src:'CNC, Red Cómo Vamos'},
+   {id:'fiscal',t:'Sostenibilidad fiscal y déficit',tier:'Estructural (poca percepción)',tc:'tierC',
+    polls:[], approx:'No aparece como preocupación ciudadana espontánea, pero los analistas lo señalan como restricción central.',
+    struct:'Déficit elevado, deuda histórica y tesoro en mínimos; tensión entre expandir gasto social y estabilizar finanzas.',
+    src:'El Espectador, La Silla Vacía, CID‑UNAL'},
+   {id:'infra',t:'Brecha de infraestructura y conectividad territorial',tier:'Estructural (poca percepción)',tc:'tierC',
+    polls:[], approx:'Pesa más a nivel local que como problema “nacional” en las encuestas.',
+    struct:'La brecha urbano‑rural es una de las más amplias de A. Latina; amplias zonas sin presencia integral del Estado.',
+    src:'Razón Pública, CID‑UNAL'}
+  ];
+  const PROB_BY_ID=Object.fromEntries(PROBLEMS.map(p=>[p.id,p]));
+  const PROBLEM_ORDER=['corrupcion','seguridad','salud','empleo','pobreza','educacion','fiscal','infra'];
+  const PROBLEM_SECTORS={
+    corrupcion:{cand:['corrupcion'],         fede:['institucional']},
+    seguridad: {cand:['seguridad'],          fede:['seguridad']},
+    salud:     {cand:['salud'],              fede:['salud']},
+    empleo:    {cand:['empleo'],             fede:[]},
+    pobreza:   {cand:['empleo','educacion'], fede:['tierras_y_agro']},
+    educacion: {cand:['educacion'],          fede:[]},
+    fiscal:    {cand:['corrupcion','empleo'],fede:['institucional']},
+    infra:     {cand:['infraestructura'],    fede:['energia']}
+  };
+  const PROXY=new Set(['pobreza','fiscal']);
+
+  function propsFor(candId, problemId){
+    const c=C_BY_ID[candId];const ms=PROBLEM_SECTORS[problemId];const cand=[],fede=[];
+    (c.sectores||[]).forEach(s=>{
+      if(s.fuente_origen==='candidateados'&&ms.cand.includes(s.sector))s.propuestas.forEach(p=>cand.push(p));
+      if(s.fuente_origen==='fede'&&ms.fede.includes(s.sector))s.propuestas.forEach(p=>fede.push(p));
+    });
+    return {cand,fede};
+  }
+  function fedeEval(candId, problemId){
+    const ms=PROBLEM_SECTORS[problemId];if(!ms.fede.length)return null;
+    const c=C_BY_ID[candId];
+    for(const s of (c.sectores||[])){if(s.fuente_origen==='fede'&&ms.fede.includes(s.sector)&&s.evaluacion_fede)return {ev:s.evaluacion_fede,sector:s.sector};}
+    return null;
+  }
+
+  /* ---------- 1) CARA A CARA ---------- */
+  function renderCara(){
+    const R=META.resultados_primera_vuelta.datos;
+    const A=META.apoyos||{};
+    document.getElementById('caraGrid').innerHTML=ORDER.map(id=>{
+      const c=C_BY_ID[id];const col=COLORS[id];const res=R[id]||{};
+      const apoyos=(A[id]||[]).map(a=>'<span class="apoyo-badge">'+escapeHTML(a.nombre)+(a.cargo?' · '+escapeHTML(a.cargo):'')+'</span>').join('');
+      const fotoHTML='<img class="cara-foto" src="'+escapeHTML(c.foto)+'" alt="'+escapeHTML(dn(id))+'" '
+        +'onerror="this.outerHTML=&quot;<div class=\\&quot;cara-ini\\&quot; style=\\&quot;--cc:'+col+'\\&quot;>'+INI(id)+'</div>&quot;">';
+      const masFede=c.biografia_fede?'<details class="cara-mas"><summary>Más sobre el candidato (perfil de FEDe)</summary><div class="body">'+escapeHTML(c.biografia_fede)+(c.educacion?'<br><br><b>Formación:</b> '+escapeHTML(c.educacion):'')+'</div></details>':'';
+      return '<div class="cara-card" style="--cc:'+col+'">'
+        +'<div class="cara-top">'+fotoHTML+'<div><div class="cara-name">'+escapeHTML(dn(id))+'</div><div class="cara-party">'+escapeHTML(c.partido||'')+'</div></div></div>'
+        +'<div class="cara-result"><span class="cara-pct">'+escapeHTML(res.pct||'—')+'</span><span class="cara-votes">en primera vuelta · <b>'+(res.votos?res.votos.toLocaleString('es-CO'):'—')+'</b> votos</span></div>'
+        +'<div class="cara-rl"><span class="k">Fórmula vicepresidencial</span>'+escapeHTML(c.formula_vp||'—')+'</div>'
+        +(apoyos?'<div class="cara-rl"><span class="k">Apoyos recibidos</span><div class="apoyos">'+apoyos+'</div></div>':'')
+        +'<div class="cara-bio"><span class="src">Perfil · vía Candidateados</span>'+escapeHTML(c.bio||'')+'</div>'
+        +masFede
+        +'<div class="cara-foot"><button class="cta-btn" data-goto="'+id+'">Ver propuestas →</button>'
+        +(c.programa_url?'<a class="prog-link" href="'+escapeHTML(c.programa_url)+'" target="_blank" rel="noopener">Programa oficial ↗</a>':'')
+        +'</div></div>';
+    }).join('');
+  }
+
+  /* ---------- 2) COMPARAR POR PROBLEMA ---------- */
+  let curProblem='corrupcion';
+  function renderChips(){
+    document.getElementById('pchips').innerHTML=PROBLEM_ORDER.map((pid,i)=>{
+      const p=PROB_BY_ID[pid];
+      return '<button class="pchip" role="tab" aria-pressed="'+(pid===curProblem)+'" data-p="'+pid+'"><span class="pn">'+String(i+1).padStart(2,'0')+'</span>'+escapeHTML(p.t.split(/[,(]/)[0].trim())+'</button>';
+    }).join('');
+  }
+  function renderProblem(){
+    const p=PROB_BY_ID[curProblem];
+    const polls=p.polls.length?'<div class="pollrow">'+p.polls.map(([f,v])=>'<span class="pollpill">'+escapeHTML(f)+': <b>'+escapeHTML(v)+'</b></span>').join('')+'</div>':'';
+    document.getElementById('probHead').innerHTML='<div class="prob-head"><div class="ph"><h3>'+escapeHTML(p.t)+'</h3><span class="tier '+p.tc+'">'+escapeHTML(p.tier)+'</span></div>'
+      +polls+'<p class="approx">'+p.approx+'</p><p class="struct">Estructural: '+p.struct+'</p><p class="srcline">Percepción ciudadana — fuentes: <b>'+escapeHTML(p.src)+'</b></p></div>';
+
+    const ms=PROBLEM_SECTORS[curProblem];
+    document.getElementById('cmpCols').innerHTML=ORDER.map(id=>{
+      const c=C_BY_ID[id];const col=COLORS[id];
+      const {cand,fede}=propsFor(id,curProblem);
+      const fe=fedeEval(id,curProblem);
+      let fedeBox='';
+      if(ms.fede.length){
+        if(fe){const ev=fe.ev;
+          fedeBox='<div class="fede-box"><div class="fede-box-head">Evaluación de FEDe · '+escapeHTML(SECTOR_LABELS[fe.sector]||fe.sector)+' <button class="fede-info" onclick="showFedeMethodology()" aria-label="Qué significa">?</button></div>'
+            +(ev.subtitulo?'<div class="fede-subtitulo">"'+escapeHTML(ev.subtitulo)+'"</div>':'')
+            +((ev.precision||ev.viabilidad||ev.coherencia)?'<div class="fede-ratings">'
+              +(ev.precision?'<span class="fede-rating"><span class="fede-rating-k">Precisión</span><b>'+escapeHTML(ev.precision)+'</b></span>':'')
+              +(ev.viabilidad?'<span class="fede-rating"><span class="fede-rating-k">Viabilidad</span><b>'+escapeHTML(ev.viabilidad)+'</b></span>':'')
+              +(ev.coherencia?'<span class="fede-rating"><span class="fede-rating-k">Coherencia</span><b>'+escapeHTML(ev.coherencia)+'</b></span>':'')
+              +'</div>':'')+'</div>';
+        }
+      }else{
+        fedeBox='<div class="no-fede">FEDe no tiene un sector análogo a este problema, así que aquí no hay capa de análisis de Estado de Derecho. Lo decimos en vez de rellenarlo.</div>';
+      }
+      const proxyNote=PROXY.has(curProblem)?'<div class="no-fede"><b>Problema transversal.</b> Se muestran las propuestas de los sectores que mejor lo aproximan ('+[...ms.cand,...ms.fede].map(s=>SECTOR_LABELS[s]||s).join(' · ')+'). Es una aproximación.</div>':'';
+      const total=cand.length+fede.length;
+      const propsHTML=total?([...cand,...fede].map(renderProp).join('')):'<div class="col-empty">Sin propuestas documentadas en los sectores relevantes a este problema.</div>';
+      return '<div class="cmp-col" style="--cc:'+col+'">'
+        +'<div class="cmp-col-head"><span class="ini" style="background:'+col+'">'+INI(id)+'</span><h4>'+escapeHTML(dn(id))+'</h4><span class="cnt">'+total+' prop.</span></div>'
+        +fedeBox+proxyNote+propsHTML+'</div>';
+    }).join('');
+
+    renderPosiciones();
+  }
+  function renderPosiciones(){
+    const ms=PROBLEM_SECTORS[curProblem];const sec=ms.fede[0];
+    const pos=(RAW.posiciones_fede||[]).filter(x=>x.sector===sec);
+    if(!pos.length){document.getElementById('posWrap').innerHTML='';return;}
+    const rows=pos.map(q=>{
+      const cells=ORDER.map(id=>'<div class="pos-a" style="--cc:'+COLORS[id]+'"><span class="who" style="color:'+COLORS[id]+'">'+escapeHTML(dn(id))+'</span>'+escapeHTML(q.respuestas[id]||'—')+'</div>').join('');
+      return '<div class="pos-q"><div class="pos-qt">'+escapeHTML(q.pregunta)+'</div><div class="pos-row">'+cells+'</div></div>';
+    }).join('');
+    document.getElementById('posWrap').innerHTML='<div class="pos-wrap"><div class="pos-head"><h4>Posiciones frente a frente</h4><div class="sub">Misma pregunta, respuesta de cada candidato. Sector <b>'+escapeHTML(SECTOR_LABELS[sec]||sec)+'</b>. Fuente: FEDe.</div></div>'+rows+'</div>';
+  }
+
+  /* ---------- 3) MI PUNTAJE ---------- */
+  function allProps(){const out=[];CANDS.forEach(c=>c.sectores.forEach(s=>s.propuestas.forEach(p=>out.push({id:p.id,cand:c.id}))));return out;}
+  function renderPuntaje(){
+    const body=document.getElementById('puntajeBody');
+    const n=selCount();
+    if(n===0){
+      body.innerHTML='<div class="empty-state"><h3>Aún no has evaluado nada</h3>'
+        +'<p>Empieza marcando lo que te convence y lo que no en <b>Comparar por problema</b>. Aquí verás el resumen de tus selecciones.</p>'
+        +'<button class="cta-btn" style="--cc:#41506B" onclick="window.__goCompare()">Ir a Comparar por problema →</button></div>';
+      return;
+    }
+    const all=allProps();const M=all.length;
+    const counts={cepeda:{like:0,dislike:0,unsure:0,total:0},espriella:{like:0,dislike:0,unsure:0,total:0}};
+    all.forEach(({id,cand})=>{const v=getSel(id);if(v){counts[cand][v]++;counts[cand].total++;}});
+    const evaluated=counts.cepeda.total+counts.espriella.total;
+    const pct=Math.round(evaluated/M*100);
+
+    const overview='<div class="score-overview"><div class="big">Has evaluado '+evaluated+' de '+M+' propuestas ('+pct+'%).</div>'
+      +'<p class="intro" style="margin:6px 0 0">Esto es un recuento de <b>tus</b> marcas, no una medición de qué candidato te conviene. Sigue leyendo.</p></div>';
+
+    const cards=ORDER.map(id=>{
+      const k=counts[id];const col=COLORS[id];const t=k.total||1;
+      const seg=(cls,val)=>val?'<i class="'+cls+'" style="width:'+(val/t*100)+'%">'+(val/t>=0.12?val:'')+'</i>':'';
+      const bar=k.total?'<div class="score-bar">'+seg('sb-like',k.like)+seg('sb-dislike',k.dislike)+seg('sb-unsure',k.unsure)+'</div>':'<div class="col-empty">No has evaluado ninguna propuesta de este candidato todavía.</div>';
+      return '<div class="score-card" style="--cc:'+col+'"><h4>'+escapeHTML(dn(id))+'</h4>'+bar
+        +'<div class="score-legend"><span><i class="dot sb-like"></i>Convencen: <b>'+k.like+'</b></span><span><i class="dot sb-dislike"></i>No convencen: <b>'+k.dislike+'</b></span><span><i class="dot sb-unsure"></i>Indecisas: <b>'+k.unsure+'</b></span></div></div>';
+    }).join('');
+
+    // por problema
+    let rows='';
+    PROBLEM_ORDER.forEach(pid=>{
+      const p=PROB_BY_ID[pid];
+      const stat={cepeda:{e:0,l:0},espriella:{e:0,l:0}};
+      ORDER.forEach(id=>{const {cand,fede}=propsFor(id,pid);[...cand,...fede].forEach(pr=>{const v=getSel(pr.id);if(v){stat[id].e++;if(v==='like')stat[id].l++;}});});
+      if(stat.cepeda.e+stat.espriella.e===0)return;
+      rows+='<tr><td>'+escapeHTML(p.t.split(/[,(]/)[0].trim())+'</td>'
+        +'<td class="num">'+stat.cepeda.e+' · 👍'+stat.cepeda.l+'</td>'
+        +'<td class="num">'+stat.espriella.e+' · 👍'+stat.espriella.l+'</td></tr>';
+    });
+    const byProb=rows?'<h3 style="font-family:\'Fraunces\',serif;font-weight:500;margin:20px 0 4px">Desglose por problema</h3>'
+      +'<p class="intro" style="margin-top:0">Propuestas que evaluaste en cada problema y cuántas te convencieron (👍).</p>'
+      +'<table class="byprob"><thead><tr><th>Problema</th><th class="num">Iván Cepeda</th><th class="num">Abelardo de la Espriella</th></tr></thead><tbody>'+rows+'</tbody></table>':'';
+
+    const reflexion='<div class="reflexion">'
+      +'<p>Esta herramienta <b>NO te recomienda un voto</b>. Los números de arriba son solo un agregado de tus selecciones, no una métrica de qué candidato te conviene. Tu decisión depende de qué problemas pesan más para ti, qué tan factible crees que son las propuestas, qué temperamento te parece preferible, y muchas cosas que ningún contador puede agregar.</p>'
+      +'<p>Si más propuestas de un candidato te convencen, eso es información para reflexionar, no una conclusión. Si te das cuenta de que tus selecciones no coinciden con tu intuición de voto, eso también es información útil — vale la pena entender por qué.</p>'
+      +'<p>El <b>voto en blanco</b> también es una opción válida si ninguno te convence. En Colombia, en primera vuelta el voto en blanco mayoritario fuerza repetir la elección con candidatos nuevos; en segunda vuelta tiene valor político pero no fuerza repetición.</p>'
+      +'<p style="border-top:1px solid var(--line);padding-top:10px;margin-top:12px">Sea cual sea el resultado del 21 de junio, <b>la democracia colombiana depende del respeto al voto del otro</b> mucho más que de quién gane.</p>'
+      +'</div>';
+
+    body.innerHTML=overview+'<div class="score-grid">'+cards+'</div>'+byProb+reflexion
+      +'<div class="privacy" style="margin-top:18px"><span>🔒 Todo esto vive solo en tu dispositivo.</span><button class="clear-btn" onclick="window.__clearSel()">Limpiar mis selecciones</button></div>';
+  }
+
+  /* ---------- 4) HITOS ---------- */
+  const CAT_LABEL={resultado:'Resultado',apoyo:'Apoyo',debate:'Debate',judicial:'Judicial',propuesta:'Propuesta'};
+  const MONTHS=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  function renderHitos(){
+    const list=(HITOS.hitos||[]).slice();
+    const last=HITOS.lastUpdated?new Date(HITOS.lastUpdated):new Date();
+    const cutoff=new Date(last.getTime()-14*864e5);
+    const within=list.filter(h=>{const d=new Date(h.fecha+'T12:00:00');return d>=cutoff;});
+    within.sort((a,b)=>b.fecha.localeCompare(a.fecha));
+    // simetría: contar por candidato (cepeda/espriella; 'ambos' no cuenta a ninguno)
+    let nc=0,ne=0;within.forEach(h=>{if(h.candidato==='cepeda')nc++;if(h.candidato==='espriella')ne++;});
+    const sym=document.getElementById('symNote');
+    sym.innerHTML=nc===ne
+      ? '<div class="sym-note">Simetría verificada: <b>'+nc+'</b> hito'+(nc===1?'':'s')+' propio'+(nc===1?'':'s')+' de cada candidato'+(within.some(h=>h.candidato==='ambos')?', más los comunes a ambos':'')+'.</div>'
+      : '<div class="sym-note">⚠️ Asimetría visible: <b>'+nc+'</b> hito(s) de Cepeda vs <b>'+ne+'</b> de De la Espriella. Se muestra tal cual; la curaduría busca equilibrarla en el próximo refresco.</div>';
+    document.getElementById('hitosList').innerHTML=within.length?within.map(h=>{
+      const d=new Date(h.fecha+'T12:00:00');
+      const cat='<span class="hito-cat hc-'+escapeHTML(h.categoria)+'">'+escapeHTML(CAT_LABEL[h.categoria]||h.categoria)+'</span>';
+      let who='';
+      if(h.candidato==='cepeda')who='<span class="hito-who" style="background:'+COLORS.cepeda+'">Cepeda</span>';
+      else if(h.candidato==='espriella')who='<span class="hito-who" style="background:'+COLORS.espriella+'">De la Espriella</span>';
+      else who='<span class="hito-cat">Ambos</span>';
+      const src=h.url?'<a href="'+escapeHTML(h.url)+'" target="_blank" rel="noopener">'+escapeHTML(h.fuente||'fuente')+' ↗</a>':escapeHTML(h.fuente||'');
+      return '<div class="hito"><div class="hito-date"><div class="d">'+d.getDate()+'</div><div class="m">'+MONTHS[d.getMonth()]+'</div></div>'
+        +'<div class="hito-body"><div class="hito-tags">'+cat+who+'</div><div class="hito-t">'+escapeHTML(h.titulo)+'</div>'
+        +'<div class="hito-d">'+escapeHTML(h.descripcion||'')+'</div><div class="hito-src">'+src+'</div></div></div>';
+    }).join(''):'<p class="intro">No hay hitos en la ventana de los últimos 14 días.</p>';
+  }
+
+  /* ---------- countdown ---------- */
+  function renderCountdown(){
+    const el=document.getElementById('cd-num');const lbl=document.getElementById('cd-lbl');
+    const target=new Date('2026-06-21T00:00:00-05:00');
+    const now=new Date();
+    const days=Math.ceil((target-now)/864e5);
+    if(days>1){el.textContent=days;lbl.textContent='días para el 21 de junio';}
+    else if(days===1){el.textContent='1';lbl.textContent='día · es mañana';}
+    else if(days===0){el.textContent='Hoy';lbl.textContent='es la votación';el.style.fontSize='30px';}
+    else{el.textContent='✓';lbl.textContent='la segunda vuelta ya pasó';}
+  }
+
+  /* ---------- modal metodología FEDe ---------- */
+  function openModal(html){document.getElementById('modal-content').innerHTML=html;document.getElementById('modal').hidden=false;document.body.style.overflow='hidden';}
+  function closeModal(){document.getElementById('modal').hidden=true;document.getElementById('modal-content').innerHTML='';document.body.style.overflow='';}
+  function showFedeMethodology(){openModal('<div class="modal-header"><div class="modal-kicker">Metodología</div><div class="modal-title">Las evaluaciones de FEDe</div></div>'
+    +'<div class="modal-body"><p><b>FEDe</b> (Fundación para el Estado de Derecho) analiza los programas desde el respeto a la legalidad, la división de poderes y la viabilidad institucional. <b>Sus evaluaciones son juicios expertos, no medidas objetivas.</b></p>'
+    +'<h4>Qué mide cada rating</h4><p><b>Precisión:</b> qué tan concreta y operativa es la propuesta. <b>Viabilidad:</b> qué tan factible desde lo fiscal, legal e institucional. <b>Coherencia:</b> si las propuestas del sector son consistentes entre sí.</p>'
+    +'<p style="color:#6b665b;border-top:1px solid var(--line);padding-top:10px;margin-top:12px">La crítica concreta vive en el subtítulo; los ratings son resúmenes. Audita en <a href="https://propuestascandidatos.fedecolombia.org" target="_blank" rel="noopener">propuestascandidatos.fedecolombia.org ↗</a>.</p></div>');}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+  /* ---------- tabs + wiring ---------- */
+  function showView(v){
+    document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x.dataset.v===v));
+    document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));
+    if(v==='puntaje')renderPuntaje();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>showView(t.dataset.v));
+
+  // cara: CTA -> comparar
+  document.getElementById('caraGrid').addEventListener('click',e=>{const b=e.target.closest('[data-goto]');if(b)showView('comparar');});
+  document.getElementById('blankVote').onclick=()=>{showView('decidir');setTimeout(()=>document.getElementById('blankStep').scrollIntoView({behavior:'smooth',block:'center'}),60);};
+
+  // chips
+  document.getElementById('pchips').addEventListener('click',e=>{const b=e.target.closest('.pchip');if(!b)return;curProblem=b.dataset.p;renderChips();renderProblem();});
+
+  // selector (delegación sobre toda la vista comparar)
+  document.getElementById('v-comparar').addEventListener('click',e=>{
+    const b=e.target.closest('.sel-btn');if(!b)return;
+    const box=b.closest('.sel');const pid=box.dataset.pid;const val=b.dataset.v;
+    setSel(pid,val);
+    const now=getSel(pid);
+    box.querySelectorAll('.sel-btn').forEach(x=>x.setAttribute('aria-pressed',x.dataset.v===now));
+  });
+  document.getElementById('clearBtn').onclick=()=>{
+    if(selCount()===0){return;}
+    if(confirm('¿Borrar todas tus selecciones? Esto no se puede deshacer.')){clearSel();renderProblem();}
+  };
+
+  // expuestas a handlers inline / cross-section
+  window.closeModal=closeModal;window.showFedeMethodology=showFedeMethodology;
+  window.__goCompare=()=>showView('comparar');
+  window.__clearSel=()=>{if(selCount()===0)return;if(confirm('¿Borrar todas tus selecciones?')){clearSel();renderPuntaje();}};
+
+  // primera pintura
+  renderCountdown();renderCara();renderChips();renderProblem();renderHitos();updateBadge();
+})();
+</script>
+</body>
+</html>
