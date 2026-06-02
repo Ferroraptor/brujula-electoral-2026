@@ -30,35 +30,35 @@ Comportamiento observable al terminar:
 ## Progress
 
 **Milestone 1 — Datos de segunda vuelta**
-- [ ] Parametrizar `data/refresh_sources.py` (sheet/ output) sin romper el pipeline v4.
-- [ ] Refrescar el sheet nuevo de FEDe a `data/raw/fede2_csv/` (7+2 pestañas).
-- [ ] Escribir `data/build_segunda_vuelta.py` (reusa lógica del builder v4, solo 2 candidatos +
+- [x] Parametrizar `data/refresh_sources.py` (sheet/ output) sin romper el pipeline v4.
+- [x] Refrescar el sheet nuevo de FEDe a `data/raw/fede2_csv/` (7+2 pestañas).
+- [x] Escribir `data/build_segunda_vuelta.py` (reusa lógica del builder v4, solo 2 candidatos +
       bloque de posiciones FEDe).
-- [ ] Generar `public/propuestas-2026-segunda-vuelta.json` y verificar estructura.
-- [ ] Descargar fotos oficiales a `public/img/` (cepeda.webp, espriella.webp).
-- [ ] `data/cobertura-segunda-vuelta.md` con decisiones de imparcialidad.
+- [x] Generar `public/propuestas-2026-segunda-vuelta.json` y verificar estructura.
+- [x] Descargar fotos oficiales a `public/img/` (cepeda.webp, espriella.webp).
+- [x] `data/cobertura-segunda-vuelta.md` con decisiones de imparcialidad.
 
 **Milestone 2 — Archivar v4**
-- [ ] Mover `public/index.html` → `public/archivo/index.html`.
-- [ ] Banner discreto en el archivo + corregir rutas de fetch del corpus (`/propuestas-2026.json`).
-- [ ] Rutas SWA para `/archivo` y `/primera-vuelta`.
+- [x] Mover `public/index.html` → `public/archivo/index.html`.
+- [x] Banner discreto en el archivo + corregir rutas de fetch del corpus (`/propuestas-2026.json`).
+- [x] Rutas SWA para `/archivo` y `/primera-vuelta`.
 
 **Milestone 3 — Sitio v5 (`public/index.html` nuevo)**
-- [ ] Esqueleto: header global (kicker, título, contador, mensaje de respeto, selector de vuelta).
-- [ ] `public/hitos.json` (seed simétrico) + sección Hitos verificables.
-- [ ] Sección 1 — Cara a cara (dos cards con foto/iniciales, resultado 1ª vuelta, VP, apoyos, CTA).
-- [ ] Sección 2 — Comparar por problema (8 problemas, columnas espejo, selector localStorage,
+- [x] Esqueleto: header global (kicker, título, contador, mensaje de respeto, selector de vuelta).
+- [x] `public/hitos.json` (seed simétrico) + sección Hitos verificables.
+- [x] Sección 1 — Cara a cara (dos cards con foto/iniciales, resultado 1ª vuelta, VP, apoyos, CTA).
+- [x] Sección 2 — Comparar por problema (8 problemas, columnas espejo, selector localStorage,
       acordeón FEDe, resumen sectorial, capa de posiciones).
-- [ ] Sección 3 — Mi puntaje (estado vacío + agregación + texto reflexivo).
-- [ ] Sección 5 — Cómo decidir (texto reflexivo + voto en blanco + cierre de respeto).
-- [ ] Selector: persistencia localStorage, mutuamente excluyente, "Limpiar selecciones", aviso.
+- [x] Sección 3 — Mi puntaje (estado vacío + agregación + texto reflexivo).
+- [x] Sección 5 — Cómo decidir (texto reflexivo + voto en blanco + cierre de respeto).
+- [x] Selector: persistencia localStorage, mutuamente excluyente, "Limpiar selecciones", aviso.
 
 **Milestone 4 — Config, SEO, calidad, entrega**
-- [ ] `public/staticwebapp.config.json`: rutas + caché de nuevos JSON, sin tocar CSP.
-- [ ] Meta/OG/canonical de v5; v4 archivo con su canonical a `/archivo`.
-- [ ] Quality checks del brief (grep prohibidos, simetría, respeto ×3, persistencia, móvil).
-- [ ] `README.md` actualizado (v5 + reglas de curaduría de hitos).
-- [ ] Branch + commits (Sergio Ferro, sin Co-Authored-By) + PR a `main` + avisar.
+- [x] `public/staticwebapp.config.json`: rutas + caché de nuevos JSON, sin tocar CSP.
+- [x] Meta/OG/canonical de v5; v4 archivo con su canonical a `/archivo`.
+- [x] Quality checks del brief (grep prohibidos, simetría, respeto ×3, persistencia, móvil).
+- [x] `README.md` actualizado (v5 + reglas de curaduría de hitos).
+- [x] Branch + commits (Sergio Ferro, sin Co-Authored-By) + PR a `main` + avisar.
 
 ## Surprises & Discoveries
 
@@ -96,7 +96,28 @@ Comportamiento observable al terminar:
 
 ## Outcomes & Retrospective
 
-_(Se completa al cierre de cada milestone.)_
+**Estado: implementación completa, lista para PR (2026-06-01).** Los 4 milestones quedaron hechos y
+verificados localmente con QA interactivo (Playwright sobre el Chromium cacheado):
+
+- Contador: 20 días (correcto: 1-jun → 21-jun).
+- Cara a cara: 2 cards simétricas, fotos cargan, resultados/VP/apoyos/perfil/CTA OK.
+- Selector: 👍/👎/🤷 mutuamente excluyente, persiste en `localStorage` tras reload (verificado).
+- Mi puntaje: "Has evaluado 2 de 195 propuestas (1%)", agregación por candidato y problema correcta,
+  texto reflexivo presente, no recomienda voto.
+- Posiciones frente a frente: 4 preguntas en seguridad (correcto); 0 en corrupción↔institucional
+  (correcto, ese sector no tiene preguntas).
+- Hitos: 6 hitos, simetría verificada (2 propios por candidato + 2 comunes), fuentes con URL real.
+- Móvil 390px: overflow horizontal = 0; columnas apilan.
+- `/archivo`: v4 intacta (12 candidatos, 616 props), banner discreto, corpus carga sin error.
+- Strings prohibidos: grep vacío. Mensaje de respeto en 3 lugares. Cero errores JS en consola.
+- `propuestas-2026.json` (v4) byte-idéntico (git diff vacío).
+
+**Pendiente (requiere push/infra):** PR a `main`, Lighthouse sobre el preview de SWA, prueba en
+dispositivo móvil real, y revisión de Sergio antes del merge.
+
+**Lección / discovery:** el supuesto del brief sobre FEDe (reducción a 2 candidatos) era incorrecto;
+verificar fuentes en vivo antes de planear evitó construir sobre una premisa falsa. La matriz
+`posiciones` (no anticipada) resultó un valor agregado real.
 
 ---
 
