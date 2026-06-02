@@ -12,19 +12,27 @@ import re, json, os, sys, csv, io, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(HERE, "raw")
-FEDE_DIR = os.path.join(RAW, "fede_csv")
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/120.0 Safari/537.36")
 
 # ---- FEDe Google Sheet ----------------------------------------------------
-FEDE_SHEET_ID = "1joLt-JrQuf4HLfSubQYa0Jjd10DG7fk47DC0niaL2Jw"
+# Parametrizable por entorno para refrescar el sheet de segunda vuelta sin tocar
+# el pipeline de primera vuelta. Defaults = sheet/dir de primera vuelta (v4).
+#   FEDE_SHEET_ID    sobreescribe el sheet (default: el de v4)
+#   FEDE_DIR         carpeta destino de los CSV (default: raw/fede_csv)
+#   FEDE_TABS_EXTRA  pestañas adicionales separadas por coma (ej. "preguntas,posiciones")
+FEDE_SHEET_ID = os.environ.get("FEDE_SHEET_ID", "1joLt-JrQuf4HLfSubQYa0Jjd10DG7fk47DC0niaL2Jw")
+FEDE_DIR = os.environ.get("FEDE_DIR", os.path.join(RAW, "fede_csv"))
 FEDE_TABS = ["candidatos", "propuestas", "expertos", "comentarios_expertos",
              "red_flags", "resumen_sectores", "sectores"]
+_extra = [t.strip() for t in os.environ.get("FEDE_TABS_EXTRA", "").split(",") if t.strip()]
+FEDE_TABS = FEDE_TABS + [t for t in _extra if t not in FEDE_TABS]
 # columna que debe aparecer en el encabezado de cada pestaña (validación anti-basura)
 FEDE_REQUIRED_COL = {
     "candidatos": "formula_vp", "propuestas": "semaforo", "expertos": "rol",
     "comentarios_expertos": "propuesta_id", "red_flags": "badge",
     "resumen_sectores": "viabilidad", "sectores": "sector",
+    "preguntas": "pregunta", "posiciones": "respuesta",
 }
 CAND_URL = "https://www.candidateados.com"
 
@@ -141,6 +149,14 @@ def refresh_candidateados():
 if __name__ == "__main__":
     print("Refrescando fuentes…")
     a = refresh_fede()
+    # FEDE_ONLY=1 evita re-fetchear Candidateados (útil al refrescar el sheet de
+    # segunda vuelta: Candidateados no cambió y vive en otro path).
+    if os.environ.get("FEDE_ONLY") == "1":
+        if not a:
+            print("FEDe no se pudo actualizar.", file=sys.stderr)
+            sys.exit(1)
+        print("Listo (solo FEDe).")
+        sys.exit(0)
     b = refresh_candidateados()
     if not a and not b:
         print("Ninguna fuente se pudo actualizar.", file=sys.stderr)
