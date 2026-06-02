@@ -333,7 +333,6 @@
     <button class="tab" role="tab" aria-selected="true"  data-v="cara">Cara a cara</button>
     <button class="tab tab-key" role="tab" aria-selected="false" data-v="decidir">★ Cómo decidir</button>
     <button class="tab" role="tab" aria-selected="false" data-v="comparar">Comparar por problema</button>
-    <button class="tab" role="tab" aria-selected="false" data-v="posiciones">Posiciones</button>
     <button class="tab" role="tab" aria-selected="false" data-v="puntaje">Mi puntaje<span class="tab-badge" id="puntaje-badge" hidden></span></button>
     <button class="tab" role="tab" aria-selected="false" data-v="hitos">Hitos verificables</button>
   </div>
@@ -351,7 +350,14 @@
     <button class="cta-btn" data-goto-decidir>Cómo decidir →</button>
   </div>
   <div class="cara-grid" id="caraGrid"></div>
-  <button class="blank-vote" id="blankVote">
+
+  <h2 class="sec" style="margin-top:28px">Posiciones frente a frente</h2>
+  <p class="intro">La misma pregunta, la respuesta de cada candidato. Abre cada tema para ver el
+    contraste directo, sin intermediación. Fuente: <b>FEDe</b>. Donde un candidato no respondió, se
+    dice de forma explícita.</p>
+  <div id="posSections"></div>
+
+  <button class="blank-vote" id="blankVote" style="margin-top:22px">
     <b>Vota en blanco — explorar la opción</b>
     <span>Qué significa el voto en blanco en Colombia y cuándo invalida la elección →</span>
   </button>
@@ -368,14 +374,6 @@
     <span>🔒 Tus selecciones se guardan <b>solo en tu dispositivo</b>. Nada se envía a ningún servidor; no hay analítica ni rastreo.</span>
     <button class="clear-btn" id="clearBtn">Limpiar mis selecciones</button>
   </div>
-</div></div>
-
-<div class="view" id="v-posiciones"><div class="wrap">
-  <h2 class="sec">Posiciones frente a frente</h2>
-  <p class="intro">La misma pregunta, la respuesta de cada candidato. Abre cada tema para ver el
-    contraste directo, sin intermediación. Fuente: <b>FEDe</b>. Donde un candidato no respondió, se
-    dice de forma explícita.</p>
-  <div id="posSections"></div>
 </div></div>
 
 <div class="view" id="v-puntaje"><div class="wrap">
