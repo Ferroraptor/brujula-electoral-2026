@@ -3654,6 +3654,24 @@
         "cepeda": "Sí, pero con quienes no ataquen a la población civil y exigiendo avances concretos.",
         "espriella": "No, se acaban todas las mesas."
       },
+      "banderas_relacionadas": {
+        "cepeda": {
+          "propuesta_id": "cepeda-seg-fede-01",
+          "propuesta_titulo": "Cumplimiento de los acuerdos de paz del 2016",
+          "nivel": "contestado",
+          "bandera": "Alerta",
+          "detalle": "",
+          "fuente": "FEDe — análisis al Estado de Derecho"
+        },
+        "espriella": {
+          "propuesta_id": "espriella-seg-fede-04",
+          "propuesta_titulo": "Cero negociaciones con criminales",
+          "nivel": "contestado",
+          "bandera": "Alerta",
+          "detalle": "",
+          "fuente": "FEDe — análisis al Estado de Derecho"
+        }
+      },
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3663,6 +3681,16 @@
       "respuestas": {
         "cepeda": "Sustitución voluntaria y promoción de una ley de \"legalización regulada\" de la hoja de coca.",
         "espriella": "Erradicación masiva y fumigación aérea."
+      },
+      "banderas_relacionadas": {
+        "espriella": {
+          "propuesta_id": "espriella-seg-fede-03",
+          "propuesta_titulo": "Destrucción de cultivos ilícitos",
+          "nivel": "contestado",
+          "bandera": "Alerta",
+          "detalle": "",
+          "fuente": "FEDe — análisis al Estado de Derecho"
+        }
       },
       "fuente": "FEDe (preguntas / posiciones)"
     },
@@ -3674,6 +3702,7 @@
         "cepeda": "No lo menciona en sus propuestas.",
         "espriella": "Construir de 7 a 10 megacárceles."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3683,6 +3712,16 @@
       "respuestas": {
         "cepeda": "No",
         "espriella": "Sí"
+      },
+      "banderas_relacionadas": {
+        "espriella": {
+          "propuesta_id": "espriella-seg-fede-02",
+          "propuesta_titulo": "Reinicio de bombardeos",
+          "nivel": "contestado",
+          "bandera": "Amenaza",
+          "detalle": "",
+          "fuente": "FEDe — análisis al Estado de Derecho"
+        }
       },
       "fuente": "FEDe (preguntas / posiciones)"
     },
@@ -3694,6 +3733,16 @@
         "cepeda": "Profundizar el modelo de salud propuesto por el Gobierno de Gustavo Petro en el que las EPS dejan de ser intermediarias.",
         "espriella": "Volver al modelo anterior al Gobierno Petro y hacer más eficientes las EPS imponiendo un tope a los costos de administración."
       },
+      "banderas_relacionadas": {
+        "cepeda": {
+          "propuesta_id": "cepeda-sal-fede-01",
+          "propuesta_titulo": "Hacer una reforma a la salud de carácter democrático",
+          "nivel": "contestado",
+          "bandera": "Alerta",
+          "detalle": "La Fundación ha presentado acciones de nulidad en contra de resoluciones y decretos que modifican el SGSS, la gestión de las EPS e implementan un nuevo modelo de salud; acción popular para requerir la protección de los derechos colectivos a la salubridad pública y al acceso al servicio público de salud, a efectos de que se dicten medidas que atiendan la situación de escasez de medicamentos, especialmente en lo relacionado con las enfermedades graves; acción de nulidad contra la resolución que reglamenta los requisitos de operación y financieros de los Gestores Farmacéuticos; dos acciones de nulidad en contra de las resoluciones que fijaron la UPC para los años 2025 y 2026 [Ver acciones](https://drive.google.com/drive/folders/1Clx6XZ3nyfsI4KbOFKdvX8LRqvkE6ImB?usp=drive_link)",
+          "fuente": "FEDe — análisis al Estado de Derecho"
+        }
+      },
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3704,6 +3753,7 @@
         "cepeda": "Centralizar la compra de medicamentos e impulsar el renacer de la industria farmacéutica nacional.",
         "espriella": "Recuperar el acceso oportuno a medicamentos."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3714,6 +3764,7 @@
         "cepeda": "No tiene ninguna propuesta concreta.",
         "espriella": "Inyectar 10 billones de pesos al sistema."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3724,6 +3775,7 @@
         "cepeda": "Aumentar los cupos en universidades públicas, con un enfoque preventivo y humano, y un plan que lleve a profesionales a todos los territorios.",
         "espriella": "Pagar salarios atrasados y darles bonificaciones por resultados."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3734,6 +3786,7 @@
         "cepeda": "No lo menciona en sus propuestas.",
         "espriella": "Revisar los ajustes hechos por el gobierno de Gustavo Petro \"que permitieron el desvío de recursos de dicha asignación a otros propósitos\"."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3744,6 +3797,7 @@
         "cepeda": "No es claro en sus propuestas; lo deja abierto.",
         "espriella": "Sí"
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3754,6 +3808,7 @@
         "cepeda": "En contra",
         "espriella": "A favor"
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3764,6 +3819,7 @@
         "cepeda": "No lo menciona en sus propuestas.",
         "espriella": "Defender la empresa como activo estratégico de la nación."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3774,6 +3830,7 @@
         "cepeda": "Direccionamiento estatal de la transición y una descarbonización acelerada",
         "espriella": "Promover las energías renovables, pero priorizando la producción de energías fósiles."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3783,6 +3840,16 @@
       "respuestas": {
         "cepeda": "Producir más energía solar para reducir las tarifas",
         "espriella": "Revisar el esquema tarifario y buscar soluciones financieras"
+      },
+      "banderas_relacionadas": {
+        "espriella": {
+          "propuesta_id": "espriella-ene-fede-05",
+          "propuesta_titulo": "Reducción de tarifas en el Caribe",
+          "nivel": "contestado",
+          "bandera": "Alerta",
+          "detalle": "",
+          "fuente": "FEDe — análisis al Estado de Derecho"
+        }
       },
       "fuente": "FEDe (preguntas / posiciones)"
     },
@@ -3794,6 +3861,7 @@
         "cepeda": "No impulsar la gran minería y ponerse del lado de las comunidades que se opongan a grandes proyectos mineros.",
         "espriella": "Desarrollar las minerías de oro, cobre, plata y tierras raras y considerar la minería legal como aliado estratégico para la generación de empleo y el desarrollo."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3804,6 +3872,7 @@
         "cepeda": "Sí, profundizarla.",
         "espriella": "No, acabarla."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3814,6 +3883,7 @@
         "cepeda": "Recuperar las instituciones agrarias para que el Estado les dé créditos a los campesinos.",
         "espriella": "Supedita los créditos a la Escuela de Emprendedores Rurales para formar a 100 mil jóvenes que tendrían acceso a créditos."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3824,6 +3894,7 @@
         "cepeda": "Redistribuir tierras fértiles concentradas y subutilizadas y restituir tierras despojadas a comunidades campesinas.",
         "espriella": "Hacer una titulación masiva de tierras para legalizar predios rurales."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -3834,6 +3905,7 @@
         "cepeda": "No lo menciona en sus propuestas.",
         "espriella": "Intervenir para bajar los precios."
       },
+      "banderas_relacionadas": {},
       "fuente": "FEDe (preguntas / posiciones)"
     }
   ]

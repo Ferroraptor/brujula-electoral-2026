@@ -255,17 +255,51 @@ for r in fede_posiciones:
     if r["candidato_id"] in SV_IDS:
         resp_by[r["pregunta_id"]][r["candidato_id"]] = r["respuesta"].strip()
 
+# Mapeo CURADO pregunta -> propuesta con bandera (ambas son de FEDe; conectamos
+# dos salidas de FEDe sobre la MISMA política, no fusionamos fuentes distintas).
+# Solo matches inequívocos (política idéntica). Los más generales o cross-sector
+# se omiten a propósito; siguen visibles en "Comparar por problema".
+POSICION_BANDERAS = {
+    "pr001": {"cepeda": "cepeda-seg-fede-01", "espriella": "espriella-seg-fede-04"},
+    "pr002": {"espriella": "espriella-seg-fede-03"},
+    "pr004": {"espriella": "espriella-seg-fede-02"},
+    "pr005": {"cepeda": "cepeda-sal-fede-01"},
+    "pr014": {"espriella": "espriella-ene-fede-05"},
+}
+# índice de propuestas con bandera, por id (para adjuntar el detalle atribuido)
+flag_by_propid = {}
+for c in out["candidatos"]:
+    for s in c["sectores"]:
+        for p in s["propuestas"]:
+            b = p["tags_terceros"]["constitucionalidad"]
+            if b:
+                flag_by_propid[p["id"]] = {
+                    "propuesta_id": p["id"],
+                    "propuesta_titulo": p["titulo"],
+                    "nivel": b["nivel"],
+                    "bandera": b["bandera"],
+                    "detalle": b["detalle"],
+                    "fuente": b["fuente"],
+                }
+
 posiciones = []
 for pid, preg in preg_by_id.items():
     sec = PREG_SECTOR.get(preg["sector"].strip())
     respuestas = resp_by.get(pid, {})
     # solo si ambos respondieron (simetría)
     if all(cid in respuestas for cid in SV_IDS):
+        # banderas relacionadas (curadas): solo si la propuesta existe y sigue marcada
+        banderas = {}
+        for cid, propid in POSICION_BANDERAS.get(pid, {}).items():
+            if propid in flag_by_propid:
+                banderas[cid] = flag_by_propid[propid]
         posiciones.append({
             "pregunta_id": pid,
             "sector": sec,
             "pregunta": preg["pregunta"].strip(),
             "respuestas": {cid: respuestas[cid] for cid in SV_IDS},
+            # relación temática NUESTRA hacia una propuesta marcada por FEDe (no la marcó FEDe sobre esta respuesta)
+            "banderas_relacionadas": banderas,
             "fuente": "FEDe (preguntas / posiciones)",
         })
 # orden por sector (orden FEDe) y luego por id de pregunta
