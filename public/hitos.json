@@ -1,6 +1,6 @@
 {
   "lastUpdated": "2026-06-01T18:00:00-05:00",
-  "nota_curaduria": "Cada hito tiene un resumen editorial neutro (reglas de redacción en el README) y una lista de fuentes de verificación de líneas contrastantes para que el lector cruce referencias. No se etiqueta el lean editorial en la UI. Curaduría manual, revisión humana antes de publicar. Ventana móvil de 14 días.",
+  "nota_curaduria": "Cada hito tiene un resumen editorial neutro (reglas de redacción en el README) y una lista de fuentes de verificación de líneas contrastantes —primarias, internacionales, centro-derecha, centro-izquierda e independientes— para que el lector cruce referencias. No se etiqueta el lean editorial en la UI. Curaduría manual, revisión humana antes de publicar. Ventana móvil de 14 días.",
   "hitos": [
     {
       "id": "H004",
@@ -14,7 +14,7 @@
         { "nombre": "@ABDELAESPRIELLA (X)", "url": "https://x.com/ABDELAESPRIELLA", "tipo": "primaria" },
         { "nombre": "@IvanCepedaCast (X)", "url": "https://x.com/IvanCepedaCast", "tipo": "primaria" },
         { "nombre": "Semana", "url": "https://www.semana.com/politica/articulo/abelardo-de-la-espriella-acepto-debatir-con-ivan-cepeda-el-proximo-9-de-junio-en-semana-el-candidato-del-pacto-historico-aun-no-responde/202654/", "tipo": "medio" },
-        { "nombre": "Infobae", "url": "https://www.infobae.com/colombia/2026/06/01/ivan-cepeda-no-acepto-el-debate-con-abelardo-de-la-espriella-para-el-9-de-junio-esta-fue-la-razon/", "tipo": "medio" },
+        { "nombre": "El Espectador", "url": "https://www.elespectador.com/politica/elecciones-colombia-2026/de-la-espriella-y-cepeda-en-derecha-e-izquierda-van-a-segunda-vuelta-en-una-colombia-dividida-hay-debate-noticias-hoy/", "tipo": "medio" },
         { "nombre": "El Nuevo Día", "url": "https://www.elnuevodia.com.co/politica/cepeda-y-de-la-espriella-no-se-ponen-de-acuerdo-para-el-debate-537044", "tipo": "medio" }
       ]
     },
@@ -28,9 +28,9 @@
       "solo_un_lado": null,
       "fuentes": [
         { "nombre": "@IvanCepedaCast (X)", "url": "https://x.com/IvanCepedaCast", "tipo": "primaria" },
+        { "nombre": "El Espectador", "url": "https://www.elespectador.com/politica/elecciones-colombia-2026/de-la-espriella-y-cepeda-en-derecha-e-izquierda-van-a-segunda-vuelta-en-una-colombia-dividida-hay-debate-noticias-hoy/", "tipo": "medio" },
         { "nombre": "Pulzo", "url": "https://www.pulzo.com/elecciones-colombia-2026/ivan-cepeda-nego-debate-semana-reto-duelo-abelardo-espriella-PP5201379", "tipo": "medio" },
-        { "nombre": "Infobae", "url": "https://www.infobae.com/colombia/2026/06/01/ivan-cepeda-no-acepto-el-debate-con-abelardo-de-la-espriella-para-el-9-de-junio-esta-fue-la-razon/", "tipo": "medio" },
-        { "nombre": "Colombia One (inglés)", "url": "https://colombiaone.com/2026/06/01/colombia-cepeda-calls-debate-de-la-espriella/", "tipo": "internacional" }
+        { "nombre": "Infobae", "url": "https://www.infobae.com/colombia/2026/06/01/ivan-cepeda-no-acepto-el-debate-con-abelardo-de-la-espriella-para-el-9-de-junio-esta-fue-la-razon/", "tipo": "medio" }
       ]
     },
     {
@@ -45,7 +45,8 @@
         { "nombre": "Registraduría Nacional", "url": "https://www.registraduria.gov.co", "tipo": "primaria" },
         { "nombre": "El Tiempo", "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/como-quedaron-las-votaciones-presidenciales-en-primera-vuelta-abelardo-de-la-espriella-le-gano-a-ivan-cepeda-e-iran-juntos-a-segunda-vuelta-3561040", "tipo": "medio" },
         { "nombre": "El Espectador", "url": "https://www.elespectador.com/politica/elecciones-colombia-2026/resultados-elecciones-presidenciales-colombia-2026-en-vivo-quien-gano/", "tipo": "medio" },
-        { "nombre": "CNN en Español", "url": "https://cnnespanol.cnn.com/2026/05/31/colombia/live-news/elecciones-presidenciales-cepeda-abelardo-paloma-resultados-orix", "tipo": "internacional" }
+        { "nombre": "La Silla Vacía", "url": "https://www.lasillavacia.com/silla-nacional/colombia-va-a-una-segunda-vuelta-entre-dos-proyectos-excluyentes/", "tipo": "medio" },
+        { "nombre": "BLU Radio", "url": "https://www.bluradio.com/nacion/elecciones/resultados-elecciones-presidenciales-colombia-2026-primera-vuelta-so35", "tipo": "medio" }
       ]
     },
     {
@@ -58,10 +59,10 @@
       "solo_un_lado": null,
       "fuentes": [
         { "nombre": "@IvanCepedaCast (X)", "url": "https://x.com/IvanCepedaCast", "tipo": "primaria" },
-        { "nombre": "Registraduría — declaración (vía El Espectador)", "url": "https://www.elespectador.com/politica/elecciones-colombia-2026/asi-se-defendieron-a-la-registraduria-tras-comentarios-de-petro-y-cepeda-sobre-resultados-de-primera-vuelta-noticias-hoy/", "tipo": "medio" },
-        { "nombre": "El Colombiano (\"desfase que queremos verificar\")", "url": "https://www.elcolombiano.com/especiales/elecciones-2026/ivan-cepeda-no-acepta-derrota-resultados-elecciones-2026-OM37193379", "tipo": "medio" },
-        { "nombre": "El Colombiano (\"no encontró irregularidades\")", "url": "https://www.elcolombiano.com/especiales/elecciones-2026/ivan-cepeda-no-encontro-irregularidades-elecciones-2026-preconteo-OH37215784", "tipo": "medio" },
-        { "nombre": "El Tiempo", "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/rechazo-a-las-declaraciones-del-presidente-gustavo-petro-en-las-que-afirma-que-no-acepta-los-resultados-del-preconteo-tras-la-derrota-de-ivan-cepeda-3560940", "tipo": "medio" }
+        { "nombre": "Cambio", "url": "https://cambiocolombia.com/poder/articulo/2026/6/ivan-cepeda-pide-aclarar-supuesto-desfase-en-el-censo-electoral-antes-de-pronunciarse-sobre-los-resultados", "tipo": "medio" },
+        { "nombre": "La Silla Vacía", "url": "https://www.lasillavacia.com/en-vivo/cepeda-y-quilcue-tampoco-reconocen-los-resultados-de-primera-vuelta/", "tipo": "medio" },
+        { "nombre": "El Espectador (Registraduría responde)", "url": "https://www.elespectador.com/politica/elecciones-colombia-2026/asi-se-defendieron-a-la-registraduria-tras-comentarios-de-petro-y-cepeda-sobre-resultados-de-primera-vuelta-noticias-hoy/", "tipo": "medio" },
+        { "nombre": "El Colombiano (\"no encontró irregularidades\")", "url": "https://www.elcolombiano.com/especiales/elecciones-2026/ivan-cepeda-no-encontro-irregularidades-elecciones-2026-preconteo-OH37215784", "tipo": "medio" }
       ]
     },
     {
@@ -73,10 +74,10 @@
       "resumen": "Tras quedar en tercer lugar con el 6,92 %, la senadora Paloma Valencia (Centro Democrático) anunció su apoyo a Abelardo de la Espriella para la segunda vuelta y pidió a sus electores votar por él.",
       "solo_un_lado": null,
       "fuentes": [
+        { "nombre": "Cambio", "url": "https://cambiocolombia.com/elecciones-colombia-2026/articulo/2026/5/paloma-se-va-con-el-tigre-la-candidata-anuncia-su-apoyo-a-abelardo-de-la-espriella-en-segunda-vuelta", "tipo": "medio" },
+        { "nombre": "El Espectador", "url": "https://www.elespectador.com/politica/elecciones-colombia-2026/abelardo-de-la-espriella-o-ivan-cepeda-asi-se-mueven-los-partidos-tradicionales-para-la-segunda-vuelta/", "tipo": "medio" },
         { "nombre": "El Tiempo", "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/paloma-valencia-se-pronuncio-frente-a-su-salida-de-la-segunda-vuelta-presidencial-en-las-elecciones-afirmo-que-apoyara-a-abelardo-de-la-espriella-3560950", "tipo": "medio" },
-        { "nombre": "El Colombiano", "url": "https://www.elcolombiano.com/colombia/paloma-valencia-apoyo-abelardo-de-la-espriella-segunda-vuelta-junio-2026-ON37188701", "tipo": "medio" },
-        { "nombre": "Infobae", "url": "https://www.infobae.com/colombia/2026/05/31/paloma-valencia-confirmo-que-apoyara-a-abelardo-de-la-espriella-en-segunda-vuelta-presidencial-esto-dijo/", "tipo": "medio" },
-        { "nombre": "El País (Cali)", "url": "https://www.elpais.com.co/elecciones/paloma-valencia-anuncio-su-apoyo-a-la-candidatura-de-abelardo-de-la-espriella-luego-de-quedar-tercera-en-las-presidenciales-3130.html", "tipo": "medio" }
+        { "nombre": "El Colombiano", "url": "https://www.elcolombiano.com/colombia/paloma-valencia-apoyo-abelardo-de-la-espriella-segunda-vuelta-junio-2026-ON37188701", "tipo": "medio" }
       ]
     },
     {
@@ -89,9 +90,9 @@
       "solo_un_lado": null,
       "fuentes": [
         { "nombre": "@RoyBarreras (X)", "url": "https://x.com/RoyBarreras", "tipo": "primaria" },
-        { "nombre": "El Tiempo", "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/roy-barreras-anuncio-su-apoyo-a-ivan-cepeda-y-le-pidio-abrir-la-campana-para-que-abelardo-de-la-espriella-no-sea-presidente-3560974", "tipo": "medio" },
-        { "nombre": "El País (Cali)", "url": "https://www.elpais.com.co/politica/roy-barreras-anuncio-su-apoyo-a-la-candidatura-de-ivan-cepeda-se-puede-ganar-3140.html", "tipo": "medio" },
-        { "nombre": "Infobae", "url": "https://www.infobae.com/colombia/2026/05/31/roy-barreras-anticipo-su-derrota-en-la-primera-vuelta-y-apoyara-a-ivan-cepeda-en-la-segunda-vuelta-es-un-voto-para-construir-puentes/", "tipo": "medio" }
+        { "nombre": "La Silla Vacía", "url": "https://www.lasillavacia.com/en-vivo/roy-barreras-acompanara-al-progresismo-en-segunda-vuelta/", "tipo": "medio" },
+        { "nombre": "Cambio", "url": "https://cambiocolombia.com/elecciones-colombia-2026/articulo/2026/5/carlos-caicedo-se-une-en-primera-y-roy-barreras-en-segunda-la-campana-de-ivan-cepeda-suma-aliados-en-la-recta-final", "tipo": "medio" },
+        { "nombre": "El Tiempo", "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/roy-barreras-anuncio-su-apoyo-a-ivan-cepeda-y-le-pidio-abrir-la-campana-para-que-abelardo-de-la-espriella-no-sea-presidente-3560974", "tipo": "medio" }
       ]
     },
     {
@@ -105,8 +106,8 @@
       "fuentes": [
         { "nombre": "@ABDELAESPRIELLA (X)", "url": "https://x.com/ABDELAESPRIELLA", "tipo": "primaria" },
         { "nombre": "@IvanCepedaCast (X)", "url": "https://x.com/IvanCepedaCast", "tipo": "primaria" },
-        { "nombre": "Semana", "url": "https://www.semana.com/politica/articulo/abelardo-de-la-espriella-hablo-con-el-presidente-de-ecuador-daniel-noboa-y-logro-que-ese-pais-tumbara-los-aranceles-contra-colombia/202615/", "tipo": "medio" },
         { "nombre": "El Espectador", "url": "https://www.elespectador.com/mundo/america/noboa-elimina-aranceles-tras-hablar-con-de-la-espriella-y-se-mete-en-campana-colombiana/", "tipo": "medio" },
+        { "nombre": "Semana", "url": "https://www.semana.com/politica/articulo/abelardo-de-la-espriella-hablo-con-el-presidente-de-ecuador-daniel-noboa-y-logro-que-ese-pais-tumbara-los-aranceles-contra-colombia/202615/", "tipo": "medio" },
         { "nombre": "Infobae (desmentido de la Cancillería)", "url": "https://www.infobae.com/colombia/2026/05/30/gobierno-petro-nego-que-retiro-de-aranceles-por-parte-de-ecuador-haya-sido-por-reunion-entre-abelardo-de-la-espriella-y-daniel-noboa/", "tipo": "medio" }
       ]
     }
