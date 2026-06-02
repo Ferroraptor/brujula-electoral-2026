@@ -127,6 +127,20 @@
   .cmp-col-head .cnt{font-size:11.5px;color:var(--muted);margin-left:auto;font-variant-numeric:tabular-nums}
   .no-fede{font-size:12px;color:var(--muted);font-style:italic;padding:8px 11px;background:#FBF8F0;border-radius:6px;border-left:3px solid var(--line2);margin:8px 0}
   .col-empty{font-size:12.5px;color:var(--muted);font-style:italic;padding:10px 0}
+  /* aviso de información ausente — evita que un vacío se lea como favoritismo */
+  .noinfo{font-size:12px;color:#7a5a26;background:#FBF1E6;border:1px solid #E8C9A5;border-radius:6px;padding:8px 11px;margin:8px 0;line-height:1.45;display:flex;gap:7px;align-items:flex-start}
+  .noinfo::before{content:"ⓘ";font-weight:700;color:#9C7A2B;flex:none}
+  .noinfo.mini{margin:4px 0 0;padding:5px 9px;font-size:11.5px}
+  /* acordeón de posiciones por tema */
+  details.pos-acc{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+  details.pos-acc>summary{cursor:pointer;padding:14px 17px;display:flex;align-items:center;gap:12px;list-style:none}
+  details.pos-acc>summary::-webkit-details-marker{display:none}
+  details.pos-acc>summary::after{content:"▾";color:var(--muted);margin-left:auto;transition:transform .15s}
+  details.pos-acc[open]>summary::after{transform:rotate(180deg)}
+  details.pos-acc>summary:hover{background:#FBF8F0}
+  .pos-acc .sec-name{font-family:"Fraunces",serif;font-size:18px;font-weight:500;letter-spacing:-.01em}
+  .pos-acc .sec-count{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .pos-acc .acc-body{padding:2px 17px 10px;border-top:1px solid var(--line)}
 
   /* fede box (heredado de v4) */
   .fede-box{background:#F2EEDF;border-left:3px solid var(--L2);border-radius:8px;padding:11px 13px;margin:6px 0 10px}
@@ -293,6 +307,7 @@
   <div class="wrap">
     <button class="tab" role="tab" aria-selected="true"  data-v="cara">Cara a cara</button>
     <button class="tab" role="tab" aria-selected="false" data-v="comparar">Comparar por problema</button>
+    <button class="tab" role="tab" aria-selected="false" data-v="posiciones">Posiciones</button>
     <button class="tab" role="tab" aria-selected="false" data-v="puntaje">Mi puntaje<span class="tab-badge" id="puntaje-badge" hidden></span></button>
     <button class="tab" role="tab" aria-selected="false" data-v="hitos">Hitos verificables</button>
     <button class="tab" role="tab" aria-selected="false" data-v="decidir">Cómo decidir</button>
@@ -317,11 +332,18 @@
   <div class="pchips" id="pchips" role="tablist"></div>
   <div id="probHead"></div>
   <div class="cmp-cols" id="cmpCols"></div>
-  <div id="posWrap"></div>
   <div class="privacy">
     <span>🔒 Tus selecciones se guardan <b>solo en tu dispositivo</b>. Nada se envía a ningún servidor; no hay analítica ni rastreo.</span>
     <button class="clear-btn" id="clearBtn">Limpiar mis selecciones</button>
   </div>
+</div></div>
+
+<div class="view" id="v-posiciones"><div class="wrap">
+  <h2 class="sec">Posiciones frente a frente</h2>
+  <p class="intro">La misma pregunta, la respuesta de cada candidato. Abre cada tema para ver el
+    contraste directo, sin intermediación. Fuente: <b>FEDe</b>. Donde un candidato no respondió, se
+    dice de forma explícita.</p>
+  <div id="posSections"></div>
 </div></div>
 
 <div class="view" id="v-puntaje"><div class="wrap">
@@ -557,7 +579,7 @@
       const apoyos=(A[id]||[]).map(a=>'<span class="apoyo-badge">'+escapeHTML(a.nombre)+(a.cargo?' · '+escapeHTML(a.cargo):'')+'</span>').join('');
       const fotoHTML='<img class="cara-foto" src="'+escapeHTML(c.foto)+'" alt="'+escapeHTML(dn(id))+'" '
         +'onerror="this.outerHTML=&quot;<div class=\\&quot;cara-ini\\&quot; style=\\&quot;--cc:'+col+'\\&quot;>'+INI(id)+'</div>&quot;">';
-      const masFede=c.biografia_fede?'<details class="cara-mas"><summary>Más sobre el candidato (perfil de FEDe)</summary><div class="body">'+escapeHTML(c.biografia_fede)+(c.educacion?'<br><br><b>Formación:</b> '+escapeHTML(c.educacion):'')+'</div></details>':'';
+      const masFede=c.biografia_fede?'<details class="cara-mas" open><summary>Perfil ampliado · vía FEDe</summary><div class="body">'+escapeHTML(c.biografia_fede)+(c.educacion?'<br><br><b>Formación:</b> '+escapeHTML(c.educacion):'')+'</div></details>':'';
       return '<div class="cara-card" style="--cc:'+col+'">'
         +'<div class="cara-top">'+fotoHTML+'<div><div class="cara-name">'+escapeHTML(dn(id))+'</div><div class="cara-party">'+escapeHTML(c.partido||'')+'</div></div></div>'
         +'<div class="cara-result"><span class="cara-pct">'+escapeHTML(res.pct||'—')+'</span><span class="cara-votes">en primera vuelta · <b>'+(res.votos?res.votos.toLocaleString('es-CO'):'—')+'</b> votos</span></div>'
@@ -600,29 +622,40 @@
               +(ev.viabilidad?'<span class="fede-rating"><span class="fede-rating-k">Viabilidad</span><b>'+escapeHTML(ev.viabilidad)+'</b></span>':'')
               +(ev.coherencia?'<span class="fede-rating"><span class="fede-rating-k">Coherencia</span><b>'+escapeHTML(ev.coherencia)+'</b></span>':'')
               +'</div>':'')+'</div>';
+        }else{
+          // FEDe sí cubre el sector pero no hay evaluación para ESTE candidato: se dice explícito.
+          fedeBox='<div class="noinfo">No se encontró evaluación de FEDe para '+escapeHTML(dn(id))+' en este sector. La ausencia es de la fuente, no una omisión nuestra.</div>';
         }
       }else{
         fedeBox='<div class="no-fede">FEDe no tiene un sector análogo a este problema, así que aquí no hay capa de análisis de Estado de Derecho. Lo decimos en vez de rellenarlo.</div>';
       }
       const proxyNote=PROXY.has(curProblem)?'<div class="no-fede"><b>Problema transversal.</b> Se muestran las propuestas de los sectores que mejor lo aproximan ('+[...ms.cand,...ms.fede].map(s=>SECTOR_LABELS[s]||s).join(' · ')+'). Es una aproximación.</div>':'';
       const total=cand.length+fede.length;
-      const propsHTML=total?([...cand,...fede].map(renderProp).join('')):'<div class="col-empty">Sin propuestas documentadas en los sectores relevantes a este problema.</div>';
+      const propsHTML=total?([...cand,...fede].map(renderProp).join('')):'<div class="noinfo">No se encontró información de propuestas de '+escapeHTML(dn(id))+' en los sectores relevantes a este problema. La ausencia es de las fuentes consultadas, no una omisión nuestra.</div>';
       return '<div class="cmp-col" style="--cc:'+col+'">'
         +'<div class="cmp-col-head"><span class="ini" style="background:'+col+'">'+INI(id)+'</span><h4>'+escapeHTML(dn(id))+'</h4><span class="cnt">'+total+' prop.</span></div>'
         +fedeBox+proxyNote+propsHTML+'</div>';
     }).join('');
-
-    renderPosiciones();
   }
-  function renderPosiciones(){
-    const ms=PROBLEM_SECTORS[curProblem];const sec=ms.fede[0];
-    const pos=(RAW.posiciones_fede||[]).filter(x=>x.sector===sec);
-    if(!pos.length){document.getElementById('posWrap').innerHTML='';return;}
-    const rows=pos.map(q=>{
-      const cells=ORDER.map(id=>'<div class="pos-a" style="--cc:'+COLORS[id]+'"><span class="who" style="color:'+COLORS[id]+'">'+escapeHTML(dn(id))+'</span>'+escapeHTML(q.respuestas[id]||'—')+'</div>').join('');
-      return '<div class="pos-q"><div class="pos-qt">'+escapeHTML(q.pregunta)+'</div><div class="pos-row">'+cells+'</div></div>';
+  /* ---------- Posiciones frente a frente (sección propia, acordeón por tema) ---------- */
+  function renderPosicionesSection(){
+    const order=['seguridad','salud','energia','tierras_y_agro'];
+    const bySec={};
+    (RAW.posiciones_fede||[]).forEach(q=>{(bySec[q.sector]=bySec[q.sector]||[]).push(q);});
+    const present=order.filter(s=>bySec[s]);
+    if(!present.length){document.getElementById('posSections').innerHTML='<p class="intro">No hay posiciones disponibles.</p>';return;}
+    document.getElementById('posSections').innerHTML=present.map((s,idx)=>{
+      const qs=bySec[s];
+      const body=qs.map(q=>{
+        const cells=ORDER.map(id=>{
+          const a=q.respuestas[id];
+          const ans=a?escapeHTML(a):'<span class="noinfo mini">No se encontró respuesta de '+escapeHTML(dn(id))+' a esta pregunta.</span>';
+          return '<div class="pos-a" style="--cc:'+COLORS[id]+'"><span class="who" style="color:'+COLORS[id]+'">'+escapeHTML(dn(id))+'</span>'+ans+'</div>';
+        }).join('');
+        return '<div class="pos-q"><div class="pos-qt">'+escapeHTML(q.pregunta)+'</div><div class="pos-row">'+cells+'</div></div>';
+      }).join('');
+      return '<details class="pos-acc"'+(idx===0?' open':'')+'><summary><span class="sec-name">'+escapeHTML(SECTOR_LABELS[s]||s)+'</span><span class="sec-count">'+qs.length+' pregunta'+(qs.length===1?'':'s')+'</span></summary><div class="acc-body">'+body+'</div></details>';
     }).join('');
-    document.getElementById('posWrap').innerHTML='<div class="pos-wrap"><div class="pos-head"><h4>Posiciones frente a frente</h4><div class="sub">Misma pregunta, respuesta de cada candidato. Sector <b>'+escapeHTML(SECTOR_LABELS[sec]||sec)+'</b>. Fuente: FEDe.</div></div>'+rows+'</div>';
   }
 
   /* ---------- 3) MI PUNTAJE ---------- */
@@ -764,7 +797,7 @@
   window.__clearSel=()=>{if(selCount()===0)return;if(confirm('¿Borrar todas tus selecciones?')){clearSel();renderPuntaje();}};
 
   // primera pintura
-  renderCountdown();renderCara();renderChips();renderProblem();renderHitos();updateBadge();
+  renderCountdown();renderCara();renderChips();renderProblem();renderPosicionesSection();renderHitos();updateBadge();
 })();
 </script>
 </body>

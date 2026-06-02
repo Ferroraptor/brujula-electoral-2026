@@ -15,15 +15,16 @@ El sitio tiene **dos caras**:
 
 ## v5 — Segunda vuelta (21 de junio de 2026)
 
-Tras la primera vuelta (31-may), la página principal pasa a ser el comparador frontal de los dos finalistas. Cinco secciones:
+Tras la primera vuelta (31-may), la página principal pasa a ser el comparador frontal de los dos finalistas. Seis secciones:
 
-1. **Cara a cara** — los dos candidatos lado a lado: resultado de primera vuelta, fórmula vicepresidencial, apoyos recibidos, perfil y enlace al programa.
-2. **Comparar por problema** — el núcleo. Para cada uno de los **8 problemas del país** (triangulados de cinco encuestadoras + fuentes estructurales) se muestran las propuestas de cada candidato en columnas espejo. Cada propuesta tiene un **selector personal** (👍 Me convence / 👎 No me convence / 🤷 No estoy seguro) que se guarda **solo en tu dispositivo** (`localStorage`, clave `brujula-2026-selections-v5`). Incluye la capa **"Posiciones frente a frente"** de FEDe (misma pregunta, respuesta de cada candidato).
-3. **Mi puntaje** — agrega tus selecciones por candidato y por problema. **Nunca recomienda voto**: tabula, no concluye.
-4. **Hitos verificables** — cronología de hechos con fuente y enlace (ver reglas de curaduría abajo).
-5. **Cómo decidir** — preguntas para pensar mejor la decisión, incluido el voto en blanco.
+1. **Cara a cara** — los dos candidatos lado a lado: resultado de primera vuelta, fórmula vicepresidencial, apoyos recibidos, dos perfiles atribuidos (Candidateados y FEDe) y enlace al programa.
+2. **Comparar por problema** — el núcleo. Para cada uno de los **8 problemas del país** (triangulados de cinco encuestadoras + fuentes estructurales) se muestran las propuestas de cada candidato en columnas espejo. Cada propuesta tiene un **selector personal** (👍 Me convence / 👎 No me convence / 🤷 No estoy seguro) que se guarda **solo en tu dispositivo** (`localStorage`, clave `brujula-2026-selections-v5`). Donde una columna no tiene información, se dice de forma explícita (un vacío no debe leerse como favoritismo).
+3. **Posiciones** — matriz **frente a frente** de FEDe: la misma pregunta con la respuesta de cada candidato, en un acordeón por tema (Seguridad, Salud, Energía, Tierras y agro).
+4. **Mi puntaje** — agrega tus selecciones por candidato y por problema. **Nunca recomienda voto**: tabula, no concluye.
+5. **Hitos verificables** — cronología de hechos con fuente y enlace (ver reglas de curaduría abajo).
+6. **Cómo decidir** — preguntas para pensar mejor la decisión, incluido el voto en blanco.
 
-**Principios que no se rompen:** no se recomienda voto; no hay contadores de "popularidad" entre usuarios; no hay analítica ni rastreo; el mensaje de respeto al voto del otro aparece en el header, en Mi puntaje y en Cómo decidir.
+**Principios que no se rompen:** no se recomienda voto; no hay contadores de "popularidad" entre usuarios; no hay analítica ni rastreo; el mensaje de respeto al voto del otro aparece en el header, en Mi puntaje y en Cómo decidir; **simetría de trato** — donde falta información de un candidato, se declara explícitamente en vez de dejar un hueco.
 
 ### Datos de segunda vuelta
 
