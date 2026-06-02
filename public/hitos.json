@@ -1,60 +1,114 @@
 {
   "lastUpdated": "2026-06-01T18:00:00-05:00",
-  "nota_curaduria": "Solo hechos verificables con fuente, fecha y enlace. Lenguaje neutro. Simetría obligatoria: mismo número de hitos propios por candidato. Ventana móvil de 14 días. Actualización manual, sin scraping.",
+  "nota_curaduria": "Cada hito tiene un resumen editorial neutro (reglas de redacción en el README) y una lista de fuentes de verificación de líneas contrastantes para que el lector cruce referencias. No se etiqueta el lean editorial en la UI. Curaduría manual, revisión humana antes de publicar. Ventana móvil de 14 días.",
   "hitos": [
     {
+      "id": "H004",
       "fecha": "2026-06-01",
       "candidato": "espriella",
       "categoria": "debate",
-      "titulo": "De la Espriella propone debatir el 9 de junio en Semana",
-      "descripcion": "Abelardo de la Espriella dijo que asistirá a un debate con Iván Cepeda el 9 de junio a las 7 p. m. en la revista Semana, con condiciones que incluyen aceptar los resultados de la primera vuelta.",
-      "fuente": "Semana",
-      "url": "https://www.semana.com/politica/articulo/abelardo-de-la-espriella-acepto-debatir-con-ivan-cepeda-el-proximo-9-de-junio-en-semana-el-candidato-del-pacto-historico-aun-no-responde/202654/"
+      "titulo": "De la Espriella propone debatir el 9 de junio, con condiciones",
+      "resumen": "Abelardo de la Espriella propuso debatir el 9 de junio a las 7:00 p. m. en un espacio organizado por la revista Semana, con las fórmulas vicepresidenciales presentes y condicionado a que Iván Cepeda reconociera los resultados de primera vuelta. Cepeda rechazó esas condiciones y el medio organizador, y reiteró su propuesta de un \"duelo\" sin fórmulas vicepresidenciales. Al cierre de esta actualización no había un debate confirmado.",
+      "solo_un_lado": null,
+      "fuentes": [
+        { "nombre": "@ABDELAESPRIELLA (X)", "url": "https://x.com/ABDELAESPRIELLA", "tipo": "primaria" },
+        { "nombre": "@IvanCepedaCast (X)", "url": "https://x.com/IvanCepedaCast", "tipo": "primaria" },
+        { "nombre": "Semana", "url": "https://www.semana.com/politica/articulo/abelardo-de-la-espriella-acepto-debatir-con-ivan-cepeda-el-proximo-9-de-junio-en-semana-el-candidato-del-pacto-historico-aun-no-responde/202654/", "tipo": "medio" },
+        { "nombre": "Infobae", "url": "https://www.infobae.com/colombia/2026/06/01/ivan-cepeda-no-acepto-el-debate-con-abelardo-de-la-espriella-para-el-9-de-junio-esta-fue-la-razon/", "tipo": "medio" },
+        { "nombre": "El Nuevo Día", "url": "https://www.elnuevodia.com.co/politica/cepeda-y-de-la-espriella-no-se-ponen-de-acuerdo-para-el-debate-537044", "tipo": "medio" }
+      ]
     },
     {
+      "id": "H003",
       "fecha": "2026-06-01",
       "candidato": "cepeda",
       "categoria": "debate",
-      "titulo": "Cepeda rechaza el debate en Semana y pide otras reglas",
-      "descripcion": "Iván Cepeda no aceptó la invitación a debatir el 9 de junio en Semana; pidió 'reglas claras' y un escenario distinto, y propuso un formato de duelo sin fórmulas vicepresidenciales.",
-      "fuente": "Infobae",
-      "url": "https://www.infobae.com/colombia/2026/06/01/ivan-cepeda-no-acepto-el-debate-con-abelardo-de-la-espriella-para-el-9-de-junio-esta-fue-la-razon/"
+      "titulo": "Cepeda emplaza a De la Espriella a un debate",
+      "resumen": "Iván Cepeda emplazó públicamente a Abelardo de la Espriella a un debate político y electoral, y dijo haber designado delegados para acordar las reglas. Planteó un formato de \"duelo\" entre los dos candidatos, sin fórmulas vicepresidenciales.",
+      "solo_un_lado": null,
+      "fuentes": [
+        { "nombre": "@IvanCepedaCast (X)", "url": "https://x.com/IvanCepedaCast", "tipo": "primaria" },
+        { "nombre": "Pulzo", "url": "https://www.pulzo.com/elecciones-colombia-2026/ivan-cepeda-nego-debate-semana-reto-duelo-abelardo-espriella-PP5201379", "tipo": "medio" },
+        { "nombre": "Infobae", "url": "https://www.infobae.com/colombia/2026/06/01/ivan-cepeda-no-acepto-el-debate-con-abelardo-de-la-espriella-para-el-9-de-junio-esta-fue-la-razon/", "tipo": "medio" },
+        { "nombre": "Colombia One (inglés)", "url": "https://colombiaone.com/2026/06/01/colombia-cepeda-calls-debate-de-la-espriella/", "tipo": "internacional" }
+      ]
     },
     {
-      "fecha": "2026-06-01",
+      "id": "H001",
+      "fecha": "2026-05-31",
       "candidato": "ambos",
-      "categoria": "debate",
-      "titulo": "Las campañas no se ponen de acuerdo sobre el debate",
-      "descripcion": "Al cierre del 1 de junio no había un debate confirmado entre los dos candidatos: difieren en fecha, medio organizador y formato.",
-      "fuente": "El Nuevo Día",
-      "url": "https://www.elnuevodia.com.co/politica/cepeda-y-de-la-espriella-no-se-ponen-de-acuerdo-para-el-debate-537044"
+      "categoria": "resultado",
+      "titulo": "Resultados de primera vuelta: De la Espriella y Cepeda pasan a segunda vuelta",
+      "resumen": "Con las mesas escrutadas, la Registraduría Nacional reportó a Abelardo de la Espriella con 10.361.499 votos (43,74 %) y a Iván Cepeda con 9.688.348 (40,90 %). Ningún candidato alcanzó la mayoría absoluta requerida para ganar en primera vuelta, por lo que la segunda vuelta quedó convocada para el 21 de junio.",
+      "solo_un_lado": null,
+      "fuentes": [
+        { "nombre": "Registraduría Nacional", "url": "https://www.registraduria.gov.co", "tipo": "primaria" },
+        { "nombre": "El Tiempo", "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/como-quedaron-las-votaciones-presidenciales-en-primera-vuelta-abelardo-de-la-espriella-le-gano-a-ivan-cepeda-e-iran-juntos-a-segunda-vuelta-3561040", "tipo": "medio" },
+        { "nombre": "El Espectador", "url": "https://www.elespectador.com/politica/elecciones-colombia-2026/resultados-elecciones-presidenciales-colombia-2026-en-vivo-quien-gano/", "tipo": "medio" },
+        { "nombre": "CNN en Español", "url": "https://cnnespanol.cnn.com/2026/05/31/colombia/live-news/elecciones-presidenciales-cepeda-abelardo-paloma-resultados-orix", "tipo": "internacional" }
+      ]
     },
     {
+      "id": "H002",
+      "fecha": "2026-05-31",
+      "candidato": "cepeda",
+      "categoria": "declaracion",
+      "titulo": "Cepeda pide esperar el escrutinio antes de aceptar los resultados",
+      "resumen": "Iván Cepeda pidió esperar la proclamación de las comisiones escrutadoras antes de dar por definitivos los resultados y mencionó un posible desfase cercano a 885.000 registros en el censo electoral. El registrador Hernán Penagos defendió la integridad del conteo y la Procuraduría señaló que no había reclamaciones formales pendientes de resolver. Menos de 24 horas después, Cepeda afirmó que su equipo no había encontrado evidencia de irregularidades de gran magnitud. El presidente Gustavo Petro también declaró no reconocer el preconteo.",
+      "solo_un_lado": null,
+      "fuentes": [
+        { "nombre": "@IvanCepedaCast (X)", "url": "https://x.com/IvanCepedaCast", "tipo": "primaria" },
+        { "nombre": "Registraduría — declaración (vía El Espectador)", "url": "https://www.elespectador.com/politica/elecciones-colombia-2026/asi-se-defendieron-a-la-registraduria-tras-comentarios-de-petro-y-cepeda-sobre-resultados-de-primera-vuelta-noticias-hoy/", "tipo": "medio" },
+        { "nombre": "El Colombiano (\"desfase que queremos verificar\")", "url": "https://www.elcolombiano.com/especiales/elecciones-2026/ivan-cepeda-no-acepta-derrota-resultados-elecciones-2026-OM37193379", "tipo": "medio" },
+        { "nombre": "El Colombiano (\"no encontró irregularidades\")", "url": "https://www.elcolombiano.com/especiales/elecciones-2026/ivan-cepeda-no-encontro-irregularidades-elecciones-2026-preconteo-OH37215784", "tipo": "medio" },
+        { "nombre": "El Tiempo", "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/rechazo-a-las-declaraciones-del-presidente-gustavo-petro-en-las-que-afirma-que-no-acepta-los-resultados-del-preconteo-tras-la-derrota-de-ivan-cepeda-3560940", "tipo": "medio" }
+      ]
+    },
+    {
+      "id": "H005",
       "fecha": "2026-05-31",
       "candidato": "espriella",
       "categoria": "apoyo",
       "titulo": "Paloma Valencia anuncia su apoyo a De la Espriella",
-      "descripcion": "Tras quedar tercera en la primera vuelta, la senadora del Centro Democrático Paloma Valencia anunció que respaldará a Abelardo de la Espriella en la segunda vuelta.",
-      "fuente": "El Tiempo",
-      "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/paloma-valencia-se-pronuncio-frente-a-su-salida-de-la-segunda-vuelta-presidencial-en-las-elecciones-afirmo-que-apoyara-a-abelardo-de-la-espriella-3560950"
+      "resumen": "Tras quedar en tercer lugar con el 6,92 %, la senadora Paloma Valencia (Centro Democrático) anunció su apoyo a Abelardo de la Espriella para la segunda vuelta y pidió a sus electores votar por él.",
+      "solo_un_lado": null,
+      "fuentes": [
+        { "nombre": "El Tiempo", "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/paloma-valencia-se-pronuncio-frente-a-su-salida-de-la-segunda-vuelta-presidencial-en-las-elecciones-afirmo-que-apoyara-a-abelardo-de-la-espriella-3560950", "tipo": "medio" },
+        { "nombre": "El Colombiano", "url": "https://www.elcolombiano.com/colombia/paloma-valencia-apoyo-abelardo-de-la-espriella-segunda-vuelta-junio-2026-ON37188701", "tipo": "medio" },
+        { "nombre": "Infobae", "url": "https://www.infobae.com/colombia/2026/05/31/paloma-valencia-confirmo-que-apoyara-a-abelardo-de-la-espriella-en-segunda-vuelta-presidencial-esto-dijo/", "tipo": "medio" },
+        { "nombre": "El País (Cali)", "url": "https://www.elpais.com.co/elecciones/paloma-valencia-anuncio-su-apoyo-a-la-candidatura-de-abelardo-de-la-espriella-luego-de-quedar-tercera-en-las-presidenciales-3130.html", "tipo": "medio" }
+      ]
     },
     {
+      "id": "H006",
       "fecha": "2026-05-31",
       "candidato": "cepeda",
       "categoria": "apoyo",
       "titulo": "Roy Barreras anuncia su apoyo a Cepeda",
-      "descripcion": "Roy Barreras anunció su respaldo a Iván Cepeda para la segunda vuelta y le pidió ampliar su campaña hacia el centro político.",
-      "fuente": "El Tiempo",
-      "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/roy-barreras-anuncio-su-apoyo-a-ivan-cepeda-y-le-pidio-abrir-la-campana-para-que-abelardo-de-la-espriella-no-sea-presidente-3560974"
+      "resumen": "Roy Barreras (Fuerza de la Paz) anunció su apoyo a Iván Cepeda para la segunda vuelta y le pidió \"abrir la campaña\" hacia el centro político. Días antes había dejado a sus electores en libertad.",
+      "solo_un_lado": null,
+      "fuentes": [
+        { "nombre": "@RoyBarreras (X)", "url": "https://x.com/RoyBarreras", "tipo": "primaria" },
+        { "nombre": "El Tiempo", "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-presidenciales-2026-primera-vuelta/roy-barreras-anuncio-su-apoyo-a-ivan-cepeda-y-le-pidio-abrir-la-campana-para-que-abelardo-de-la-espriella-no-sea-presidente-3560974", "tipo": "medio" },
+        { "nombre": "El País (Cali)", "url": "https://www.elpais.com.co/politica/roy-barreras-anuncio-su-apoyo-a-la-candidatura-de-ivan-cepeda-se-puede-ganar-3140.html", "tipo": "medio" },
+        { "nombre": "Infobae", "url": "https://www.infobae.com/colombia/2026/05/31/roy-barreras-anticipo-su-derrota-en-la-primera-vuelta-y-apoyara-a-ivan-cepeda-en-la-segunda-vuelta-es-un-voto-para-construir-puentes/", "tipo": "medio" }
+      ]
     },
     {
-      "fecha": "2026-05-31",
-      "candidato": "ambos",
-      "categoria": "resultado",
-      "titulo": "Resultados de primera vuelta: De la Espriella 43,74 % · Cepeda 40,90 %",
-      "descripcion": "La Registraduría reportó que Abelardo de la Espriella (43,74 %) e Iván Cepeda (40,90 %) pasan a segunda vuelta el 21 de junio; ninguno alcanzó la mayoría absoluta.",
-      "fuente": "El Tiempo",
-      "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/como-quedaron-las-votaciones-presidenciales-en-primera-vuelta-abelardo-de-la-espriella-le-gano-a-ivan-cepeda-e-iran-juntos-a-segunda-vuelta-3561040"
+      "id": "H007",
+      "fecha": "2026-05-30",
+      "candidato": "espriella",
+      "categoria": "declaracion",
+      "titulo": "Ecuador anuncia el fin de aranceles a Colombia tras una conversación con De la Espriella",
+      "resumen": "En una conversación transmitida por el canal de Abelardo de la Espriella, el presidente de Ecuador, Daniel Noboa, anunció la eliminación de aranceles a las exportaciones colombianas desde el 1 de junio. De la Espriella presentó la medida como resultado de esa gestión; la Cancillería del gobierno de Gustavo Petro afirmó que respondía a una orden de la Secretaría General de la Comunidad Andina del 8 de mayo, no a un gesto político. Iván Cepeda calificó la intervención de \"vulgar, abierta y descarada\".",
+      "solo_un_lado": null,
+      "fuentes": [
+        { "nombre": "@ABDELAESPRIELLA (X)", "url": "https://x.com/ABDELAESPRIELLA", "tipo": "primaria" },
+        { "nombre": "@IvanCepedaCast (X)", "url": "https://x.com/IvanCepedaCast", "tipo": "primaria" },
+        { "nombre": "Semana", "url": "https://www.semana.com/politica/articulo/abelardo-de-la-espriella-hablo-con-el-presidente-de-ecuador-daniel-noboa-y-logro-que-ese-pais-tumbara-los-aranceles-contra-colombia/202615/", "tipo": "medio" },
+        { "nombre": "El Espectador", "url": "https://www.elespectador.com/mundo/america/noboa-elimina-aranceles-tras-hablar-con-de-la-espriella-y-se-mete-en-campana-colombiana/", "tipo": "medio" },
+        { "nombre": "Infobae (desmentido de la Cancillería)", "url": "https://www.infobae.com/colombia/2026/05/30/gobierno-petro-nego-que-retiro-de-aranceles-por-parte-de-ecuador-haya-sido-por-reunion-entre-abelardo-de-la-espriella-y-daniel-noboa/", "tipo": "medio" }
+      ]
     }
   ]
 }

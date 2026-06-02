@@ -32,17 +32,61 @@ Tras la primera vuelta (31-may), la página principal pasa a ser el comparador f
 - **Candidateados** no cambió su data programática para 2ª vuelta → se **reusa la de primera vuelta** (los programas oficiales no cambiaron).
 - Corpus: [`public/propuestas-2026-segunda-vuelta.json`](public/propuestas-2026-segunda-vuelta.json). Builder determinista: [`data/build_segunda_vuelta.py`](data/build_segunda_vuelta.py). Cobertura y decisiones: [`data/cobertura-segunda-vuelta.md`](data/cobertura-segunda-vuelta.md).
 
-### Reglas de curaduría de hitos (`public/hitos.json`)
+### Curaduría de hitos (`public/hitos.json`)
 
-Estrictas, a propósito:
+Cada hito tiene un **resumen editorial neutro** y una **lista de fuentes de verificación** de líneas
+contrastantes. Estructura de cada hito:
 
-- **Solo hechos verificables** con fuente, fecha y enlace. Nada de rumores.
-- **Lenguaje neutro:** "X declaró Y" / "Z anunció apoyo a W"; nunca "X criticó duramente Y" ni "Z se vio fortalecido".
-- **Simetría obligatoria:** mismo número de hitos *propios* por candidato. Si no se puede, la asimetría se muestra de forma explícita (no se esconde).
-- **Ventana móvil de 14 días** desde `lastUpdated`.
-- **Curaduría manual, sin scraping** en vivo. Baja frecuencia, alta calidad.
-- Categorías: `resultado`, `apoyo`, `debate`, `judicial`, `propuesta`.
+```json
+{
+  "id": "H001",
+  "fecha": "2026-05-31",
+  "candidato": "ambos | cepeda | espriella",
+  "categoria": "resultado | apoyo | debate | declaracion | judicial | propuesta",
+  "titulo": "Título corto y factual",
+  "resumen": "Resumen neutral del hecho, lectura < 30 s. Quién hizo qué, cuándo, en qué condiciones.",
+  "solo_un_lado": null,
+  "fuentes": [ { "nombre": "Registraduría", "url": "https://…", "tipo": "primaria" } ]
+}
+```
 
+**10 reglas de redacción del resumen** (aplicar a cada hito):
+
+1. Sin adjetivos cargados ("duramente", "polémico", "histórico", "fuerte", "controversial", "tajantemente").
+2. Sin etiquetas ideológicas ("el ultraderechista X", "el progresista Y", "el oficialista Z"). Solo nombres y cargos formales.
+3. Sin especulación ("podría", "se espera que", "es probable que", "habrá").
+4. Los números vienen de fuente primaria (Registraduría, CNE, Corte), no del medio que los repitió.
+5. Cita literal entre comillas cuando las palabras exactas importan; parafrasea cuando no.
+6. Si dos medios enmarcan distinto el mismo hecho y es relevante, di las dos cosas con atribución.
+7. Si hay disputa fáctica, muestra ambas posiciones sin arbitrar (p. ej. "Cepeda pidió verificación; la Registraduría sostuvo que el conteo fue íntegro").
+8. Lectura en menos de 30 segundos. Si no entra, simplifica o pártelo en dos.
+9. Si redactar un hito sin sesgo requiere acrobacia verbal, no es material de timeline. Sáltalo.
+10. **Revisión humana antes de publicar** cada hito (Sergio aprueba antes de merge).
+
+**Diversidad de fuentes** — el paisaje mediático colombiano tiene líneas editoriales identificables;
+el correctivo no es etiquetarlas en la UI (guerra innecesaria) sino **diversificar estructuralmente**
+y dejar que el lector calibre. Mínimos por tipo de hito:
+
+| Tipo de hito | Mínimo de fuentes |
+|---|---|
+| Datos electorales (resultados, censos) | 1 primaria (Registraduría / CNE) |
+| Apoyos políticos | 2: 1 primaria (tweet/comunicado) + 1 medio |
+| Declaraciones | 2 de líneas contrastantes (centro-derecha + centro-izquierda o un verificador) |
+| Decisiones judiciales | 1 primaria (Corte / CNE) + 1 medio |
+| Hechos controvertidos / claims disputados | privilegiar verificador (ColombiaCheck, Mutante, Detector de La Silla Vacía); si no, mostrar las dos versiones |
+
+Pool sugerido: **primarias** (Registraduría, CNE, Corte Constitucional, Procuraduría, cuentas
+oficiales en X de las campañas); **internacionales** (AFP, Reuters, BBC Mundo, DW, CNN en Español);
+**verificadores** (ColombiaCheck, Detector de La Silla Vacía, Cuestión Pública, Mutante); **medios de
+líneas contrastantes** (centro-derecha: El Tiempo, Semana, El Colombiano, RCN, Infobae · centro-izquierda:
+El Espectador, Cambio, La Nueva Prensa · sin lean fuerte: La Silla Vacía, Razón Pública, BLU Radio).
+
+**Cuando un hito significativo solo aparece en un lado del espectro**, se declara en el campo
+`solo_un_lado` (se renderiza como nota al pie del hito): *"Reportado por [medio]; sin cobertura
+confirmada en medios de [otra línea] al momento de la actualización."* Es honesto y deja al lector ponderar.
+
+Reglas generales: **simetría** (mismo número de hitos *propios* por candidato; si no, se muestra la
+asimetría), **ventana móvil de 14 días** desde `lastUpdated`, **curaduría manual sin scraping**.
 Actualizar un hito es editar el JSON; no hay que tocar el HTML.
 
 ---

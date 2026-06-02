@@ -48,6 +48,8 @@
   .countdown .cd-lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.85;margin-top:4px}
   .respeto{margin:16px 0 0;padding:14px 17px;background:var(--panel);border:1px solid var(--line2);border-left:4px solid var(--L3);border-radius:var(--r);font-size:14px;color:#34302a;line-height:1.6;max-width:88ch}
   .respeto b{color:#22201b;font-weight:600}
+  .respeto p{margin:0 0 9px}
+  .respeto .cierre{margin:10px 0 0;padding-top:9px;border-top:1px solid var(--line);font-family:"Fraunces",serif;font-weight:600;font-size:16.5px;color:#22201b;letter-spacing:-.01em}
   .vuelta-sel{display:inline-flex;gap:4px;margin-top:14px;background:var(--chip);border-radius:30px;padding:3px}
   .vuelta-sel a,.vuelta-sel span{font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:30px;text-decoration:none;color:var(--muted)}
   .vuelta-sel .active{background:var(--ink);color:#fff}
@@ -242,10 +244,17 @@
   .hito-cat{font-size:10px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:30px;background:var(--chip);color:#5c574b}
   .hc-resultado{background:var(--L3);color:#fff}.hc-apoyo{background:#EFF3F8;color:#3a4458;border:1px solid #C9D3E2}
   .hc-debate{background:#FBF1E6;color:#7a4226;border:1px solid #E8C9A5}.hc-judicial{background:#F2D5D0;color:#7a3326}
+  .hc-declaracion{background:var(--chip);color:#5c574b}.hc-propuesta{background:#E7E3D5;color:#5c574b}
   .hito-who{font-size:10px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:30px;color:#fff}
-  .hito-t{font-weight:600;font-size:13.5px;color:#2c2a24}
-  .hito-d{font-size:12.5px;color:#3a352d;margin-top:3px;line-height:1.5}
-  .hito-src{font-size:11px;color:var(--muted);margin-top:4px}
+  .hito-t{font-weight:600;font-size:14px;color:#2c2a24}
+  .hito-d{font-size:13px;color:#3a352d;margin-top:4px;line-height:1.55}
+  .hito-solo{font-size:11.5px;color:#7a5a26;background:#FBF1E6;border:1px solid #E8C9A5;border-radius:6px;padding:5px 9px;margin-top:6px;line-height:1.45}
+  .hito-verif{margin-top:8px;padding-top:7px;border-top:1px dashed var(--line)}
+  .hito-verif .vk{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:3px}
+  .hito-verif .vlist{display:flex;flex-direction:column;gap:2px}
+  .hito-verif a{font-size:12px;color:#7a4a3c;text-decoration:none}
+  .hito-verif a:hover{text-decoration:underline}
+  .hito-verif a::before{content:"→ ";color:var(--muted)}
   .sym-note{font-size:12px;color:var(--muted);background:var(--chip);border-radius:8px;padding:8px 12px;margin:8px 0 14px}
 
   /* ---- cómo decidir ---- */
@@ -290,12 +299,15 @@
         <div class="cd-lbl" id="cd-lbl">para el 21 de junio</div>
       </div>
     </div>
-    <p class="respeto">
-      Estamos en un momento de máxima polarización. Esta herramienta no busca convencerte de votar por
-      uno u otro candidato; busca darte información rigurosa para que decidas tú. Sea cual sea el
-      resultado del 21 de junio, <b>la democracia colombiana depende del respeto al voto del otro</b>
-      mucho más que de quién gane.
-    </p>
+    <div class="respeto">
+      <p><b>El 21 de junio elegimos rumbo de país.</b> Esta herramienta te da información rigurosa para
+        que decidas con criterio propio.</p>
+      <p>Gane quien gane, los candidatos seguirán su vida. Los que convivimos con el resultado somos
+        nosotros, nuestras familias y nuestros hijos. Por eso votar bien es solo el primer paso —lo que
+        sigue cuenta igual: respetar el voto del otro, hacer veeduría, cumplir las normas, enseñar que en
+        una sociedad cabemos muchos y solo entre todos progresamos.</p>
+      <p class="cierre">El voto se ejerce un domingo; la ciudadanía, todos los días.</p>
+    </div>
     <div class="vuelta-sel">
       <span class="active">Segunda vuelta</span>
       <a href="/archivo">Primera vuelta · archivo →</a>
@@ -381,10 +393,18 @@
       en blanco fuerza repetir la elección con candidatos nuevos si supera la mayoría de los votos; en
       <b>segunda vuelta</b> no tiene ese efecto —no fuerza repetición— pero sí conserva valor político
       como expresión de disenso.</p></div>
-    <div class="reflexion" style="margin-top:14px"><p>Sea cual sea el resultado del 21 de junio, la
-      democracia colombiana depende del respeto al voto del otro mucho más que de quién gane. Salir de
-      aquí sabiendo más —incluso sobre el candidato que ya prefieres— y respetando más a quien piensa
-      distinto es el único objetivo de esta herramienta.</p></div>
+    <div class="reflexion" style="margin-top:14px"><p>Salir de aquí sabiendo más —incluso sobre el
+      candidato que ya prefieres— y respetando más a quien piensa distinto es el único objetivo de esta
+      herramienta.</p></div>
+    <div class="respeto" style="margin-top:14px;max-width:none">
+      <p><b>El 21 de junio elegimos rumbo de país.</b> Esta herramienta te da información rigurosa para
+        que decidas con criterio propio.</p>
+      <p>Gane quien gane, los candidatos seguirán su vida. Los que convivimos con el resultado somos
+        nosotros, nuestras familias y nuestros hijos. Por eso votar bien es solo el primer paso —lo que
+        sigue cuenta igual: respetar el voto del otro, hacer veeduría, cumplir las normas, enseñar que en
+        una sociedad cabemos muchos y solo entre todos progresamos.</p>
+      <p class="cierre">El voto se ejerce un domingo; la ciudadanía, todos los días.</p>
+    </div>
   </div>
 </div></div>
 
@@ -446,6 +466,12 @@
   function escapeHTML(s){return (s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
   function fuenteLink(raw){raw=(raw||'').trim();const url=raw.split('|')[0].trim();if(!url.startsWith('http'))return escapeHTML(raw);return '<a href="'+escapeHTML(url)+'" target="_blank" rel="noopener">fuente ↗</a>';}
   function fedeFlagText(f){if(!f)return '';const band=f.bandera?escapeHTML(f.bandera)+' al Estado de Derecho':'Objeción al Estado de Derecho';const det=(f.detalle||'').trim();if(det)return '<b>FEDe — '+band+':</b> '+escapeHTML(det)+' <i>— '+escapeHTML(f.fuente||'FEDe')+'</i>';return '<b>FEDe — '+band+'.</b> <span class="flag-nodet">FEDe la marcó en su semáforo del Estado de Derecho, sin publicar explicación detallada. Audita en la fuente.</span>';}
+
+  // Mensaje de respeto reutilizable (header lo lleva estático; aquí para los cierres dinámicos).
+  const RESPETO_HTML='<div class="respeto" style="margin-top:14px">'
+    +'<p><b>El 21 de junio elegimos rumbo de país.</b> Esta herramienta te da información rigurosa para que decidas con criterio propio.</p>'
+    +'<p>Gane quien gane, los candidatos seguirán su vida. Los que convivimos con el resultado somos nosotros, nuestras familias y nuestros hijos. Por eso votar bien es solo el primer paso —lo que sigue cuenta igual: respetar el voto del otro, hacer veeduría, cumplir las normas, enseñar que en una sociedad cabemos muchos y solo entre todos progresamos.</p>'
+    +'<p class="cierre">El voto se ejerce un domingo; la ciudadanía, todos los días.</p></div>';
 
   /* ---------- selector (localStorage) ---------- */
   const SEL_KEY='brujula-2026-selections-v5';
@@ -705,15 +731,14 @@
       +'<p>Esta herramienta <b>NO te recomienda un voto</b>. Los números de arriba son solo un agregado de tus selecciones, no una métrica de qué candidato te conviene. Tu decisión depende de qué problemas pesan más para ti, qué tan factible crees que son las propuestas, qué temperamento te parece preferible, y muchas cosas que ningún contador puede agregar.</p>'
       +'<p>Si más propuestas de un candidato te convencen, eso es información para reflexionar, no una conclusión. Si te das cuenta de que tus selecciones no coinciden con tu intuición de voto, eso también es información útil — vale la pena entender por qué.</p>'
       +'<p>El <b>voto en blanco</b> también es una opción válida si ninguno te convence. En Colombia, en primera vuelta el voto en blanco mayoritario fuerza repetir la elección con candidatos nuevos; en segunda vuelta tiene valor político pero no fuerza repetición.</p>'
-      +'<p style="border-top:1px solid var(--line);padding-top:10px;margin-top:12px">Sea cual sea el resultado del 21 de junio, <b>la democracia colombiana depende del respeto al voto del otro</b> mucho más que de quién gane.</p>'
       +'</div>';
 
-    body.innerHTML=overview+'<div class="score-grid">'+cards+'</div>'+byProb+reflexion
+    body.innerHTML=overview+'<div class="score-grid">'+cards+'</div>'+byProb+reflexion+RESPETO_HTML
       +'<div class="privacy" style="margin-top:18px"><span>🔒 Todo esto vive solo en tu dispositivo.</span><button class="clear-btn" onclick="window.__clearSel()">Limpiar mis selecciones</button></div>';
   }
 
   /* ---------- 4) HITOS ---------- */
-  const CAT_LABEL={resultado:'Resultado',apoyo:'Apoyo',debate:'Debate',judicial:'Judicial',propuesta:'Propuesta'};
+  const CAT_LABEL={resultado:'Resultado',apoyo:'Apoyo',debate:'Debate',judicial:'Judicial',propuesta:'Propuesta',declaracion:'Declaración'};
   const MONTHS=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
   function renderHitos(){
     const list=(HITOS.hitos||[]).slice();
@@ -734,10 +759,17 @@
       if(h.candidato==='cepeda')who='<span class="hito-who" style="background:'+COLORS.cepeda+'">Cepeda</span>';
       else if(h.candidato==='espriella')who='<span class="hito-who" style="background:'+COLORS.espriella+'">De la Espriella</span>';
       else who='<span class="hito-cat">Ambos</span>';
-      const src=h.url?'<a href="'+escapeHTML(h.url)+'" target="_blank" rel="noopener">'+escapeHTML(h.fuente||'fuente')+' ↗</a>':escapeHTML(h.fuente||'');
+      const fuentes=Array.isArray(h.fuentes)?h.fuentes:[];
+      const verif=fuentes.length
+        ? '<div class="hito-verif"><div class="vk">Verificación</div><div class="vlist">'
+          +fuentes.map(f=>'<a href="'+escapeHTML(f.url||'')+'" target="_blank" rel="noopener">'+escapeHTML(f.nombre||f.url||'fuente')+'</a>').join('')
+          +'</div></div>'
+        : '';
+      const solo=h.solo_un_lado?'<div class="hito-solo">'+escapeHTML(h.solo_un_lado)+'</div>':'';
+      const resumen=escapeHTML(h.resumen||h.descripcion||'');
       return '<div class="hito"><div class="hito-date"><div class="d">'+d.getDate()+'</div><div class="m">'+MONTHS[d.getMonth()]+'</div></div>'
         +'<div class="hito-body"><div class="hito-tags">'+cat+who+'</div><div class="hito-t">'+escapeHTML(h.titulo)+'</div>'
-        +'<div class="hito-d">'+escapeHTML(h.descripcion||'')+'</div><div class="hito-src">'+src+'</div></div></div>';
+        +'<div class="hito-d">'+resumen+'</div>'+solo+verif+'</div></div>';
     }).join(''):'<p class="intro">No hay hitos en la ventana de los últimos 14 días.</p>';
   }
 
