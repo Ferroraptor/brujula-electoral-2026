@@ -1,21 +1,108 @@
 # Brújula Electoral 2026
 
-Comparador imparcial de las propuestas de los **12 candidatos** a la presidencia de Colombia 2026 — **616 propuestas** con su fuente citada, banderas constitucionales y comentarios de expertos atribuidos a quien los emite.
+Comparador imparcial de propuestas para las elecciones presidenciales de Colombia 2026, con cada propuesta citada a su fuente, banderas constitucionales y comentarios de expertos atribuidos a quien los emite.
 
 Proyecto **personal e independiente de Sergio Ferro**. No representa a ninguna campaña, partido ni organización. Es información cívica, no una recomendación de voto.
 
+El sitio tiene **dos caras**:
+
+| Ruta | Versión | Contenido |
+|---|---|---|
+| **`/`** | **v5 · Segunda vuelta** (default) | Cepeda vs De la Espriella, frente a frente, con selector personal. |
+| **`/archivo`** · `/primera-vuelta` | **v4 · Primera vuelta** (archivo) | Los 12 candidatos · 616 propuestas, intacto. |
+
 ---
 
-## Qué es
+## v5 — Segunda vuelta (21 de junio de 2026)
 
-Un sitio estático de una sola página (HTML + JSON + fuentes self-hosted). Sin backend, sin tracking, sin cookies. Cuatro vistas:
+Tras la primera vuelta (31-may), la página principal pasa a ser el comparador frontal de los dos finalistas. Seis secciones:
+
+1. **Cara a cara** — los dos candidatos lado a lado: resultado de primera vuelta, fórmula vicepresidencial, apoyos recibidos, dos perfiles atribuidos (Candidateados y FEDe) y enlace al programa.
+2. **Comparar por problema** — el núcleo. Para cada uno de los **8 problemas del país** (triangulados de cinco encuestadoras + fuentes estructurales) se muestran las propuestas de cada candidato en columnas espejo. Cada propuesta tiene un **selector personal** (👍 Me convence / 👎 No me convence / 🤷 No estoy seguro) que se guarda **solo en tu dispositivo** (`localStorage`, clave `brujula-2026-selections-v5`). Donde una columna no tiene información, se dice de forma explícita (un vacío no debe leerse como favoritismo).
+3. **Posiciones** — matriz **frente a frente** de FEDe: la misma pregunta con la respuesta de cada candidato, en un acordeón por tema (Seguridad, Salud, Energía, Tierras y agro).
+4. **Mi puntaje** — agrega tus selecciones por candidato y por problema. **Nunca recomienda voto**: tabula, no concluye.
+5. **Hitos verificables** — cronología de hechos con fuente y enlace (ver reglas de curaduría abajo).
+6. **Cómo decidir** — preguntas para pensar mejor la decisión, incluido el voto en blanco.
+
+**Principios que no se rompen:** no se recomienda voto; no hay contadores de "popularidad" entre usuarios; no hay analítica ni rastreo; el mensaje de respeto al voto del otro aparece en el header, en Mi puntaje y en Cómo decidir; **simetría de trato** — donde falta información de un candidato, se declara explícitamente en vez de dejar un hueco.
+
+### Datos de segunda vuelta
+
+- **FEDe** actualizó su plataforma (sheet nuevo `116rf6…`): mantiene 5 candidatos en su panel; aquí se **filtra a los dos finalistas**. Aporta propuestas, banderas, comentarios de expertos y la nueva matriz de posiciones.
+- **Candidateados** no cambió su data programática para 2ª vuelta → se **reusa la de primera vuelta** (los programas oficiales no cambiaron).
+- Corpus: [`public/propuestas-2026-segunda-vuelta.json`](public/propuestas-2026-segunda-vuelta.json). Builder determinista: [`data/build_segunda_vuelta.py`](data/build_segunda_vuelta.py). Cobertura y decisiones: [`data/cobertura-segunda-vuelta.md`](data/cobertura-segunda-vuelta.md).
+
+### Curaduría de hitos (`public/hitos.json`)
+
+Cada hito tiene un **resumen editorial neutro** y una **lista de fuentes de verificación** de líneas
+contrastantes. Estructura de cada hito:
+
+```json
+{
+  "id": "H001",
+  "fecha": "2026-05-31",
+  "candidato": "ambos | cepeda | espriella",
+  "categoria": "resultado | apoyo | debate | declaracion | judicial | propuesta",
+  "titulo": "Título corto y factual",
+  "resumen": "Resumen neutral del hecho, lectura < 30 s. Quién hizo qué, cuándo, en qué condiciones.",
+  "solo_un_lado": null,
+  "fuentes": [ { "nombre": "Registraduría", "url": "https://…", "tipo": "primaria" } ]
+}
+```
+
+**10 reglas de redacción del resumen** (aplicar a cada hito):
+
+1. Sin adjetivos cargados ("duramente", "polémico", "histórico", "fuerte", "controversial", "tajantemente").
+2. Sin etiquetas ideológicas ("el ultraderechista X", "el progresista Y", "el oficialista Z"). Solo nombres y cargos formales.
+3. Sin especulación ("podría", "se espera que", "es probable que", "habrá").
+4. Los números vienen de fuente primaria (Registraduría, CNE, Corte), no del medio que los repitió.
+5. Cita literal entre comillas cuando las palabras exactas importan; parafrasea cuando no.
+6. Si dos medios enmarcan distinto el mismo hecho y es relevante, di las dos cosas con atribución.
+7. Si hay disputa fáctica, muestra ambas posiciones sin arbitrar (p. ej. "Cepeda pidió verificación; la Registraduría sostuvo que el conteo fue íntegro").
+8. Lectura en menos de 30 segundos. Si no entra, simplifica o pártelo en dos.
+9. Si redactar un hito sin sesgo requiere acrobacia verbal, no es material de timeline. Sáltalo.
+10. **Revisión humana antes de publicar** cada hito (Sergio aprueba antes de merge).
+
+**Diversidad de fuentes** — el paisaje mediático colombiano tiene líneas editoriales identificables;
+el correctivo no es etiquetarlas en la UI (guerra innecesaria) sino **diversificar estructuralmente**
+y dejar que el lector calibre. Mínimos por tipo de hito:
+
+| Tipo de hito | Mínimo de fuentes |
+|---|---|
+| Datos electorales (resultados, censos) | 1 primaria (Registraduría / CNE) |
+| Apoyos políticos | 2: 1 primaria (tweet/comunicado) + 1 medio |
+| Declaraciones | 2 de líneas contrastantes (centro-derecha + centro-izquierda o un verificador) |
+| Decisiones judiciales | 1 primaria (Corte / CNE) + 1 medio |
+| Hechos controvertidos / claims disputados | privilegiar verificador (ColombiaCheck, Mutante, Detector de La Silla Vacía); si no, mostrar las dos versiones |
+
+Pool sugerido: **primarias** (Registraduría, CNE, Corte Constitucional, Procuraduría, cuentas
+oficiales en X de las campañas); **internacionales** (AFP, Reuters, BBC Mundo, DW, CNN en Español);
+**verificadores** (ColombiaCheck, Detector de La Silla Vacía, Cuestión Pública, Mutante); **medios de
+líneas contrastantes** (centro-derecha: El Tiempo, Semana, El Colombiano, RCN, Infobae · centro-izquierda:
+El Espectador, Cambio, La Nueva Prensa · sin lean fuerte: La Silla Vacía, Razón Pública, BLU Radio).
+
+**Cuando un hito significativo solo aparece en un lado del espectro**, se declara en el campo
+`solo_un_lado` (se renderiza como nota al pie del hito): *"Reportado por [medio]; sin cobertura
+confirmada en medios de [otra línea] al momento de la actualización."* Es honesto y deja al lector ponderar.
+
+Reglas generales: **simetría** (mismo número de hitos *propios* por candidato; si no, se muestra la
+asimetría), **ventana móvil de 14 días** desde `lastUpdated`, **curaduría manual sin scraping**.
+Actualizar un hito es editar el JSON; no hay que tocar el HTML.
+
+---
+
+## v4 — Primera vuelta (archivo, en `/archivo`)
+
+Comparador de los **12 candidatos** · **616 propuestas**. Queda intacto como archivo histórico. Cuatro vistas:
 
 1. **Candidatos** — propuestas por candidato y sector, con texto fiel y fuente.
 2. **Comparar** — propuestas lado a lado.
 3. **¿Quién atiende qué?** — capa de análisis interpretativo propio (rúbrica transparente) que cruza propuestas con los problemas del país.
 4. **Problemas del país** — datos estructurales y de encuestas (promedios simples entre encuestadoras).
 
-## Fuentes de datos · corte 28 de mayo de 2026
+> Sitio estático de una sola página (HTML + JSON + fuentes self-hosted). Sin backend, sin tracking, sin cookies.
+
+## Fuentes de datos de primera vuelta · corte 28 de mayo de 2026
 
 | Fuente | Aporte |
 |---|---|
@@ -39,29 +126,44 @@ Detalle de cobertura y vacíos en [`data/cobertura.md`](data/cobertura.md).
 ## Estructura del repo
 
 ```
-public/                     # lo único que sirve Azure SWA
-  index.html                # artefacto (corpus cargado vía fetch)
-  propuestas-2026.json      # corpus servido (~873 KB)
-  fonts/                    # Fraunces + Public Sans (OFL, self-hosted)
+public/                                  # lo único que sirve Azure SWA
+  index.html                             # v5 · segunda vuelta (default /)
+  propuestas-2026-segunda-vuelta.json    # corpus v5 (Cepeda + De la Espriella + posiciones)
+  hitos.json                             # cronología verificable (curaduría manual)
+  img/                                   # fotos oficiales self-hosted (cepeda/espriella .webp)
+  archivo/index.html                     # v4 · primera vuelta (ruta /archivo)
+  propuestas-2026.json                   # corpus v4 servido (~873 KB) — INTACTO
+  fonts/                                 # Fraunces + Public Sans (OFL, self-hosted)
   favicon.svg · og-image.png · robots.txt
-  staticwebapp.config.json  # headers de seguridad, caché, MIME, SPA fallback
-                            # (debe vivir dentro de public/ = raíz del contenido desplegado)
-data/                       # NO se despliega — fuente reproducible
-  raw/                      # insumos crudos (scrape + CSVs de FEDe + VP)
-  build_propuestas.py       # builder determinista
-  cobertura.md              # qué quedó completo / con vacíos
-.github/workflows/          # CI/CD Azure SWA (workflow auto-generado por Azure)
+  staticwebapp.config.json               # headers, caché, MIME, rutas /archivo, SPA fallback
+                                         # (vive dentro de public/ = raíz del contenido desplegado)
+data/                                    # NO se despliega — fuente reproducible
+  raw/                                   # insumos crudos (Candidateados + CSVs FEDe + VP)
+  raw/fede2_csv/                         # sheet FEDe de 2ª vuelta (9 pestañas)
+  build_propuestas.py                    # builder v4 (determinista)
+  build_segunda_vuelta.py                # builder v5 (determinista, 2 candidatos + posiciones)
+  refresh_sources.py                     # re-fetch FEDe/Candidateados (parametrizable por env)
+  cobertura.md · cobertura-segunda-vuelta.md
+.github/workflows/                       # CI/CD Azure SWA (workflow auto-generado por Azure)
 ```
 
 ## Regenerar el corpus
 
-El JSON servido se reconstruye de forma **determinista** desde `data/raw/`:
+Los JSON servidos se reconstruyen de forma **determinista** desde `data/raw/` (solo stdlib de Python 3, sin red en el paso de build):
 
 ```bash
-python3 data/build_propuestas.py        # -> public/propuestas-2026.json
+# v4 · primera vuelta
+python3 data/build_propuestas.py            # -> public/propuestas-2026.json
+
+# v5 · segunda vuelta — refrescar el sheet FEDe nuevo y reconstruir
+FEDE_SHEET_ID=116rf6RK1l5kqredZKK47F55tif2GGw2474vKdZUPrFM \
+  FEDE_DIR="$(pwd)/data/raw/fede2_csv" \
+  FEDE_TABS_EXTRA="preguntas,posiciones" FEDE_ONLY=1 \
+  python3 data/refresh_sources.py           # refresca data/raw/fede2_csv/ (solo FEDe)
+python3 data/build_segunda_vuelta.py        # -> public/propuestas-2026-segunda-vuelta.json
 ```
 
-No requiere red ni dependencias externas (solo stdlib de Python 3).
+`build_segunda_vuelta.py` no toca el corpus de primera vuelta. Los **hitos** se editan a mano en `public/hitos.json` (ver reglas de curaduría arriba).
 
 ## Correr local
 
