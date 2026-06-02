@@ -229,6 +229,9 @@
   .pos-flag.fb-contestado>summary{background:#F3E0D6;color:#7a4226;border:1px solid #DDB0A4}
   .pos-flag.fb-tumbado>summary{background:#F2D5D0;color:#7a3326;border:1px solid #D08B82}
   .pos-flag-note{font-size:11px;color:#8a8270;font-style:italic;margin-top:6px;padding-top:5px;border-top:1px dashed var(--line)}
+  .pos-flag-sub{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:#6b665b;font-weight:600;margin:7px 0 4px}
+  .pos-flag-sub:first-child{margin-top:0}
+  .pos-flag-desc{font-size:12.5px;color:#34302a;line-height:1.5;padding:7px 10px;background:#FBF8F0;border-radius:6px;border-left:3px solid var(--line2)}
 
   /* privacy + clear */
   .privacy{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:18px 0 6px;padding:11px 15px;background:var(--chip);border-radius:var(--r);font-size:12.5px;color:#5c574b}
@@ -498,6 +501,8 @@
   const META = RAW.meta;
   const CANDS = RAW.candidatos;
   const C_BY_ID = Object.fromEntries(CANDS.map(c=>[c.id,c]));
+  const PROP_BY_ID = {};
+  CANDS.forEach(c=>c.sectores.forEach(s=>s.propuestas.forEach(p=>{PROP_BY_ID[p.id]=p;})));
   const ORDER = ['cepeda','espriella'];               // orden fijo, simétrico
   const COLORS = {cepeda:'#B5634A', espriella:'#5A5A8C'};
   const DISPLAY_NAME = {cepeda:'Iván Cepeda', espriella:'Abelardo de la Espriella'};
@@ -750,9 +755,17 @@
           if(b){
             const cls=b.nivel==='tumbado_por_corte'?'fb-tumbado':'fb-contestado';
             const label=b.nivel==='tumbado_por_corte'?'Tumbada por la Corte':(b.bandera||'Bandera');
+            const fp=PROP_BY_ID[b.propuesta_id]||{};
+            const experts=(fp.tags_terceros&&fp.tags_terceros.comentarios_expertos)||[];
+            const det=(b.detalle||'').trim()?'<div class="flag-detail">'+escapeHTML(b.detalle)+' <i>— '+escapeHTML(b.fuente||'FEDe')+'</i></div>':'';
+            const desc=fp.texto?'<div class="pos-flag-desc">'+escapeHTML(fp.texto)+'</div>':'';
+            const expHTML=experts.map(e=>'<div class="expert"><div class="who">'+escapeHTML(e.experto)+' <span>· '+escapeHTML(e.rol||'')+'</span></div><p>'+escapeHTML(e.comentario)+'</p></div>').join('');
+            const expLabel=experts.length?'<div class="pos-flag-sub">Comentarios de expertos ('+experts.length+')</div>':'';
             flag='<details class="pos-flag '+cls+'"><summary>⚑ '+escapeHTML(label)+' · FEDe</summary>'
-              +'<div class="flag-expand-body"><div class="flag-detail">'+fedeFlagText(b)+'</div>'
-              +'<div class="pos-flag-note">Sobre la propuesta «'+escapeHTML(b.propuesta_titulo||'')+'» del candidato.</div></div></details>';
+              +'<div class="flag-expand-body">'
+              +'<div class="pos-flag-sub">Propuesta que FEDe marcó: «'+escapeHTML(b.propuesta_titulo||'')+'»</div>'
+              +desc+det+expLabel+expHTML
+              +'</div></details>';
           }
           return '<div class="pos-a" style="--cc:'+COLORS[id]+'"><span class="who" style="color:'+COLORS[id]+'">'+escapeHTML(dn(id))+'</span>'+ans+flag+'</div>';
         }).join('');
