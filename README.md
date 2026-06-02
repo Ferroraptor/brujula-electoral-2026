@@ -1,21 +1,63 @@
 # Brújula Electoral 2026
 
-Comparador imparcial de las propuestas de los **12 candidatos** a la presidencia de Colombia 2026 — **616 propuestas** con su fuente citada, banderas constitucionales y comentarios de expertos atribuidos a quien los emite.
+Comparador imparcial de propuestas para las elecciones presidenciales de Colombia 2026, con cada propuesta citada a su fuente, banderas constitucionales y comentarios de expertos atribuidos a quien los emite.
 
 Proyecto **personal e independiente de Sergio Ferro**. No representa a ninguna campaña, partido ni organización. Es información cívica, no una recomendación de voto.
 
+El sitio tiene **dos caras**:
+
+| Ruta | Versión | Contenido |
+|---|---|---|
+| **`/`** | **v5 · Segunda vuelta** (default) | Cepeda vs De la Espriella, frente a frente, con selector personal. |
+| **`/archivo`** · `/primera-vuelta` | **v4 · Primera vuelta** (archivo) | Los 12 candidatos · 616 propuestas, intacto. |
+
 ---
 
-## Qué es
+## v5 — Segunda vuelta (21 de junio de 2026)
 
-Un sitio estático de una sola página (HTML + JSON + fuentes self-hosted). Sin backend, sin tracking, sin cookies. Cuatro vistas:
+Tras la primera vuelta (31-may), la página principal pasa a ser el comparador frontal de los dos finalistas. Cinco secciones:
+
+1. **Cara a cara** — los dos candidatos lado a lado: resultado de primera vuelta, fórmula vicepresidencial, apoyos recibidos, perfil y enlace al programa.
+2. **Comparar por problema** — el núcleo. Para cada uno de los **8 problemas del país** (triangulados de cinco encuestadoras + fuentes estructurales) se muestran las propuestas de cada candidato en columnas espejo. Cada propuesta tiene un **selector personal** (👍 Me convence / 👎 No me convence / 🤷 No estoy seguro) que se guarda **solo en tu dispositivo** (`localStorage`, clave `brujula-2026-selections-v5`). Incluye la capa **"Posiciones frente a frente"** de FEDe (misma pregunta, respuesta de cada candidato).
+3. **Mi puntaje** — agrega tus selecciones por candidato y por problema. **Nunca recomienda voto**: tabula, no concluye.
+4. **Hitos verificables** — cronología de hechos con fuente y enlace (ver reglas de curaduría abajo).
+5. **Cómo decidir** — preguntas para pensar mejor la decisión, incluido el voto en blanco.
+
+**Principios que no se rompen:** no se recomienda voto; no hay contadores de "popularidad" entre usuarios; no hay analítica ni rastreo; el mensaje de respeto al voto del otro aparece en el header, en Mi puntaje y en Cómo decidir.
+
+### Datos de segunda vuelta
+
+- **FEDe** actualizó su plataforma (sheet nuevo `116rf6…`): mantiene 5 candidatos en su panel; aquí se **filtra a los dos finalistas**. Aporta propuestas, banderas, comentarios de expertos y la nueva matriz de posiciones.
+- **Candidateados** no cambió su data programática para 2ª vuelta → se **reusa la de primera vuelta** (los programas oficiales no cambiaron).
+- Corpus: [`public/propuestas-2026-segunda-vuelta.json`](public/propuestas-2026-segunda-vuelta.json). Builder determinista: [`data/build_segunda_vuelta.py`](data/build_segunda_vuelta.py). Cobertura y decisiones: [`data/cobertura-segunda-vuelta.md`](data/cobertura-segunda-vuelta.md).
+
+### Reglas de curaduría de hitos (`public/hitos.json`)
+
+Estrictas, a propósito:
+
+- **Solo hechos verificables** con fuente, fecha y enlace. Nada de rumores.
+- **Lenguaje neutro:** "X declaró Y" / "Z anunció apoyo a W"; nunca "X criticó duramente Y" ni "Z se vio fortalecido".
+- **Simetría obligatoria:** mismo número de hitos *propios* por candidato. Si no se puede, la asimetría se muestra de forma explícita (no se esconde).
+- **Ventana móvil de 14 días** desde `lastUpdated`.
+- **Curaduría manual, sin scraping** en vivo. Baja frecuencia, alta calidad.
+- Categorías: `resultado`, `apoyo`, `debate`, `judicial`, `propuesta`.
+
+Actualizar un hito es editar el JSON; no hay que tocar el HTML.
+
+---
+
+## v4 — Primera vuelta (archivo, en `/archivo`)
+
+Comparador de los **12 candidatos** · **616 propuestas**. Queda intacto como archivo histórico. Cuatro vistas:
 
 1. **Candidatos** — propuestas por candidato y sector, con texto fiel y fuente.
 2. **Comparar** — propuestas lado a lado.
 3. **¿Quién atiende qué?** — capa de análisis interpretativo propio (rúbrica transparente) que cruza propuestas con los problemas del país.
 4. **Problemas del país** — datos estructurales y de encuestas (promedios simples entre encuestadoras).
 
-## Fuentes de datos · corte 28 de mayo de 2026
+> Sitio estático de una sola página (HTML + JSON + fuentes self-hosted). Sin backend, sin tracking, sin cookies.
+
+## Fuentes de datos de primera vuelta · corte 28 de mayo de 2026
 
 | Fuente | Aporte |
 |---|---|
@@ -39,29 +81,44 @@ Detalle de cobertura y vacíos en [`data/cobertura.md`](data/cobertura.md).
 ## Estructura del repo
 
 ```
-public/                     # lo único que sirve Azure SWA
-  index.html                # artefacto (corpus cargado vía fetch)
-  propuestas-2026.json      # corpus servido (~873 KB)
-  fonts/                    # Fraunces + Public Sans (OFL, self-hosted)
+public/                                  # lo único que sirve Azure SWA
+  index.html                             # v5 · segunda vuelta (default /)
+  propuestas-2026-segunda-vuelta.json    # corpus v5 (Cepeda + De la Espriella + posiciones)
+  hitos.json                             # cronología verificable (curaduría manual)
+  img/                                   # fotos oficiales self-hosted (cepeda/espriella .webp)
+  archivo/index.html                     # v4 · primera vuelta (ruta /archivo)
+  propuestas-2026.json                   # corpus v4 servido (~873 KB) — INTACTO
+  fonts/                                 # Fraunces + Public Sans (OFL, self-hosted)
   favicon.svg · og-image.png · robots.txt
-  staticwebapp.config.json  # headers de seguridad, caché, MIME, SPA fallback
-                            # (debe vivir dentro de public/ = raíz del contenido desplegado)
-data/                       # NO se despliega — fuente reproducible
-  raw/                      # insumos crudos (scrape + CSVs de FEDe + VP)
-  build_propuestas.py       # builder determinista
-  cobertura.md              # qué quedó completo / con vacíos
-.github/workflows/          # CI/CD Azure SWA (workflow auto-generado por Azure)
+  staticwebapp.config.json               # headers, caché, MIME, rutas /archivo, SPA fallback
+                                         # (vive dentro de public/ = raíz del contenido desplegado)
+data/                                    # NO se despliega — fuente reproducible
+  raw/                                   # insumos crudos (Candidateados + CSVs FEDe + VP)
+  raw/fede2_csv/                         # sheet FEDe de 2ª vuelta (9 pestañas)
+  build_propuestas.py                    # builder v4 (determinista)
+  build_segunda_vuelta.py                # builder v5 (determinista, 2 candidatos + posiciones)
+  refresh_sources.py                     # re-fetch FEDe/Candidateados (parametrizable por env)
+  cobertura.md · cobertura-segunda-vuelta.md
+.github/workflows/                       # CI/CD Azure SWA (workflow auto-generado por Azure)
 ```
 
 ## Regenerar el corpus
 
-El JSON servido se reconstruye de forma **determinista** desde `data/raw/`:
+Los JSON servidos se reconstruyen de forma **determinista** desde `data/raw/` (solo stdlib de Python 3, sin red en el paso de build):
 
 ```bash
-python3 data/build_propuestas.py        # -> public/propuestas-2026.json
+# v4 · primera vuelta
+python3 data/build_propuestas.py            # -> public/propuestas-2026.json
+
+# v5 · segunda vuelta — refrescar el sheet FEDe nuevo y reconstruir
+FEDE_SHEET_ID=116rf6RK1l5kqredZKK47F55tif2GGw2474vKdZUPrFM \
+  FEDE_DIR="$(pwd)/data/raw/fede2_csv" \
+  FEDE_TABS_EXTRA="preguntas,posiciones" FEDE_ONLY=1 \
+  python3 data/refresh_sources.py           # refresca data/raw/fede2_csv/ (solo FEDe)
+python3 data/build_segunda_vuelta.py        # -> public/propuestas-2026-segunda-vuelta.json
 ```
 
-No requiere red ni dependencias externas (solo stdlib de Python 3).
+`build_segunda_vuelta.py` no toca el corpus de primera vuelta. Los **hitos** se editan a mano en `public/hitos.json` (ver reglas de curaduría arriba).
 
 ## Correr local
 
