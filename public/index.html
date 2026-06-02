@@ -257,12 +257,25 @@
   .hito-verif a::before{content:"→ ";color:var(--muted)}
   .sym-note{font-size:12px;color:var(--muted);background:var(--chip);border-radius:8px;padding:8px 12px;margin:8px 0 14px}
 
+  /* entrada destacada a "Cómo decidir" en el landing */
+  .start-here{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--ink);color:#f3ede1;border-radius:var(--r);padding:15px 20px;margin:8px 0 4px}
+  .start-here .sh-t{font-family:"Fraunces",serif;font-weight:600;font-size:17px;color:#fff;letter-spacing:-.01em}
+  .start-here .sh-d{font-size:13px;opacity:.82;margin-top:3px;max-width:64ch;line-height:1.5}
+  .start-here .cta-btn{background:#fff;color:var(--ink);flex:none}
+  .start-here .cta-btn:hover{filter:none;background:#f0ebdd}
+  /* tab destacado */
+  .tab.tab-key{color:#7a4a3c}
+  .tab.tab-key[aria-selected="true"]{background:var(--ink);color:#fff}
+
   /* ---- cómo decidir ---- */
+  .decidir-hero{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(18px,2.6vw,23px);line-height:1.3;color:#2c2a24;max-width:32ch;margin:6px 0 4px;letter-spacing:-.01em}
   .decidir{max-width:74ch}
-  .decidir .step{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:15px 18px;margin-bottom:11px}
+  .decidir .step{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:15px 18px 15px 56px;margin-bottom:11px}
+  .decidir .step .step-n{position:absolute;left:16px;top:14px;font-family:"Fraunces",serif;font-weight:600;font-size:24px;color:var(--line2);line-height:1}
   .decidir .step h3{font-family:"Fraunces",serif;font-weight:500;font-size:18px;margin:0 0 5px;letter-spacing:-.01em}
   .decidir .step p{font-size:14px;color:#34302a;margin:0;line-height:1.6}
   .decidir .step.blank{border-color:var(--line2);border-left:4px solid var(--L3)}
+  .decidir .step.blank .step-n{color:var(--L3)}
 
   /* modal (heredado) */
   .modal[hidden]{display:none}
@@ -318,18 +331,25 @@
 <nav class="tabs" role="tablist">
   <div class="wrap">
     <button class="tab" role="tab" aria-selected="true"  data-v="cara">Cara a cara</button>
+    <button class="tab tab-key" role="tab" aria-selected="false" data-v="decidir">★ Cómo decidir</button>
     <button class="tab" role="tab" aria-selected="false" data-v="comparar">Comparar por problema</button>
     <button class="tab" role="tab" aria-selected="false" data-v="posiciones">Posiciones</button>
     <button class="tab" role="tab" aria-selected="false" data-v="puntaje">Mi puntaje<span class="tab-badge" id="puntaje-badge" hidden></span></button>
     <button class="tab" role="tab" aria-selected="false" data-v="hitos">Hitos verificables</button>
-    <button class="tab" role="tab" aria-selected="false" data-v="decidir">Cómo decidir</button>
   </div>
 </nav>
 
 <div class="view on" id="v-cara"><div class="wrap">
-  <p class="intro">Los dos finalistas, lado a lado. Empieza por aquí: el resultado de primera vuelta, la
-    fórmula vicepresidencial, los apoyos recibidos y un perfil de cada uno. Luego pasa a <b>Comparar por
+  <p class="intro">Los dos finalistas, lado a lado: el resultado de primera vuelta, la fórmula
+    vicepresidencial, los apoyos recibidos y un perfil de cada uno. Luego pasa a <b>Comparar por
     problema</b> para contrastar sus propuestas.</p>
+  <div class="start-here">
+    <div>
+      <div class="sh-t">Antes de comparar, decide cómo vas a decidir</div>
+      <div class="sh-d">Cuatro preguntas para elegir con criterio propio y no dejarte arrastrar por carisma o narrativa. Es lo primero que vale la pena leer.</div>
+    </div>
+    <button class="cta-btn" data-goto-decidir>Cómo decidir →</button>
+  </div>
   <div class="cara-grid" id="caraGrid"></div>
   <button class="blank-vote" id="blankVote">
     <b>Vota en blanco — explorar la opción</b>
@@ -374,21 +394,22 @@
 
 <div class="view" id="v-decidir"><div class="wrap">
   <h2 class="sec">Cómo decidir</h2>
+  <p class="decidir-hero">La parte más importante de esta herramienta no son los datos: es esto.</p>
   <p class="intro">No es un instructivo de voto. Son preguntas para pensar mejor tu decisión —cualquiera
-    que sea.</p>
+    que sea—. Léelas antes de comparar; cambian cómo lees todo lo demás.</p>
   <div class="decidir">
-    <div class="step"><h3>Antes de comparar, define tus prioridades</h3><p>Pregúntate qué 3 cosas te
+    <div class="step"><span class="step-n">01</span><h3>Antes de comparar, define tus prioridades</h3><p>Pregúntate qué 3 cosas te
       importan más para los próximos cuatro años. Si decides primero qué pesa para ti, después puedes
       comparar contra eso en vez de dejarte arrastrar por carisma o narrativa.</p></div>
-    <div class="step"><h3>Separa tres cosas que la gente mezcla</h3><p>Lo que el candidato <i>dice</i> que
+    <div class="step"><span class="step-n">02</span><h3>Separa tres cosas que la gente mezcla</h3><p>Lo que el candidato <i>dice</i> que
       va a hacer, lo que <i>puede</i> realmente hacer dado el Congreso, la Corte y la caja fiscal, y lo
       que <i>ha hecho</i> históricamente. Son tres preguntas distintas.</p></div>
-    <div class="step"><h3>Pondera el peor escenario de cada uno</h3><p>No "¿cuál me gusta más?" sino "¿qué
+    <div class="step"><span class="step-n">03</span><h3>Pondera el peor escenario de cada uno</h3><p>No "¿cuál me gusta más?" sino "¿qué
       es lo peor que podría salir con este candidato?". Ese ángulo saca más información que la simpatía.</p></div>
-    <div class="step"><h3>Busca el mejor argumento del que NO te gusta</h3><p>Si no puedes formular en una
+    <div class="step"><span class="step-n">04</span><h3>Busca el mejor argumento del que NO te gusta</h3><p>Si no puedes formular en una
       frase honesta por qué alguien razonable apoyaría al otro candidato, todavía no lo conoces lo
       suficiente para descartarlo.</p></div>
-    <div class="step blank" id="blankStep"><h3>Sobre el voto en blanco</h3><p>Es una opción válida si
+    <div class="step blank" id="blankStep"><span class="step-n">05</span><h3>Sobre el voto en blanco</h3><p>Es una opción válida si
       después de evaluar honestamente ninguno te convence. En Colombia, en <b>primera vuelta</b> el voto
       en blanco fuerza repetir la elección con candidatos nuevos si supera la mayoría de los votos; en
       <b>segunda vuelta</b> no tiene ese efecto —no fuerza repetición— pero sí conserva valor político
@@ -805,6 +826,7 @@
 
   // cara: CTA -> comparar
   document.getElementById('caraGrid').addEventListener('click',e=>{const b=e.target.closest('[data-goto]');if(b)showView('comparar');});
+  document.querySelector('[data-goto-decidir]').onclick=()=>showView('decidir');
   document.getElementById('blankVote').onclick=()=>{showView('decidir');setTimeout(()=>document.getElementById('blankStep').scrollIntoView({behavior:'smooth',block:'center'}),60);};
 
   // chips
