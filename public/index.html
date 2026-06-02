@@ -92,6 +92,13 @@
   details.cara-mas>summary::before{content:"▸ "}
   details.cara-mas[open]>summary::before{content:"▾ "}
   details.cara-mas .body{font-size:12.5px;color:#34302a;line-height:1.55;margin-top:6px;padding:9px 11px;background:#FBF8F0;border-radius:6px;border-left:3px solid var(--line2)}
+  .cara-rf{margin-top:12px;padding:10px 12px;background:#FBF1E6;border:1px solid #E8C9A5;border-radius:8px}
+  .cara-rf-k{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:#7a4226;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  .cara-rf ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}
+  .cara-rf li{font-size:12px;color:#5c4426;line-height:1.4}
+  .cara-rf li b{color:#7a4226;font-weight:600}
+  .cara-rf li .meta{color:#9a8a70}
+  .cara-rf a{color:#7a4226;font-weight:600}
   .cara-foot{margin-top:auto;padding-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
   .cta-btn{background:var(--cc);color:#fff;border:none;border-radius:8px;font:inherit;font-weight:600;font-size:13px;padding:9px 15px;cursor:pointer}
   .cta-btn:hover{filter:brightness(.94)}
@@ -643,6 +650,10 @@
       const fotoHTML='<img class="cara-foto" src="'+escapeHTML(c.foto)+'" alt="'+escapeHTML(dn(id))+'" '
         +'onerror="this.outerHTML=&quot;<div class=\\&quot;cara-ini\\&quot; style=\\&quot;--cc:'+col+'\\&quot;>'+INI(id)+'</div>&quot;">';
       const masFede=c.biografia_fede?'<details class="cara-mas" open><summary>Perfil ampliado · vía FEDe</summary><div class="body">'+escapeHTML(c.biografia_fede)+(c.educacion?'<br><br><b>Formación:</b> '+escapeHTML(c.educacion):'')+'</div></details>':'';
+      const rfs=c.red_flags_fede||[];
+      const rfHTML=rfs.length?'<div class="cara-rf"><div class="cara-rf-k">Red flags institucionales · FEDe <button class="fede-info" onclick="showFedeMethodology()" aria-label="Qué significa">?</button></div><ul>'
+        +rfs.map(r=>'<li><b>'+escapeHTML(r.badge||'')+'</b> — '+escapeHTML(r.titulo||'')+' <span class="meta">('+escapeHTML(r.meta||'')+')</span>'+(r.url_video?' · <a href="'+escapeHTML(r.url_video)+'" target="_blank" rel="noopener">video ↗</a>':'')+'</li>').join('')
+        +'</ul></div>':'';
       return '<div class="cara-card" style="--cc:'+col+'">'
         +'<div class="cara-top">'+fotoHTML+'<div><div class="cara-name">'+escapeHTML(dn(id))+'</div><div class="cara-party">'+escapeHTML(c.partido||'')+'</div></div></div>'
         +'<div class="cara-result"><span class="cara-pct">'+escapeHTML(res.pct||'—')+'</span><span class="cara-votes">en primera vuelta · <b>'+(res.votos?res.votos.toLocaleString('es-CO'):'—')+'</b> votos</span></div>'
@@ -650,6 +661,7 @@
         +(apoyos?'<div class="cara-rl"><span class="k">Apoyos recibidos</span><div class="apoyos">'+apoyos+'</div></div>':'')
         +'<div class="cara-bio"><span class="src">Perfil · vía Candidateados</span>'+escapeHTML(c.bio||'')+'</div>'
         +masFede
+        +rfHTML
         +'<div class="cara-foot"><button class="cta-btn" data-goto="'+id+'">Ver propuestas →</button>'
         +(c.programa_url?'<a class="prog-link" href="'+escapeHTML(c.programa_url)+'" target="_blank" rel="noopener">Programa oficial ↗</a>':'')
         +'</div></div>';
@@ -738,9 +750,9 @@
           if(b){
             const cls=b.nivel==='tumbado_por_corte'?'fb-tumbado':'fb-contestado';
             const label=b.nivel==='tumbado_por_corte'?'Tumbada por la Corte':(b.bandera||'Bandera');
-            flag='<details class="pos-flag '+cls+'"><summary>⚑ '+escapeHTML(label)+' de FEDe (propuesta relacionada)</summary>'
+            flag='<details class="pos-flag '+cls+'"><summary>⚑ '+escapeHTML(label)+' · FEDe</summary>'
               +'<div class="flag-expand-body"><div class="flag-detail">'+fedeFlagText(b)+'</div>'
-              +'<div class="pos-flag-note">Relación temática nuestra: FEDe marcó esta propuesta de '+escapeHTML(dn(id))+' —«'+escapeHTML(b.propuesta_titulo||'')+'»—, no esta respuesta literal. Verla en <b>Comparar por problema</b>.</div></div></details>';
+              +'<div class="pos-flag-note">Sobre la propuesta «'+escapeHTML(b.propuesta_titulo||'')+'» del candidato.</div></div></details>';
           }
           return '<div class="pos-a" style="--cc:'+COLORS[id]+'"><span class="who" style="color:'+COLORS[id]+'">'+escapeHTML(dn(id))+'</span>'+ans+flag+'</div>';
         }).join('');
