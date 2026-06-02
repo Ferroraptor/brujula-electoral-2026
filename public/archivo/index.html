@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brújula Electoral 2026 · Corpus completo</title>
-<meta name="description" content="Comparador imparcial de propuestas para las elecciones presidenciales de Colombia 2026. 12 candidatos, 616 propuestas, banderas constitucionales y comentarios de expertos atribuidos a su fuente.">
-<link rel="canonical" href="https://brujula-electoral.ferroraptor.com/">
+<title>Brújula Electoral 2026 · Archivo de primera vuelta</title>
+<meta name="description" content="Archivo de primera vuelta: comparador imparcial de propuestas de los 12 candidatos presidenciales de Colombia 2026, con sus fuentes citadas. La segunda vuelta (Cepeda vs De la Espriella) está en la página principal.">
+<link rel="canonical" href="https://brujula-electoral.ferroraptor.com/archivo">
 <meta name="theme-color" content="#F6F2E9">
-<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Brújula Electoral 2026">
-<meta property="og:description" content="Compara las propuestas de los 12 candidatos presidenciales sin paráfrasis, con sus fuentes citadas.">
+<meta property="og:title" content="Brújula Electoral 2026 · Archivo de primera vuelta">
+<meta property="og:description" content="Archivo de primera vuelta: las propuestas de los 12 candidatos presidenciales, con sus fuentes citadas.">
 <meta property="og:image" content="https://brujula-electoral.ferroraptor.com/og-image.png">
-<meta property="og:url" content="https://brujula-electoral.ferroraptor.com/">
+<meta property="og:url" content="https://brujula-electoral.ferroraptor.com/archivo">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-  @font-face { font-family: 'Fraunces'; font-weight: 400; font-display: swap; src: url('./fonts/fraunces-400.woff2') format('woff2'); }
-  @font-face { font-family: 'Fraunces'; font-weight: 500; font-display: swap; src: url('./fonts/fraunces-500.woff2') format('woff2'); }
-  @font-face { font-family: 'Fraunces'; font-weight: 600; font-display: swap; src: url('./fonts/fraunces-600.woff2') format('woff2'); }
-  @font-face { font-family: 'Public Sans'; font-weight: 400; font-display: swap; src: url('./fonts/public-sans-400.woff2') format('woff2'); }
-  @font-face { font-family: 'Public Sans'; font-weight: 500; font-display: swap; src: url('./fonts/public-sans-500.woff2') format('woff2'); }
-  @font-face { font-family: 'Public Sans'; font-weight: 600; font-display: swap; src: url('./fonts/public-sans-600.woff2') format('woff2'); }
+  @font-face { font-family: 'Fraunces'; font-weight: 400; font-display: swap; src: url('/fonts/fraunces-400.woff2') format('woff2'); }
+  @font-face { font-family: 'Fraunces'; font-weight: 500; font-display: swap; src: url('/fonts/fraunces-500.woff2') format('woff2'); }
+  @font-face { font-family: 'Fraunces'; font-weight: 600; font-display: swap; src: url('/fonts/fraunces-600.woff2') format('woff2'); }
+  @font-face { font-family: 'Public Sans'; font-weight: 400; font-display: swap; src: url('/fonts/public-sans-400.woff2') format('woff2'); }
+  @font-face { font-family: 'Public Sans'; font-weight: 500; font-display: swap; src: url('/fonts/public-sans-500.woff2') format('woff2'); }
+  @font-face { font-family: 'Public Sans'; font-weight: 600; font-display: swap; src: url('/fonts/public-sans-600.woff2') format('woff2'); }
 </style>
 <style>
   :root{
@@ -248,9 +248,14 @@
 </head>
 <body>
 
+<div role="note" style="background:#22201b;color:#f3ede1;font-size:13.5px;line-height:1.5;padding:10px 16px;text-align:center">
+  <span style="opacity:.85">Estás viendo el <b>archivo de primera vuelta</b> (31 de mayo · 12 candidatos).</span>
+  <a href="/" style="color:#fff;font-weight:600;text-decoration:underline;margin-left:6px;white-space:nowrap">Ver segunda vuelta →</a>
+</div>
+
 <header class="top">
   <div class="wrap">
-    <div class="kicker">Elecciones presidenciales · Colombia 2026</div>
+    <div class="kicker">Elecciones presidenciales · Colombia 2026 · Archivo de primera vuelta</div>
     <h1>Brújula Electoral</h1>
     <p class="lede">Corpus completo de propuestas presidenciales: 12 candidatos, 616 propuestas extraídas de Candidateados y FEDe, con banderas constitucionales y comentarios de expertos atribuidos a su fuente.</p>
     <div class="stats" id="topstats"></div>
@@ -345,7 +350,7 @@
 (async function init(){
   let RAW;
   try {
-    const resp = await fetch('./propuestas-2026.json', {cache: 'force-cache'});
+    const resp = await fetch('/propuestas-2026.json', {cache: 'force-cache'});
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     RAW = await resp.json();
   } catch (e) {
