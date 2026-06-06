@@ -430,7 +430,7 @@
       "sectors": {
         "seguridad": {
           "hasContent": true,
-          "simpleParagraph": "$1b",
+          "simpleParagraph": "$1c",
           "mediumPlanSummary": "",
           "proposals": [
             {
@@ -456,7 +456,7 @@
             {
               "title": "Implementar una política de Seguridad Humana que proteja la vida atacando las causas sociales de la violencia.",
               "mediumBody": "Crear una política de Seguridad Humana que no se limite al uso de la Fuerza Pública, sino que enfrente las causas sociales de la violencia mediante reducción de pobreza, superación de desigualdad y presencia integral del Estado. Para ello, propone acciones diferenciadas para el campo y la ciudad, protección de territorios y liderazgos, estrategia contra el homicidio, medidas frente a la extorsión y el secuestro, afectación económica al narcotráfico y mejores condiciones para la Fuerza Pública.",
-              "complexBody": "$1c"
+              "complexBody": "$1d"
             },
             {
               "title": "Usar los bienes de la SAE para reparación de víctimas y segundas oportunidades",
@@ -502,7 +502,7 @@
         },
         "empleo": {
           "hasContent": true,
-          "simpleParagraph": "$1d",
+          "simpleParagraph": "$1e",
           "mediumPlanSummary": "",
           "proposals": [
             {
@@ -533,7 +533,7 @@
             {
               "title": "Reconstruir la institucionalidad agraria para que el campesinado tenga crédito, asistencia técnica, precios justos y acceso a justicia agraria en el territorio.",
               "mediumBody": "Fortalecer la institucionalidad agraria a nivel nacional por medio del Sistema Nacional de Reforma Agraria y Desarrollo Rural, la Convención Nacional Campesina permitiendo que el campesinado tenga crédito, asistencia técnica, precios justos y acceso a justicia agraria en el territorio.",
-              "complexBody": "$1e"
+              "complexBody": "$1f"
             },
             {
               "title": "Construcción de plantas de transformación en las regiones para mejorar la compra y venta de los campesinos",
@@ -673,7 +673,7 @@
         },
         "infraestructura": {
           "hasContent": true,
-          "simpleParagraph": "$1f",
+          "simpleParagraph": "$20",
           "mediumPlanSummary": "",
           "proposals": [
             {
@@ -744,7 +744,7 @@
             {
               "title": "Impulsar un plan integral para Buenaventura con justicia social, servicios básicos, desarrollo local y combate a la corrupción.",
               "mediumBody": "La propuesta plantea un plan integral para Buenaventura orientado a saldar deudas históricas mediante acceso prioritario a agua potable, saneamiento, vivienda, salud y educación, junto con acciones en infraestructura, economía local, empleo, reparación a víctimas, fortalecimiento institucional, cumplimiento de acuerdos comunitarios y lucha contra la corrupción, para que el desarrollo portuario beneficie efectivamente a la población y respete el territorio.",
-              "complexBody": "$20"
+              "complexBody": "$21"
             },
             {
               "title": "Culminar del acueducto de Buenaventura para garantizar agua potable",
@@ -759,7 +759,7 @@
             {
               "title": "Consolidar un Pacto por la Vida con transición energética, protección ambiental y fortalecimiento de los derechos y el bienestar animal.",
               "mediumBody": "Consolidar un Pacto por la Vida que profundice la transición energética, reduzca actividades y prácticas que afectan la naturaleza, fortalezca la protección ambiental, impulse restauración ecológica y comunidades energéticas, y avance en derechos y bienestar animal mediante reconversión laboral, sustitución de vehículos de tracción animal, reconocimiento constitucional, educación obligatoria y nuevas instancias institucionales.",
-              "complexBody": "$21"
+              "complexBody": "$22"
             },
             {
               "title": "Profundizar la transición energética.",
@@ -794,7 +794,7 @@
             {
               "title": "Impulsar una Revolución Urbana para la vida mediante medidas sociales, ambientales y territoriales.",
               "mediumBody": "La propuesta plantea una Revolución Urbana orientada a poner la vida, la equidad, la comunidad y la relación entre ciudad y mundo rural en el centro de la acción pública, mediante un conjunto de medidas concretas en agua, ambiente, residuos, economía popular, trabajo, educación, salud, vivienda, movilidad, participación y austeridad.",
-              "complexBody": "$22"
+              "complexBody": "$23"
             },
             {
               "title": "Impulsar agua potable y saneamiento urbano.",
@@ -839,7 +839,7 @@
             {
               "title": "Impulsar en La Guajira un plan de agua, infraestructura, energía, educación, salud, cuidado de regalías y lucha contra la corrupción.",
               "mediumBody": "Mantener el curso de los cambios en La Guajira mediante acciones en agua potable, vías terciarias, energías eólica y solar, comunidades energéticas, educación media y superior, fortalecimiento del sistema de salud con enfoque indígena, reconversión energética sin desempleo, protección de las regalías y lucha frontal contra la corrupción.",
-              "complexBody": "$23"
+              "complexBody": "$24"
             },
             {
               "title": "Garantizar acceso pleno al agua potable en todas las comunidades de La Guajira.",
@@ -870,7 +870,7 @@
         },
         "corrupcion": {
           "hasContent": true,
-          "simpleParagraph": "$24",
+          "simpleParagraph": "$25",
           "mediumPlanSummary": "",
           "proposals": [
             {
@@ -901,7 +901,7 @@
             {
               "title": "Convocar una Mesa de Diálogo Nacional para concretar un Acuerdo Nacional con participación social y mecanismos de implementación de las transformaciones acordadas.",
               "mediumBody": "El Acuerdo Nacional se construya sobre la movilización social y el poder constituyente, y no como un pacto limitado entre élites. Para ello, plantea que, una vez en la Presidencia, se convoque una Mesa de Diálogo Nacional con fuerzas políticas, sociales y económicas, empezando por las organizaciones sociales y populares, para definir una agenda de reformas pendientes, paz territorial, transformación del modelo frente al narcotráfico y la minería, un cronograma de implementación y los mecanismos jurídicos e institucionales necesarios para materializar los acuerdos.",
-              "complexBody": "$25"
+              "complexBody": "$26"
             },
             {
               "title": "Reducir los privilegios y salarios en el alto gobierno",
@@ -1043,7 +1043,7 @@
       "sectors": {
         "seguridad": {
           "hasContent": true,
-          "simpleParagraph": "$26",
+          "simpleParagraph": "$27",
           "mediumPlanSummary": "",
           "proposals": [
             {
@@ -1217,7 +1217,7 @@
             {
               "title": "Mejorar la calidad de vida en las regiones mediante la presencia permanente del DPR en los territorios.",
               "mediumBody": "La Presidencia irá a las subregiones a estructurar, priorizar y ejecutar los proyectos y entes territoriales, todo por medio de votación participativa de la ciudadanía para su calidad y cobertura.",
-              "complexBody": "$27"
+              "complexBody": "$28"
             },
             {
               "title": "Por medio de la participación ciudadana definir apuestas productivas para la inversión pública regional.",
@@ -2239,18 +2239,18 @@
       "sectors": {
         "seguridad": {
           "hasContent": true,
-          "simpleParagraph": "$28",
+          "simpleParagraph": "$29",
           "mediumPlanSummary": "",
           "proposals": [
             {
               "title": "Combatir el “gota a gota” mediante una estrategia integral de seguridad y justicia.",
               "mediumBody": "Crear un Bloque de Búsqueda interinstitucional que desarticule redes de préstamo ilegal a través de inteligencia financiera, operativos coordinados, judicialización efectiva y fortalecimiento del marco legal, incluyendo nuevos delitos y protección a las víctimas.",
-              "complexBody": "$29"
+              "complexBody": "$2a"
             },
             {
               "title": "Usar la Big Data y la Inteligencia Artificial en coordinación con la Policía, las Fuerzas Militares y el organismo de inteligencia nacional bajo un plan basado en resultados medibles.",
               "mediumBody": "La tecnología buscará: predecir el crimen, desarticular las estructuras criminales, optimizar recursos y conectar a la fuerza pública de seguridad en las calles.",
-              "complexBody": "$2a"
+              "complexBody": "$2b"
             },
             {
               "title": "Implementar sistema de vigilancia 24/ por medio de drones de alta capacidad de control.",
@@ -2332,7 +2332,7 @@
             {
               "title": "Creación del Banco de las MIPYMES y la Economía Popular.",
               "mediumBody": "Garantizará el acceso a crédito legal, ágil y justo para sectores comúnmente excluidos del sistema financiero, ofreciendo una alternativa real al financiamiento ilegal, al crecimiento económico y reducir la dependencia a sistemas como el \"gota a gota\".",
-              "complexBody": "$2b"
+              "complexBody": "$2c"
             }
           ]
         },
@@ -2440,7 +2440,7 @@
             {
               "title": "La IA como método para que el ciudadano votante pueda eliminar la corrupción en las elecciones.",
               "mediumBody": "El Guardían Digital permitirá al votante ser veedor digital, tomar foto de su voto para evitar fraude, hacer escuchar sus voces ante incongruencias de los políticos, y poder castigarlo de la misma manera.",
-              "complexBody": "$2c"
+              "complexBody": "$2d"
             }
           ]
         }
@@ -3103,18 +3103,18 @@
             {
               "title": "Implementar planes integrales de seguridad y desarrollo en territorios críticos",
               "mediumBody": "Combinar recuperación del control estatal con inversión en infraestructura, servicios y participación comunitaria",
-              "complexBody": "$2d"
+              "complexBody": "$2e"
             },
             {
               "title": "Prevenir la vinculación de jóvenes a la violencia y economías ilegales",
               "mediumBody": "Ofrecer alternativas reales y segundas oportunidades para la juventud por medio de entornos protectores con acceso a educación, empleo y apoyo psicosocial.",
-              "complexBody": "$2e"
+              "complexBody": "$2f"
             }
           ]
         },
         "empleo": {
           "hasContent": true,
-          "simpleParagraph": "$2f",
+          "simpleParagraph": "$30",
           "mediumPlanSummary": "",
           "proposals": [
             {
@@ -3267,7 +3267,7 @@
             {
               "title": "Priorizar la salud mental y el bienestar integral de los jóvenes",
               "mediumBody": "Implementar redes de atención en salud mental y programas de bienestar en entornos educativos. Así fortalecer el desarrollo emocional y la participación juvenil",
-              "complexBody": "$30"
+              "complexBody": "$31"
             }
           ]
         },
@@ -3344,12 +3344,12 @@
             {
               "title": "Garantizar que todos los jóvenes estudien, trabajen o ambas",
               "mediumBody": "Crear rutas integrales que articulen educación, empleo y emprendimiento juvenil. Busca reducir la inactividad y facilitar la inserción laboral con enfoque territorial",
-              "complexBody": "$31"
+              "complexBody": "$32"
             },
             {
               "title": "Potenciar el talento juvenil como motor de innovación y desarrollo",
               "mediumBody": "Crear espacios de formación, creatividad e innovación con acceso a tecnología y oportunidades globales",
-              "complexBody": "$32"
+              "complexBody": "$33"
             }
           ]
         },
