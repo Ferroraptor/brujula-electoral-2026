@@ -1493,188 +1493,358 @@
       "sectors": {
         "seguridad": {
           "hasContent": true,
-          "simpleParagraph": "• Recuperar el control territorial mediante una ofensiva de seguridad inmediata\n• Cumplir con metas operativas concretas en la lucha contra el crimen y el narcotráfico\n• Fortalecer la seguridad mediante alianzas internacionales estratégicas\n• Fortalecer la seguridad nacional mediante tecnología e inteligencia estratégica.",
+          "simpleParagraph": "• Destruir las 330.000 hectáreas de coca con acciones integrales contra el narcotráfico.\n• Recuperar el control territorial.\n• Reafirmar el monopolio estatal de las armas\n• Desmontar milicias y poderes coercitivos paralelos\n• Reconstruir a la Fuerza Pública, fortalecerla y respaldarla en sus acciones\n• Destruir economías ilegales\n• Recuperar el sistema carcelario\n• Fortalecer inteligencia, justicia y judicialización.\n• Crear mecanismos especializados para fortalecer la seguridad en los barrios.\n• Fortalecer la capacidad penitenciaria para enfrentar la criminalidad.",
           "mediumPlanSummary": "",
           "proposals": [
             {
-              "title": "Recuperar el control territorial mediante una ofensiva de seguridad inmediata",
-              "mediumBody": "Ejecutar un plan de choque de 90 días con acciones militares y policiales intensivas para retomar zonas dominadas por grupos armados. Busca restablecer el control del Estado y debilitar estructuras criminales.",
-              "complexBody": "Plan de Choque. - 90 días para recuperar el control total del territorio nacional. - Ofensiva militar y policial agresiva contra el crimen. - Recuperación de zonas bajo control de estructuras armadas."
+              "title": "Destruir las 330.000 hectáreas de coca con acciones integrales contra el narcotráfico.",
+              "mediumBody": "Eliminar las 330.000 hectáreas de coca mediante fumigación aérea, erradicación manual, persecución de capitales del narcotráfico, extinción de dominio, sustitución y extradición.",
+              "complexBody": "Destruir las 330.000 hectáreas de coca y valerse de todas las herramientas que nos permite la ley y la tecnología con la fumigación aérea, la erradicación manual, la persecución a los capitales de los narcos, la extinción de dominio express, la sustitución y la extradición"
             },
             {
-              "title": "Cumplir con metas operativas concretas en la lucha contra el crimen y el narcotráfico",
-              "mediumBody": "Capturar o neutralizar cabecillas, intensificar la erradicación de cultivos ilícitos y crear unidades especializadas contra la extorsión. Busca medir resultados con objetivos claros para debilitar estructuras criminales.",
-              "complexBody": "Metas Estratégicas - 10 cabecillas de alto valor capturados o dados de baja. - Fumigación aérea de 330,000 hectáreas de cultivos ilícitos. - Bloque de búsqueda especializado contra la extorsión."
+              "title": "Recuperar el control territorial.",
+              "mediumBody": "Recuperar el control territorial.",
+              "complexBody": "Recuperar el control territorial."
             },
             {
-              "title": "Fortalecer la seguridad mediante alianzas internacionales estratégicas",
-              "mediumBody": "Relanzar esquemas de cooperación como un “Plan Colombia II” y consolidar alianzas con países clave para acceso a tecnología e inteligencia. Busca potenciar las capacidades de la Fuerza Pública en la lucha contra el crimen.",
-              "complexBody": "Alianzas Globales. - Lanzamiento del Plan Colombia II con apoyo internacional. - Cooperación estratégica con EE.UU. e Israel. - Tecnología de punta e inteligencia para la Fuerza Pública."
+              "title": "Reafirmar el monopolio estatal de las armas",
+              "mediumBody": "Reafirmar el monopolio estatal de las armas",
+              "complexBody": "Reafirmar el monopolio estatal de las armas"
             },
             {
-              "title": "Fortalecer la seguridad nacional mediante tecnología e inteligencia estratégica.",
-              "mediumBody": "Uso de drones e IA para inteligencia militar y policial, vigilancia del narcotráfico tipo Plan Colombia 2.0 e integración con Puestos de Mando Unificado.",
-              "complexBody": "Seguridad Nacional\nDrones e IA para inteligencia militar y policial.\nVigilancia estratégica del narcotráfico (Plan Colombia 2.0).\nIntegración con Puestos de Mando Unificado"
+              "title": "Desmontar milicias y poderes coercitivos paralelos",
+              "mediumBody": "Desmontar milicias y poderes coercitivos paralelos",
+              "complexBody": "Desmontar milicias y poderes coercitivos paralelos"
+            },
+            {
+              "title": "Reconstruir a la Fuerza Pública, fortalecerla y respaldarla en sus acciones",
+              "mediumBody": "Reconstruir a la Fuerza Pública, fortalecerla y respaldarla en sus acciones",
+              "complexBody": "Reconstruir a la Fuerza Pública, fortalecerla y respaldarla en sus acciones"
+            },
+            {
+              "title": "Destruir economías ilegales",
+              "mediumBody": "Destruir economías ilegales",
+              "complexBody": "Destruir economías ilegales"
+            },
+            {
+              "title": "Recuperar el sistema carcelario",
+              "mediumBody": "Recuperar el sistema carcelario",
+              "complexBody": "Recuperar el sistema carcelario"
+            },
+            {
+              "title": "Fortalecer inteligencia, justicia y judicialización.",
+              "mediumBody": "Fortalecer inteligencia, justicia y judicialización.",
+              "complexBody": "Fortalecer inteligencia, justicia y judicialización."
+            },
+            {
+              "title": "Crear mecanismos especializados para fortalecer la seguridad en los barrios.",
+              "mediumBody": "Implementar un Bloque de Búsqueda contra la Extorsión y una Primera Línea de Seguridad con veteranos y reservistas.",
+              "complexBody": "Seguridad en el barrio: Bloque de Búsqueda contra la Extorsión, y Primera Línea de Seguridad con veteranos y reservistas."
+            },
+            {
+              "title": "Fortalecer la capacidad penitenciaria para enfrentar la criminalidad.",
+              "mediumBody": "Construir 10 megacárceles para recluir a quienes cometan delitos contra la población colombiana.",
+              "complexBody": "Construir 10 megacárceles para encerrar a los bandidos que atenten contra el pueblo colombiano."
             }
           ]
         },
         "empleo": {
           "hasContent": true,
-          "simpleParagraph": "• Impulsar la explotación de hidrocarburos para aumentar ingresos fiscales\n• Garantizar seguridad jurídica para la inversión\n• Crear zonas económicas especiales para impulsar el desarrollo regional\n• Incentivar el desarrollo del talento digital mediante beneficios tributarios\n• Priorizar a empresas nacionales y PYMES en la contratación pública\n• Eliminar el impuesto 4x1000 para reducir costos financieros\n• Eliminar exenciones tributarias ineficientes\n• Promover la generación de empleo formal mediante incentivos fiscales\n• Aumentar el recaudo ampliando la base tributaria\n• Declarar una emergencia económica al inicio del gobierno para agilizar la toma de decisiones.\n• Impulsar la economía digital y la innovación tecnológica.",
+          "simpleParagraph": "$29",
           "mediumPlanSummary": "",
           "proposals": [
             {
-              "title": "Impulsar la explotación de hidrocarburos para aumentar ingresos fiscales",
-              "mediumBody": "Apoyar el fracking con criterios de responsabilidad para generar entre $15 y $20 billones en regalías. Busca financiar inversión social a partir de mayores recursos del sector energético.",
-              "complexBody": "Reactivación de Hidrocarburos. Apoyo al Fracking con responsabilidad. Generación de +$15-20 billones en regalías para inversión social."
+              "title": "Combatir la pobreza mediante una estrategia para garantizar el acceso a alimentos.",
+              "mediumBody": "Implementar el Plan Cosecha Solidaria como herramienta para reducir el hambre y enfrentar la pobreza",
+              "complexBody": "Luchar contra la pobreza es el primer objetivo, por eso vamos a matar el hambre con el Plan Cosecha Solidaria."
             },
             {
-              "title": "Garantizar seguridad jurídica para la inversión",
-              "mediumBody": "Establecer reglas claras y estables que brinden protección a inversionistas nacionales y extranjeros. Busca generar confianza y atraer mayor inversión económica",
-              "complexBody": "Protección Jurídica Blindada. Seguridad total para inversores nacionales y extranjeros. Reglas de juego claras."
+              "title": "Ordenar las finanzas públicas.",
+              "mediumBody": "Ordenar las finanzas públicas.",
+              "complexBody": "Ordenar las finanzas públicas."
             },
             {
-              "title": "Crear zonas económicas especiales para impulsar el desarrollo regional",
-              "mediumBody": "Establecer polos con beneficios tributarios controlados y mejor conectividad. Busca atraer inversión y dinamizar la economía en distintas regiones del país",
-              "complexBody": "Zonas Económicas Especiales. Polos de desarrollo regional con exenciones tributarias controladas y conectividad."
+              "title": "Reducir el tamaño del Estado y fortalecer la descentralización territorial.",
+              "mediumBody": "Implementar un programa de ajuste fiscal que reduzca hasta en una cuarta parte el tamaño del Estado, aprovechando la nueva ley del SGP para fortalecer los territorios.",
+              "complexBody": "Consolidar un ‘programa de ajuste fiscal’ que reduzca el tamaño del Estado hasta en una cuarta parte (aprovechando la nueva ley de SGP y así lograr en simultánea un fortalecimiento de la descentralización territorial)."
             },
             {
-              "title": "Incentivar el desarrollo del talento digital mediante beneficios tributarios",
-              "mediumBody": "Otorgar exenciones a programadores y expertos en inteligencia artificial. Busca atraer y retener talento tecnológico para impulsar la economía digital",
-              "complexBody": "Régimen Creador Digital. Exenciones para programadores, y expertos en IA."
+              "title": "Alcanzar un superávit fiscal primario en el corto plazo.",
+              "mediumBody": "Realizar un ajuste fiscal inicial cercano a los $70 billones para lograr un balance positivo en las finanzas públicas.",
+              "complexBody": "Lograr en un corto plazo superávit fiscal primario (lo cual supone un ajuste inicial de unos $70 billones)."
             },
             {
-              "title": "Priorizar a empresas nacionales y PYMES en la contratación pública",
-              "mediumBody": "Dar preferencia a proveedores nacionales en las compras del Estado. Busca fortalecer la industria local y dinamizar la economía interna.",
-              "complexBody": "Compras Públicas Nacionales Preferencia del Estado por empresas nacionales y PYMES."
+              "title": "Fortalecer los mecanismos de control sobre el gasto público.",
+              "mediumBody": "Dar mayores facultades al comité autónomo de regla fiscal para controlar excesos de gasto por parte del Ejecutivo y el Legislativo.",
+              "complexBody": "Fortalecer el comité autónomo de regla fiscal para darle más dientes para controlar los excesos de gastos en cabeza del ejecutivo o legislativo por la vía legal o constitucional (algo similar a lo que tiene Perú y que permite un control sobre los excesos fiscales y ordena la casa)."
             },
             {
-              "title": "Eliminar el impuesto 4x1000 para reducir costos financieros",
-              "mediumBody": "Suprimir este gravamen para aliviar la carga económica de los ciudadanos. Busca incentivar la transaccionalidad y dinamizar la actividad económica",
-              "complexBody": "Eliminación del impuesto 4x1000 Alivio directo al bolsillo de los colombianos y a la transaccionalidad"
+              "title": "Mejorar la competitividad empresarial reduciendo costos y cargas regulatorias.",
+              "mediumBody": "Disminuir la carga tributaria, reducir los costos de energía y eliminar trámites y barreras que afectan al sector empresarial.",
+              "complexBody": "Reducir la carga tributaria, reducir los costos de energía y crear una ‘Gran Revolución de DesRegulación’ o eliminación de trámites, trabas y cargas al sector empresarial."
             },
             {
-              "title": "Eliminar exenciones tributarias ineficientes",
-              "mediumBody": "Suprimir beneficios fiscales que no generen impacto positivo en el país. Busca mejorar la equidad y eficiencia del sistema tributario.",
-              "complexBody": "Eliminación de Exenciones. Fin a beneficios tributarios inútiles e injustificados que no aportan al país."
+              "title": "Revisar y corregir ineficiencias regulatorias en entidades y procesos clave.",
+              "mediumBody": "Evaluar procedimientos y regulaciones en entidades como Invima, ICA, DIAN, superintendencias, cámaras de comercio, licencias ambientales y otros sectores estratégicos.",
+              "complexBody": "Esto significa revisión en detalle de ineficiencias en Invima, ICA, superintendencias, cámaras de comercio, notariado y registro, licencias ambientales, consulta a comunidades, reglamentos técnicos de MinComercio, MinTIC, MinTransporte, DIAN, entre otras"
             },
             {
-              "title": "Promover la generación de empleo formal mediante incentivos fiscales",
-              "mediumBody": "Reducir impuestos a empresas que creen empleos formales y de calidad. Busca incentivar la contratación y dinamizar el mercado laboral.",
-              "complexBody": "Incentivos al Empleo. Reducción de impuestos a empresas que generen empleo formal y de calidad."
+              "title": "Limitar el crecimiento de nuevas cargas regulatorias.",
+              "mediumBody": "Aplicar la política “Una entra y dos salen”, eliminando dos regulaciones por cada nueva norma que genere cargas o trámites.",
+              "complexBody": "Promover la política ‘Una entra y dos salen’, es decir, por cada nueva regulación de cargas y trabas, se eliminan dos, por un período de tiempo."
             },
             {
-              "title": "Aumentar el recaudo ampliando la base tributaria",
-              "mediumBody": "Incrementar los ingresos fiscales a través de mayor actividad económica en lugar de subir impuestos. Busca fortalecer las finanzas públicas de forma sostenible.",
-              "complexBody": "Ampliación de Base. Más recaudo vía mayor actividad económica, no subiendo tasas."
+              "title": "Impulsar nuevos motores de desarrollo económico para el país.",
+              "mediumBody": "Consolidar la plataforma de la altillanura y promover el turismo sostenible, las energías renovables, la energía nuclear y la industria 4.0 mediante procesos más ágiles.",
+              "complexBody": "Consolidar la gran plataforma de la altillanura, promover el turismo sostenible, las energías renovables y nuevas energías (con una política en energía nuclear y licenciamientos express y acelerar consultas a comunidades) e industria 4.0."
             },
             {
-              "title": "Declarar una emergencia económica al inicio del gobierno para agilizar la toma de decisiones.",
-              "mediumBody": "Permitir la eliminación de trabas y la adopción de medidas rápidas para dinamizar la economía.",
-              "complexBody": "Emergencia Económica\nDeclaratoria al inicio del gobierno para tomar decisiones rápidas y eliminar trabas."
+              "title": "Facilitar el acceso de los colombianos a la vivienda propia.",
+              "mediumBody": "Crear el programa “País de propietarios” para ofrecer financiación de vivienda con tasas del 2% y plazos de hasta 30 años.",
+              "complexBody": "Crear el programa ‘País de propietarios’ para que los colombianos puedan comprar vivienda propia con intereses de 2% a 30 años"
             },
             {
-              "title": "Impulsar la economía digital y la innovación tecnológica.",
-              "mediumBody": "Apoyo a programadores y expertos en IA, con exenciones tributarias y créditos al 0% para posicionar a Colombia como hub latinoamericano.",
-              "complexBody": "Economía Digital\nApoyo a programadores y expertos en IA.\nExenciones tributarias y créditos al 0% para innovación.\nPosicionar a Colombia como Hub Latinoamericano."
+              "title": "Posicionar a Colombia entre los países más prósperos, seguros y democráticos del mundo.",
+              "mediumBody": "Impulsar políticas orientadas a que Colombia integre el grupo de los 25 países con mejores indicadores de prosperidad, seguridad y democracia.",
+              "complexBody": "Llevar a Colombia al grupo de los 25 países más prósperos, seguros y democráticos del mundo."
+            },
+            {
+              "title": "Mejorar el funcionamiento del Estado mediante medidas de eficiencia.",
+              "mediumBody": "Implementar un plan de choque enfocado en aumentar la eficiencia y optimizar la gestión estatal.",
+              "complexBody": "Implementar un plan de choque y eficiencia radical del Estado."
+            },
+            {
+              "title": "Fortalecer la sostenibilidad de las finanzas públicas.",
+              "mediumBody": "Estabilizar y refinanciar la deuda pública mediante una gestión activa que mejore los plazos y condiciones de vencimiento.",
+              "complexBody": "Estabilizar y refinanciar la deuda pública mediante una gestión activa de pasivos para mejorar el perfil de vencimientos."
+            },
+            {
+              "title": "Cumplir estrictamente la Regla Fiscal.",
+              "mediumBody": "Cumplir estrictamente la Regla Fiscal.",
+              "complexBody": "Cumplir estrictamente la Regla Fiscal."
+            },
+            {
+              "title": "Reformar el sistema tributario para impulsar la inversión y beneficiar a los hogares.",
+              "mediumBody": "Modificar y simplificar la estructura tributaria con el fin de incentivar la inversión privada y aliviar las cargas económicas de los hogares.",
+              "complexBody": "Modificar y simplificar la estructura tributaria para incentivar la inversión privada y aliviar el bienestar de los hogares."
+            },
+            {
+              "title": "Modernizar el Estado mediante una estructura administrativa más eficiente.",
+              "mediumBody": "Reducir la nómina paralela y fusionar agencias redundantes para optimizar el funcionamiento del aparato estatal.",
+              "complexBody": "Optimizar el aparato estatal reduciendo la nómina paralela y fusionando agencias redundantes."
+            },
+            {
+              "title": "Mejorar la focalización de los subsidios públicos.",
+              "mediumBody": "Transformar los subsidios mediante el cruce de información entre Sisbén IV y DIAN para eliminar su carácter regresivo.",
+              "complexBody": "Transformar los subsidios eliminando su regresividad (cruce Sisbén IV-DIAN)."
+            },
+            {
+              "title": "Fortalecer el control tributario mediante herramientas tecnológicas avanzadas.",
+              "mediumBody": "Modernizar la DIAN con inteligencia artificial para reducir de manera significativa la evasión fiscal.",
+              "complexBody": "Modernizar la DIAN con inteligencia artificial para reducir drásticamente la evasión."
+            },
+            {
+              "title": "Crear condiciones favorables para el crecimiento y la inversión empresarial.",
+              "mediumBody": "Consolidar un ecosistema proempresa que impulse el crecimiento económico y permita superar una tasa de crecimiento del PIB del 3%.",
+              "complexBody": "Garantizar un ecosistema pro-empresa que impulse el crecimiento del PIB por encima de la barrera del 3%."
+            },
+            {
+              "title": "Incentivar el desarrollo económico a través de la cultura y el deporte.",
+              "mediumBody": "Brindar apoyo fiscal a nuevas empresas culturales y a grandes eventos culturales y deportivos que atraigan ingresos del exterior y dinamicen las economías locales.",
+              "complexBody": "Apoyo fiscal a nuevas empresas de acción cultural y a mega eventos culturales y deportivos que atraigan ingresos del exterior y generen dinámica local"
             }
           ]
         },
         "salud": {
           "hasContent": true,
-          "simpleParagraph": "• Garantizar atención inmediata y oportuna en salud\n• Impulsar la modernización hospitalaria mediante alianzas público-privadas\n• Implementar atención médica móvil y telemedicina en zonas rurales apartadas\n• Fortalecer el talento humano mediante profesionalización e incentivos por desempeño\n• Supervisar y sancionar rigurosamente a las EPS incumplidas\n• Promover la prevención en salud desde la infancia",
+          "simpleParagraph": "• Recuperar y proteger los recursos destinados al sistema de salud.\n• Reforzar el seguimiento al uso de los recursos de la UPC por parte de las EPS.\n• Restablecer flujo de recursos\n• Poner al paciente en el centro.\n• Recuperar el acceso oportuno a medicamentos y tratamientos\n• Proteger pacientes crónicos y poblaciones vulnerables.\n• Fortalecer la medicina en atención primaria, promoción y prevención.\n• Modernizar la gestión del sistema de salud mediante herramientas tecnológicas.\n• Fortalecer la red hospitalaria\n• Fortalecer el sistema de salud dignificando al personal y corrigiendo fallas estructurales.\n• Mejorar la eficiencia administrativa de las EPS.\n• Hacer arbitraje de recursos mal administrados por ADRES.\n• Fortalecer el control sobre la inversión en infraestructura de salud.",
           "mediumPlanSummary": "",
           "proposals": [
             {
-              "title": "Garantizar atención inmediata y oportuna en salud",
-              "mediumBody": "Asegurar el acceso rápido a citas, cirugías y medicamentos esenciales, junto con el pago de salarios atrasados al personal de salud. Mejorar la calidad del servicio y estabilizar las condiciones del sistema sanitario.",
-              "complexBody": "Atención Prioritaria. Garantía inmediata de citas, cirugías y medicamentos esenciales. Pago de salarios atrasados al personal hospitalario."
+              "title": "Recuperar y proteger los recursos destinados al sistema de salud.",
+              "mediumBody": "Implementar un plan de choque de $10 billones y revisar los ajustes a la UPC que permitieron el desvío de recursos hacia otros propósitos.",
+              "complexBody": "Plan de choque de $10 billones, revisar los ajustes que se le hicieron a la UPC que permitieron el desvío de recursos de dicha asignación a otros propósitos."
             },
             {
-              "title": "Impulsar la modernización hospitalaria mediante alianzas público-privadas",
-              "mediumBody": "Emplear APP para construir y mejorar hospitales regionales, reduciendo obstáculos burocráticos. Así, ampliar la infraestructura y mejorar la eficiencia del sistema de salud.",
-              "complexBody": "Modernización APP. Alianzas Público-Privadas para construir y modernizar hospitales regionales sin trabas burocráticas."
+              "title": "Reforzar el seguimiento al uso de los recursos de la UPC por parte de las EPS.",
+              "mediumBody": "Realizar revisiones trimestrales a la ejecución de la UPC para fortalecer el control sobre estos recursos.",
+              "complexBody": "Revisión trimestral a la ejecución de la UPC por parte de las EPS."
             },
             {
-              "title": "Implementar atención médica móvil y telemedicina en zonas rurales apartadas",
-              "mediumBody": "Garantizar la atención médica oportuna en territorios con baja cobertura por medio de brigadas médicas móviles y telemedicina con apoyo satelital en regiones apartadas.",
-              "complexBody": "Salud Rural. Brigadas médicas móviles y telemedicina con infraestructura satelital para las zonas más apartadas del país."
+              "title": "Restablecer flujo de recursos",
+              "mediumBody": "Restablecer flujo de recursos",
+              "complexBody": "Restablecer flujo de recursos"
             },
             {
-              "title": "Fortalecer el talento humano mediante profesionalización e incentivos por desempeño",
-              "mediumBody": "Mejorar las condiciones laborales y ofrecer bonificaciones basadas en resultados. Busca elevar la calidad del servicio a través de personal más capacitado y motivado",
-              "complexBody": "Talento Humano. Profesionalización, mejores condiciones y bonificaciones por resultados."
+              "title": "Poner al paciente en el centro.",
+              "mediumBody": "Poner al paciente en el centro.",
+              "complexBody": "Poner al paciente en el centro."
             },
             {
-              "title": "Supervisar y sancionar rigurosamente a las EPS incumplidas",
-              "mediumBody": "Realizar auditorías técnicas estrictas a las EPS y liquidar aquellas que no cumplan con los estándares",
-              "complexBody": "Intervención a EPS. Auditoría técnica implacable: las que no cumplan se liquidan."
+              "title": "Recuperar el acceso oportuno a medicamentos y tratamientos",
+              "mediumBody": "Recuperar el acceso oportuno a medicamentos y tratamientos",
+              "complexBody": "Recuperar el acceso oportuno a medicamentos y tratamientos"
             },
             {
-              "title": "Promover la prevención en salud desde la infancia",
-              "mediumBody": "Crear una política estatal centrada en deporte y nutrición para niños. Busca reducir enfermedades y mejorar la calidad de vida a largo plazo",
-              "complexBody": "Prevención. Política de Estado enfocada en deporte y nutrición desde la infancia."
+              "title": "Proteger pacientes crónicos y poblaciones vulnerables.",
+              "mediumBody": "Proteger pacientes crónicos y poblaciones vulnerables.",
+              "complexBody": "Proteger pacientes crónicos y poblaciones vulnerables."
+            },
+            {
+              "title": "Fortalecer la medicina en atención primaria, promoción y prevención.",
+              "mediumBody": "Fortalecer la medicina en atención primaria, promoción y prevención.",
+              "complexBody": "Fortalecer la medicina en atención primaria, promoción y prevención."
+            },
+            {
+              "title": "Modernizar la gestión del sistema de salud mediante herramientas tecnológicas.",
+              "mediumBody": "Incorporar tecnología para mejorar la gestión de las EPS, establecer tiempos de atención para citas especializadas y fortalecer el seguimiento a la prestación de los servicios.",
+              "complexBody": "Inyectar tecnología a la gestión del sistema de salud, definir tiempos de atención para citas especializadas en EPS en beneficio de un mejor servicio y hacer seguimientos"
+            },
+            {
+              "title": "Fortalecer la red hospitalaria",
+              "mediumBody": "Fortalecer la red hospitalaria",
+              "complexBody": "Fortalecer la red hospitalaria"
+            },
+            {
+              "title": "Fortalecer el sistema de salud dignificando al personal y corrigiendo fallas estructurales.",
+              "mediumBody": "Mejorar las condiciones del personal de salud, preservar los aspectos que funcionan del sistema y retomar mecanismos de control de precios en tecnologías, medicamentos y dispositivos.",
+              "complexBody": "Dignificar al personal de la salud, hacer una transición responsable que preserve lo que funciona y corrija lo que colapsó, retomar la política de presupuestos máximos y control de precios en tecnologías, medicamentos y dispositivos."
+            },
+            {
+              "title": "Mejorar la eficiencia administrativa de las EPS.",
+              "mediumBody": "Establecer topes máximos a los costos de administración para optimizar el funcionamiento de las EPS.",
+              "complexBody": "Hacer más eficientes a las EPS desde lo administrativo con topes máximos a costos de administración."
+            },
+            {
+              "title": "Hacer arbitraje de recursos mal administrados por ADRES.",
+              "mediumBody": "Hacer arbitraje de recursos mal administrados por ADRES.",
+              "complexBody": "Hacer arbitraje de recursos mal administrados por ADRES."
+            },
+            {
+              "title": "Fortalecer el control sobre la inversión en infraestructura de salud.",
+              "mediumBody": "Revisar contratos asignados o no ejecutados en infraestructura de salud e implementar el Bloque Anticorrupción en los casos que presenten riesgos de corrupción o ineficiencia.",
+              "complexBody": "Revisar los contratos asignados o contratos no ejecutados en infraestructura en salud en los lugares donde hay riesgo de corrupción o ineficiencia en la inversión pública, e implementar el Bloque Anticorrupción en los casos que sean necesarios."
             }
           ]
         },
         "educacion": {
           "hasContent": true,
-          "simpleParagraph": "• Reformar el currículo educativo con enfoque en contenidos básicos y formación en valores\n• Integrar formación dual y fortalecer la infraestructura educativa\n• Promover un sistema educativo basado en mérito y compromiso social",
+          "simpleParagraph": "• Formar a los jóvenes en competencias alineadas con las demandas de la economía actual.\n• Mejorar la calidad educativa mediante mecanismos de evaluación docente.\n• Ampliar las oportunidades de acceso a la educación superior para estudiantes destacados.\n• ransformar el sistema educativo para responder a los desafíos productivos y globales.\n• Fortalecer la ciencia, la tecnología y la innovación en la educación pública.\n• Crear la Universidad Virtual en Casa.\n• Conectividad y computadores gratuitos.\n• Fortalecer las capacidades productivas y empresariales de los jóvenes rurales.",
           "mediumPlanSummary": "",
           "proposals": [
             {
-              "title": "Reformar el currículo educativo con enfoque en contenidos básicos y formación en valores",
-              "mediumBody": "Priorizar materias fundamentales e incorporar la enseñanza de ética, lógica y ciudadanía desde temprana edad. Busca fortalecer la formación académica y el desarrollo integral de los estudiantes.",
-              "complexBody": "Reforma Curricular y Valores Materias Prioritarias: Matemáticas, lectura crítica, ciencias e Historia Patria . Filosofía Estoica: Enseñanza desde temprana edad: ética, lógica y ciudadanía. Cero Adoctrinamiento: Eliminación de ideologías extremas del sistema educativo"
+              "title": "Formar a los jóvenes en competencias alineadas con las demandas de la economía actual.",
+              "mediumBody": "Crear programas de formación de ciclos cortos en tecnologías de cuarta revolución industrial, bilingüismo, servicios y economía del cuidado.",
+              "complexBody": "Crear programas de ciclos cortos en tecnologías de cuarta revolución industrial (AI, computación cuántica, robótica, etc), bilingüismo, servicios y economía del cuidado, para formar a jóvenes productivos"
             },
             {
-              "title": "Integrar formación dual y fortalecer la infraestructura educativa",
-              "mediumBody": "Implementar doble titulación técnica en el bachillerato mediante alianzas con el SENA y empresas, junto con la construcción y mejora de 1.000 colegios vía APP. Busca mejorar la empleabilidad de los estudiantes y las condiciones físicas del sistema educativo.",
-              "complexBody": "Infraestructura y Modelo Dual Educación Dual: Doble titulación técnica en bachillerato (Alianzas SENA + Empresas). Plan Maestro: Construcción y reparación de 1.000 colegios mediante APPs."
+              "title": "Mejorar la calidad educativa mediante mecanismos de evaluación docente.",
+              "mediumBody": "Implementar la evaluación docente como herramienta para fortalecer la calidad de la educación impartida a niños, niñas y adolescentes.",
+              "complexBody": "Implementar la evaluación docente para mejorar la calidad de la educación que se le imparte a niños, niñas y adolescentes"
             },
             {
-              "title": "Promover un sistema educativo basado en mérito y compromiso social",
-              "mediumBody": "Evaluar y bonificar a docentes según su desempeño, y otorgar becas condicionadas a la retribución mediante servicio social. Busca incentivar la calidad educativa y generar un impacto positivo en la sociedad.",
-              "complexBody": "Mérito y Oportunidades Mérito Docente: Evaluación de desempeño y bonificaciones por resultados. Becas con Retorno: Apoyo universitario y técnico condicionado a servicio social."
+              "title": "Ampliar las oportunidades de acceso a la educación superior para estudiantes destacados.",
+              "mediumBody": "Crear créditos blandos y un programa de méritos que facilite el ingreso de los mejores talentos a programas universitarios de su interés.",
+              "complexBody": "Crear créditos blandos y un programa de méritos para que los mejores talentos para educarse en la universidad en el programa de su interés."
+            },
+            {
+              "title": "ransformar el sistema educativo para responder a los desafíos productivos y globales.",
+              "mediumBody": "Impulsar una educación con enfoque internacional, fortaleciendo la educación terciaria, tecnológica y virtual, y su articulación con las necesidades productivas.",
+              "complexBody": "Reformar la educación para que sea internacional, más conectada a los temas productivos, con énfasis en educación terciaria, fomento a la educación tecnológica y virtual."
+            },
+            {
+              "title": "Fortalecer la ciencia, la tecnología y la innovación en la educación pública.",
+              "mediumBody": "Promover la inversión privada en ciencia, tecnología e innovación dentro de la educación pública mediante incentivos fiscales.",
+              "complexBody": "Promover la inversión privada de ciencia, tecnología e innovación en la educación pública a partir de incentivos fiscales."
+            },
+            {
+              "title": "Crear la Universidad Virtual en Casa.",
+              "mediumBody": "Crear la Universidad Virtual en Casa.",
+              "complexBody": "Crear la Universidad Virtual en Casa."
+            },
+            {
+              "title": "Conectividad y computadores gratuitos.",
+              "mediumBody": "Conectividad y computadores gratuitos.",
+              "complexBody": "Conectividad y computadores gratuitos."
+            },
+            {
+              "title": "Fortalecer las capacidades productivas y empresariales de los jóvenes rurales.",
+              "mediumBody": "Crear la Escuela de Emprendedores Rurales para formar a cien mil jóvenes con apoyo en crédito, asociatividad, tecnología, mentoría y prácticas productivas.",
+              "complexBody": "Crear la Escuela de Emprendedores Rurales para formar a cien mil jóvenes en prácticas más eficientes y productivas de aporte al campo colombiano y con apoyo de crédito, de asociatividad, de tecnología y de programas de mentoría."
             }
           ]
         },
         "infraestructura": {
           "hasContent": true,
-          "simpleParagraph": "• Simplificar el cumplimiento tributario para PYMES mediante digitalización",
+          "simpleParagraph": "• Impulsar el desarrollo rural mediante infraestructura y fortalecimiento productivo.\n• Ampliar la frontera agrícola productiva del país para fortalecer el sector agropecuario.\n• Impulsar el desarrollo rural mediante infraestructura y fortalecimiento productivo.",
           "mediumPlanSummary": "",
           "proposals": [
             {
-              "title": "Simplificar el cumplimiento tributario para PYMES mediante digitalización",
-              "mediumBody": "Implementar un sistema tributario digital, sencillo y sin trámites innecesarios. Busca facilitar el cumplimiento fiscal y reducir la carga burocrática para pequeñas y medianas empresas.",
-              "complexBody": "Simplificación Digital. Sistema tributario fácil y digital para que las PYMES puedan cumplir sin burocracia."
+              "title": "Impulsar el desarrollo rural mediante infraestructura y fortalecimiento productivo.",
+              "mediumBody": "Promover la prosperidad del campo con inversión en vías, sistemas de riego, conectividad, agroindustria y acceso a mercados.",
+              "complexBody": "Abrir el camino de la prosperidad moderna con vías, riego, conectividad, agroindustria y mercados."
+            },
+            {
+              "title": "Ampliar la frontera agrícola productiva del país para fortalecer el sector agropecuario.",
+              "mediumBody": "Incorporar 1,5 millones de hectáreas a la producción agrícola, impulsando el desarrollo de la altillanura y nuevas apuestas productivas como coco, pasifloras, cereales y ganadería regenerativa.",
+              "complexBody": "Ampliar la frontera agrícola productiva de Colombia en 1,5 millones de hectáreas siendo el candidato que lograra el Matto Grosso Colombiano en la altillanura y una nueva apuesta en grande en coco, pasifloras, cereales y ganadería regenerativa."
+            },
+            {
+              "title": "Impulsar el desarrollo rural mediante infraestructura y fortalecimiento productivo.",
+              "mediumBody": "Promover la prosperidad del campo con inversión en vías, sistemas de riego, conectividad, agroindustria y acceso a mercados.",
+              "complexBody": "Abrir el camino de la prosperidad moderna con vías, riego, conectividad, agroindustria y mercados"
             }
           ]
         },
         "corrupcion": {
           "hasContent": true,
-          "simpleParagraph": "• Crear una unidad especial para combatir la corrupción\n• Depurar la administración pública mediante evaluación de desempeño\n• Establecer un marco legal estricto para la ética pública\n• Recuperar recursos públicos perdidos por corrupción",
+          "simpleParagraph": "• Garantizar el ejercicio transparente de la Presidencia y la Vicepresidencia.\n• Crear un Bloque de Búsqueda contra la Corrupción con liderazgo presidencial.\n• Combatir la corrupción mediante herramientas de investigación y control patrimonial.\n• Persecución de flujos financieros ilícitos.\n• Gobierno trazable.\n• Reforma de la contratación pública.\n• Cooperación nacional e internacional.\n• Fortalecer la transparencia y reducir la discrecionalidad en la gestión pública.\n• Modernizar la contratación pública mediante tecnologías que garanticen la integridad de la información.",
           "mediumPlanSummary": "",
           "proposals": [
             {
-              "title": "Crear una unidad especial para combatir la corrupción",
-              "mediumBody": "Establecer un bloque de búsqueda presidencial para identificar y perseguir bienes, dinero y redes corruptas. Busca desarticular estructuras que desvían recursos públicos.",
-              "complexBody": "Bloque de Búsqueda. Creación de un bloque de búsqueda presidencial\ncontra los corruptos para perseguir bienes, dinero y\nredes que se roban el Estado."
+              "title": "Garantizar el ejercicio transparente de la Presidencia y la Vicepresidencia.",
+              "mediumBody": "Promover un liderazgo basado en la transparencia y la integridad desde los más altos cargos del Gobierno.",
+              "complexBody": "El presidente y el vicepresidente serán ejemplo de transparencia como lo ha sido su trayectoria a lo largo de la vida"
             },
             {
-              "title": "Depurar la administración pública mediante evaluación de desempeño",
-              "mediumBody": "Evaluar a los servidores públicos y remover a quienes sean ineficientes. Busca mejorar la calidad y eficacia del funcionamiento del Estado.",
-              "complexBody": "Depuración de Funcionarios. Evaluación y remoción de servidores ineficientes."
+              "title": "Crear un Bloque de Búsqueda contra la Corrupción con liderazgo presidencial.",
+              "mediumBody": "Establecer un Bloque de Búsqueda contra la Corrupción dirigido directamente por el presidente de la República.",
+              "complexBody": "Creación del Bloque de Búsqueda contra la Corrupción dirigido directamente por el presidente de la República"
             },
             {
-              "title": "Establecer un marco legal estricto para la ética pública",
-              "mediumBody": "Crear una ley que garantice transparencia total en la contratación y sanciones severas ante irregularidades. Busca prevenir la corrupción y fortalecer la confianza en las instituciones.",
-              "complexBody": "Ley de Ética Pública. Transparencia total en contratación y penalidades duras."
+              "title": "Combatir la corrupción mediante herramientas de investigación y control patrimonial.",
+              "mediumBody": "Utilizar inteligencia, análisis financiero, policía judicial y extinción de dominio exprés para perseguir actos de corrupción.",
+              "complexBody": "Usar inteligencia, análisis financiero y policía judicial; extinción de dominio exprés."
             },
             {
-              "title": "Recuperar recursos públicos perdidos por corrupción",
-              "mediumBody": "Alcanzar la recuperación anual de entre $20 y $25 billones provenientes de actos corruptos. Busca reinvertir estos recursos en beneficio de la ciudadanía.",
-              "complexBody": "Recuperación de Bienes. Meta de recuperar entre $20 y $25 billones anuales perdidos por la corrupción para reinvertirlos en la gente."
+              "title": "Persecución de flujos financieros ilícitos.",
+              "mediumBody": "Persecución de flujos financieros ilícitos.",
+              "complexBody": "Persecución de flujos financieros ilícitos."
+            },
+            {
+              "title": "Gobierno trazable.",
+              "mediumBody": "Gobierno trazable.",
+              "complexBody": "Gobierno trazable."
+            },
+            {
+              "title": "Reforma de la contratación pública.",
+              "mediumBody": "Reforma de la contratación pública.",
+              "complexBody": "Reforma de la contratación pública."
+            },
+            {
+              "title": "Cooperación nacional e internacional.",
+              "mediumBody": "Cooperación nacional e internacional.",
+              "complexBody": "Cooperación nacional e internacional."
+            },
+            {
+              "title": "Fortalecer la transparencia y reducir la discrecionalidad en la gestión pública.",
+              "mediumBody": "Impulsar una actuación pública con mayores controles y niveles de transparencia.",
+              "complexBody": "Menos discrecionalidad y más transparencia en la actuación pública"
+            },
+            {
+              "title": "Modernizar la contratación pública mediante tecnologías que garanticen la integridad de la información.",
+              "mediumBody": "Llevar todos los procesos de contratación pública a blockchain para 2030, evitando la modificación de los datos registrados.",
+              "complexBody": "A 2030 todos los procesos de contratación pública se llevarán a cabo a través de blockchain para que la información introducida no pueda ser modificada por nadie."
             }
           ]
         }
@@ -2239,18 +2409,18 @@
       "sectors": {
         "seguridad": {
           "hasContent": true,
-          "simpleParagraph": "$29",
+          "simpleParagraph": "$2a",
           "mediumPlanSummary": "",
           "proposals": [
             {
               "title": "Combatir el “gota a gota” mediante una estrategia integral de seguridad y justicia.",
               "mediumBody": "Crear un Bloque de Búsqueda interinstitucional que desarticule redes de préstamo ilegal a través de inteligencia financiera, operativos coordinados, judicialización efectiva y fortalecimiento del marco legal, incluyendo nuevos delitos y protección a las víctimas.",
-              "complexBody": "$2a"
+              "complexBody": "$2b"
             },
             {
               "title": "Usar la Big Data y la Inteligencia Artificial en coordinación con la Policía, las Fuerzas Militares y el organismo de inteligencia nacional bajo un plan basado en resultados medibles.",
               "mediumBody": "La tecnología buscará: predecir el crimen, desarticular las estructuras criminales, optimizar recursos y conectar a la fuerza pública de seguridad en las calles.",
-              "complexBody": "$2b"
+              "complexBody": "$2c"
             },
             {
               "title": "Implementar sistema de vigilancia 24/ por medio de drones de alta capacidad de control.",
@@ -2332,7 +2502,7 @@
             {
               "title": "Creación del Banco de las MIPYMES y la Economía Popular.",
               "mediumBody": "Garantizará el acceso a crédito legal, ágil y justo para sectores comúnmente excluidos del sistema financiero, ofreciendo una alternativa real al financiamiento ilegal, al crecimiento económico y reducir la dependencia a sistemas como el \"gota a gota\".",
-              "complexBody": "$2c"
+              "complexBody": "$2d"
             }
           ]
         },
@@ -2440,7 +2610,7 @@
             {
               "title": "La IA como método para que el ciudadano votante pueda eliminar la corrupción en las elecciones.",
               "mediumBody": "El Guardían Digital permitirá al votante ser veedor digital, tomar foto de su voto para evitar fraude, hacer escuchar sus voces ante incongruencias de los políticos, y poder castigarlo de la misma manera.",
-              "complexBody": "$2d"
+              "complexBody": "$2e"
             }
           ]
         }
@@ -3103,18 +3273,18 @@
             {
               "title": "Implementar planes integrales de seguridad y desarrollo en territorios críticos",
               "mediumBody": "Combinar recuperación del control estatal con inversión en infraestructura, servicios y participación comunitaria",
-              "complexBody": "$2e"
+              "complexBody": "$2f"
             },
             {
               "title": "Prevenir la vinculación de jóvenes a la violencia y economías ilegales",
               "mediumBody": "Ofrecer alternativas reales y segundas oportunidades para la juventud por medio de entornos protectores con acceso a educación, empleo y apoyo psicosocial.",
-              "complexBody": "$2f"
+              "complexBody": "$30"
             }
           ]
         },
         "empleo": {
           "hasContent": true,
-          "simpleParagraph": "$30",
+          "simpleParagraph": "$31",
           "mediumPlanSummary": "",
           "proposals": [
             {
@@ -3267,7 +3437,7 @@
             {
               "title": "Priorizar la salud mental y el bienestar integral de los jóvenes",
               "mediumBody": "Implementar redes de atención en salud mental y programas de bienestar en entornos educativos. Así fortalecer el desarrollo emocional y la participación juvenil",
-              "complexBody": "$31"
+              "complexBody": "$32"
             }
           ]
         },
@@ -3344,12 +3514,12 @@
             {
               "title": "Garantizar que todos los jóvenes estudien, trabajen o ambas",
               "mediumBody": "Crear rutas integrales que articulen educación, empleo y emprendimiento juvenil. Busca reducir la inactividad y facilitar la inserción laboral con enfoque territorial",
-              "complexBody": "$32"
+              "complexBody": "$33"
             },
             {
               "title": "Potenciar el talento juvenil como motor de innovación y desarrollo",
               "mediumBody": "Crear espacios de formación, creatividad e innovación con acceso a tecnología y oportunidades globales",
-              "complexBody": "$33"
+              "complexBody": "$34"
             }
           ]
         },
