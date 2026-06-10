@@ -540,16 +540,30 @@
     +'<p class="cierre">El voto se ejerce un domingo; la ciudadanía, todos los días.</p></div>';
 
   /* ---------- selector (localStorage) ---------- */
+  // La clave conserva el sufijo histórico -v5; el versionado real va en SEL.version.
   const SEL_KEY='brujula-2026-selections-v5';
-  let SEL={version:'v5',lastUpdated:null,selections:{}};
+  const SEL_VERSION='v6';
+  let SEL={version:SEL_VERSION,lastUpdated:null,selections:{}};
   let storageOK=true;
   function loadSel(){try{const r=localStorage.getItem(SEL_KEY);if(r){const o=JSON.parse(r);if(o&&o.selections&&typeof o.selections==='object')SEL=o;}}catch(e){storageOK=false;}}
+  // Migración v5->v6: candidateados actualizó el programa de De la Espriella para 2ª vuelta;
+  // sus IDs posicionales (espriella-*-cand-NN) cambiaron de significado. Se descartan SOLO
+  // esas selecciones; las de Cepeda y las de propuestas FEDe se conservan intactas.
+  function migrateSel(){
+    if(SEL.version===SEL_VERSION)return;
+    let dropped=0;
+    for(const k of Object.keys(SEL.selections)){
+      if(/^espriella-[a-z]+-cand-\d+$/.test(k)){delete SEL.selections[k];dropped++;}
+    }
+    SEL.version=SEL_VERSION;saveSel();
+    if(dropped)console.info('Brújula: migración v5→v6 — se descartaron '+dropped+' selección(es) de propuestas de De la Espriella que cambiaron en candidateados.');
+  }
   function saveSel(){SEL.lastUpdated=new Date().toISOString();try{localStorage.setItem(SEL_KEY,JSON.stringify(SEL));}catch(e){storageOK=false;}}
   function getSel(id){return SEL.selections[id]||null;}
   function setSel(id,val){if(SEL.selections[id]===val)delete SEL.selections[id];else SEL.selections[id]=val;saveSel();updateBadge();}
   function clearSel(){SEL.selections={};saveSel();updateBadge();}
   function selCount(){return Object.keys(SEL.selections).length;}
-  loadSel();
+  loadSel();migrateSel();
 
   function updateBadge(){
     const n=selCount();const b=document.getElementById('puntaje-badge');
