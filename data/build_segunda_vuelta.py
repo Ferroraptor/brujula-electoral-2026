@@ -10,7 +10,11 @@ corpus de primera vuelta (build_propuestas.py) pero SOLO para los dos finalistas
   - meta con resultados de 1ª vuelta y apoyos (datos con fuente)
 
 Fuentes:
-  - Candidateados: NO cambió para 2ª vuelta -> se reusa data/raw/candidateados_parsed.json (1ª vuelta).
+  - Candidateados: snapshot CONGELADO de 2ª vuelta en data/raw/candidateados_2v.json.
+    Candidateados.com actualizó el programa de De la Espriella para 2ª vuelta (Cepeda no
+    cambió). Se usa un archivo PROPIO de v5 —no el data/raw/candidateados_parsed.json que el
+    cron de v4 pisa dos veces al día— para que la build de v5 sea estable y reproducible.
+    Para re-congelar a una fecha nueva: cp candidateados_parsed.json candidateados_2v.json.
   - FEDe: sheet nuevo refrescado en data/raw/fede2_csv/ (SHEET_ID 116rf6...).
 
 No infiere veredictos: texto fiel, cada bandera atribuida a FEDe. No fusiona fuentes.
@@ -24,7 +28,7 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(_HERE, "raw")
 FEDE_DIR = os.path.join(RAW, "fede2_csv")
 OUT = os.path.join(_HERE, "..", "public", "propuestas-2026-segunda-vuelta.json")
-FECHA = "2026-06-01"
+FECHA = "2026-06-09"
 FECHA_ELECCION = "2026-06-21"
 SHEET_FEDE = "116rf6RK1l5kqredZKK47F55tif2GGw2474vKdZUPrFM"
 
@@ -73,7 +77,7 @@ def load_csv(name):
 
 
 # --------------------------------------------------------------------------
-cand = json.load(open(os.path.join(RAW, "candidateados_parsed.json"), encoding="utf-8"))
+cand = json.load(open(os.path.join(RAW, "candidateados_2v.json"), encoding="utf-8"))
 cand_by_id = {SLUG2ID[c["slug"]]: c for c in cand if c["slug"] in SLUG2ID}
 
 fede_cands = {c["id"]: c for c in load_csv("candidatos")}
@@ -315,7 +319,7 @@ out["meta"] = {
     "fecha_eleccion": FECHA_ELECCION,
     "sheet_fede": SHEET_FEDE,
     "fuentes_usadas": [
-        "candidateados (data de 1ª vuelta; no cambió para 2ª)",
+        "candidateados (snapshot de 2ª vuelta; programa de De la Espriella actualizado, Cepeda igual)",
         "fede (sheet de 2ª vuelta, 5 candidatos -> filtrado a 2)",
         "programa_oficial (vía fuente FEDe)",
         "Registraduría Nacional (resultados 1ª vuelta)",
@@ -342,7 +346,7 @@ out["meta"] = {
     },
     "notas_metodologicas": [
         "Solo los dos finalistas de segunda vuelta (Cepeda, De la Espriella).",
-        "Candidateados no actualizó su data para 2ª vuelta: se reusa la de 1ª vuelta (mismos conteos).",
+        "Candidateados actualizó el programa de De la Espriella para 2ª vuelta (29->63 propuestas); Cepeda no cambió. Snapshot congelado en candidateados_2v.json.",
         "FEDe sí actualizó (sheet nuevo) y mantiene 5 candidatos en su panel; aquí se filtra a 2.",
         "posiciones_fede: matriz cara-a-cara nueva de FEDe (preguntas con la respuesta de cada candidato). Atribuida a FEDe.",
         "Resultados y apoyos llevan fuente; los apoyos se detallan con enlace en hitos.json.",
