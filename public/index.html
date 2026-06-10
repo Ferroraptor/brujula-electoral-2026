@@ -232,6 +232,23 @@
   .pos-flag-sub{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:#6b665b;font-weight:600;margin:7px 0 4px}
   .pos-flag-sub:first-child{margin-top:0}
   .pos-flag-desc{font-size:12.5px;color:#34302a;line-height:1.5;padding:7px 10px;background:#FBF8F0;border-radius:6px;border-left:3px solid var(--line2)}
+  /* triggers que abren el modal de alertas/reparos (reemplazan acordeones inline) */
+  .alert-open{margin-top:8px;display:inline-flex;align-items:center;gap:5px;cursor:pointer;background:#FBF1E6;border:1px solid #E8C9A5;color:#7a4a3c;font:inherit;font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:30px}
+  .alert-open:hover{background:#f6e6d2}
+  .alert-open .al-meta{font-weight:400;color:#9a8a70}
+  .pos-flag-btn{margin-top:6px;cursor:pointer;font:inherit;font-size:11px;font-weight:600;padding:3px 10px;border-radius:30px;display:inline-block}
+  .pos-flag-btn.fb-contestado{background:#F3E0D6;color:#7a4226;border:1px solid #DDB0A4}
+  .pos-flag-btn.fb-tumbado{background:#F2D5D0;color:#7a3326;border:1px solid #D08B82}
+  .pos-flag-btn:hover{filter:brightness(.97)}
+  .cara-rf-btn{margin-top:12px;width:100%;display:flex;align-items:center;gap:8px;cursor:pointer;font:inherit;text-align:left;background:#FBF1E6;border:1px solid #E8C9A5;border-radius:8px;padding:10px 12px;color:#7a4226;font-size:12px;font-weight:600}
+  .cara-rf-btn:hover{background:#f6e6d2}
+  .cara-rf-btn .cara-rf-ico{font-size:13px}
+  .cara-rf-btn .cara-rf-go{margin-left:auto;color:#9a8a70;font-weight:600}
+  .modal-body .al-rf{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .modal-body .al-rf li{font-size:13px;color:#34302a;line-height:1.5;padding:10px 12px;background:#FBF1E6;border:1px solid #E8C9A5;border-radius:8px}
+  .modal-body .al-rf li b{color:#7a4226}
+  .modal-body .al-rf li .meta{color:#9a8a70}
+  .modal-body .al-foot{color:#6b665b;border-top:1px solid var(--line);padding-top:10px;margin-top:14px;font-size:12.5px}
 
   /* privacy + clear */
   .privacy{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:18px 0 6px;padding:11px 15px;background:var(--chip);border-radius:var(--r);font-size:12.5px;color:#5c574b}
@@ -558,7 +575,9 @@
     let fedeBlock='';
     if(hasFede){
       const parts=[];if(flagDetail)parts.push('bandera constitucional');if(experts.length)parts.push(experts.length+(experts.length===1?' comentario experto':' comentarios expertos'));
-      fedeBlock='<details class="flag-expand"><summary>Ver análisis FEDe ('+parts.join(' · ')+')</summary><div class="flag-expand-body">'+flagDetail+expertsHTML+'</div></details>';
+      const flagTitulo=flags?(flags.nivel==='tumbado_por_corte'?'Tumbada por la Corte':'Contestada (Estado de Derecho)'):'Análisis de FEDe';
+      const k=regAlert({kind:'flag',label:flagTitulo,detailHTML:flagDetail,experts:experts});
+      fedeBlock='<button type="button" class="alert-open" onclick="showAlert(\''+k+'\')">⚑ Ver análisis FEDe <span class="al-meta">('+parts.join(' · ')+')</span></button>';
     }
     const sel=getSel(p.id);
     const selHTML='<div class="sel" data-pid="'+escapeHTML(p.id)+'">'
@@ -656,9 +675,8 @@
         +'onerror="this.outerHTML=&quot;<div class=\\&quot;cara-ini\\&quot; style=\\&quot;--cc:'+col+'\\&quot;>'+INI(id)+'</div>&quot;">';
       const masFede=c.biografia_fede?'<details class="cara-mas" open><summary>Perfil ampliado · vía FEDe</summary><div class="body">'+escapeHTML(c.biografia_fede)+(c.educacion?'<br><br><b>Formación:</b> '+escapeHTML(c.educacion):'')+'</div></details>':'';
       const rfs=c.red_flags_fede||[];
-      const rfHTML=rfs.length?'<div class="cara-rf"><div class="cara-rf-k">Red flags institucionales · FEDe <button class="fede-info" onclick="showFedeMethodology()" aria-label="Qué significa">?</button></div><ul>'
-        +rfs.map(r=>'<li><b>'+escapeHTML(r.badge||'')+'</b> — '+escapeHTML(r.titulo||'')+' <span class="meta">('+escapeHTML(r.meta||'')+')</span>'+(r.url_video?' · <a href="'+escapeHTML(r.url_video)+'" target="_blank" rel="noopener">video ↗</a>':'')+'</li>').join('')
-        +'</ul></div>':'';
+      const rfk=rfs.length?regAlert({kind:'rf',cand:dn(id),rfs:rfs}):'';
+      const rfHTML=rfs.length?'<button type="button" class="cara-rf-btn" onclick="showAlert(\''+rfk+'\')"><span class="cara-rf-ico">⚑</span> '+rfs.length+' red flag'+(rfs.length===1?'':'s')+' institucional'+(rfs.length===1?'':'es')+' · FEDe<span class="cara-rf-go">Ver →</span></button>':'';
       return '<div class="cara-card" style="--cc:'+col+'">'
         +'<div class="cara-top">'+fotoHTML+'<div><div class="cara-name">'+escapeHTML(dn(id))+'</div><div class="cara-party">'+escapeHTML(c.partido||'')+'</div></div></div>'
         +'<div class="cara-result"><span class="cara-pct">'+escapeHTML(res.pct||'—')+'</span><span class="cara-votes">en primera vuelta · <b>'+(res.votos?res.votos.toLocaleString('es-CO'):'—')+'</b> votos</span></div>'
@@ -758,14 +776,8 @@
             const fp=PROP_BY_ID[b.propuesta_id]||{};
             const experts=(fp.tags_terceros&&fp.tags_terceros.comentarios_expertos)||[];
             const det=(b.detalle||'').trim()?'<div class="flag-detail">'+escapeHTML(b.detalle)+' <i>— '+escapeHTML(b.fuente||'FEDe')+'</i></div>':'';
-            const desc=fp.texto?'<div class="pos-flag-desc">'+escapeHTML(fp.texto)+'</div>':'';
-            const expHTML=experts.map(e=>'<div class="expert"><div class="who">'+escapeHTML(e.experto)+' <span>· '+escapeHTML(e.rol||'')+'</span></div><p>'+escapeHTML(e.comentario)+'</p></div>').join('');
-            const expLabel=experts.length?'<div class="pos-flag-sub">Comentarios de expertos ('+experts.length+')</div>':'';
-            flag='<details class="pos-flag '+cls+'"><summary>⚑ '+escapeHTML(label)+' · FEDe</summary>'
-              +'<div class="flag-expand-body">'
-              +'<div class="pos-flag-sub">Propuesta que FEDe marcó: «'+escapeHTML(b.propuesta_titulo||'')+'»</div>'
-              +desc+det+expLabel+expHTML
-              +'</div></details>';
+            const k=regAlert({kind:'posflag',label:label,propTitle:b.propuesta_titulo||'',propText:fp.texto||'',detailHTML:det,experts:experts});
+            flag='<button type="button" class="pos-flag-btn '+cls+'" onclick="showAlert(\''+k+'\')">⚑ '+escapeHTML(label)+' · FEDe</button>';
           }
           return '<div class="pos-a" style="--cc:'+COLORS[id]+'"><span class="who" style="color:'+COLORS[id]+'">'+escapeHTML(dn(id))+'</span>'+ans+flag+'</div>';
         }).join('');
@@ -885,6 +897,36 @@
     +'<p style="color:#6b665b;border-top:1px solid var(--line);padding-top:10px;margin-top:12px">La crítica concreta vive en el subtítulo; los ratings son resúmenes. Audita en <a href="https://propuestascandidatos.fedecolombia.org" target="_blank" rel="noopener">propuestascandidatos.fedecolombia.org ↗</a>.</p></div>');}
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
+  /* ---------- modal de alertas / reparos de FEDe ----------
+     Antes eran acordeones inline (flag-expand, pos-flag, cara-rf) que alargaban
+     la columna. Ahora el detalle vive en el modal: cada render registra su payload
+     y el botón solo guarda la clave. */
+  const __ALERT={};let __alertSeq=0;
+  function regAlert(d){const k='al'+(++__alertSeq);__ALERT[k]=d;return k;}
+  function alertExperts(experts){return (experts||[]).map(e=>'<div class="expert"><div class="who">'+escapeHTML(e.experto)+' <span>· '+escapeHTML(e.rol||'')+'</span></div><p>'+escapeHTML(e.comentario)+'</p></div>').join('');}
+  const ALERT_FOOT='<p class="al-foot">Es un <b>juicio atribuido a FEDe</b> (Fundación para el Estado de Derecho), no un veredicto neutro. Audita en <a href="https://propuestascandidatos.fedecolombia.org" target="_blank" rel="noopener">fedecolombia.org ↗</a>.</p>';
+  function showAlert(k){
+    const d=__ALERT[k];if(!d)return;
+    let h='';
+    if(d.kind==='rf'){
+      h='<div class="modal-header"><div class="modal-kicker">Red flags institucionales · FEDe</div><div class="modal-title">'+escapeHTML(d.cand||'')+'</div></div>'
+       +'<div class="modal-body"><ul class="al-rf">'
+       +d.rfs.map(r=>'<li><b>'+escapeHTML(r.badge||'')+'</b> — '+escapeHTML(r.titulo||'')+' <span class="meta">('+escapeHTML(r.meta||'')+')</span>'+(r.url_video?' · <a href="'+escapeHTML(r.url_video)+'" target="_blank" rel="noopener">video ↗</a>':'')+'</li>').join('')
+       +'</ul>'+ALERT_FOOT+'</div>';
+    }else{
+      const experts=alertExperts(d.experts);
+      const expLabel=(d.experts&&d.experts.length)?'<div class="pos-flag-sub">Comentarios de expertos ('+d.experts.length+')</div>':'';
+      const kicker=d.kind==='posflag'?'Posiciones frente a frente · FEDe':'Reparo de FEDe';
+      h='<div class="modal-header"><div class="modal-kicker">'+kicker+'</div><div class="modal-title">'+escapeHTML(d.label||'Análisis de FEDe')+'</div></div>'
+       +'<div class="modal-body">'
+       +(d.propTitle?'<div class="pos-flag-sub">Propuesta que FEDe marcó: «'+escapeHTML(d.propTitle)+'»</div>':'')
+       +(d.propText?'<div class="pos-flag-desc">'+escapeHTML(d.propText)+'</div>':'')
+       +(d.detailHTML||'')
+       +expLabel+experts+ALERT_FOOT+'</div>';
+    }
+    openModal(h);
+  }
+
   /* ---------- tabs + wiring ---------- */
   function showView(v){
     document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x.dataset.v===v));
@@ -916,7 +958,7 @@
   };
 
   // expuestas a handlers inline / cross-section
-  window.closeModal=closeModal;window.showFedeMethodology=showFedeMethodology;
+  window.closeModal=closeModal;window.showFedeMethodology=showFedeMethodology;window.showAlert=showAlert;
   window.__goCompare=()=>showView('comparar');
   window.__clearSel=()=>{if(selCount()===0)return;if(confirm('¿Borrar todas tus selecciones?')){clearSel();renderPuntaje();}};
 
