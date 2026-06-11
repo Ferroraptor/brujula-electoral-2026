@@ -21,7 +21,7 @@ No infiere veredictos: texto fiel, cada bandera atribuida a FEDe. No fusiona fue
 NO toca public/propuestas-2026.json (corpus de 1ª vuelta) ni el pipeline v4.
 Solo stdlib.
 """
-import csv, json, re, os
+import csv, difflib, json, re, os
 from collections import defaultdict
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
@@ -281,6 +281,63 @@ for cid in SV_IDS:
         "programa_1v": build_programa_1v() if cid == "espriella" else None,
     })
 
+# ---- agrupación CURADA de duplicados entre fuentes ----
+# La MISMA política documentada por Candidateados y por FEDe (ambas derivan del
+# programa del candidato). Agrupar NO es fusionar: la versión FEDe es la principal
+# en la UI (trae fuente oficial + análisis) y el texto de Candidateados queda
+# visible y atribuido dentro de la misma ficha. Un solo voto por política.
+# Solo pares inequívocos (misma política específica), curados a mano y parejos
+# entre candidatos (12 Cepeda / 11 Espriella). cand_id -> fede_id.
+PROPUESTAS_AGRUPADAS = {
+    # Cepeda
+    "cepeda-cor-cand-01": "cepeda-ins-fede-03",  # sistema de prevención contra la corrupción
+    "cepeda-cor-cand-02": "cepeda-ins-fede-04",  # unidad de investigación de macrocorrupción
+    "cepeda-cor-cand-03": "cepeda-ins-fede-05",  # fondo de reparación de víctimas de la corrupción
+    "cepeda-cor-cand-04": "cepeda-ins-fede-06",  # acción anticorrupción en territorios
+    "cepeda-cor-cand-05": "cepeda-ins-fede-07",  # movilización de la sociedad
+    "cepeda-seg-cand-04": "cepeda-seg-fede-01",  # cumplimiento del acuerdo de paz 2016
+    "cepeda-emp-cand-04": "cepeda-tie-fede-01",  # protección/reconocimiento del campesinado
+    "cepeda-emp-cand-05": "cepeda-tie-fede-02",  # redistribución/restitución de tierras
+    "cepeda-emp-cand-07": "cepeda-tie-fede-05",  # plantas de transformación / comercio justo
+    "cepeda-emp-cand-08": "cepeda-tie-fede-06",  # recuperar cadenas productivas estratégicas
+    "cepeda-emp-cand-09": "cepeda-tie-fede-07",  # programa nacional de pesca y piscicultura
+    "cepeda-inf-cand-18": "cepeda-ene-fede-01",  # profundizar la transición energética
+    # De la Espriella
+    "espriella-cor-cand-02": "espriella-ins-fede-01",  # bloque de búsqueda contra la corrupción
+    "espriella-cor-cand-04": "espriella-ins-fede-03",  # persecución de flujos financieros ilícitos
+    "espriella-cor-cand-05": "espriella-ins-fede-04",  # gobierno trazable
+    "espriella-cor-cand-06": "espriella-ins-fede-05",  # reforma de la contratación pública
+    "espriella-cor-cand-07": "espriella-ins-fede-06",  # cooperación nacional e internacional
+    "espriella-cor-cand-08": "espriella-ins-fede-07",  # transparencia / menos discrecionalidad
+    "espriella-cor-cand-09": "espriella-ins-fede-08",  # contratación pública en blockchain
+    "espriella-seg-cand-01": "espriella-seg-fede-03",  # destrucción de cultivos ilícitos
+    "espriella-edu-cand-08": "espriella-tie-fede-08",  # escuela de emprendedores rurales
+    "espriella-emp-cand-08": "espriella-ins-fede-11",  # "una entra y dos salen" (cargas regulatorias)
+    "espriella-emp-cand-16": "espriella-ins-fede-09",  # optimización del aparato estatal
+}
+
+_prop_index = {}
+for c in out["candidatos"]:
+    for s in c["sectores"]:
+        for p in s["propuestas"]:
+            _prop_index[p["id"]] = p
+for cand_id, fede_id in PROPUESTAS_AGRUPADAS.items():
+    a, b = _prop_index.get(cand_id), _prop_index.get(fede_id)
+    assert a and b, f"PROPUESTAS_AGRUPADAS: id inexistente en {cand_id} -> {fede_id}"
+    # red de seguridad contra IDs posicionales corridos (p.ej. al re-congelar
+    # candidateados): si el par ya no se parece, el build truena y se re-cura.
+    simt = difflib.SequenceMatcher(None, a["titulo"].lower(), b["titulo"].lower()).ratio()
+    simx = difflib.SequenceMatcher(None, a["texto"].lower(), b["texto"].lower()).ratio()
+    assert max(simt, simx) >= 0.45, \
+        f"PROPUESTAS_AGRUPADAS: {cand_id} y {fede_id} ya no se parecen (sim {simt:.2f}/{simx:.2f}); re-curar"
+    a["agrupada_con_fede"] = fede_id
+    b["tambien_candidateados"] = {
+        "propuesta_id": cand_id,
+        "titulo": a["titulo"],
+        "texto": a["texto"],
+        "fuente": a["fuente"],
+    }
+
 # programa_url: el más frecuente entre las fuentes FEDe del candidato (como v4)
 prog_url = defaultdict(lambda: defaultdict(int))
 for p in fede_props:
@@ -393,6 +450,7 @@ out["meta"] = {
         "posiciones_fede: matriz cara-a-cara nueva de FEDe (preguntas con la respuesta de cada candidato). Atribuida a FEDe.",
         "Resultados y apoyos llevan fuente; los apoyos se detallan con enlace en hitos.json.",
         "Texto fiel; fuentes NO fusionadas; banderas/comentarios atribuidos a FEDe; sin bandera => constitucionalidad null.",
+        "PROPUESTAS_AGRUPADAS (agrupada_con_fede / tambien_candidateados): cuando ambas fuentes documentan la MISMA política, la UI la muestra una sola vez (versión FEDe principal, texto de Candidateados visible y atribuido dentro de la ficha) y cuenta UN voto en Mi puntaje. Agrupar no es fusionar: cada texto conserva su fuente. Curado a mano, parejo entre candidatos.",
         "Se incluyen dos perfiles atribuidos por candidato: bio (Candidateados, corto) y biografia_fede (FEDe, detallado y factual). Mismo origen para ambos candidatos en cada campo.",
     ],
 }

@@ -190,6 +190,11 @@
   .flag-expand>summary::before{content:"▸ ";color:var(--muted)}
   .flag-expand[open]>summary::before{content:"▾ "}
   .flag-expand-body{padding:6px 0 2px}
+  /* ficha agrupada: texto de Candidateados visible y atribuido dentro de la ficha FEDe */
+  .also-cand{margin-top:6px}
+  .also-cand .flag-expand-body{padding:7px 11px;background:#FBF8F0;border:1px dashed var(--line2);border-radius:8px;margin-top:4px}
+  .also-cand-t{font-weight:600;font-size:12px;color:#4a463d;overflow-wrap:anywhere}
+  .also-cand-x{margin:3px 0 5px;font-size:12px;color:#5c574b;line-height:1.5;overflow-wrap:anywhere}
   .prop-title,.prop-text,.flag-detail,.expert p,.fede-subtitulo,.modal-body,.pos-a{overflow-wrap:anywhere}
   /* selector */
   .sel{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
@@ -542,6 +547,10 @@
   const C_BY_ID = Object.fromEntries(CANDS.map(c=>[c.id,c]));
   const PROP_BY_ID = {};
   CANDS.forEach(c=>c.sectores.forEach(s=>s.propuestas.forEach(p=>{PROP_BY_ID[p.id]=p;})));
+  // duplicados curados entre fuentes (misma política en Candidateados y FEDe):
+  // el id canónico para votar es el de FEDe; la ficha FEDe muestra ambos textos.
+  const TWIN_OF={};
+  CANDS.forEach(c=>c.sectores.forEach(s=>s.propuestas.forEach(p=>{if(p.agrupada_con_fede)TWIN_OF[p.id]=p.agrupada_con_fede;})));
   const ORDER = ['cepeda','espriella'];               // orden fijo, simétrico
   const COLORS = {cepeda:'#B5634A', espriella:'#5A5A8C'};
   const DISPLAY_NAME = {cepeda:'Iván Cepeda', espriella:'Abelardo de la Espriella'};
@@ -564,25 +573,35 @@
   /* ---------- selector (localStorage) ---------- */
   // La clave conserva el sufijo histórico -v5; el versionado real va en SEL.version.
   const SEL_KEY='brujula-2026-selections-v5';
-  const SEL_VERSION='v6';
+  const SEL_VERSION='v7';
   let SEL={version:SEL_VERSION,lastUpdated:null,selections:{}};
   let storageOK=true;
   function loadSel(){try{const r=localStorage.getItem(SEL_KEY);if(r){const o=JSON.parse(r);if(o&&o.selections&&typeof o.selections==='object')SEL=o;}}catch(e){storageOK=false;}}
-  // Migración v5->v6: candidateados actualizó el programa de De la Espriella para 2ª vuelta;
-  // sus IDs posicionales (espriella-*-cand-NN) cambiaron de significado. Se descartan SOLO
-  // esas selecciones; las de Cepeda y las de propuestas FEDe se conservan intactas.
   function migrateSel(){
     if(SEL.version===SEL_VERSION)return;
-    let dropped=0;
+    let dropped=0,moved=0;
+    // v5->v6: candidateados actualizó el programa de De la Espriella para 2ª vuelta;
+    // sus IDs posicionales (espriella-*-cand-NN) cambiaron de significado. Se descartan
+    // SOLO esas selecciones (no aplica si el usuario ya estaba en v6).
+    if(SEL.version!=='v6'){
+      for(const k of Object.keys(SEL.selections)){
+        if(/^espriella-[a-z]+-cand-\d+$/.test(k)){delete SEL.selections[k];dropped++;}
+      }
+    }
+    // v6->v7: propuestas agrupadas (misma política en ambas fuentes) votan con el id
+    // canónico de FEDe; una selección hecha sobre la gemela de candidateados se
+    // traslada, sin pisar una selección ya hecha en la canónica.
     for(const k of Object.keys(SEL.selections)){
-      if(/^espriella-[a-z]+-cand-\d+$/.test(k)){delete SEL.selections[k];dropped++;}
+      const t=TWIN_OF[k];
+      if(t){if(!SEL.selections[t])SEL.selections[t]=SEL.selections[k];delete SEL.selections[k];moved++;}
     }
     SEL.version=SEL_VERSION;saveSel();
-    if(dropped)console.info('Brújula: migración v5→v6 — se descartaron '+dropped+' selección(es) de propuestas de De la Espriella que cambiaron en candidateados.');
+    if(dropped||moved)console.info('Brújula: migración a '+SEL_VERSION+' — '+dropped+' selección(es) descartada(s) (programa actualizado), '+moved+' trasladada(s) a su ficha agrupada.');
   }
   function saveSel(){SEL.lastUpdated=new Date().toISOString();try{localStorage.setItem(SEL_KEY,JSON.stringify(SEL));}catch(e){storageOK=false;}}
-  function getSel(id){return SEL.selections[id]||null;}
-  function setSel(id,val){if(SEL.selections[id]===val)delete SEL.selections[id];else SEL.selections[id]=val;saveSel();updateBadge();}
+  // las gemelas de candidateados leen/escriben sobre su id canónico FEDe (un voto por política)
+  function getSel(id){id=TWIN_OF[id]||id;return SEL.selections[id]||null;}
+  function setSel(id,val){id=TWIN_OF[id]||id;if(SEL.selections[id]===val)delete SEL.selections[id];else SEL.selections[id]=val;saveSel();updateBadge();}
   function clearSel(){SEL.selections={};saveSel();updateBadge();}
   function selCount(){return Object.keys(SEL.selections).length;}
   loadSel();migrateSel();
@@ -650,13 +669,20 @@
       +'<button class="sel-btn dislike" data-v="dislike" aria-pressed="'+(sel==='dislike')+'">👎 No me convence</button>'
       +'<button class="sel-btn unsure" data-v="unsure" aria-pressed="'+(sel==='unsure')+'">🤷 No estoy seguro</button>'
       +'</div>';
+    // ficha agrupada: la misma política también documentada por Candidateados.
+    // Su texto va visible y atribuido dentro de la ficha (agrupar no es fusionar).
+    const tc=p.tambien_candidateados;
+    const tcHTML=tc?'<details class="flag-expand also-cand"><summary>Así la recoge Candidateados</summary><div class="flag-expand-body">'
+      +'<div class="also-cand-t">'+escapeHTML(tc.titulo)+'</div>'
+      +'<p class="also-cand-x">'+escapeHTML(tc.texto)+'</p>'
+      +'<span class="prop-source">'+escapeHTML(tc.fuente)+'</span></div></details>':'';
     return '<div class="prop">'
       +'<div class="prop-head"><div class="prop-title">'+escapeHTML(p.titulo||'(sin título)')+'</div>'+subtema+'</div>'
       +'<p class="prop-text" data-full="'+escapeHTML(p.texto||'')+'" data-short="'+escapeHTML(p.texto_resumen_medio||'')+'">'+escapeHTML(text)+'</p>'
       +'<div class="prop-actions">'
       +(showFull?'<button class="toggle-link" data-s="1" onclick="var t=this.closest(\'.prop\').querySelector(\'.prop-text\');var f=this.dataset.s===\'1\';t.textContent=f?t.dataset.full:t.dataset.short;this.dataset.s=f?\'0\':\'1\';this.textContent=f?\'ver resumen\':\'ver texto completo\';">ver texto completo</button>':'')
       +'<span class="prop-source">'+fuenteLink(p.fuente)+'</span>'+flagBadge
-      +'</div>'+fedeBlock+selHTML+'</div>';
+      +'</div>'+tcHTML+fedeBlock+selHTML+'</div>';
   }
 
   /* ---------- percepción ciudadana (heredado de v4) ---------- */
@@ -720,7 +746,10 @@
       if(s.fuente_origen==='candidateados'&&ms.cand.includes(s.sector))s.propuestas.forEach(p=>cand.push(p));
       if(s.fuente_origen==='fede'&&ms.fede.includes(s.sector))s.propuestas.forEach(p=>fede.push(p));
     });
-    return {cand,fede};
+    // ficha agrupada: si la gemela FEDe está en esta misma vista, la versión de
+    // candidateados no se repite (su texto va dentro de la ficha FEDe, atribuido).
+    const fedeIds=new Set(fede.map(p=>p.id));
+    return {cand:cand.filter(p=>!(p.agrupada_con_fede&&fedeIds.has(p.agrupada_con_fede))),fede};
   }
   function fedeEval(candId, problemId){
     const ms=PROBLEM_SECTORS[problemId];if(!ms.fede.length)return null;
@@ -872,7 +901,8 @@
   }
 
   /* ---------- 3) MI PUNTAJE ---------- */
-  function allProps(){const out=[];CANDS.forEach(c=>c.sectores.forEach(s=>s.propuestas.forEach(p=>out.push({id:p.id,cand:c.id}))));return out;}
+  // las gemelas de candidateados no cuentan aparte: su política vota una sola vez (id FEDe)
+  function allProps(){const out=[];CANDS.forEach(c=>c.sectores.forEach(s=>s.propuestas.forEach(p=>{if(!p.agrupada_con_fede)out.push({id:p.id,cand:c.id});})));return out;}
   function renderPuntaje(){
     const body=document.getElementById('puntajeBody');
     const n=selCount();
