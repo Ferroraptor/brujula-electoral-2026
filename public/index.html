@@ -219,6 +219,18 @@
   .prop-arch .prop-text{font-size:12.5px;color:#5c574b;margin:6px 0 2px}
   .prog-sym{font-size:12px;color:var(--muted);font-style:italic;padding:8px 11px;background:#FBF8F0;border-radius:6px;border-left:3px solid var(--line2);margin:10px 0 0}
   @media (prefers-reduced-motion:reduce){.arch-wrap,.arch-wrap.colapsado{transition:none}}
+  /* yuxtaposición en Posiciones: lo que decía el programa de 1ª vuelta (solo Espriella) */
+  .pos-p1v{margin-top:7px}
+  .pos-p1v>summary{cursor:pointer;font-size:11.5px;color:#7a4a3c;font-weight:600;list-style:none;padding:2px 0}
+  .pos-p1v>summary::-webkit-details-marker{display:none}
+  .pos-p1v>summary::before{content:"▸ ";color:var(--muted)}
+  .pos-p1v[open]>summary::before{content:"▾ "}
+  .pos-p1v-item{margin-top:6px;padding:8px 11px;background:#FBF8F0;border:1px dashed var(--line2);border-radius:8px;font-size:12px}
+  .pos-p1v-item b{color:#4a463d;font-weight:600}
+  .pos-p1v-item p{margin:4px 0 0;color:#5c574b;line-height:1.5;overflow-wrap:anywhere}
+  .pos-p1v-src{font-size:10.5px;color:var(--muted);margin-top:5px;font-style:italic}
+  .pos-p1v-none{font-size:11px;color:var(--muted);font-style:italic;margin-top:6px}
+  .pos-p1v-intro{font-size:12px;color:var(--muted);margin:2px 0 12px;max-width:88ch;line-height:1.55}
 
   /* posiciones frente a frente */
   .pos-wrap{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
@@ -828,7 +840,10 @@
     (RAW.posiciones_fede||[]).forEach(q=>{(bySec[q.sector]=bySec[q.sector]||[]).push(q);});
     const present=order.filter(s=>bySec[s]);
     if(!present.length){document.getElementById('posSections').innerHTML='<p class="intro">No hay posiciones disponibles.</p>';return;}
-    document.getElementById('posSections').innerHTML=present.map((s,idx)=>{
+    // por qué la marca ⟲ solo aparece en Espriella: su programa (Candidateados) fue
+    // reescrito para 2ª vuelta; el de Cepeda no cambió, así que no hay "antes" distinto.
+    const introP1v=PROG1V?'<p class="pos-p1v-intro">⟲ En las respuestas de De la Espriella mostramos además lo que decía su <b>programa de 1ª vuelta</b> sobre cada punto (fue reescrito para la 2ª; el de Cepeda no cambió, por eso no lleva la marca). No calificamos si una posición cambió: ponemos los dos textos y tú comparas.</p>':'';
+    document.getElementById('posSections').innerHTML=introP1v+present.map((s,idx)=>{
       const qs=bySec[s];
       // evaluación sectorial de FEDe (incluye viabilidad: "¿de dónde sale la plata?")
       const evalCells=ORDER.map(id=>{
@@ -860,7 +875,20 @@
             const k=regAlert({kind:'posflag',label:label,propTitle:b.propuesta_titulo||'',propText:fp.texto||'',detailHTML:det,experts:experts});
             flag='<button type="button" class="pos-flag-btn '+cls+'" onclick="showAlert(\''+k+'\')">⚑ '+escapeHTML(label)+' · FEDe</button>';
           }
-          return '<div class="pos-a" style="--cc:'+COLORS[id]+'"><span class="who" style="color:'+COLORS[id]+'">'+escapeHTML(dn(id))+'</span>'+ans+flag+'</div>';
+          // yuxtaposición (solo Espriella): texto fiel de su programa de 1ª vuelta sobre
+          // esta política, o la ausencia explícita. Sin veredicto; el elector compara.
+          let p1v='';
+          if(id==='espriella'&&PROG1V&&a){
+            const rel=q.programa_1v_espriella||[];
+            if(rel.length){
+              p1v='<details class="pos-p1v"><summary>⟲ Lo que decía su programa de 1ª vuelta</summary>'
+                +rel.map(r=>'<div class="pos-p1v-item"><b>'+escapeHTML(r.titulo)+'</b><p>'+escapeHTML(r.texto)+'</p></div>').join('')
+                +'<div class="pos-p1v-src">Programa de 1ª vuelta recogido por Candidateados (snapshot '+escapeHTML(PROG1V.fecha_snapshot||'')+'), reemplazado en 2ª vuelta. La relación con esta pregunta es temática, nuestra.</div></details>';
+            }else{
+              p1v='<div class="pos-p1v-none">⟲ Su programa de 1ª vuelta (Candidateados) no documentaba una posición sobre este punto.</div>';
+            }
+          }
+          return '<div class="pos-a" style="--cc:'+COLORS[id]+'"><span class="who" style="color:'+COLORS[id]+'">'+escapeHTML(dn(id))+'</span>'+ans+flag+p1v+'</div>';
         }).join('');
         return '<div class="pos-q"><div class="pos-qt">'+escapeHTML(q.pregunta)+'</div><div class="pos-row">'+cells+'</div></div>';
       }).join('');
