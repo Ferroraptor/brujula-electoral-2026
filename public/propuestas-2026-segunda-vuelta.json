@@ -54,6 +54,7 @@
       "posiciones_fede: matriz cara-a-cara nueva de FEDe (preguntas con la respuesta de cada candidato). Atribuida a FEDe.",
       "Resultados y apoyos llevan fuente; los apoyos se detallan con enlace en hitos.json.",
       "Texto fiel; fuentes NO fusionadas; banderas/comentarios atribuidos a FEDe; sin bandera => constitucionalidad null.",
+      "PROPUESTAS_AGRUPADAS (agrupada_con_fede / tambien_candidateados): cuando ambas fuentes documentan la MISMA política, la UI la muestra una sola vez (versión FEDe principal, texto de Candidateados visible y atribuido dentro de la ficha) y cuenta UN voto en Mi puntaje. Agrupar no es fusionar: cada texto conserva su fuente. Curado a mano, parejo entre candidatos.",
       "Se incluyen dos perfiles atribuidos por candidato: bio (Candidateados, corto) y biografia_fede (FEDe, detallado y factual). Mismo origen para ambos candidatos en cada campo."
     ]
   },
@@ -154,7 +155,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-seg-fede-01"
             },
             {
               "id": "cepeda-seg-cand-05",
@@ -492,7 +494,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-tie-fede-01"
             },
             {
               "id": "cepeda-emp-cand-05",
@@ -506,7 +509,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-tie-fede-02"
             },
             {
               "id": "cepeda-emp-cand-06",
@@ -534,7 +538,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-tie-fede-05"
             },
             {
               "id": "cepeda-emp-cand-08",
@@ -548,7 +553,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-tie-fede-06"
             },
             {
               "id": "cepeda-emp-cand-09",
@@ -562,7 +568,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-tie-fede-07"
             },
             {
               "id": "cepeda-emp-cand-10",
@@ -992,7 +999,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-ene-fede-01"
             },
             {
               "id": "cepeda-inf-cand-19",
@@ -1296,7 +1304,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-ins-fede-03"
             },
             {
               "id": "cepeda-cor-cand-02",
@@ -1310,7 +1319,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-ins-fede-04"
             },
             {
               "id": "cepeda-cor-cand-03",
@@ -1324,7 +1334,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-ins-fede-05"
             },
             {
               "id": "cepeda-cor-cand-04",
@@ -1338,7 +1349,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-ins-fede-06"
             },
             {
               "id": "cepeda-cor-cand-05",
@@ -1352,7 +1364,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "cepeda-ins-fede-07"
             },
             {
               "id": "cepeda-cor-cand-06",
@@ -1548,6 +1561,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-seg-cand-04",
+                "titulo": "Impulsar implementación del Acuerdo Final de Paz de 2016.",
+                "texto": "Uno de los ejes centrales de la política de paz de mi gobierno será, sin duda, la fase final de implementación del Acuerdo Final de Paz. No debemos olvidar que Colombia está obligada a esa implementación, entre otras causas, por la Declaración Unilateral de Estado respecto a ese acuerdo, también que tiene el compromiso de hacer lo que se requiera para mantener los mecanismos de apoyo de la comunidad internacional al Acuerdo, tales como la condición de los países garantes, y la misión de la ONU. En mi condición de Jefe de Estado ratificaré esa declaración unilateral.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -1793,6 +1812,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-inf-cand-18",
+                "titulo": "Profundizar la transición energética.",
+                "texto": "La profundización de la transición energética: acelerar la incorporación de energías renovables no convencionales y dinamizar las economías verdes. Cumplir y superar el compromiso de reducir en 51% las emisiones de gases efecto invernadero al 2030.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -1932,6 +1957,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-emp-cand-04",
+                "titulo": "Protección integral del campesinado",
+                "texto": "Uno de los avances más importantes de este gobierno ha sido el impulso al reconocimiento del campesinado como sujeto constitucional de derecho. (...) Por eso, la primera medida de la Revolución Agraria debe ser la protección integral del  campesinado, de su vida, de su dignidad, de su trabajo y de su aporte esencial a la nación. Sin justicia  para el campo, no habrá justicia para Colombia en el futuro.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -1965,6 +1996,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-emp-cand-05",
+                "titulo": "Impulsar redistribución, restitución y recuperación de tierras y activos.",
+                "texto": "La democratización de la estructura agraria es para construir una sociedad más justa, igualitaria y productiva. Por eso continuaremos y profundizaremos la reforma agraria que ha venido avanzando el gobierno con tres ejes fundamentales: Redistribuir tierras fértiles, que hoy están altamente concentradas y subutilizadas. Todavía hay mucha tierra que debemos repartir a los campesinos de Colombia. Restituir las tierras despojadas a comunidades campesinas, víctimas de la violencia y del abandono estatal. Y recuperar y poner al servicio del pueblo activos productivos estratégicos para fortalecer la economía rural.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -2040,6 +2077,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-emp-cand-07",
+                "titulo": "Construcción de plantas de transformación en las regiones para mejorar la compra y venta de los campesinos",
+                "texto": "Sembrar no basta: hay que cosechar y vender sin que el precio lo decidan otros. Por eso construiremos redes de acopio, cuartos fríos, secaderos y plantas de trans formación en las regiones, administrados por las juntas de acción comunal y asociaciones campesinas. Porque no queremos que el campesino venda barato en la plaza mientras en la ciudad del consumidor paga caro. Queremos justicia de la semilla a la mesa de todos los colombianos y colombianas",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -2067,6 +2110,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-emp-cand-08",
+                "titulo": "Recuperar las cadenas productivas estratégicas para generar prosperidad regional",
+                "texto": "Recuperaremos las cadenas productivas estratégicas. Vamos a rescatar lo nuestro. ¿Se acuerdan cuando el algodón florecía en Córdoba y César? ¿Cuándo la yuca era el motor de vida en la costa Caribe? Esas riquezas se perdieron con la apertura económica, pero ahora decimos: vamos a recuperar esas cadenas productivas estratégicas. El algodón, la yuca, el cacao, el café volverán a ser la base de la prosperidad regional, para que la tierra de cada región vuelva a dar riqueza a su gente. Y no se trata, óiga se bien, de basarnos en la lo en la nostalgia para que no digan que somos unos nostálgicos simplemente, ni en el recuerdo de lo que fue, sino de volver a generar prosperidad campesina con condiciones modernas, con justicia productiva para todos y todas.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -2088,6 +2137,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-emp-cand-09",
+                "titulo": "Programa nacional de pesca y piscicultura",
+                "texto": "Miles de familias viven de la pesca artesanal en Colombia. Esas familias también son parte de esta revolución. Con un programa nacional de pesca y piscicultura queremos que esas comunidades tengan tecnología y acceso a mercados.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             }
           ],
@@ -2172,6 +2227,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-cor-cand-01",
+                "titulo": "Prevenir la corrupción fortaleciendo la UIAF, la Secretaría de Transparencia y el PACO.",
+                "texto": "Pasaremos de reaccionar a anticiparnos. La transparencia y la información en tiempo real serán nuestra primera línea de defensa. Fortaleceremos la Unidad de Información y Análisis Financiero (UIAF) y daremos autonomía real —técnica, administrativa y presupuestal— a la Secretaría de Transparencia de la Presidencia, garantizando su independencia y su capacidad de investigación con enfoque sistémico. Pondremos a funcionar plenamente el Portal Anticorrupción de Colombia (PACO) como plataforma abierta y preventiva. Construiremos un sistema de alertas tempranas contra la macrocorrupción, articulando bases de datos, trazabilidad del gasto y señales de riesgo.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -2193,6 +2254,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-cor-cand-02",
+                "titulo": "Crear la Fiscalía General de la Nación la Unidad Nacional de Investigación de la Macrocorrupción",
+                "texto": "Crearemos en la Fiscalía General de la Nación la Unidad Nacional de Investigación de la Macrocorrupción. Las cadenas de corrupción no se investigan caso por caso: se investigan como sistemas, con procesos ágiles y coordinados. Esta unidad identificará los aparatos y estructuras de la macrocorrupción y a sus jefes o determinadores; develará los modus operandi, los planes y patrones de criminalidad a escala nacional, sectorial y regional; y rastreará las dimensiones económicas, incluido el lavado de activos y los mecanismos de impunidad. Aplicaremos metodologías de macrocriminalidad, como las usadas frente a crímenes de lesa humanidad o graves violaciones de derechos humanos. Crearemos una instancia de juzgamiento especial, al más alto nivel posible, para los casos de corrupción sistémica. Las sentencias incluirán medidas de reparación integral para víctimas individuales y colectivas. La macrocorrupción también deja víctimas y territorios heridos, y deben ser reparados.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -2214,6 +2281,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-cor-cand-03",
+                "titulo": "Reparar a las víctimas de la corrupción con bienes y recursos recuperados de corrupción.",
+                "texto": "Canalizaremos al Fondo todos los capitales y recursos expropiados a los corruptos para reparar no solo el dinero público malgastado, sino también los daños materiales e inmateriales causados a víctimas individuales, colectivas y a la sociedad. Cuando la corrupción golpee un sector, como la salud, los recursos recuperados se destinarán a fortalecer ese sistema y a reparar a sus víctimas. Cada peso recuperado debe convertirse en un derecho restituido. Fortaleceremos la Sociedad de Activos Especiales (SAE) para que la recuperación de bienes ilícitos se traduzca en obras y servicios para la gente. Evaluaremos, además, la aplicación de modelos de justicia restaurativa en este campo.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -2235,6 +2308,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-cor-cand-04",
+                "titulo": "Llevar la acción anticorrupción a los territorios con mayor impunidad.",
+                "texto": "Llevaremos la acción coordinada del sistema de justicia a los lugares con mayores índices de corrupción e impunidad, con capacidad real de investigación y juzgamiento en el terreno. Donde más roban lo público, más presente debe hacerse el Estado. Trabajaremos para que surjan alianzas territoriales anticorrupción, que integren a los movimientos sociales, las ciudadanías, el sector privado con la acción del Estado de derecho.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -2249,6 +2328,12 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "cepeda-cor-cand-05",
+                "titulo": "Movilizar a la sociedad para vigilar y rechazar la macrocorrupción.",
+                "texto": "Junto con movimientos sociales, organizaciones comunitarias, academia y sector privado, promoveremos un gran movimiento nacional de participación, control y fiscalización social. Impulsaremos una cultura de integridad que empiece en la escuela y llegue a cada oficina pública, a cada empresa y a cada familia. La transparencia debe ser una práctica cotidiana, no un discurso. La sociedad debe sostener una estrategia de rechazo moral y ético frente a los corruptos y a todo acto ilícito relacionado con la corrupción. La participación ciudadana será vínculo y motor: veeduría, seguimiento, denuncia responsable. Acompañaremos a las víctimas de la corrupción cuya memoria, exigencia de verdad y reivindicación de justicia son definitivas para triunfar en esta causa.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             }
           ],
@@ -2311,7 +2396,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-seg-fede-03"
             },
             {
               "id": "espriella-seg-cand-02",
@@ -2751,7 +2837,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-tie-fede-08"
             }
           ],
           "nota": ""
@@ -2873,7 +2960,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-ins-fede-11"
             },
             {
               "id": "espriella-emp-cand-09",
@@ -2985,7 +3073,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-ins-fede-09"
             },
             {
               "id": "espriella-emp-cand-17",
@@ -3131,7 +3220,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-ins-fede-01"
             },
             {
               "id": "espriella-cor-cand-03",
@@ -3159,7 +3249,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-ins-fede-03"
             },
             {
               "id": "espriella-cor-cand-05",
@@ -3173,7 +3264,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-ins-fede-04"
             },
             {
               "id": "espriella-cor-cand-06",
@@ -3187,7 +3279,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-ins-fede-05"
             },
             {
               "id": "espriella-cor-cand-07",
@@ -3201,7 +3294,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-ins-fede-06"
             },
             {
               "id": "espriella-cor-cand-08",
@@ -3215,7 +3309,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-ins-fede-07"
             },
             {
               "id": "espriella-cor-cand-09",
@@ -3229,7 +3324,8 @@
                 "constitucionalidad": null,
                 "viabilidad_senalada": null,
                 "comentarios_expertos": []
-              }
+              },
+              "agrupada_con_fede": "espriella-ins-fede-08"
             }
           ],
           "nota": ""
@@ -3335,6 +3431,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-seg-cand-01",
+                "titulo": "Destruir las 330.000 hectáreas de coca con acciones integrales contra el narcotráfico.",
+                "texto": "Destruir las 330.000 hectáreas de coca y valerse de todas las herramientas que nos permite la ley y la tecnología con la fumigación aérea, la erradicación manual, la persecución a los capitales de los narcos, la extinción de dominio express, la sustitución y la extradición",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -3947,6 +4049,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-edu-cand-08",
+                "titulo": "Fortalecer las capacidades productivas y empresariales de los jóvenes rurales.",
+                "texto": "Crear la Escuela de Emprendedores Rurales para formar a cien mil jóvenes en prácticas más eficientes y productivas de aporte al campo colombiano y con apoyo de crédito, de asociatividad, de tecnología y de programas de mentoría.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             }
           ],
@@ -3984,6 +4092,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-cor-cand-02",
+                "titulo": "Crear un Bloque de Búsqueda contra la Corrupción con liderazgo presidencial.",
+                "texto": "Creación del Bloque de Búsqueda contra la Corrupción dirigido directamente por el presidente de la República",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -4026,6 +4140,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-cor-cand-04",
+                "titulo": "Persecución de flujos financieros ilícitos.",
+                "texto": "Persecución de flujos financieros ilícitos.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -4047,6 +4167,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-cor-cand-05",
+                "titulo": "Gobierno trazable.",
+                "texto": "Gobierno trazable.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -4068,6 +4194,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-cor-cand-06",
+                "titulo": "Reforma de la contratación pública.",
+                "texto": "Reforma de la contratación pública.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -4089,6 +4221,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-cor-cand-07",
+                "titulo": "Cooperación nacional e internacional.",
+                "texto": "Cooperación nacional e internacional.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -4110,6 +4248,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-cor-cand-08",
+                "titulo": "Fortalecer la transparencia y reducir la discrecionalidad en la gestión pública.",
+                "texto": "Menos discrecionalidad y más transparencia en la actuación pública",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -4131,6 +4275,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-cor-cand-09",
+                "titulo": "Modernizar la contratación pública mediante tecnologías que garanticen la integridad de la información.",
+                "texto": "A 2030 todos los procesos de contratación pública se llevarán a cabo a través de blockchain para que la información introducida no pueda ser modificada por nadie.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -4152,6 +4302,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-emp-cand-16",
+                "titulo": "Modernizar el Estado mediante una estructura administrativa más eficiente.",
+                "texto": "Optimizar el aparato estatal reduciendo la nómina paralela y fusionando agencias redundantes.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
@@ -4194,6 +4350,12 @@
                     "fuente": "FEDe (comentarios_expertos)"
                   }
                 ]
+              },
+              "tambien_candidateados": {
+                "propuesta_id": "espriella-emp-cand-08",
+                "titulo": "Limitar el crecimiento de nuevas cargas regulatorias.",
+                "texto": "Promover la política ‘Una entra y dos salen’, es decir, por cada nueva regulación de cargas y trabas, se eliminan dos, por un período de tiempo.",
+                "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)"
               }
             },
             {
