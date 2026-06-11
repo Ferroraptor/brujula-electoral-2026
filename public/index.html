@@ -199,6 +199,27 @@
   .sel-btn.dislike[aria-pressed="true"]{background:var(--dislike);color:#fff;border-color:var(--dislike)}
   .sel-btn.unsure[aria-pressed="true"]{background:var(--unsure);color:#fff;border-color:var(--unsure)}
 
+  /* programa 1ª vs 2ª vuelta (Espriella reescribió su programa; se muestran ambas versiones) */
+  .prog-aviso{font-size:12px;color:#5c574b;background:#F2EEDF;border:1px solid var(--line2);border-radius:8px;padding:9px 12px;margin:10px 0 0;line-height:1.5}
+  .prog-aviso b{color:#3a352d}
+  .prog-seg{display:inline-flex;background:var(--chip);border:1px solid var(--line2);border-radius:30px;padding:2px;gap:2px;margin:8px 0 0}
+  .prog-seg button{border:none;background:none;font:inherit;font-size:11.5px;font-weight:600;color:#5c574b;border-radius:30px;padding:4px 12px;cursor:pointer;transition:all .15s}
+  .prog-seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .prog-seg button:not([aria-pressed="true"]):hover{color:var(--ink)}
+  .arch-wrap{display:grid;grid-template-rows:1fr;opacity:1;transition:grid-template-rows .22s ease,opacity .22s ease}
+  .arch-wrap.colapsado{grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .22s ease,opacity .22s ease,visibility 0s .22s}
+  .arch-inner{overflow:hidden;min-height:0}
+  .arch-head{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--muted);margin:14px 0 2px;padding-top:10px;border-top:1px solid var(--line)}
+  .prop-arch{padding:8px 11px;border:1px dashed var(--line2);border-radius:8px;background:#FBF8F0;margin:8px 0;opacity:.88}
+  .prop-arch summary{cursor:pointer;list-style:none;display:flex;gap:6px;align-items:baseline}
+  .prop-arch summary::-webkit-details-marker{display:none}
+  .prop-arch summary::before{content:"▸";color:var(--muted);flex:none;font-size:11px}
+  .prop-arch[open] summary::before{content:"▾"}
+  .prop-arch .prop-title{font-weight:500;color:#4a463d;font-size:13px}
+  .prop-arch .prop-text{font-size:12.5px;color:#5c574b;margin:6px 0 2px}
+  .prog-sym{font-size:12px;color:var(--muted);font-style:italic;padding:8px 11px;background:#FBF8F0;border-radius:6px;border-left:3px solid var(--line2);margin:10px 0 0}
+  @media (prefers-reduced-motion:reduce){.arch-wrap,.arch-wrap.colapsado{transition:none}}
+
   /* posiciones frente a frente */
   .pos-wrap{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
   .pos-head{padding:11px 15px;border-bottom:1px solid var(--line);background:#F2EEDF}
@@ -474,7 +495,8 @@
 
 <footer><div class="wrap">
   <div class="cols">
-    <div><h3>Propuestas</h3>Candidateados (data de 1ª vuelta; los programas oficiales no cambiaron) y
+    <div><h3>Propuestas</h3>Candidateados (snapshot de 2ª vuelta: De la Espriella reescribió su programa,
+      29 → 63 propuestas; Cepeda mantuvo el suyo. El de 1ª vuelta se conserva como archivo comparable) y
       <b>FEDe</b> (sheet de segunda vuelta, refrescado el 1 de junio de 2026). Texto fiel; cada propuesta
       lleva su fuente. Las banderas y comentarios son juicios atribuidos a FEDe, no veredictos neutros.</div>
     <div><h3>Percepción ciudadana</h3>Invamer, CNC, AtlasIntel, Cifras & Conceptos, Red Cómo Vamos (EPC
@@ -540,16 +562,59 @@
     +'<p class="cierre">El voto se ejerce un domingo; la ciudadanía, todos los días.</p></div>';
 
   /* ---------- selector (localStorage) ---------- */
+  // La clave conserva el sufijo histórico -v5; el versionado real va en SEL.version.
   const SEL_KEY='brujula-2026-selections-v5';
-  let SEL={version:'v5',lastUpdated:null,selections:{}};
+  const SEL_VERSION='v6';
+  let SEL={version:SEL_VERSION,lastUpdated:null,selections:{}};
   let storageOK=true;
   function loadSel(){try{const r=localStorage.getItem(SEL_KEY);if(r){const o=JSON.parse(r);if(o&&o.selections&&typeof o.selections==='object')SEL=o;}}catch(e){storageOK=false;}}
+  // Migración v5->v6: candidateados actualizó el programa de De la Espriella para 2ª vuelta;
+  // sus IDs posicionales (espriella-*-cand-NN) cambiaron de significado. Se descartan SOLO
+  // esas selecciones; las de Cepeda y las de propuestas FEDe se conservan intactas.
+  function migrateSel(){
+    if(SEL.version===SEL_VERSION)return;
+    let dropped=0;
+    for(const k of Object.keys(SEL.selections)){
+      if(/^espriella-[a-z]+-cand-\d+$/.test(k)){delete SEL.selections[k];dropped++;}
+    }
+    SEL.version=SEL_VERSION;saveSel();
+    if(dropped)console.info('Brújula: migración v5→v6 — se descartaron '+dropped+' selección(es) de propuestas de De la Espriella que cambiaron en candidateados.');
+  }
   function saveSel(){SEL.lastUpdated=new Date().toISOString();try{localStorage.setItem(SEL_KEY,JSON.stringify(SEL));}catch(e){storageOK=false;}}
   function getSel(id){return SEL.selections[id]||null;}
   function setSel(id,val){if(SEL.selections[id]===val)delete SEL.selections[id];else SEL.selections[id]=val;saveSel();updateBadge();}
   function clearSel(){SEL.selections={};saveSel();updateBadge();}
   function selCount(){return Object.keys(SEL.selections).length;}
-  loadSel();
+  loadSel();migrateSel();
+
+  /* ---------- vista del programa de Espriella (1ª vs 2ª vuelta) ---------- */
+  // Espriella reescribió su programa para 2ª vuelta (sin continuidad textual);
+  // se muestran ambas versiones SIN mapeo editorial. 'comparada' = actual + archivo.
+  const VISTA_PROG_KEY='brujula-sv-vista-programa';
+  let vistaPrograma='comparada';
+  try{const v=localStorage.getItem(VISTA_PROG_KEY);if(v==='actual'||v==='comparada')vistaPrograma=v;}catch(e){}
+  function setVistaPrograma(v){
+    vistaPrograma=v;
+    try{localStorage.setItem(VISTA_PROG_KEY,v);}catch(e){}
+    document.querySelectorAll('.prog-seg button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===v)));
+    document.querySelectorAll('.arch-wrap').forEach(w=>w.classList.toggle('colapsado',v==='actual'));
+  }
+  const PROG1V=(C_BY_ID.espriella&&C_BY_ID.espriella.programa_1v)||null;
+  const PROG1V_TOTAL=PROG1V?PROG1V.sectores.reduce((a,s)=>a+s.propuestas.length,0):0;
+  const PROG2V_TOTAL=C_BY_ID.espriella?C_BY_ID.espriella.sectores.filter(s=>s.fuente_origen==='candidateados').reduce((a,s)=>a+s.propuestas.length,0):0;
+  function props1vFor(problemId){
+    if(!PROG1V)return [];
+    const ms=PROBLEM_SECTORS[problemId];const out=[];
+    PROG1V.sectores.forEach(s=>{if(ms.cand.includes(s.sector))s.propuestas.forEach(p=>out.push(p));});
+    return out;
+  }
+  // tarjeta de archivo: solo lectura (sin puntaje ni capa FEDe; el programa fue reemplazado)
+  function renderProp1v(p){
+    const texto=(p.texto||p.texto_resumen_medio||'').trim();
+    return '<details class="prop-arch"><summary><span class="prop-title">'+escapeHTML(p.titulo||'(sin título)')+'</span></summary>'
+      +(texto?'<p class="prop-text">'+escapeHTML(texto)+'</p>':'')
+      +'<div class="prop-actions"><span class="prop-source">'+escapeHTML(p.fuente||'candidateados')+'</span></div></details>';
+  }
 
   function updateBadge(){
     const n=selCount();const b=document.getElementById('puntaje-badge');
@@ -730,9 +795,25 @@
       const proxyNote=PROXY.has(curProblem)?'<div class="no-fede"><b>Problema transversal.</b> Se muestran las propuestas de los sectores que mejor lo aproximan ('+[...ms.cand,...ms.fede].map(s=>SECTOR_LABELS[s]||s).join(' · ')+'). Es una aproximación.</div>':'';
       const total=cand.length+fede.length;
       const propsHTML=total?([...cand,...fede].map(renderProp).join('')):'<div class="noinfo">No se encontró información de propuestas de '+escapeHTML(dn(id))+' en los sectores relevantes a este problema. La ausencia es de las fuentes consultadas, no una omisión nuestra.</div>';
+      // programa 1ª vs 2ª vuelta: Espriella lo reescribió; se ofrecen ambas versiones
+      // (la vigente completa + la de 1ª como archivo colapsable). Cepeda: nota de simetría.
+      let progCtl='',archHTML='';
+      if(id==='espriella'&&PROG1V){
+        const p1=props1vFor(curProblem);
+        progCtl='<div class="prog-aviso">⟳ <b>De la Espriella presentó un programa reescrito para la 2ª vuelta</b> ('+PROG1V_TOTAL+' → '+PROG2V_TOTAL+' propuestas, según Candidateados). El documento anterior quedó reemplazado completo; las propuestas no se corresponden una a una, así que mostramos ambas versiones para que compares. Abajo está el vigente.</div>'
+          +'<div class="prog-seg" role="group" aria-label="Vista del programa de De la Espriella">'
+          +'<button type="button" data-v="comparada" aria-pressed="'+(vistaPrograma==='comparada')+'" onclick="setVistaPrograma(\'comparada\')">1ª vs 2ª</button>'
+          +'<button type="button" data-v="actual" aria-pressed="'+(vistaPrograma==='actual')+'" onclick="setVistaPrograma(\'actual\')">Solo actual</button></div>';
+        if(p1.length){
+          archHTML='<div class="arch-wrap'+(vistaPrograma==='actual'?' colapsado':'')+'"><div class="arch-inner">'
+            +'<div class="arch-head">□ Programa de 1ª vuelta — reemplazado ('+p1.length+')</div>'
+            +p1.map(renderProp1v).join('')+'</div></div>';
+        }
+      }
+      const symNote=(id==='cepeda'&&PROG1V)?'<div class="prog-sym">Cepeda mantiene su programa de 1ª vuelta sin cambios (según Candidateados).</div>':'';
       return '<div class="cmp-col" style="--cc:'+col+'">'
         +'<div class="cmp-col-head"><span class="ini" style="background:'+col+'">'+INI(id)+'</span><h4>'+escapeHTML(dn(id))+'</h4><span class="cnt">'+total+' prop.</span></div>'
-        +fedeBox+proxyNote+propsHTML+'</div>';
+        +fedeBox+proxyNote+symNote+progCtl+propsHTML+archHTML+'</div>';
     }).join('');
   }
   /* ---------- Posiciones frente a frente (dentro de Cara a cara, acordeón por tema) ---------- */
@@ -747,7 +828,10 @@
     (RAW.posiciones_fede||[]).forEach(q=>{(bySec[q.sector]=bySec[q.sector]||[]).push(q);});
     const present=order.filter(s=>bySec[s]);
     if(!present.length){document.getElementById('posSections').innerHTML='<p class="intro">No hay posiciones disponibles.</p>';return;}
-    document.getElementById('posSections').innerHTML=present.map((s,idx)=>{
+    // anuncio (sin yuxtaponer texto de 1ª vuelta a las respuestas: cargaría visualmente
+    // una sola columna). La comparación completa vive en "Comparar por problema".
+    const introP1v=PROG1V?'<div class="prog-aviso" style="margin:2px 0 12px">⟳ <b>De la Espriella reescribió su programa para la 2ª vuelta</b> ('+PROG1V_TOTAL+' → '+PROG2V_TOTAL+' propuestas, según Candidateados); el de Cepeda no cambió. Estas respuestas corresponden a la 2ª vuelta. Para comparar su programa actual con el de 1ª, ve a <button type="button" class="toggle-link" onclick="window.__goCompare()">Comparar por problema</button>.</div>':'';
+    document.getElementById('posSections').innerHTML=introP1v+present.map((s,idx)=>{
       const qs=bySec[s];
       // evaluación sectorial de FEDe (incluye viabilidad: "¿de dónde sale la plata?")
       const evalCells=ORDER.map(id=>{
@@ -959,6 +1043,7 @@
 
   // expuestas a handlers inline / cross-section
   window.closeModal=closeModal;window.showFedeMethodology=showFedeMethodology;window.showAlert=showAlert;
+  window.setVistaPrograma=setVistaPrograma;
   window.__goCompare=()=>showView('comparar');
   window.__clearSel=()=>{if(selCount()===0)return;if(confirm('¿Borrar todas tus selecciones?')){clearSel();renderPuntaje();}};
 

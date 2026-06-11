@@ -2,11 +2,11 @@
   "meta": {
     "proyecto": "Brújula Electoral 2026 — segunda vuelta",
     "vuelta": "segunda",
-    "fecha_consulta": "2026-06-01",
+    "fecha_consulta": "2026-06-09",
     "fecha_eleccion": "2026-06-21",
     "sheet_fede": "116rf6RK1l5kqredZKK47F55tif2GGw2474vKdZUPrFM",
     "fuentes_usadas": [
-      "candidateados (data de 1ª vuelta; no cambió para 2ª)",
+      "candidateados (snapshot de 2ª vuelta; programa de De la Espriella actualizado, Cepeda igual)",
       "fede (sheet de 2ª vuelta, 5 candidatos -> filtrado a 2)",
       "programa_oficial (vía fuente FEDe)",
       "Registraduría Nacional (resultados 1ª vuelta)"
@@ -48,7 +48,8 @@
     },
     "notas_metodologicas": [
       "Solo los dos finalistas de segunda vuelta (Cepeda, De la Espriella).",
-      "Candidateados no actualizó su data para 2ª vuelta: se reusa la de 1ª vuelta (mismos conteos).",
+      "Candidateados actualizó el programa de De la Espriella para 2ª vuelta (29->63 propuestas); Cepeda no cambió. Snapshot congelado en candidateados_2v.json.",
+      "programa_1v (solo Espriella): su programa de 1ª vuelta (snapshot 2026-06-06, previo a la reescritura). 0/29 propuestas tienen continuidad textual con las 63 nuevas; por eso se muestran ambas versiones fieles SIN mapeo editorial entre ellas. La comparación vive en 'Comparar por problema'; en Posiciones solo se anuncia (sin yuxtaponer texto viejo a las respuestas, para no cargar visualmente una columna).",
       "FEDe sí actualizó (sheet nuevo) y mantiene 5 candidatos en su panel; aquí se filtra a 2.",
       "posiciones_fede: matriz cara-a-cara nueva de FEDe (preguntas con la respuesta de cada candidato). Atribuida a FEDe.",
       "Resultados y apoyos llevan fuente; los apoyos se detallan con enlace en hitos.json.",
@@ -96,7 +97,7 @@
           "sector": "seguridad",
           "fuente_origen": "candidateados",
           "subtema": "",
-          "resumen_fuente": "$1b",
+          "resumen_fuente": "$1c",
           "evaluacion_fede": null,
           "propuestas": [
             {
@@ -159,7 +160,7 @@
               "id": "cepeda-seg-cand-05",
               "titulo": "Implementar una política de Seguridad Humana que proteja la vida atacando las causas sociales de la violencia.",
               "subtema": "",
-              "texto": "$1c",
+              "texto": "$1d",
               "texto_resumen_medio": "Crear una política de Seguridad Humana que no se limite al uso de la Fuerza Pública, sino que enfrente las causas sociales de la violencia mediante reducción de pobreza, superación de desigualdad y presencia integral del Estado. Para ello, propone acciones diferenciadas para el campo y la ciudad, protección de territorios y liderazgos, estrategia contra el homicidio, medidas frente a la extorsión y el secuestro, afectación económica al narcotráfico y mejores condiciones para la Fuerza Pública.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
@@ -434,7 +435,7 @@
           "sector": "empleo",
           "fuente_origen": "candidateados",
           "subtema": "",
-          "resumen_fuente": "$1d",
+          "resumen_fuente": "$1e",
           "evaluacion_fede": null,
           "propuestas": [
             {
@@ -511,7 +512,7 @@
               "id": "cepeda-emp-cand-06",
               "titulo": "Reconstruir la institucionalidad agraria para que el campesinado tenga crédito, asistencia técnica, precios justos y acceso a justicia agraria en el territorio.",
               "subtema": "",
-              "texto": "$1e",
+              "texto": "$1f",
               "texto_resumen_medio": "Fortalecer la institucionalidad agraria a nivel nacional por medio del Sistema Nacional de Reforma Agraria y Desarrollo Rural, la Convención Nacional Campesina permitiendo que el campesinado tenga crédito, asistencia técnica, precios justos y acceso a justicia agraria en el territorio.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
@@ -738,7 +739,7 @@
           "sector": "infraestructura",
           "fuente_origen": "candidateados",
           "subtema": "",
-          "resumen_fuente": "$1f",
+          "resumen_fuente": "$20",
           "evaluacion_fede": null,
           "propuestas": [
             {
@@ -927,7 +928,7 @@
               "id": "cepeda-inf-cand-14",
               "titulo": "Impulsar un plan integral para Buenaventura con justicia social, servicios básicos, desarrollo local y combate a la corrupción.",
               "subtema": "",
-              "texto": "$20",
+              "texto": "$21",
               "texto_resumen_medio": "La propuesta plantea un plan integral para Buenaventura orientado a saldar deudas históricas mediante acceso prioritario a agua potable, saneamiento, vivienda, salud y educación, junto con acciones en infraestructura, economía local, empleo, reparación a víctimas, fortalecimiento institucional, cumplimiento de acuerdos comunitarios y lucha contra la corrupción, para que el desarrollo portuario beneficie efectivamente a la población y respete el territorio.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
@@ -969,7 +970,7 @@
               "id": "cepeda-inf-cand-17",
               "titulo": "Consolidar un Pacto por la Vida con transición energética, protección ambiental y fortalecimiento de los derechos y el bienestar animal.",
               "subtema": "",
-              "texto": "$21",
+              "texto": "$22",
               "texto_resumen_medio": "Consolidar un Pacto por la Vida que profundice la transición energética, reduzca actividades y prácticas que afectan la naturaleza, fortalezca la protección ambiental, impulse restauración ecológica y comunidades energéticas, y avance en derechos y bienestar animal mediante reconversión laboral, sustitución de vehículos de tracción animal, reconocimiento constitucional, educación obligatoria y nuevas instancias institucionales.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
@@ -1067,7 +1068,7 @@
               "id": "cepeda-inf-cand-24",
               "titulo": "Impulsar una Revolución Urbana para la vida mediante medidas sociales, ambientales y territoriales.",
               "subtema": "",
-              "texto": "$22",
+              "texto": "$23",
               "texto_resumen_medio": "La propuesta plantea una Revolución Urbana orientada a poner la vida, la equidad, la comunidad y la relación entre ciudad y mundo rural en el centro de la acción pública, mediante un conjunto de medidas concretas en agua, ambiente, residuos, economía popular, trabajo, educación, salud, vivienda, movilidad, participación y austeridad.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
@@ -1193,7 +1194,7 @@
               "id": "cepeda-inf-cand-33",
               "titulo": "Impulsar en La Guajira un plan de agua, infraestructura, energía, educación, salud, cuidado de regalías y lucha contra la corrupción.",
               "subtema": "",
-              "texto": "$23",
+              "texto": "$24",
               "texto_resumen_medio": "Mantener el curso de los cambios en La Guajira mediante acciones en agua potable, vías terciarias, energías eólica y solar, comunidades energéticas, educación media y superior, fortalecimiento del sistema de salud con enfoque indígena, reconversión energética sin desempleo, protección de las regalías y lucha frontal contra la corrupción.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
@@ -1280,7 +1281,7 @@
           "sector": "corrupcion",
           "fuente_origen": "candidateados",
           "subtema": "",
-          "resumen_fuente": "$24",
+          "resumen_fuente": "$25",
           "evaluacion_fede": null,
           "propuestas": [
             {
@@ -1357,7 +1358,7 @@
               "id": "cepeda-cor-cand-06",
               "titulo": "Convocar una Mesa de Diálogo Nacional para concretar un Acuerdo Nacional con participación social y mecanismos de implementación de las transformaciones acordadas.",
               "subtema": "",
-              "texto": "$25",
+              "texto": "$26",
               "texto_resumen_medio": "El Acuerdo Nacional se construya sobre la movilización social y el poder constituyente, y no como un pacto limitado entre élites. Para ello, plantea que, una vez en la Presidencia, se convoque una Mesa de Diálogo Nacional con fuerzas políticas, sociales y económicas, empezando por las organizaciones sociales y populares, para definir una agenda de reformas pendientes, paz territorial, transformación del modelo frente al narcotráfico y la minería, un cronograma de implementación y los mecanismos jurídicos e institucionales necesarios para materializar los acuerdos.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
@@ -2253,7 +2254,8 @@
           ],
           "nota": ""
         }
-      ]
+      ],
+      "programa_1v": null
     },
     {
       "id": "espriella",
@@ -2294,15 +2296,15 @@
           "sector": "seguridad",
           "fuente_origen": "candidateados",
           "subtema": "",
-          "resumen_fuente": "• Recuperar el control territorial mediante una ofensiva de seguridad inmediata\n• Cumplir con metas operativas concretas en la lucha contra el crimen y el narcotráfico\n• Fortalecer la seguridad mediante alianzas internacionales estratégicas\n• Fortalecer la seguridad nacional mediante tecnología e inteligencia estratégica.",
+          "resumen_fuente": "• Destruir las 330.000 hectáreas de coca con acciones integrales contra el narcotráfico.\n• Recuperar el control territorial.\n• Reafirmar el monopolio estatal de las armas\n• Desmontar milicias y poderes coercitivos paralelos\n• Reconstruir a la Fuerza Pública, fortalecerla y respaldarla en sus acciones\n• Destruir economías ilegales\n• Recuperar el sistema carcelario\n• Fortalecer inteligencia, justicia y judicialización.\n• Crear mecanismos especializados para fortalecer la seguridad en los barrios.\n• Fortalecer la capacidad penitenciaria para enfrentar la criminalidad.",
           "evaluacion_fede": null,
           "propuestas": [
             {
               "id": "espriella-seg-cand-01",
-              "titulo": "Recuperar el control territorial mediante una ofensiva de seguridad inmediata",
+              "titulo": "Destruir las 330.000 hectáreas de coca con acciones integrales contra el narcotráfico.",
               "subtema": "",
-              "texto": "Plan de Choque. - 90 días para recuperar el control total del territorio nacional. - Ofensiva militar y policial agresiva contra el crimen. - Recuperación de zonas bajo control de estructuras armadas.",
-              "texto_resumen_medio": "Ejecutar un plan de choque de 90 días con acciones militares y policiales intensivas para retomar zonas dominadas por grupos armados. Busca restablecer el control del Estado y debilitar estructuras criminales.",
+              "texto": "Destruir las 330.000 hectáreas de coca y valerse de todas las herramientas que nos permite la ley y la tecnología con la fumigación aérea, la erradicación manual, la persecución a los capitales de los narcos, la extinción de dominio express, la sustitución y la extradición",
+              "texto_resumen_medio": "Eliminar las 330.000 hectáreas de coca mediante fumigación aérea, erradicación manual, persecución de capitales del narcotráfico, extinción de dominio, sustitución y extradición.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2313,10 +2315,10 @@
             },
             {
               "id": "espriella-seg-cand-02",
-              "titulo": "Cumplir con metas operativas concretas en la lucha contra el crimen y el narcotráfico",
+              "titulo": "Recuperar el control territorial.",
               "subtema": "",
-              "texto": "Metas Estratégicas - 10 cabecillas de alto valor capturados o dados de baja. - Fumigación aérea de 330,000 hectáreas de cultivos ilícitos. - Bloque de búsqueda especializado contra la extorsión.",
-              "texto_resumen_medio": "Capturar o neutralizar cabecillas, intensificar la erradicación de cultivos ilícitos y crear unidades especializadas contra la extorsión. Busca medir resultados con objetivos claros para debilitar estructuras criminales.",
+              "texto": "Recuperar el control territorial.",
+              "texto_resumen_medio": "Recuperar el control territorial.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2327,10 +2329,10 @@
             },
             {
               "id": "espriella-seg-cand-03",
-              "titulo": "Fortalecer la seguridad mediante alianzas internacionales estratégicas",
+              "titulo": "Reafirmar el monopolio estatal de las armas",
               "subtema": "",
-              "texto": "Alianzas Globales. - Lanzamiento del Plan Colombia II con apoyo internacional. - Cooperación estratégica con EE.UU. e Israel. - Tecnología de punta e inteligencia para la Fuerza Pública.",
-              "texto_resumen_medio": "Relanzar esquemas de cooperación como un “Plan Colombia II” y consolidar alianzas con países clave para acceso a tecnología e inteligencia. Busca potenciar las capacidades de la Fuerza Pública en la lucha contra el crimen.",
+              "texto": "Reafirmar el monopolio estatal de las armas",
+              "texto_resumen_medio": "Reafirmar el monopolio estatal de las armas",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2341,10 +2343,94 @@
             },
             {
               "id": "espriella-seg-cand-04",
-              "titulo": "Fortalecer la seguridad nacional mediante tecnología e inteligencia estratégica.",
+              "titulo": "Desmontar milicias y poderes coercitivos paralelos",
               "subtema": "",
-              "texto": "Seguridad Nacional\nDrones e IA para inteligencia militar y policial.\nVigilancia estratégica del narcotráfico (Plan Colombia 2.0).\nIntegración con Puestos de Mando Unificado",
-              "texto_resumen_medio": "Uso de drones e IA para inteligencia militar y policial, vigilancia del narcotráfico tipo Plan Colombia 2.0 e integración con Puestos de Mando Unificado.",
+              "texto": "Desmontar milicias y poderes coercitivos paralelos",
+              "texto_resumen_medio": "Desmontar milicias y poderes coercitivos paralelos",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-seg-cand-05",
+              "titulo": "Reconstruir a la Fuerza Pública, fortalecerla y respaldarla en sus acciones",
+              "subtema": "",
+              "texto": "Reconstruir a la Fuerza Pública, fortalecerla y respaldarla en sus acciones",
+              "texto_resumen_medio": "Reconstruir a la Fuerza Pública, fortalecerla y respaldarla en sus acciones",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-seg-cand-06",
+              "titulo": "Destruir economías ilegales",
+              "subtema": "",
+              "texto": "Destruir economías ilegales",
+              "texto_resumen_medio": "Destruir economías ilegales",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-seg-cand-07",
+              "titulo": "Recuperar el sistema carcelario",
+              "subtema": "",
+              "texto": "Recuperar el sistema carcelario",
+              "texto_resumen_medio": "Recuperar el sistema carcelario",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-seg-cand-08",
+              "titulo": "Fortalecer inteligencia, justicia y judicialización.",
+              "subtema": "",
+              "texto": "Fortalecer inteligencia, justicia y judicialización.",
+              "texto_resumen_medio": "Fortalecer inteligencia, justicia y judicialización.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-seg-cand-09",
+              "titulo": "Crear mecanismos especializados para fortalecer la seguridad en los barrios.",
+              "subtema": "",
+              "texto": "Seguridad en el barrio: Bloque de Búsqueda contra la Extorsión, y Primera Línea de Seguridad con veteranos y reservistas.",
+              "texto_resumen_medio": "Implementar un Bloque de Búsqueda contra la Extorsión y una Primera Línea de Seguridad con veteranos y reservistas.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-seg-cand-10",
+              "titulo": "Fortalecer la capacidad penitenciaria para enfrentar la criminalidad.",
+              "subtema": "",
+              "texto": "Construir 10 megacárceles para encerrar a los bandidos que atenten contra el pueblo colombiano.",
+              "texto_resumen_medio": "Construir 10 megacárceles para recluir a quienes cometan delitos contra la población colombiana.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2360,15 +2446,15 @@
           "sector": "salud",
           "fuente_origen": "candidateados",
           "subtema": "",
-          "resumen_fuente": "• Garantizar atención inmediata y oportuna en salud\n• Impulsar la modernización hospitalaria mediante alianzas público-privadas\n• Implementar atención médica móvil y telemedicina en zonas rurales apartadas\n• Fortalecer el talento humano mediante profesionalización e incentivos por desempeño\n• Supervisar y sancionar rigurosamente a las EPS incumplidas\n• Promover la prevención en salud desde la infancia",
+          "resumen_fuente": "• Recuperar y proteger los recursos destinados al sistema de salud.\n• Reforzar el seguimiento al uso de los recursos de la UPC por parte de las EPS.\n• Restablecer flujo de recursos\n• Poner al paciente en el centro.\n• Recuperar el acceso oportuno a medicamentos y tratamientos\n• Proteger pacientes crónicos y poblaciones vulnerables.\n• Fortalecer la medicina en atención primaria, promoción y prevención.\n• Modernizar la gestión del sistema de salud mediante herramientas tecnológicas.\n• Fortalecer la red hospitalaria\n• Fortalecer el sistema de salud dignificando al personal y corrigiendo fallas estructurales.\n• Mejorar la eficiencia administrativa de las EPS.\n• Hacer arbitraje de recursos mal administrados por ADRES.\n• Fortalecer el control sobre la inversión en infraestructura de salud.",
           "evaluacion_fede": null,
           "propuestas": [
             {
               "id": "espriella-sal-cand-01",
-              "titulo": "Garantizar atención inmediata y oportuna en salud",
+              "titulo": "Recuperar y proteger los recursos destinados al sistema de salud.",
               "subtema": "",
-              "texto": "Atención Prioritaria. Garantía inmediata de citas, cirugías y medicamentos esenciales. Pago de salarios atrasados al personal hospitalario.",
-              "texto_resumen_medio": "Asegurar el acceso rápido a citas, cirugías y medicamentos esenciales, junto con el pago de salarios atrasados al personal de salud. Mejorar la calidad del servicio y estabilizar las condiciones del sistema sanitario.",
+              "texto": "Plan de choque de $10 billones, revisar los ajustes que se le hicieron a la UPC que permitieron el desvío de recursos de dicha asignación a otros propósitos.",
+              "texto_resumen_medio": "Implementar un plan de choque de $10 billones y revisar los ajustes a la UPC que permitieron el desvío de recursos hacia otros propósitos.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2379,10 +2465,10 @@
             },
             {
               "id": "espriella-sal-cand-02",
-              "titulo": "Impulsar la modernización hospitalaria mediante alianzas público-privadas",
+              "titulo": "Reforzar el seguimiento al uso de los recursos de la UPC por parte de las EPS.",
               "subtema": "",
-              "texto": "Modernización APP. Alianzas Público-Privadas para construir y modernizar hospitales regionales sin trabas burocráticas.",
-              "texto_resumen_medio": "Emplear APP para construir y mejorar hospitales regionales, reduciendo obstáculos burocráticos. Así, ampliar la infraestructura y mejorar la eficiencia del sistema de salud.",
+              "texto": "Revisión trimestral a la ejecución de la UPC por parte de las EPS.",
+              "texto_resumen_medio": "Realizar revisiones trimestrales a la ejecución de la UPC para fortalecer el control sobre estos recursos.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2393,10 +2479,10 @@
             },
             {
               "id": "espriella-sal-cand-03",
-              "titulo": "Implementar atención médica móvil y telemedicina en zonas rurales apartadas",
+              "titulo": "Restablecer flujo de recursos",
               "subtema": "",
-              "texto": "Salud Rural. Brigadas médicas móviles y telemedicina con infraestructura satelital para las zonas más apartadas del país.",
-              "texto_resumen_medio": "Garantizar la atención médica oportuna en territorios con baja cobertura por medio de brigadas médicas móviles y telemedicina con apoyo satelital en regiones apartadas.",
+              "texto": "Restablecer flujo de recursos",
+              "texto_resumen_medio": "Restablecer flujo de recursos",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2407,10 +2493,10 @@
             },
             {
               "id": "espriella-sal-cand-04",
-              "titulo": "Fortalecer el talento humano mediante profesionalización e incentivos por desempeño",
+              "titulo": "Poner al paciente en el centro.",
               "subtema": "",
-              "texto": "Talento Humano. Profesionalización, mejores condiciones y bonificaciones por resultados.",
-              "texto_resumen_medio": "Mejorar las condiciones laborales y ofrecer bonificaciones basadas en resultados. Busca elevar la calidad del servicio a través de personal más capacitado y motivado",
+              "texto": "Poner al paciente en el centro.",
+              "texto_resumen_medio": "Poner al paciente en el centro.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2421,10 +2507,10 @@
             },
             {
               "id": "espriella-sal-cand-05",
-              "titulo": "Supervisar y sancionar rigurosamente a las EPS incumplidas",
+              "titulo": "Recuperar el acceso oportuno a medicamentos y tratamientos",
               "subtema": "",
-              "texto": "Intervención a EPS. Auditoría técnica implacable: las que no cumplan se liquidan.",
-              "texto_resumen_medio": "Realizar auditorías técnicas estrictas a las EPS y liquidar aquellas que no cumplan con los estándares",
+              "texto": "Recuperar el acceso oportuno a medicamentos y tratamientos",
+              "texto_resumen_medio": "Recuperar el acceso oportuno a medicamentos y tratamientos",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2435,10 +2521,108 @@
             },
             {
               "id": "espriella-sal-cand-06",
-              "titulo": "Promover la prevención en salud desde la infancia",
+              "titulo": "Proteger pacientes crónicos y poblaciones vulnerables.",
               "subtema": "",
-              "texto": "Prevención. Política de Estado enfocada en deporte y nutrición desde la infancia.",
-              "texto_resumen_medio": "Crear una política estatal centrada en deporte y nutrición para niños. Busca reducir enfermedades y mejorar la calidad de vida a largo plazo",
+              "texto": "Proteger pacientes crónicos y poblaciones vulnerables.",
+              "texto_resumen_medio": "Proteger pacientes crónicos y poblaciones vulnerables.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-sal-cand-07",
+              "titulo": "Fortalecer la medicina en atención primaria, promoción y prevención.",
+              "subtema": "",
+              "texto": "Fortalecer la medicina en atención primaria, promoción y prevención.",
+              "texto_resumen_medio": "Fortalecer la medicina en atención primaria, promoción y prevención.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-sal-cand-08",
+              "titulo": "Modernizar la gestión del sistema de salud mediante herramientas tecnológicas.",
+              "subtema": "",
+              "texto": "Inyectar tecnología a la gestión del sistema de salud, definir tiempos de atención para citas especializadas en EPS en beneficio de un mejor servicio y hacer seguimientos",
+              "texto_resumen_medio": "Incorporar tecnología para mejorar la gestión de las EPS, establecer tiempos de atención para citas especializadas y fortalecer el seguimiento a la prestación de los servicios.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-sal-cand-09",
+              "titulo": "Fortalecer la red hospitalaria",
+              "subtema": "",
+              "texto": "Fortalecer la red hospitalaria",
+              "texto_resumen_medio": "Fortalecer la red hospitalaria",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-sal-cand-10",
+              "titulo": "Fortalecer el sistema de salud dignificando al personal y corrigiendo fallas estructurales.",
+              "subtema": "",
+              "texto": "Dignificar al personal de la salud, hacer una transición responsable que preserve lo que funciona y corrija lo que colapsó, retomar la política de presupuestos máximos y control de precios en tecnologías, medicamentos y dispositivos.",
+              "texto_resumen_medio": "Mejorar las condiciones del personal de salud, preservar los aspectos que funcionan del sistema y retomar mecanismos de control de precios en tecnologías, medicamentos y dispositivos.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-sal-cand-11",
+              "titulo": "Mejorar la eficiencia administrativa de las EPS.",
+              "subtema": "",
+              "texto": "Hacer más eficientes a las EPS desde lo administrativo con topes máximos a costos de administración.",
+              "texto_resumen_medio": "Establecer topes máximos a los costos de administración para optimizar el funcionamiento de las EPS.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-sal-cand-12",
+              "titulo": "Hacer arbitraje de recursos mal administrados por ADRES.",
+              "subtema": "",
+              "texto": "Hacer arbitraje de recursos mal administrados por ADRES.",
+              "texto_resumen_medio": "Hacer arbitraje de recursos mal administrados por ADRES.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-sal-cand-13",
+              "titulo": "Fortalecer el control sobre la inversión en infraestructura de salud.",
+              "subtema": "",
+              "texto": "Revisar los contratos asignados o contratos no ejecutados en infraestructura en salud en los lugares donde hay riesgo de corrupción o ineficiencia en la inversión pública, e implementar el Bloque Anticorrupción en los casos que sean necesarios.",
+              "texto_resumen_medio": "Revisar contratos asignados o no ejecutados en infraestructura de salud e implementar el Bloque Anticorrupción en los casos que presenten riesgos de corrupción o ineficiencia.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2454,15 +2638,15 @@
           "sector": "educacion",
           "fuente_origen": "candidateados",
           "subtema": "",
-          "resumen_fuente": "• Reformar el currículo educativo con enfoque en contenidos básicos y formación en valores\n• Integrar formación dual y fortalecer la infraestructura educativa\n• Promover un sistema educativo basado en mérito y compromiso social",
+          "resumen_fuente": "• Formar a los jóvenes en competencias alineadas con las demandas de la economía actual.\n• Mejorar la calidad educativa mediante mecanismos de evaluación docente.\n• Ampliar las oportunidades de acceso a la educación superior para estudiantes destacados.\n• ransformar el sistema educativo para responder a los desafíos productivos y globales.\n• Fortalecer la ciencia, la tecnología y la innovación en la educación pública.\n• Crear la Universidad Virtual en Casa.\n• Conectividad y computadores gratuitos.\n• Fortalecer las capacidades productivas y empresariales de los jóvenes rurales.",
           "evaluacion_fede": null,
           "propuestas": [
             {
               "id": "espriella-edu-cand-01",
-              "titulo": "Reformar el currículo educativo con enfoque en contenidos básicos y formación en valores",
+              "titulo": "Formar a los jóvenes en competencias alineadas con las demandas de la economía actual.",
               "subtema": "",
-              "texto": "Reforma Curricular y Valores Materias Prioritarias: Matemáticas, lectura crítica, ciencias e Historia Patria . Filosofía Estoica: Enseñanza desde temprana edad: ética, lógica y ciudadanía. Cero Adoctrinamiento: Eliminación de ideologías extremas del sistema educativo",
-              "texto_resumen_medio": "Priorizar materias fundamentales e incorporar la enseñanza de ética, lógica y ciudadanía desde temprana edad. Busca fortalecer la formación académica y el desarrollo integral de los estudiantes.",
+              "texto": "Crear programas de ciclos cortos en tecnologías de cuarta revolución industrial (AI, computación cuántica, robótica, etc), bilingüismo, servicios y economía del cuidado, para formar a jóvenes productivos",
+              "texto_resumen_medio": "Crear programas de formación de ciclos cortos en tecnologías de cuarta revolución industrial, bilingüismo, servicios y economía del cuidado.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2473,10 +2657,10 @@
             },
             {
               "id": "espriella-edu-cand-02",
-              "titulo": "Integrar formación dual y fortalecer la infraestructura educativa",
+              "titulo": "Mejorar la calidad educativa mediante mecanismos de evaluación docente.",
               "subtema": "",
-              "texto": "Infraestructura y Modelo Dual Educación Dual: Doble titulación técnica en bachillerato (Alianzas SENA + Empresas). Plan Maestro: Construcción y reparación de 1.000 colegios mediante APPs.",
-              "texto_resumen_medio": "Implementar doble titulación técnica en el bachillerato mediante alianzas con el SENA y empresas, junto con la construcción y mejora de 1.000 colegios vía APP. Busca mejorar la empleabilidad de los estudiantes y las condiciones físicas del sistema educativo.",
+              "texto": "Implementar la evaluación docente para mejorar la calidad de la educación que se le imparte a niños, niñas y adolescentes",
+              "texto_resumen_medio": "Implementar la evaluación docente como herramienta para fortalecer la calidad de la educación impartida a niños, niñas y adolescentes.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2487,10 +2671,80 @@
             },
             {
               "id": "espriella-edu-cand-03",
-              "titulo": "Promover un sistema educativo basado en mérito y compromiso social",
+              "titulo": "Ampliar las oportunidades de acceso a la educación superior para estudiantes destacados.",
               "subtema": "",
-              "texto": "Mérito y Oportunidades Mérito Docente: Evaluación de desempeño y bonificaciones por resultados. Becas con Retorno: Apoyo universitario y técnico condicionado a servicio social.",
-              "texto_resumen_medio": "Evaluar y bonificar a docentes según su desempeño, y otorgar becas condicionadas a la retribución mediante servicio social. Busca incentivar la calidad educativa y generar un impacto positivo en la sociedad.",
+              "texto": "Crear créditos blandos y un programa de méritos para que los mejores talentos para educarse en la universidad en el programa de su interés.",
+              "texto_resumen_medio": "Crear créditos blandos y un programa de méritos que facilite el ingreso de los mejores talentos a programas universitarios de su interés.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-edu-cand-04",
+              "titulo": "ransformar el sistema educativo para responder a los desafíos productivos y globales.",
+              "subtema": "",
+              "texto": "Reformar la educación para que sea internacional, más conectada a los temas productivos, con énfasis en educación terciaria, fomento a la educación tecnológica y virtual.",
+              "texto_resumen_medio": "Impulsar una educación con enfoque internacional, fortaleciendo la educación terciaria, tecnológica y virtual, y su articulación con las necesidades productivas.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-edu-cand-05",
+              "titulo": "Fortalecer la ciencia, la tecnología y la innovación en la educación pública.",
+              "subtema": "",
+              "texto": "Promover la inversión privada de ciencia, tecnología e innovación en la educación pública a partir de incentivos fiscales.",
+              "texto_resumen_medio": "Promover la inversión privada en ciencia, tecnología e innovación dentro de la educación pública mediante incentivos fiscales.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-edu-cand-06",
+              "titulo": "Crear la Universidad Virtual en Casa.",
+              "subtema": "",
+              "texto": "Crear la Universidad Virtual en Casa.",
+              "texto_resumen_medio": "Crear la Universidad Virtual en Casa.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-edu-cand-07",
+              "titulo": "Conectividad y computadores gratuitos.",
+              "subtema": "",
+              "texto": "Conectividad y computadores gratuitos.",
+              "texto_resumen_medio": "Conectividad y computadores gratuitos.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-edu-cand-08",
+              "titulo": "Fortalecer las capacidades productivas y empresariales de los jóvenes rurales.",
+              "subtema": "",
+              "texto": "Crear la Escuela de Emprendedores Rurales para formar a cien mil jóvenes en prácticas más eficientes y productivas de aporte al campo colombiano y con apoyo de crédito, de asociatividad, de tecnología y de programas de mentoría.",
+              "texto_resumen_medio": "Crear la Escuela de Emprendedores Rurales para formar a cien mil jóvenes con apoyo en crédito, asociatividad, tecnología, mentoría y prácticas productivas.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2506,15 +2760,15 @@
           "sector": "empleo",
           "fuente_origen": "candidateados",
           "subtema": "",
-          "resumen_fuente": "• Impulsar la explotación de hidrocarburos para aumentar ingresos fiscales\n• Garantizar seguridad jurídica para la inversión\n• Crear zonas económicas especiales para impulsar el desarrollo regional\n• Incentivar el desarrollo del talento digital mediante beneficios tributarios\n• Priorizar a empresas nacionales y PYMES en la contratación pública\n• Eliminar el impuesto 4x1000 para reducir costos financieros\n• Eliminar exenciones tributarias ineficientes\n• Promover la generación de empleo formal mediante incentivos fiscales\n• Aumentar el recaudo ampliando la base tributaria\n• Declarar una emergencia económica al inicio del gobierno para agilizar la toma de decisiones.\n• Impulsar la economía digital y la innovación tecnológica.",
+          "resumen_fuente": "$29",
           "evaluacion_fede": null,
           "propuestas": [
             {
               "id": "espriella-emp-cand-01",
-              "titulo": "Impulsar la explotación de hidrocarburos para aumentar ingresos fiscales",
+              "titulo": "Combatir la pobreza mediante una estrategia para garantizar el acceso a alimentos.",
               "subtema": "",
-              "texto": "Reactivación de Hidrocarburos. Apoyo al Fracking con responsabilidad. Generación de +$15-20 billones en regalías para inversión social.",
-              "texto_resumen_medio": "Apoyar el fracking con criterios de responsabilidad para generar entre $15 y $20 billones en regalías. Busca financiar inversión social a partir de mayores recursos del sector energético.",
+              "texto": "Luchar contra la pobreza es el primer objetivo, por eso vamos a matar el hambre con el Plan Cosecha Solidaria.",
+              "texto_resumen_medio": "Implementar el Plan Cosecha Solidaria como herramienta para reducir el hambre y enfrentar la pobreza",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2525,10 +2779,10 @@
             },
             {
               "id": "espriella-emp-cand-02",
-              "titulo": "Garantizar seguridad jurídica para la inversión",
+              "titulo": "Ordenar las finanzas públicas.",
               "subtema": "",
-              "texto": "Protección Jurídica Blindada. Seguridad total para inversores nacionales y extranjeros. Reglas de juego claras.",
-              "texto_resumen_medio": "Establecer reglas claras y estables que brinden protección a inversionistas nacionales y extranjeros. Busca generar confianza y atraer mayor inversión económica",
+              "texto": "Ordenar las finanzas públicas.",
+              "texto_resumen_medio": "Ordenar las finanzas públicas.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2539,10 +2793,10 @@
             },
             {
               "id": "espriella-emp-cand-03",
-              "titulo": "Crear zonas económicas especiales para impulsar el desarrollo regional",
+              "titulo": "Reducir el tamaño del Estado y fortalecer la descentralización territorial.",
               "subtema": "",
-              "texto": "Zonas Económicas Especiales. Polos de desarrollo regional con exenciones tributarias controladas y conectividad.",
-              "texto_resumen_medio": "Establecer polos con beneficios tributarios controlados y mejor conectividad. Busca atraer inversión y dinamizar la economía en distintas regiones del país",
+              "texto": "Consolidar un ‘programa de ajuste fiscal’ que reduzca el tamaño del Estado hasta en una cuarta parte (aprovechando la nueva ley de SGP y así lograr en simultánea un fortalecimiento de la descentralización territorial).",
+              "texto_resumen_medio": "Implementar un programa de ajuste fiscal que reduzca hasta en una cuarta parte el tamaño del Estado, aprovechando la nueva ley del SGP para fortalecer los territorios.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2553,10 +2807,10 @@
             },
             {
               "id": "espriella-emp-cand-04",
-              "titulo": "Incentivar el desarrollo del talento digital mediante beneficios tributarios",
+              "titulo": "Alcanzar un superávit fiscal primario en el corto plazo.",
               "subtema": "",
-              "texto": "Régimen Creador Digital. Exenciones para programadores, y expertos en IA.",
-              "texto_resumen_medio": "Otorgar exenciones a programadores y expertos en inteligencia artificial. Busca atraer y retener talento tecnológico para impulsar la economía digital",
+              "texto": "Lograr en un corto plazo superávit fiscal primario (lo cual supone un ajuste inicial de unos $70 billones).",
+              "texto_resumen_medio": "Realizar un ajuste fiscal inicial cercano a los $70 billones para lograr un balance positivo en las finanzas públicas.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2567,10 +2821,10 @@
             },
             {
               "id": "espriella-emp-cand-05",
-              "titulo": "Priorizar a empresas nacionales y PYMES en la contratación pública",
+              "titulo": "Fortalecer los mecanismos de control sobre el gasto público.",
               "subtema": "",
-              "texto": "Compras Públicas Nacionales Preferencia del Estado por empresas nacionales y PYMES.",
-              "texto_resumen_medio": "Dar preferencia a proveedores nacionales en las compras del Estado. Busca fortalecer la industria local y dinamizar la economía interna.",
+              "texto": "Fortalecer el comité autónomo de regla fiscal para darle más dientes para controlar los excesos de gastos en cabeza del ejecutivo o legislativo por la vía legal o constitucional (algo similar a lo que tiene Perú y que permite un control sobre los excesos fiscales y ordena la casa).",
+              "texto_resumen_medio": "Dar mayores facultades al comité autónomo de regla fiscal para controlar excesos de gasto por parte del Ejecutivo y el Legislativo.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2581,10 +2835,10 @@
             },
             {
               "id": "espriella-emp-cand-06",
-              "titulo": "Eliminar el impuesto 4x1000 para reducir costos financieros",
+              "titulo": "Mejorar la competitividad empresarial reduciendo costos y cargas regulatorias.",
               "subtema": "",
-              "texto": "Eliminación del impuesto 4x1000 Alivio directo al bolsillo de los colombianos y a la transaccionalidad",
-              "texto_resumen_medio": "Suprimir este gravamen para aliviar la carga económica de los ciudadanos. Busca incentivar la transaccionalidad y dinamizar la actividad económica",
+              "texto": "Reducir la carga tributaria, reducir los costos de energía y crear una ‘Gran Revolución de DesRegulación’ o eliminación de trámites, trabas y cargas al sector empresarial.",
+              "texto_resumen_medio": "Disminuir la carga tributaria, reducir los costos de energía y eliminar trámites y barreras que afectan al sector empresarial.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2595,10 +2849,10 @@
             },
             {
               "id": "espriella-emp-cand-07",
-              "titulo": "Eliminar exenciones tributarias ineficientes",
+              "titulo": "Revisar y corregir ineficiencias regulatorias en entidades y procesos clave.",
               "subtema": "",
-              "texto": "Eliminación de Exenciones. Fin a beneficios tributarios inútiles e injustificados que no aportan al país.",
-              "texto_resumen_medio": "Suprimir beneficios fiscales que no generen impacto positivo en el país. Busca mejorar la equidad y eficiencia del sistema tributario.",
+              "texto": "Esto significa revisión en detalle de ineficiencias en Invima, ICA, superintendencias, cámaras de comercio, notariado y registro, licencias ambientales, consulta a comunidades, reglamentos técnicos de MinComercio, MinTIC, MinTransporte, DIAN, entre otras",
+              "texto_resumen_medio": "Evaluar procedimientos y regulaciones en entidades como Invima, ICA, DIAN, superintendencias, cámaras de comercio, licencias ambientales y otros sectores estratégicos.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2609,10 +2863,10 @@
             },
             {
               "id": "espriella-emp-cand-08",
-              "titulo": "Promover la generación de empleo formal mediante incentivos fiscales",
+              "titulo": "Limitar el crecimiento de nuevas cargas regulatorias.",
               "subtema": "",
-              "texto": "Incentivos al Empleo. Reducción de impuestos a empresas que generen empleo formal y de calidad.",
-              "texto_resumen_medio": "Reducir impuestos a empresas que creen empleos formales y de calidad. Busca incentivar la contratación y dinamizar el mercado laboral.",
+              "texto": "Promover la política ‘Una entra y dos salen’, es decir, por cada nueva regulación de cargas y trabas, se eliminan dos, por un período de tiempo.",
+              "texto_resumen_medio": "Aplicar la política “Una entra y dos salen”, eliminando dos regulaciones por cada nueva norma que genere cargas o trámites.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2623,10 +2877,10 @@
             },
             {
               "id": "espriella-emp-cand-09",
-              "titulo": "Aumentar el recaudo ampliando la base tributaria",
+              "titulo": "Impulsar nuevos motores de desarrollo económico para el país.",
               "subtema": "",
-              "texto": "Ampliación de Base. Más recaudo vía mayor actividad económica, no subiendo tasas.",
-              "texto_resumen_medio": "Incrementar los ingresos fiscales a través de mayor actividad económica en lugar de subir impuestos. Busca fortalecer las finanzas públicas de forma sostenible.",
+              "texto": "Consolidar la gran plataforma de la altillanura, promover el turismo sostenible, las energías renovables y nuevas energías (con una política en energía nuclear y licenciamientos express y acelerar consultas a comunidades) e industria 4.0.",
+              "texto_resumen_medio": "Consolidar la plataforma de la altillanura y promover el turismo sostenible, las energías renovables, la energía nuclear y la industria 4.0 mediante procesos más ágiles.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2637,10 +2891,10 @@
             },
             {
               "id": "espriella-emp-cand-10",
-              "titulo": "Declarar una emergencia económica al inicio del gobierno para agilizar la toma de decisiones.",
+              "titulo": "Facilitar el acceso de los colombianos a la vivienda propia.",
               "subtema": "",
-              "texto": "Emergencia Económica\nDeclaratoria al inicio del gobierno para tomar decisiones rápidas y eliminar trabas.",
-              "texto_resumen_medio": "Permitir la eliminación de trabas y la adopción de medidas rápidas para dinamizar la economía.",
+              "texto": "Crear el programa ‘País de propietarios’ para que los colombianos puedan comprar vivienda propia con intereses de 2% a 30 años",
+              "texto_resumen_medio": "Crear el programa “País de propietarios” para ofrecer financiación de vivienda con tasas del 2% y plazos de hasta 30 años.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2651,10 +2905,136 @@
             },
             {
               "id": "espriella-emp-cand-11",
-              "titulo": "Impulsar la economía digital y la innovación tecnológica.",
+              "titulo": "Posicionar a Colombia entre los países más prósperos, seguros y democráticos del mundo.",
               "subtema": "",
-              "texto": "Economía Digital\nApoyo a programadores y expertos en IA.\nExenciones tributarias y créditos al 0% para innovación.\nPosicionar a Colombia como Hub Latinoamericano.",
-              "texto_resumen_medio": "Apoyo a programadores y expertos en IA, con exenciones tributarias y créditos al 0% para posicionar a Colombia como hub latinoamericano.",
+              "texto": "Llevar a Colombia al grupo de los 25 países más prósperos, seguros y democráticos del mundo.",
+              "texto_resumen_medio": "Impulsar políticas orientadas a que Colombia integre el grupo de los 25 países con mejores indicadores de prosperidad, seguridad y democracia.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-emp-cand-12",
+              "titulo": "Mejorar el funcionamiento del Estado mediante medidas de eficiencia.",
+              "subtema": "",
+              "texto": "Implementar un plan de choque y eficiencia radical del Estado.",
+              "texto_resumen_medio": "Implementar un plan de choque enfocado en aumentar la eficiencia y optimizar la gestión estatal.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-emp-cand-13",
+              "titulo": "Fortalecer la sostenibilidad de las finanzas públicas.",
+              "subtema": "",
+              "texto": "Estabilizar y refinanciar la deuda pública mediante una gestión activa de pasivos para mejorar el perfil de vencimientos.",
+              "texto_resumen_medio": "Estabilizar y refinanciar la deuda pública mediante una gestión activa que mejore los plazos y condiciones de vencimiento.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-emp-cand-14",
+              "titulo": "Cumplir estrictamente la Regla Fiscal.",
+              "subtema": "",
+              "texto": "Cumplir estrictamente la Regla Fiscal.",
+              "texto_resumen_medio": "Cumplir estrictamente la Regla Fiscal.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-emp-cand-15",
+              "titulo": "Reformar el sistema tributario para impulsar la inversión y beneficiar a los hogares.",
+              "subtema": "",
+              "texto": "Modificar y simplificar la estructura tributaria para incentivar la inversión privada y aliviar el bienestar de los hogares.",
+              "texto_resumen_medio": "Modificar y simplificar la estructura tributaria con el fin de incentivar la inversión privada y aliviar las cargas económicas de los hogares.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-emp-cand-16",
+              "titulo": "Modernizar el Estado mediante una estructura administrativa más eficiente.",
+              "subtema": "",
+              "texto": "Optimizar el aparato estatal reduciendo la nómina paralela y fusionando agencias redundantes.",
+              "texto_resumen_medio": "Reducir la nómina paralela y fusionar agencias redundantes para optimizar el funcionamiento del aparato estatal.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-emp-cand-17",
+              "titulo": "Mejorar la focalización de los subsidios públicos.",
+              "subtema": "",
+              "texto": "Transformar los subsidios eliminando su regresividad (cruce Sisbén IV-DIAN).",
+              "texto_resumen_medio": "Transformar los subsidios mediante el cruce de información entre Sisbén IV y DIAN para eliminar su carácter regresivo.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-emp-cand-18",
+              "titulo": "Fortalecer el control tributario mediante herramientas tecnológicas avanzadas.",
+              "subtema": "",
+              "texto": "Modernizar la DIAN con inteligencia artificial para reducir drásticamente la evasión.",
+              "texto_resumen_medio": "Modernizar la DIAN con inteligencia artificial para reducir de manera significativa la evasión fiscal.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-emp-cand-19",
+              "titulo": "Crear condiciones favorables para el crecimiento y la inversión empresarial.",
+              "subtema": "",
+              "texto": "Garantizar un ecosistema pro-empresa que impulse el crecimiento del PIB por encima de la barrera del 3%.",
+              "texto_resumen_medio": "Consolidar un ecosistema proempresa que impulse el crecimiento económico y permita superar una tasa de crecimiento del PIB del 3%.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-emp-cand-20",
+              "titulo": "Incentivar el desarrollo económico a través de la cultura y el deporte.",
+              "subtema": "",
+              "texto": "Apoyo fiscal a nuevas empresas de acción cultural y a mega eventos culturales y deportivos que atraigan ingresos del exterior y generen dinámica local",
+              "texto_resumen_medio": "Brindar apoyo fiscal a nuevas empresas culturales y a grandes eventos culturales y deportivos que atraigan ingresos del exterior y dinamicen las economías locales.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2670,15 +3050,43 @@
           "sector": "infraestructura",
           "fuente_origen": "candidateados",
           "subtema": "",
-          "resumen_fuente": "• Simplificar el cumplimiento tributario para PYMES mediante digitalización",
+          "resumen_fuente": "• Impulsar el desarrollo rural mediante infraestructura y fortalecimiento productivo.\n• Ampliar la frontera agrícola productiva del país para fortalecer el sector agropecuario.\n• Impulsar el desarrollo rural mediante infraestructura y fortalecimiento productivo.",
           "evaluacion_fede": null,
           "propuestas": [
             {
               "id": "espriella-inf-cand-01",
-              "titulo": "Simplificar el cumplimiento tributario para PYMES mediante digitalización",
+              "titulo": "Impulsar el desarrollo rural mediante infraestructura y fortalecimiento productivo.",
               "subtema": "",
-              "texto": "Simplificación Digital. Sistema tributario fácil y digital para que las PYMES puedan cumplir sin burocracia.",
-              "texto_resumen_medio": "Implementar un sistema tributario digital, sencillo y sin trámites innecesarios. Busca facilitar el cumplimiento fiscal y reducir la carga burocrática para pequeñas y medianas empresas.",
+              "texto": "Abrir el camino de la prosperidad moderna con vías, riego, conectividad, agroindustria y mercados.",
+              "texto_resumen_medio": "Promover la prosperidad del campo con inversión en vías, sistemas de riego, conectividad, agroindustria y acceso a mercados.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-inf-cand-02",
+              "titulo": "Ampliar la frontera agrícola productiva del país para fortalecer el sector agropecuario.",
+              "subtema": "",
+              "texto": "Ampliar la frontera agrícola productiva de Colombia en 1,5 millones de hectáreas siendo el candidato que lograra el Matto Grosso Colombiano en la altillanura y una nueva apuesta en grande en coco, pasifloras, cereales y ganadería regenerativa.",
+              "texto_resumen_medio": "Incorporar 1,5 millones de hectáreas a la producción agrícola, impulsando el desarrollo de la altillanura y nuevas apuestas productivas como coco, pasifloras, cereales y ganadería regenerativa.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-inf-cand-03",
+              "titulo": "Impulsar el desarrollo rural mediante infraestructura y fortalecimiento productivo.",
+              "subtema": "",
+              "texto": "Abrir el camino de la prosperidad moderna con vías, riego, conectividad, agroindustria y mercados",
+              "texto_resumen_medio": "Promover la prosperidad del campo con inversión en vías, sistemas de riego, conectividad, agroindustria y acceso a mercados.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2694,15 +3102,15 @@
           "sector": "corrupcion",
           "fuente_origen": "candidateados",
           "subtema": "",
-          "resumen_fuente": "• Crear una unidad especial para combatir la corrupción\n• Depurar la administración pública mediante evaluación de desempeño\n• Establecer un marco legal estricto para la ética pública\n• Recuperar recursos públicos perdidos por corrupción",
+          "resumen_fuente": "• Garantizar el ejercicio transparente de la Presidencia y la Vicepresidencia.\n• Crear un Bloque de Búsqueda contra la Corrupción con liderazgo presidencial.\n• Combatir la corrupción mediante herramientas de investigación y control patrimonial.\n• Persecución de flujos financieros ilícitos.\n• Gobierno trazable.\n• Reforma de la contratación pública.\n• Cooperación nacional e internacional.\n• Fortalecer la transparencia y reducir la discrecionalidad en la gestión pública.\n• Modernizar la contratación pública mediante tecnologías que garanticen la integridad de la información.",
           "evaluacion_fede": null,
           "propuestas": [
             {
               "id": "espriella-cor-cand-01",
-              "titulo": "Crear una unidad especial para combatir la corrupción",
+              "titulo": "Garantizar el ejercicio transparente de la Presidencia y la Vicepresidencia.",
               "subtema": "",
-              "texto": "Bloque de Búsqueda. Creación de un bloque de búsqueda presidencial\ncontra los corruptos para perseguir bienes, dinero y\nredes que se roban el Estado.",
-              "texto_resumen_medio": "Establecer un bloque de búsqueda presidencial para identificar y perseguir bienes, dinero y redes corruptas. Busca desarticular estructuras que desvían recursos públicos.",
+              "texto": "El presidente y el vicepresidente serán ejemplo de transparencia como lo ha sido su trayectoria a lo largo de la vida",
+              "texto_resumen_medio": "Promover un liderazgo basado en la transparencia y la integridad desde los más altos cargos del Gobierno.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2713,10 +3121,10 @@
             },
             {
               "id": "espriella-cor-cand-02",
-              "titulo": "Depurar la administración pública mediante evaluación de desempeño",
+              "titulo": "Crear un Bloque de Búsqueda contra la Corrupción con liderazgo presidencial.",
               "subtema": "",
-              "texto": "Depuración de Funcionarios. Evaluación y remoción de servidores ineficientes.",
-              "texto_resumen_medio": "Evaluar a los servidores públicos y remover a quienes sean ineficientes. Busca mejorar la calidad y eficacia del funcionamiento del Estado.",
+              "texto": "Creación del Bloque de Búsqueda contra la Corrupción dirigido directamente por el presidente de la República",
+              "texto_resumen_medio": "Establecer un Bloque de Búsqueda contra la Corrupción dirigido directamente por el presidente de la República.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2727,10 +3135,10 @@
             },
             {
               "id": "espriella-cor-cand-03",
-              "titulo": "Establecer un marco legal estricto para la ética pública",
+              "titulo": "Combatir la corrupción mediante herramientas de investigación y control patrimonial.",
               "subtema": "",
-              "texto": "Ley de Ética Pública. Transparencia total en contratación y penalidades duras.",
-              "texto_resumen_medio": "Crear una ley que garantice transparencia total en la contratación y sanciones severas ante irregularidades. Busca prevenir la corrupción y fortalecer la confianza en las instituciones.",
+              "texto": "Usar inteligencia, análisis financiero y policía judicial; extinción de dominio exprés.",
+              "texto_resumen_medio": "Utilizar inteligencia, análisis financiero, policía judicial y extinción de dominio exprés para perseguir actos de corrupción.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -2741,10 +3149,80 @@
             },
             {
               "id": "espriella-cor-cand-04",
-              "titulo": "Recuperar recursos públicos perdidos por corrupción",
+              "titulo": "Persecución de flujos financieros ilícitos.",
               "subtema": "",
-              "texto": "Recuperación de Bienes. Meta de recuperar entre $20 y $25 billones anuales perdidos por la corrupción para reinvertirlos en la gente.",
-              "texto_resumen_medio": "Alcanzar la recuperación anual de entre $20 y $25 billones provenientes de actos corruptos. Busca reinvertir estos recursos en beneficio de la ciudadanía.",
+              "texto": "Persecución de flujos financieros ilícitos.",
+              "texto_resumen_medio": "Persecución de flujos financieros ilícitos.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-cor-cand-05",
+              "titulo": "Gobierno trazable.",
+              "subtema": "",
+              "texto": "Gobierno trazable.",
+              "texto_resumen_medio": "Gobierno trazable.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-cor-cand-06",
+              "titulo": "Reforma de la contratación pública.",
+              "subtema": "",
+              "texto": "Reforma de la contratación pública.",
+              "texto_resumen_medio": "Reforma de la contratación pública.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-cor-cand-07",
+              "titulo": "Cooperación nacional e internacional.",
+              "subtema": "",
+              "texto": "Cooperación nacional e internacional.",
+              "texto_resumen_medio": "Cooperación nacional e internacional.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-cor-cand-08",
+              "titulo": "Fortalecer la transparencia y reducir la discrecionalidad en la gestión pública.",
+              "subtema": "",
+              "texto": "Menos discrecionalidad y más transparencia en la actuación pública",
+              "texto_resumen_medio": "Impulsar una actuación pública con mayores controles y niveles de transparencia.",
+              "editado": false,
+              "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
+              "tags_terceros": {
+                "constitucionalidad": null,
+                "viabilidad_senalada": null,
+                "comentarios_expertos": []
+              }
+            },
+            {
+              "id": "espriella-cor-cand-09",
+              "titulo": "Modernizar la contratación pública mediante tecnologías que garanticen la integridad de la información.",
+              "subtema": "",
+              "texto": "A 2030 todos los procesos de contratación pública se llevarán a cabo a través de blockchain para que la información introducida no pueda ser modificada por nadie.",
+              "texto_resumen_medio": "Llevar todos los procesos de contratación pública a blockchain para 2030, evitando la modificación de los datos registrados.",
               "editado": false,
               "fuente": "candidateados (agregador; texto derivado del programa/entrevistas del candidato)",
               "tags_terceros": {
@@ -3795,7 +4273,247 @@
           ],
           "nota": ""
         }
-      ]
+      ],
+      "programa_1v": {
+        "fecha_snapshot": "2026-06-06",
+        "nota": "Programa de 1ª vuelta, reemplazado: Candidateados adoptó el programa reescrito de De la Espriella para 2ª vuelta (29->63 propuestas) sin continuidad textual entre versiones. Se muestran ambas, sin mapeo editorial.",
+        "fuente": "candidateados (snapshot del 2026-06-06, previo a la reescritura)",
+        "sectores": [
+          {
+            "sector": "seguridad",
+            "propuestas": [
+              {
+                "id": "espriella-seg-cand1v-01",
+                "titulo": "Recuperar el control territorial mediante una ofensiva de seguridad inmediata",
+                "texto": "Plan de Choque. - 90 días para recuperar el control total del territorio nacional. - Ofensiva militar y policial agresiva contra el crimen. - Recuperación de zonas bajo control de estructuras armadas.",
+                "texto_resumen_medio": "Ejecutar un plan de choque de 90 días con acciones militares y policiales intensivas para retomar zonas dominadas por grupos armados. Busca restablecer el control del Estado y debilitar estructuras criminales.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-seg-cand1v-02",
+                "titulo": "Cumplir con metas operativas concretas en la lucha contra el crimen y el narcotráfico",
+                "texto": "Metas Estratégicas - 10 cabecillas de alto valor capturados o dados de baja. - Fumigación aérea de 330,000 hectáreas de cultivos ilícitos. - Bloque de búsqueda especializado contra la extorsión.",
+                "texto_resumen_medio": "Capturar o neutralizar cabecillas, intensificar la erradicación de cultivos ilícitos y crear unidades especializadas contra la extorsión. Busca medir resultados con objetivos claros para debilitar estructuras criminales.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-seg-cand1v-03",
+                "titulo": "Fortalecer la seguridad mediante alianzas internacionales estratégicas",
+                "texto": "Alianzas Globales. - Lanzamiento del Plan Colombia II con apoyo internacional. - Cooperación estratégica con EE.UU. e Israel. - Tecnología de punta e inteligencia para la Fuerza Pública.",
+                "texto_resumen_medio": "Relanzar esquemas de cooperación como un “Plan Colombia II” y consolidar alianzas con países clave para acceso a tecnología e inteligencia. Busca potenciar las capacidades de la Fuerza Pública en la lucha contra el crimen.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-seg-cand1v-04",
+                "titulo": "Fortalecer la seguridad nacional mediante tecnología e inteligencia estratégica.",
+                "texto": "Seguridad Nacional\nDrones e IA para inteligencia militar y policial.\nVigilancia estratégica del narcotráfico (Plan Colombia 2.0).\nIntegración con Puestos de Mando Unificado",
+                "texto_resumen_medio": "Uso de drones e IA para inteligencia militar y policial, vigilancia del narcotráfico tipo Plan Colombia 2.0 e integración con Puestos de Mando Unificado.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              }
+            ]
+          },
+          {
+            "sector": "salud",
+            "propuestas": [
+              {
+                "id": "espriella-sal-cand1v-01",
+                "titulo": "Garantizar atención inmediata y oportuna en salud",
+                "texto": "Atención Prioritaria. Garantía inmediata de citas, cirugías y medicamentos esenciales. Pago de salarios atrasados al personal hospitalario.",
+                "texto_resumen_medio": "Asegurar el acceso rápido a citas, cirugías y medicamentos esenciales, junto con el pago de salarios atrasados al personal de salud. Mejorar la calidad del servicio y estabilizar las condiciones del sistema sanitario.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-sal-cand1v-02",
+                "titulo": "Impulsar la modernización hospitalaria mediante alianzas público-privadas",
+                "texto": "Modernización APP. Alianzas Público-Privadas para construir y modernizar hospitales regionales sin trabas burocráticas.",
+                "texto_resumen_medio": "Emplear APP para construir y mejorar hospitales regionales, reduciendo obstáculos burocráticos. Así, ampliar la infraestructura y mejorar la eficiencia del sistema de salud.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-sal-cand1v-03",
+                "titulo": "Implementar atención médica móvil y telemedicina en zonas rurales apartadas",
+                "texto": "Salud Rural. Brigadas médicas móviles y telemedicina con infraestructura satelital para las zonas más apartadas del país.",
+                "texto_resumen_medio": "Garantizar la atención médica oportuna en territorios con baja cobertura por medio de brigadas médicas móviles y telemedicina con apoyo satelital en regiones apartadas.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-sal-cand1v-04",
+                "titulo": "Fortalecer el talento humano mediante profesionalización e incentivos por desempeño",
+                "texto": "Talento Humano. Profesionalización, mejores condiciones y bonificaciones por resultados.",
+                "texto_resumen_medio": "Mejorar las condiciones laborales y ofrecer bonificaciones basadas en resultados. Busca elevar la calidad del servicio a través de personal más capacitado y motivado",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-sal-cand1v-05",
+                "titulo": "Supervisar y sancionar rigurosamente a las EPS incumplidas",
+                "texto": "Intervención a EPS. Auditoría técnica implacable: las que no cumplan se liquidan.",
+                "texto_resumen_medio": "Realizar auditorías técnicas estrictas a las EPS y liquidar aquellas que no cumplan con los estándares",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-sal-cand1v-06",
+                "titulo": "Promover la prevención en salud desde la infancia",
+                "texto": "Prevención. Política de Estado enfocada en deporte y nutrición desde la infancia.",
+                "texto_resumen_medio": "Crear una política estatal centrada en deporte y nutrición para niños. Busca reducir enfermedades y mejorar la calidad de vida a largo plazo",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              }
+            ]
+          },
+          {
+            "sector": "educacion",
+            "propuestas": [
+              {
+                "id": "espriella-edu-cand1v-01",
+                "titulo": "Reformar el currículo educativo con enfoque en contenidos básicos y formación en valores",
+                "texto": "Reforma Curricular y Valores Materias Prioritarias: Matemáticas, lectura crítica, ciencias e Historia Patria . Filosofía Estoica: Enseñanza desde temprana edad: ética, lógica y ciudadanía. Cero Adoctrinamiento: Eliminación de ideologías extremas del sistema educativo",
+                "texto_resumen_medio": "Priorizar materias fundamentales e incorporar la enseñanza de ética, lógica y ciudadanía desde temprana edad. Busca fortalecer la formación académica y el desarrollo integral de los estudiantes.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-edu-cand1v-02",
+                "titulo": "Integrar formación dual y fortalecer la infraestructura educativa",
+                "texto": "Infraestructura y Modelo Dual Educación Dual: Doble titulación técnica en bachillerato (Alianzas SENA + Empresas). Plan Maestro: Construcción y reparación de 1.000 colegios mediante APPs.",
+                "texto_resumen_medio": "Implementar doble titulación técnica en el bachillerato mediante alianzas con el SENA y empresas, junto con la construcción y mejora de 1.000 colegios vía APP. Busca mejorar la empleabilidad de los estudiantes y las condiciones físicas del sistema educativo.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-edu-cand1v-03",
+                "titulo": "Promover un sistema educativo basado en mérito y compromiso social",
+                "texto": "Mérito y Oportunidades Mérito Docente: Evaluación de desempeño y bonificaciones por resultados. Becas con Retorno: Apoyo universitario y técnico condicionado a servicio social.",
+                "texto_resumen_medio": "Evaluar y bonificar a docentes según su desempeño, y otorgar becas condicionadas a la retribución mediante servicio social. Busca incentivar la calidad educativa y generar un impacto positivo en la sociedad.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              }
+            ]
+          },
+          {
+            "sector": "empleo",
+            "propuestas": [
+              {
+                "id": "espriella-emp-cand1v-01",
+                "titulo": "Impulsar la explotación de hidrocarburos para aumentar ingresos fiscales",
+                "texto": "Reactivación de Hidrocarburos. Apoyo al Fracking con responsabilidad. Generación de +$15-20 billones en regalías para inversión social.",
+                "texto_resumen_medio": "Apoyar el fracking con criterios de responsabilidad para generar entre $15 y $20 billones en regalías. Busca financiar inversión social a partir de mayores recursos del sector energético.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-emp-cand1v-02",
+                "titulo": "Garantizar seguridad jurídica para la inversión",
+                "texto": "Protección Jurídica Blindada. Seguridad total para inversores nacionales y extranjeros. Reglas de juego claras.",
+                "texto_resumen_medio": "Establecer reglas claras y estables que brinden protección a inversionistas nacionales y extranjeros. Busca generar confianza y atraer mayor inversión económica",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-emp-cand1v-03",
+                "titulo": "Crear zonas económicas especiales para impulsar el desarrollo regional",
+                "texto": "Zonas Económicas Especiales. Polos de desarrollo regional con exenciones tributarias controladas y conectividad.",
+                "texto_resumen_medio": "Establecer polos con beneficios tributarios controlados y mejor conectividad. Busca atraer inversión y dinamizar la economía en distintas regiones del país",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-emp-cand1v-04",
+                "titulo": "Incentivar el desarrollo del talento digital mediante beneficios tributarios",
+                "texto": "Régimen Creador Digital. Exenciones para programadores, y expertos en IA.",
+                "texto_resumen_medio": "Otorgar exenciones a programadores y expertos en inteligencia artificial. Busca atraer y retener talento tecnológico para impulsar la economía digital",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-emp-cand1v-05",
+                "titulo": "Priorizar a empresas nacionales y PYMES en la contratación pública",
+                "texto": "Compras Públicas Nacionales Preferencia del Estado por empresas nacionales y PYMES.",
+                "texto_resumen_medio": "Dar preferencia a proveedores nacionales en las compras del Estado. Busca fortalecer la industria local y dinamizar la economía interna.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-emp-cand1v-06",
+                "titulo": "Eliminar el impuesto 4x1000 para reducir costos financieros",
+                "texto": "Eliminación del impuesto 4x1000 Alivio directo al bolsillo de los colombianos y a la transaccionalidad",
+                "texto_resumen_medio": "Suprimir este gravamen para aliviar la carga económica de los ciudadanos. Busca incentivar la transaccionalidad y dinamizar la actividad económica",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-emp-cand1v-07",
+                "titulo": "Eliminar exenciones tributarias ineficientes",
+                "texto": "Eliminación de Exenciones. Fin a beneficios tributarios inútiles e injustificados que no aportan al país.",
+                "texto_resumen_medio": "Suprimir beneficios fiscales que no generen impacto positivo en el país. Busca mejorar la equidad y eficiencia del sistema tributario.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-emp-cand1v-08",
+                "titulo": "Promover la generación de empleo formal mediante incentivos fiscales",
+                "texto": "Incentivos al Empleo. Reducción de impuestos a empresas que generen empleo formal y de calidad.",
+                "texto_resumen_medio": "Reducir impuestos a empresas que creen empleos formales y de calidad. Busca incentivar la contratación y dinamizar el mercado laboral.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-emp-cand1v-09",
+                "titulo": "Aumentar el recaudo ampliando la base tributaria",
+                "texto": "Ampliación de Base. Más recaudo vía mayor actividad económica, no subiendo tasas.",
+                "texto_resumen_medio": "Incrementar los ingresos fiscales a través de mayor actividad económica en lugar de subir impuestos. Busca fortalecer las finanzas públicas de forma sostenible.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-emp-cand1v-10",
+                "titulo": "Declarar una emergencia económica al inicio del gobierno para agilizar la toma de decisiones.",
+                "texto": "Emergencia Económica\nDeclaratoria al inicio del gobierno para tomar decisiones rápidas y eliminar trabas.",
+                "texto_resumen_medio": "Permitir la eliminación de trabas y la adopción de medidas rápidas para dinamizar la economía.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-emp-cand1v-11",
+                "titulo": "Impulsar la economía digital y la innovación tecnológica.",
+                "texto": "Economía Digital\nApoyo a programadores y expertos en IA.\nExenciones tributarias y créditos al 0% para innovación.\nPosicionar a Colombia como Hub Latinoamericano.",
+                "texto_resumen_medio": "Apoyo a programadores y expertos en IA, con exenciones tributarias y créditos al 0% para posicionar a Colombia como hub latinoamericano.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              }
+            ]
+          },
+          {
+            "sector": "infraestructura",
+            "propuestas": [
+              {
+                "id": "espriella-inf-cand1v-01",
+                "titulo": "Simplificar el cumplimiento tributario para PYMES mediante digitalización",
+                "texto": "Simplificación Digital. Sistema tributario fácil y digital para que las PYMES puedan cumplir sin burocracia.",
+                "texto_resumen_medio": "Implementar un sistema tributario digital, sencillo y sin trámites innecesarios. Busca facilitar el cumplimiento fiscal y reducir la carga burocrática para pequeñas y medianas empresas.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              }
+            ]
+          },
+          {
+            "sector": "corrupcion",
+            "propuestas": [
+              {
+                "id": "espriella-cor-cand1v-01",
+                "titulo": "Crear una unidad especial para combatir la corrupción",
+                "texto": "Bloque de Búsqueda. Creación de un bloque de búsqueda presidencial\ncontra los corruptos para perseguir bienes, dinero y\nredes que se roban el Estado.",
+                "texto_resumen_medio": "Establecer un bloque de búsqueda presidencial para identificar y perseguir bienes, dinero y redes corruptas. Busca desarticular estructuras que desvían recursos públicos.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-cor-cand1v-02",
+                "titulo": "Depurar la administración pública mediante evaluación de desempeño",
+                "texto": "Depuración de Funcionarios. Evaluación y remoción de servidores ineficientes.",
+                "texto_resumen_medio": "Evaluar a los servidores públicos y remover a quienes sean ineficientes. Busca mejorar la calidad y eficacia del funcionamiento del Estado.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-cor-cand1v-03",
+                "titulo": "Establecer un marco legal estricto para la ética pública",
+                "texto": "Ley de Ética Pública. Transparencia total en contratación y penalidades duras.",
+                "texto_resumen_medio": "Crear una ley que garantice transparencia total en la contratación y sanciones severas ante irregularidades. Busca prevenir la corrupción y fortalecer la confianza en las instituciones.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              },
+              {
+                "id": "espriella-cor-cand1v-04",
+                "titulo": "Recuperar recursos públicos perdidos por corrupción",
+                "texto": "Recuperación de Bienes. Meta de recuperar entre $20 y $25 billones anuales perdidos por la corrupción para reinvertirlos en la gente.",
+                "texto_resumen_medio": "Alcanzar la recuperación anual de entre $20 y $25 billones provenientes de actos corruptos. Busca reinvertir estos recursos en beneficio de la ciudadanía.",
+                "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "posiciones_fede": [

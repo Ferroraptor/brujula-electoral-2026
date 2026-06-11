@@ -10,7 +10,11 @@ corpus de primera vuelta (build_propuestas.py) pero SOLO para los dos finalistas
   - meta con resultados de 1ª vuelta y apoyos (datos con fuente)
 
 Fuentes:
-  - Candidateados: NO cambió para 2ª vuelta -> se reusa data/raw/candidateados_parsed.json (1ª vuelta).
+  - Candidateados: snapshot CONGELADO de 2ª vuelta en data/raw/candidateados_2v.json.
+    Candidateados.com actualizó el programa de De la Espriella para 2ª vuelta (Cepeda no
+    cambió). Se usa un archivo PROPIO de v5 —no el data/raw/candidateados_parsed.json que el
+    cron de v4 pisa dos veces al día— para que la build de v5 sea estable y reproducible.
+    Para re-congelar a una fecha nueva: cp candidateados_parsed.json candidateados_2v.json.
   - FEDe: sheet nuevo refrescado en data/raw/fede2_csv/ (SHEET_ID 116rf6...).
 
 No infiere veredictos: texto fiel, cada bandera atribuida a FEDe. No fusiona fuentes.
@@ -24,7 +28,7 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(_HERE, "raw")
 FEDE_DIR = os.path.join(RAW, "fede2_csv")
 OUT = os.path.join(_HERE, "..", "public", "propuestas-2026-segunda-vuelta.json")
-FECHA = "2026-06-01"
+FECHA = "2026-06-09"
 FECHA_ELECCION = "2026-06-21"
 SHEET_FEDE = "116rf6RK1l5kqredZKK47F55tif2GGw2474vKdZUPrFM"
 
@@ -73,8 +77,15 @@ def load_csv(name):
 
 
 # --------------------------------------------------------------------------
-cand = json.load(open(os.path.join(RAW, "candidateados_parsed.json"), encoding="utf-8"))
+cand = json.load(open(os.path.join(RAW, "candidateados_2v.json"), encoding="utf-8"))
 cand_by_id = {SLUG2ID[c["slug"]]: c for c in cand if c["slug"] in SLUG2ID}
+
+# Programa de 1ª vuelta de De la Espriella: snapshot del cron ANTERIOR a la
+# reescritura (2026-06-06, git b34cdbe). Candidateados reemplazó su programa para
+# 2ª vuelta (29->63) SIN continuidad textual (0/29 propuestas con match), así que
+# se publican ambas versiones fieles, sin mapeo editorial entre ellas.
+cand_1v = json.load(open(os.path.join(RAW, "candidateados_1v.json"), encoding="utf-8"))
+FECHA_SNAPSHOT_1V = "2026-06-06"
 
 fede_cands = {c["id"]: c for c in load_csv("candidatos")}
 fede_props = load_csv("propuestas")
@@ -156,6 +167,38 @@ def build_candidateados_blocks(cid):
     return sectores
 
 
+def build_programa_1v():
+    """Bloque `programa_1v` (solo Espriella): su programa de 1ª vuelta, reemplazado.
+    Solo lectura en la UI: sin banderas FEDe ni selección de puntaje. Cepeda no
+    lleva este bloque porque mantuvo su programa entre vueltas."""
+    esp = next(c for c in cand_1v if c["slug"] == "abelardo-de-la-espriella")
+    secs = esp["card"]["sectors"]
+    sectores = []
+    for sec in CAND_SECTOR_ORDER:
+        block = secs.get(sec)
+        propuestas = []
+        if block and block.get("hasContent"):
+            for i, p in enumerate(block.get("proposals", []), 1):
+                texto = p.get("complexBody") or p.get("mediumBody") or p.get("title") or ""
+                propuestas.append({
+                    "id": f"espriella-{abbr(sec)}-cand1v-{i:02d}",
+                    "titulo": p.get("title", ""),
+                    "texto": texto.strip(),
+                    "texto_resumen_medio": p.get("mediumBody", "").strip(),
+                    "fuente": "candidateados (agregador; snapshot de 1ª vuelta)",
+                })
+        if propuestas:
+            sectores.append({"sector": sec, "propuestas": propuestas})
+    return {
+        "fecha_snapshot": FECHA_SNAPSHOT_1V,
+        "nota": ("Programa de 1ª vuelta, reemplazado: Candidateados adoptó el programa "
+                 "reescrito de De la Espriella para 2ª vuelta (29->63 propuestas) sin "
+                 "continuidad textual entre versiones. Se muestran ambas, sin mapeo editorial."),
+        "fuente": f"candidateados (snapshot del {FECHA_SNAPSHOT_1V}, previo a la reescritura)",
+        "sectores": sectores,
+    }
+
+
 def build_fede_blocks(cid):
     """Bloques de los 5 sectores FEDe (sheet de 2ª vuelta)."""
     sectores = []
@@ -234,6 +277,8 @@ for cid in SV_IDS:
         "notas": [],
         "red_flags_fede": rf_by.get(cid, []),
         "sectores": sectores,
+        # programa de 1ª vuelta (solo Espriella; ver build_programa_1v)
+        "programa_1v": build_programa_1v() if cid == "espriella" else None,
     })
 
 # programa_url: el más frecuente entre las fuentes FEDe del candidato (como v4)
@@ -315,7 +360,7 @@ out["meta"] = {
     "fecha_eleccion": FECHA_ELECCION,
     "sheet_fede": SHEET_FEDE,
     "fuentes_usadas": [
-        "candidateados (data de 1ª vuelta; no cambió para 2ª)",
+        "candidateados (snapshot de 2ª vuelta; programa de De la Espriella actualizado, Cepeda igual)",
         "fede (sheet de 2ª vuelta, 5 candidatos -> filtrado a 2)",
         "programa_oficial (vía fuente FEDe)",
         "Registraduría Nacional (resultados 1ª vuelta)",
@@ -342,7 +387,8 @@ out["meta"] = {
     },
     "notas_metodologicas": [
         "Solo los dos finalistas de segunda vuelta (Cepeda, De la Espriella).",
-        "Candidateados no actualizó su data para 2ª vuelta: se reusa la de 1ª vuelta (mismos conteos).",
+        "Candidateados actualizó el programa de De la Espriella para 2ª vuelta (29->63 propuestas); Cepeda no cambió. Snapshot congelado en candidateados_2v.json.",
+        "programa_1v (solo Espriella): su programa de 1ª vuelta (snapshot 2026-06-06, previo a la reescritura). 0/29 propuestas tienen continuidad textual con las 63 nuevas; por eso se muestran ambas versiones fieles SIN mapeo editorial entre ellas. La comparación vive en 'Comparar por problema'; en Posiciones solo se anuncia (sin yuxtaponer texto viejo a las respuestas, para no cargar visualmente una columna).",
         "FEDe sí actualizó (sheet nuevo) y mantiene 5 candidatos en su panel; aquí se filtra a 2.",
         "posiciones_fede: matriz cara-a-cara nueva de FEDe (preguntas con la respuesta de cada candidato). Atribuida a FEDe.",
         "Resultados y apoyos llevan fuente; los apoyos se detallan con enlace en hitos.json.",
