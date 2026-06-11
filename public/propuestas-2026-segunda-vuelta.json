@@ -49,8 +49,7 @@
     "notas_metodologicas": [
       "Solo los dos finalistas de segunda vuelta (Cepeda, De la Espriella).",
       "Candidateados actualizó el programa de De la Espriella para 2ª vuelta (29->63 propuestas); Cepeda no cambió. Snapshot congelado en candidateados_2v.json.",
-      "programa_1v (solo Espriella): su programa de 1ª vuelta (snapshot 2026-06-06, previo a la reescritura). 0/29 propuestas tienen continuidad textual con las 63 nuevas; por eso se muestran ambas versiones fieles SIN mapeo editorial entre ellas.",
-      "posiciones_fede[].programa_1v_espriella: yuxtaposición curada (relación temática nuestra) entre cada pregunta y lo que el programa de 1ª vuelta de Espriella decía sobre esa política. Sin veredicto: no se afirma que 'cambió de posición' (ninguna fuente lo documenta); lista vacía = su programa de 1ª vuelta no documentaba posición sobre ese punto.",
+      "programa_1v (solo Espriella): su programa de 1ª vuelta (snapshot 2026-06-06, previo a la reescritura). 0/29 propuestas tienen continuidad textual con las 63 nuevas; por eso se muestran ambas versiones fieles SIN mapeo editorial entre ellas. La comparación vive en 'Comparar por problema'; en Posiciones solo se anuncia (sin yuxtaponer texto viejo a las respuestas, para no cargar visualmente una columna).",
       "FEDe sí actualizó (sheet nuevo) y mantiene 5 candidatos en su panel; aquí se filtra a 2.",
       "posiciones_fede: matriz cara-a-cara nueva de FEDe (preguntas con la respuesta de cada candidato). Atribuida a FEDe.",
       "Resultados y apoyos llevan fuente; los apoyos se detallan con enlace en hitos.json.",
@@ -4544,7 +4543,6 @@
           "fuente": "FEDe — análisis al Estado de Derecho"
         }
       },
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4565,14 +4563,6 @@
           "fuente": "FEDe — análisis al Estado de Derecho"
         }
       },
-      "programa_1v_espriella": [
-        {
-          "propuesta_id": "espriella-seg-cand1v-02",
-          "titulo": "Cumplir con metas operativas concretas en la lucha contra el crimen y el narcotráfico",
-          "texto": "Metas Estratégicas - 10 cabecillas de alto valor capturados o dados de baja. - Fumigación aérea de 330,000 hectáreas de cultivos ilícitos. - Bloque de búsqueda especializado contra la extorsión.",
-          "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
-        }
-      ],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4584,7 +4574,6 @@
         "espriella": "Construir de 7 a 10 megacárceles."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4605,7 +4594,6 @@
           "fuente": "FEDe — análisis al Estado de Derecho"
         }
       },
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4626,14 +4614,6 @@
           "fuente": "FEDe — análisis al Estado de Derecho"
         }
       },
-      "programa_1v_espriella": [
-        {
-          "propuesta_id": "espriella-sal-cand1v-05",
-          "titulo": "Supervisar y sancionar rigurosamente a las EPS incumplidas",
-          "texto": "Intervención a EPS. Auditoría técnica implacable: las que no cumplan se liquidan.",
-          "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
-        }
-      ],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4645,14 +4625,6 @@
         "espriella": "Recuperar el acceso oportuno a medicamentos."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [
-        {
-          "propuesta_id": "espriella-sal-cand1v-01",
-          "titulo": "Garantizar atención inmediata y oportuna en salud",
-          "texto": "Atención Prioritaria. Garantía inmediata de citas, cirugías y medicamentos esenciales. Pago de salarios atrasados al personal hospitalario.",
-          "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
-        }
-      ],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4664,7 +4636,6 @@
         "espriella": "Inyectar 10 billones de pesos al sistema."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4676,20 +4647,6 @@
         "espriella": "Pagar salarios atrasados y darles bonificaciones por resultados."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [
-        {
-          "propuesta_id": "espriella-sal-cand1v-04",
-          "titulo": "Fortalecer el talento humano mediante profesionalización e incentivos por desempeño",
-          "texto": "Talento Humano. Profesionalización, mejores condiciones y bonificaciones por resultados.",
-          "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
-        },
-        {
-          "propuesta_id": "espriella-sal-cand1v-01",
-          "titulo": "Garantizar atención inmediata y oportuna en salud",
-          "texto": "Atención Prioritaria. Garantía inmediata de citas, cirugías y medicamentos esenciales. Pago de salarios atrasados al personal hospitalario.",
-          "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
-        }
-      ],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4701,7 +4658,6 @@
         "espriella": "Revisar los ajustes hechos por el gobierno de Gustavo Petro \"que permitieron el desvío de recursos de dicha asignación a otros propósitos\"."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4713,14 +4669,6 @@
         "espriella": "Sí"
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [
-        {
-          "propuesta_id": "espriella-emp-cand1v-01",
-          "titulo": "Impulsar la explotación de hidrocarburos para aumentar ingresos fiscales",
-          "texto": "Reactivación de Hidrocarburos. Apoyo al Fracking con responsabilidad. Generación de +$15-20 billones en regalías para inversión social.",
-          "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
-        }
-      ],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4732,14 +4680,6 @@
         "espriella": "A favor"
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [
-        {
-          "propuesta_id": "espriella-emp-cand1v-01",
-          "titulo": "Impulsar la explotación de hidrocarburos para aumentar ingresos fiscales",
-          "texto": "Reactivación de Hidrocarburos. Apoyo al Fracking con responsabilidad. Generación de +$15-20 billones en regalías para inversión social.",
-          "fuente": "candidateados (agregador; snapshot de 1ª vuelta)"
-        }
-      ],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4751,7 +4691,6 @@
         "espriella": "Defender la empresa como activo estratégico de la nación."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4763,7 +4702,6 @@
         "espriella": "Promover las energías renovables, pero priorizando la producción de energías fósiles."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4784,7 +4722,6 @@
           "fuente": "FEDe — análisis al Estado de Derecho"
         }
       },
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4796,7 +4733,6 @@
         "espriella": "Desarrollar las minerías de oro, cobre, plata y tierras raras y considerar la minería legal como aliado estratégico para la generación de empleo y el desarrollo."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4808,7 +4744,6 @@
         "espriella": "No, acabarla."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4820,7 +4755,6 @@
         "espriella": "Supedita los créditos a la Escuela de Emprendedores Rurales para formar a 100 mil jóvenes que tendrían acceso a créditos."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4832,7 +4766,6 @@
         "espriella": "Hacer una titulación masiva de tierras para legalizar predios rurales."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     },
     {
@@ -4844,7 +4777,6 @@
         "espriella": "Intervenir para bajar los precios."
       },
       "banderas_relacionadas": {},
-      "programa_1v_espriella": [],
       "fuente": "FEDe (preguntas / posiciones)"
     }
   ]

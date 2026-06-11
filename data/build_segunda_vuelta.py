@@ -311,21 +311,6 @@ POSICION_BANDERAS = {
     "pr005": {"cepeda": "cepeda-sal-fede-01"},
     "pr014": {"espriella": "espriella-ene-fede-05"},
 }
-
-# Mapeo CURADO pregunta -> propuestas del programa de 1ª VUELTA de Espriella
-# (candidateados_1v) sobre la MISMA política. Yuxtaposición sin veredicto: se
-# muestra el texto fiel de entonces y el elector compara; NO afirmamos "cambió
-# de posición" (ninguna fuente documenta el antes/después como cambio). Solo
-# matches inequívocos; lista vacía => su programa de 1ª vuelta (Candidateados)
-# no documentaba posición sobre ese punto, y la UI lo dice tal cual.
-POSICION_PROGRAMA_1V = {
-    "pr002": ["espriella-seg-cand1v-02"],  # fumigación aérea / cultivos
-    "pr005": ["espriella-sal-cand1v-05"],  # EPS (1v: "las que no cumplan se liquidan")
-    "pr006": ["espriella-sal-cand1v-01"],  # acceso a medicamentos
-    "pr008": ["espriella-sal-cand1v-04", "espriella-sal-cand1v-01"],  # talento humano salud
-    "pr010": ["espriella-emp-cand1v-01"],  # hidrocarburos
-    "pr011": ["espriella-emp-cand1v-01"],  # fracking ("apoyo al fracking con responsabilidad")
-}
 # índice de propuestas con bandera, por id (para adjuntar el detalle atribuido)
 flag_by_propid = {}
 for c in out["candidatos"]:
@@ -341,17 +326,6 @@ for c in out["candidatos"]:
                     "detalle": b["detalle"],
                     "fuente": b["fuente"],
                 }
-
-# índice de propuestas del programa de 1ª vuelta de Espriella (para resolver el mapeo)
-prog1v_by_id = {}
-for c in out["candidatos"]:
-    if c.get("programa_1v"):
-        for s in c["programa_1v"]["sectores"]:
-            for p in s["propuestas"]:
-                prog1v_by_id[p["id"]] = p
-for pid, ids in POSICION_PROGRAMA_1V.items():
-    for propid in ids:
-        assert propid in prog1v_by_id, f"POSICION_PROGRAMA_1V: id inexistente {propid}"
 
 posiciones = []
 for pid, preg in preg_by_id.items():
@@ -371,12 +345,6 @@ for pid, preg in preg_by_id.items():
             "respuestas": {cid: respuestas[cid] for cid in SV_IDS},
             # relación temática NUESTRA hacia una propuesta marcada por FEDe (no la marcó FEDe sobre esta respuesta)
             "banderas_relacionadas": banderas,
-            # yuxtaposición (relación temática NUESTRA): qué decía el programa de
-            # 1ª vuelta de Espriella sobre esta política; [] = sin posición documentada
-            "programa_1v_espriella": [
-                {"propuesta_id": p["id"], "titulo": p["titulo"], "texto": p["texto"], "fuente": p["fuente"]}
-                for p in (prog1v_by_id[i] for i in POSICION_PROGRAMA_1V.get(pid, []))
-            ],
             "fuente": "FEDe (preguntas / posiciones)",
         })
 # orden por sector (orden FEDe) y luego por id de pregunta
@@ -420,8 +388,7 @@ out["meta"] = {
     "notas_metodologicas": [
         "Solo los dos finalistas de segunda vuelta (Cepeda, De la Espriella).",
         "Candidateados actualizó el programa de De la Espriella para 2ª vuelta (29->63 propuestas); Cepeda no cambió. Snapshot congelado en candidateados_2v.json.",
-        "programa_1v (solo Espriella): su programa de 1ª vuelta (snapshot 2026-06-06, previo a la reescritura). 0/29 propuestas tienen continuidad textual con las 63 nuevas; por eso se muestran ambas versiones fieles SIN mapeo editorial entre ellas.",
-        "posiciones_fede[].programa_1v_espriella: yuxtaposición curada (relación temática nuestra) entre cada pregunta y lo que el programa de 1ª vuelta de Espriella decía sobre esa política. Sin veredicto: no se afirma que 'cambió de posición' (ninguna fuente lo documenta); lista vacía = su programa de 1ª vuelta no documentaba posición sobre ese punto.",
+        "programa_1v (solo Espriella): su programa de 1ª vuelta (snapshot 2026-06-06, previo a la reescritura). 0/29 propuestas tienen continuidad textual con las 63 nuevas; por eso se muestran ambas versiones fieles SIN mapeo editorial entre ellas. La comparación vive en 'Comparar por problema'; en Posiciones solo se anuncia (sin yuxtaponer texto viejo a las respuestas, para no cargar visualmente una columna).",
         "FEDe sí actualizó (sheet nuevo) y mantiene 5 candidatos en su panel; aquí se filtra a 2.",
         "posiciones_fede: matriz cara-a-cara nueva de FEDe (preguntas con la respuesta de cada candidato). Atribuida a FEDe.",
         "Resultados y apoyos llevan fuente; los apoyos se detallan con enlace en hitos.json.",
