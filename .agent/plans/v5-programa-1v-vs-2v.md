@@ -116,6 +116,14 @@ o la ausencia explícita. 6 preguntas con material / 13 sin posición documentad
 Copy del aviso en Comparar aclarado además: el programa fue reemplazado como
 documento; las propuestas no se corresponden una a una.
 
+**Revertida (2026-06-11, mismo día):** Sergio detectó sesgo visual — el texto
+de 1ª vuelta bajo cada respuesta de Espriella le daba más peso a su columna y
+podía leerse como posición vigente. Se quitó la yuxtaposición por respuesta
+(campo y mapeo incluidos; quedan en git en `5489d4c`) y se dejó un único
+anuncio arriba de Posiciones con botón a Comparar por problema. Lección:
+en vistas simétricas por columna, cualquier contenido extra de un solo
+candidato desequilibra, aunque sea neutral en el texto.
+
 ## Decision Log
 
 - **Lado a lado → apilado dentro de la columna**: las propuestas solo se
