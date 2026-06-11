@@ -103,6 +103,19 @@ Vista: [● 1ª vs 2ª] [○ Solo actual]
       sin overflow a 360 px, 0 errores de consola
 - [ ] Push a PR #4 y revisión visual de Sergio en el preview
 
+## Extensión (2026-06-11, mismo PR): yuxtaposición en Posiciones
+
+Sergio pidió señalar en el cara a cara que Espriella "cambió posiciones" entre
+vueltas. Verificado: **ninguna fuente documenta un cambio de posición** (el
+sheet 1v de FEDe no tenía posiciones; el sheet vivo es idéntico al local; las
+propuestas FEDe de Espriella van casi intactas 1v→2v). Afirmar "cambió" sería
+juicio nuestro sin fuente. Solución elegida por Sergio: **yuxtaposición curada**
+— bajo cada respuesta de Espriella, el texto fiel de su programa de 1ª vuelta
+sobre esa política (`POSICION_PROGRAMA_1V`, mismo patrón que POSICION_BANDERAS)
+o la ausencia explícita. 6 preguntas con material / 13 sin posición documentada.
+Copy del aviso en Comparar aclarado además: el programa fue reemplazado como
+documento; las propuestas no se corresponden una a una.
+
 ## Decision Log
 
 - **Lado a lado → apilado dentro de la columna**: las propuestas solo se
